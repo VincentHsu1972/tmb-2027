@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="2026 年 10 月新康橫斷 D0–D5：依 Google 試算表規劃、山銘誌提供的現地提醒及玉山國家公園等來源整理。">
+<title>2026 新康橫斷｜一天一頁行程手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0EA; --card:#FBFCF8; --ink:#1B2E27; --muted:#5F6F66; --line:#D3DCD1;
+  --moss:#2F6B4F; --sun:#C2802B; --alert:#A6432C; --mist:#E3E9E0;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  --head:104px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+a{color:var(--moss);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+.top{position:sticky;top:0;z-index:30;background:rgba(237,240,234,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:0 auto;padding:0 18px;height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.05rem;border:0;background:none;padding:0;cursor:pointer;white-space:nowrap}
+.brand i{display:inline-block;width:10px;height:10px;background:var(--sun);transform:rotate(45deg);margin-right:8px}
+.views{display:flex;gap:4px}
+.views button{border:0;background:none;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:700;white-space:nowrap}
+.views button[aria-current="true"]{background:var(--ink);color:#fff}
+.tl{max-width:1240px;margin:0 auto;display:flex;overflow-x:auto;padding:2px 18px 9px;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.node{flex:1 0 104px;min-width:104px;border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;text-align:left;color:var(--muted)}
+.node b{display:block;font-size:.85rem;color:var(--ink);line-height:1.2}
+.node small{display:block;font-size:.74rem;line-height:1.25}
+.node[aria-current="true"]{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.chip{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--moss);color:#fff;font-family:var(--serif);font-weight:900;font-size:.78rem;flex:0 0 auto}
+.chip.lg{width:52px;height:52px;border-radius:14px;font-size:1.1rem}
+
+.view{display:none;max-width:1240px;margin:0 auto;padding:22px 18px 46px}
+.view.on{display:block}
+h1,h2,h3{font-family:var(--serif)}
+.kicker{margin:0;color:var(--moss);font-weight:800;letter-spacing:.04em}
+.sub{color:var(--muted);margin:0 0 16px;max-width:46em}
+
+/* home */
+.hero h1{font-weight:900;font-size:clamp(2.3rem,5.4vw,4.4rem);line-height:1.14;margin:6px 0 12px}
+.hero .meta{margin:0;font-size:1.06rem}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 6px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--serif);font-size:1.35rem;line-height:1.3}
+.kpi small{display:block;color:var(--muted);font-size:.82rem}
+.profcard{margin:18px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 8px}
+.profcard>svg,.mini>svg{width:100%;display:block}
+.daykey{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 14px;margin:8px 2px 2px}
+.daykey button{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:4px 6px;border-radius:8px;cursor:pointer}
+.daykey button:hover{background:#fff}
+.daykey button.dim{opacity:.35}
+.daykey i{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.daykey b{font-size:.86rem;white-space:nowrap}
+.daykey span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.note{font-size:.8rem;color:var(--muted);margin:6px 2px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.three article{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:16px 18px}
+.three small{display:block;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--moss)}
+.three strong{display:block;font-family:var(--serif);font-size:1.16rem;margin:6px 0}
+.three p{margin:0;color:var(--muted);font-size:.93rem}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.dcard{border:1px solid var(--line);border-top:4px solid var(--c);background:var(--card);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.dcard:hover{border-color:var(--sun)}
+.dcard .hd{display:flex;align-items:center;gap:9px}
+.dcard .hd b{font-family:var(--serif)}
+.dcard .rt{font-family:var(--serif);font-weight:900;font-size:1.1rem;line-height:1.35}
+.dcard .st{font-size:.88rem;color:var(--muted)}
+.dcard .stay{margin-top:auto;padding-top:6px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 20px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+/* day */
+.dtop{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:stretch;height:348px}
+.dtop>div{overflow:hidden}
+.dtop .note{height:44px;overflow:hidden}
+.dtop .lead{height:3.5em;overflow:hidden}
+.dtop .stats{height:133px;overflow:hidden}
+.dtop>div{display:flex;flex-direction:column}
+.dtop figure{display:flex;flex-direction:column;height:100%}
+.dtop .banner{flex:1 1 auto;display:flex;min-height:230px}
+.banner{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#16241F}
+.banner img{width:100%;height:100%;object-fit:contain;background:#16241F}
+.banner .ph{width:100%;display:grid;place-items:center;text-align:center;padding:0 16px;background:linear-gradient(135deg,var(--c),#1B2E27);color:#fff;font-family:var(--serif);font-weight:900;font-size:1.25rem}
+.credit{font-size:.76rem;color:var(--muted);margin:6px 2px 0;border-left:3px solid var(--sun);padding-left:10px;min-height:40px}
+.dhead{display:flex;align-items:center;gap:14px;margin:4px 0 4px}
+.dhead .when{margin:0;color:var(--muted);font-weight:700}
+.dhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.25}
+.lead{font-size:1.04rem;margin:6px 0 0;max-width:40em;min-height:3.5em}
+.stats{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));grid-auto-rows:minmax(48px,auto);gap:8px 22px;align-content:start;min-height:112px;padding:12px 0;margin:14px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats dt{font-size:.78rem;color:var(--muted)}
+.stats dd{margin:0;font-weight:700;font-size:1.02rem;white-space:nowrap}
+.toprow{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:16px}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:16px}
+.stack{display:grid;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.panel h3{margin:0 0 8px;font-size:1.06rem;display:flex;align-items:center;gap:8px}
+.panel h3 .tagi{font-family:var(--sans);font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 9px;background:var(--mist);color:var(--muted)}
+.panel ul{margin:0;padding-left:1.15em}
+.panel li{margin:6px 0}
+.panel.friend{border-left:5px solid var(--sun);background:#FBF6EC}
+.panel.verify{border-left:5px solid #6E86A6;background:#F4F6FA}
+.panel.check{border-left:5px solid var(--moss)}
+.panel.stay{background:#F4F6F1}
+.src{font-size:.8rem;margin-left:6px;white-space:nowrap}
+.times{list-style:none;margin:4px 0 0;padding:0;position:relative}
+.times:before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.times li{display:grid;grid-template-columns:70px 18px 1fr;gap:9px;padding:5px 0}
+.times time{color:var(--moss);font-weight:800;font-size:.9rem}
+.times .mk{width:12px;height:12px;border:2px solid var(--moss);border-radius:50%;background:var(--card);margin:6px 3px;z-index:1}
+.times .mk.peak{background:var(--sun);border-color:var(--ink)}
+.times b{display:block;line-height:1.4}
+.times .alt{font-weight:700;color:var(--ink)}
+.times .segs{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 0}
+.times .segs span{font-size:.74rem;background:var(--mist);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.times .rem{display:block;font-size:.84rem;color:var(--muted);margin:3px 0 0}
+.mini{margin-top:4px}
+.mini text{font-family:var(--sans)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pager button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;cursor:pointer;text-align:left;max-width:48%}
+.pager button[disabled]{visibility:hidden}
+.pager small{display:block;color:var(--muted);font-size:.76rem}
+.pager .next{text-align:right}
+.fade{animation:fade .22s ease}@keyframes fade{from{opacity:.3}to{opacity:1}}
+
+/* prep */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.two.wide{grid-template-columns:1fr}
+.panel h2{margin:0 0 8px;font-size:1.3rem}
+.date{color:var(--moss);font-weight:800;white-space:nowrap}
+.warn{color:var(--alert);font-weight:800}
+.steps2{margin:0;padding-left:1.25em}
+.steps2 li{margin:6px 0}
+.checklist{list-style:none;padding:0!important}
+.checklist li{padding-left:26px;position:relative}
+.checklist li:before{content:"□";position:absolute;left:0;color:var(--moss);font-size:1.15rem}
+.srclist{list-style:none;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.srclist small{display:block;color:var(--muted)}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.foot p{margin:3px 0;max-width:60em}
+
+@media (max-width:1000px){.kpi{grid-template-columns:1fr 1fr}.three,.days{grid-template-columns:1fr}.daykey{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.dgrid,.two,.dtop,.toprow{grid-template-columns:1fr}.dtop{height:auto}.dtop .lead,.dtop .note,.dtop .stats{height:auto;overflow:visible}.lead{min-height:0}.stats{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+  .stats dd{white-space:normal}.dtop figure{order:-1}}
+@media (max-width:600px){
+  :root{--head:100px}
+  .view{padding:16px 12px 40px}
+  .panel{padding:14px 16px}
+  .daykey{grid-template-columns:1fr}
+  .times{--w:58px}
+  .times:before{left:66px}
+  .times li{grid-template-columns:58px 18px 1fr;gap:7px}
+  .pager{position:sticky;bottom:0;background:rgba(237,240,234,.96);padding:8px 0}
+  .pager .pn{display:none}
+  .srclist{grid-template-columns:1fr}
+  .node{flex:0 0 auto}
+  .node small{display:none}
+}
+@media print{.top,.pager,.cta{display:none!important}.view{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <button class="brand" data-view="home"><i></i>新康橫斷 2026</button>
+    <nav class="views" aria-label="頁面">
+      <button data-view="home">總覽</button>
+      <button data-view="prep">行前與接駁</button>
+    </nav>
+  </div>
+  <nav class="tl" id="tl" aria-label="選擇日期"></nav>
+</header>
+
+<main>
+  <section class="view" id="v-home">
+    <div class="hero">
+      <p class="kicker">向陽進、瓦拉米出</p>
+      <h1>從嘉明湖<br>走向天空堡壘</h1>
+      <p class="meta"><b class="num">2026/10/7 集合，10/8–10/12 五天四夜</b></p>
+      <p class="sub" style="margin-top:10px">依「10 月新康橫斷」試算表主線規劃，並區分山銘誌的現地經驗與公開資料查證。所有時間是上河 G18 1.0 倍純步行推算，不含休息、取水與拍照。</p>
+    </div>
+
+    <div class="kpi" id="kpi"></div>
+
+    <div class="profcard">
+      <svg id="rmap" role="img" aria-label="整段路線拓樸示意"></svg>
+      <p class="note">路線拓樸示意：位置、方向與線長不按真實地理比例。雙線代表原路往返（D2 布拉克桑、D4 新康與堡壘）。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="profcard">
+      <svg id="prof" role="img" aria-label="全程高度剖面"></svg>
+      <div class="daykey" id="daykey"></div>
+      <p class="note">橫軸為累計步行距離（含 D2 布拉克桑往返與 D4 新康登頂往返），縱軸為節點標高。只連接已知標高的節點，中間未標高的節點不推估。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="three">
+      <article style="--c:#2F6B4F"><small>01 · 背包重量</small><strong>D3 重裝上連理山、新仙山最累</strong><p>桃源要背一天半的水再重裝爬升；朋友的提醒是食物夠吃就好，背太重第三天會掛掉。</p></article>
+      <article style="--c:#C2802B"><small>02 · 通訊</small><strong>把訊號點當機會，不當保證</strong><p>山銘誌回報布拉克桑、新康山、天宮堡壘與多土袞附近可能有訊號；依電信、地形、天候而變。</p></article>
+      <article style="--c:#A6432C"><small>03 · 取水點</small><strong>不要切錯下切點</strong><p>布新在下切點右手邊、桃源在左手邊；桃源有兩個蓄水處，走得好走又很快到才是對的。</p></article>
+    </div>
+
+    <h2 class="section" style="margin:34px 0 4px;font-size:1.5rem">六天，一天一頁</h2>
+    <p class="sub">D0 為關山集合；D1–D5 是五天四夜主線。點卡片看當天的時刻、山銘誌提醒與查證補充。</p>
+    <div class="days" id="daycards"></div>
+
+    <div class="cta">
+      <button class="btn" data-go="d0">從 D0 開始看</button>
+      <button class="btn ghost" data-view="prep">行前與接駁</button>
+    </div>
+  </section>
+
+  <section class="view" id="v-day"><article id="day" aria-live="polite"></article></section>
+
+  <section class="view" id="v-prep">
+    <div class="hero"><p class="kicker">Before the trail</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">行前與接駁</h1></div>
+    <p class="sub">每天的上河 1.0 步程、山銘誌訊息與公開資料分列；時刻是純步行基準，休息與取水另加。</p>
+
+    <div class="two">
+      <div class="panel check">
+        <h2>集合、住宿與車輛</h2>
+        <ul>
+          <li><span class="date">10/7（三）D0</span>　晚上自行到臺東關山集合；表內註記住宿預估 7 位、每人 700 元。</li>
+          <li><span class="date">10/8（四）04:00</span>　表內 9 人座從住宿處送往向陽登山口，車資 3,000 元。</li>
+          <li><span class="date">10/12（一）</span>　表內接駁「約 14:00」從瓦拉米步道口到玉里車站，車資 1,000 元；司機會提早抵達等候，確認山風登山口上車。</li>
+        </ul>
+        <p style="margin:10px 0 0">表內記載關山接駁聯絡為小鳳姐：<b>0984-099726</b>；已付訂金 1,000 元。金額、車型和集合點以再次確認為準。</p>
+      </div>
+      <div class="panel">
+        <h2>出發前四件事</h2>
+        <ul class="checklist">
+          <li>9/30（三）22:00 行前會：確認每日上河 1.0 時程、湖邊支線、桃源取水與 D5 上車點。</li>
+          <li>10/5（一）天氣評估；查看最新步道、公路、降雨與颱風資訊，必要時再評估。</li>
+          <li>攜帶身分證；確認入園、入山許可、抱崖山屋名額和營地申請狀態。</li>
+          <li>個人登山保險自行處理；離線下載軌跡及地圖，與留守人約定通報時間和延遲流程。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>上河 G18：每日步程基準</h2>
+        <p style="margin:0 0 8px">分鐘依上河文化 G18 公開步程圖逐段加總，以 1.0 倍為基準；里程依路程分段轉錄及玉管處段落。D1 湖邊支線里程為約值，所有時間均不含休息、取水、拍照。</p>
+        <ul>
+          <li><b>D1 向陽→嘉明湖→布新</b>　主線 16.0 km／653 分；進出湖另約 1.4 km／35 分，合計約 17.4 km／688 分。</li>
+          <li><b>D2 布拉克桑原路往返</b>　7.7 km 去、7.7 km 回，共 15.4 km／510 分。表單「行程規劃」9.2 km 未算足往返。</li>
+          <li><b>D3 布新→桃源→新仙</b>　10.1 km／585 分；桃源取水支線再加約 50 分與裝水時間。</li>
+          <li><b>D4 新康與堡壘→抱崖</b>　主要已標路段約 10.3 km／647 分；松針營地、下切點合併在 5.0 km 路段，不虛分各點距離。</li>
+          <li><b>D5 抱崖→瓦拉米→山風</b>　上河 14.3＋14＝28.3 km／305＋295＝600 分；玉管處另列 27.8 km。接駁提早等候。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>高度怎麼讀</h2>
+        <p style="margin:0 0 8px">每個已知節點標高列在時間軸，兩端都有標高才顯示「節點淨升／淨降」；這是兩點相減，不能當作實際累積爬升或下降。沒有可靠分段標高或獨立里程的節點明示「未標」。</p>
+        <ul>
+          <li>標高<b>以上河 G18 高差示意圖為主</b>；高差圖沒有標的點沿用試算表或玉管處數值，重要的點會在時間軸該列註明。</li>
+          <li>新仙山營地上河與試算表都標 3,120 m，玉管處同名營地列 2,960 m，仍須對照實際宿營座標。</li>
+          <li>向陽山西側登山口 3,480 m 採試算表；嘉明湖約 3,310 m、山風登山口約 450 m 採玉管處與林務局。</li>
+          <li>距離也以上河為主：三岔路口→抱崖 2.3K、抱崖→瓦拉米 14.3K、瓦拉米→步道起點 14K，另標步道起點→南安遊客中心 6K。</li>
+          <li>公開 G18 步程圖不提供逐段實際累積爬升／下降，所以每日概要列的「累計上升／下降」是把已知標高節點之間的落差相加，屬於下限值，實際一定更多。</li>
+        </ul>
+        <p style="margin:10px 0 0"><a href="https://www.sunriver.com.tw/step2020.htm" target="_blank" rel="noopener">上河 G18 原圖（步程與高差）↗</a></p>
+      </div>
+      <div class="panel friend">
+        <h3>通訊與留守<span class="tagi">含山銘誌訊息</span></h3>
+        <p style="margin:0">山銘誌在布拉克桑部分路段、新康山三角點、天空堡壘和多土袞約 18K 一帶測得訊號。這些點位適合嘗試通報；實際收訊會受電信、地形及天候影響。留守聯繫和離線地圖仍要先備好。</p>
+      </div>
+      <div class="panel friend">
+        <h3>水與野生動物<span class="tagi">含山銘誌訊息</span></h3>
+        <p style="margin:0 0 8px">布新下切取水、桃源活水、抱崖及瓦拉米山屋水龍頭都應到點確認。營地水源可能因季節變化，溪水需按隊伍習慣處理再飲用。</p>
+        <p style="margin:0">山銘誌曾在抱崖附近看見黑熊；糧食、垃圾集中妥善收納，團體行進並保持警覺。新仙往古道的下坡及低海拔路段另留意螞蝗、崩塌與日落。</p>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h2>來源與閱讀方式</h2>
+      <p class="sub" style="margin-bottom:12px">「原始規劃」是 Google 試算表；「山銘誌提供」取自朋友的現地提醒，內容未改寫；「查證補充」附公開資料。每日照片的攝影者、原圖與授權列在照片下方；照片拍攝時間不代表此行的即時路況。現地水況、路況與訊號會變動，頁面以 2026/9/29 查詢結果為版本日期。</p>
+      <ul class="srclist" id="srclist"></ul>
+    </div>
+
+    <div class="foot">
+      <p>時間為上河 G18 1.0 倍純步行推算，不含休息、取水與拍照；實際依天氣、路況與隊伍腳程調整。</p>
+      <p>高度剖面只連接已知標高節點，不是 GPS 軌跡，也不是實際坡度。</p>
+      <p>每日照片為完整顯示、未裁切；攝影者與授權標示在照片下方，照片拍攝時間不代表此行的即時路況。</p>
+      <p>2026 年 9 月版</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const C={d0:"#7A8C80",d1:"#2F6B4F",d2:"#3F7FA6",d3:"#C2802B",d4:"#A6432C",d5:"#6B5EA6"};
+const SRC={
+ ysnpTrail:"https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395",
+ comm:"https://www.ysnp.gov.tw/StaticPage/CommunicationReferencePoint",
+ sun:"https://www.sunriver.com.tw/step2020.htm",
+ biji:"https://hiking.biji.co/index.php?act=info&q=review&review_id=20957",
+ xinxian:"https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395?ID=9fb129ee-df0d-4203-b189-d1f8245929bf&Tab=3",
+ taoyuan:"https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395?ID=4848662c-937c-4c2f-959e-ebe1daf3c8b7&Tab=3",
+ xinkang:"https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395?ID=26b9cb27-9fad-4680-a05b-0ef785c6db15&SearchKeyword=&Tab=2",
+ bear:"https://www.ysnp.gov.tw/StaticPage/Coexist",
+ walamiDist:"https://www.ysnp.gov.tw/Trail/e0befc9d-0707-4ce0-b530-6bde521570f9?ID=21662f9b-ec81-4271-873c-a9cd97434d5d&Tab=2",
+ baoya:"https://www.ysnp.gov.tw/Trail/e0befc9d-0707-4ce0-b530-6bde521570f9?ID=77e7761b-8e62-4dd3-a673-7ccc69b12f43&Tab=3",
+ walamiHut:"https://www.ysnp.gov.tw/Trail/e0befc9d-0707-4ce0-b530-6bde521570f9?ID=904fb530-436b-4ba8-95a9-d351ccbca493&Tab=3",
+ jp:"https://www.ysnp.gov.tw/Jp/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395",
+ sheet:"https://docs.google.com/spreadsheets/d/1dhzV2edZmRy5fDaFO7IrwTtgDe9B09FncTYQdrEBuKA/edit?gid=0#gid=0",
+ record:"https://hiking.biji.co/index.php?act=info&q=review&review_id=47933"
+};
+const SRCLIST=[
+ ["Google 試算表｜10 月新康橫斷（基本／行程規劃／記事本）",SRC.sheet,"原始規劃"],
+ ["上河文化｜G18 新康橫斷步程及高差圖",SRC.sun,"上河原圖"],
+ ["健行筆記｜上河 G18 分段里程轉錄（2022）",SRC.biji,"里程轉錄"],
+ ["玉山國家公園｜新康橫斷步道系統",SRC.ysnpTrail,"官方"],
+ ["玉山國家公園｜新仙山營地",SRC.xinxian,"官方"],
+ ["玉山國家公園｜桃源營地",SRC.taoyuan,"官方"],
+ ["玉山國家公園｜可通訊參考點（2026/4/8 更新）",SRC.comm,"官方"],
+ ["玉山國家公園｜與熊共存",SRC.bear,"官方"],
+ ["玉山國家公園｜瓦拉米距步道口 13.6 km",SRC.walamiDist,"官方"],
+ ["玉山國家公園｜新康橫斷建議行程（日文頁）",SRC.jp,"官方"],
+ ["玉山國家公園｜抱崖山屋／營地",SRC.baoya,"官方"],
+ ["玉山國家公園｜瓦拉米山屋／營地",SRC.walamiHut,"官方"],
+ ["玉山國家公園｜新康山與天宮堡壘",SRC.xinkang,"官方"],
+ ["健行筆記｜2026/5 新康橫斷實走紀錄",SRC.record,"實走紀錄"]
+];
+
+/* tl row: [time, name, alt|null, km|null, min|null, delta|null, remark|null, peak?] */
+const DAYS=[
+{id:"d0",n:0,date:"10/7",dow:"三",tag:"集合日",short:"關山集合",title:"臺北 → 關山",
+ lead:"把第一天的起登留給清晨，前一晚先搭火車到關山、補給完再入住。",
+ stats:[["臺北發車","13:52"],["關山到站","18:03"],["車種","自強號（3000 型）"],["里程","交通日"]],
+ check:"9/30 22:00 行前會、10/5 天氣評估已寫在表內；許可和抱崖山屋名額欄未見完成狀態，記得由隊伍確認。",
+ tl:[["13:52","臺北　搭自強號（3000 型）南下",null,null,null,null,"已訂票，記得先取票再進站。"],
+     ["18:03","關山到站",null,null,null,null,"出站後先補給，再進民宿。"],
+     ["18:10 起","車站周邊最後補給",null,null,null,null,"行動糧、早餐、電池、瓦斯與個人藥品都在這裡買齊；明早 04:00 出發時店家還沒開，山上也沒有商店。"],
+     ["晚間","入住小鳳民宿",null,null,null,null,"確定隔晨集合點與乘車人數。"],
+     ["睡前","核對裝備與證件",null,null,null,null,"身分證、許可、離線 GPX、營地與山屋安排。"],
+     ["04:00","翌日送往向陽",null,null,null,null,"9 人座接駁與 05:00 起登銜接。"]],
+ friend:["這一天是集合日；目前聊天內容沒有山銘誌提供的 D0 現地提醒。"],
+ verify:[["玉管處路線需依申請入園與入山，行前核對許可和宿營安排。",SRC.ysnpTrail],
+         ["先約定留守通報與延遲流程；長程路線手機可能斷訊。",SRC.comm],
+         ["關山鎮的商店多在車站周邊，最後補給要在今晚完成；明早 04:00 出發時都還沒開門。"]],
+ stay:["小鳳民宿（關山）","臺東縣關山鎮中福里中華路 40 巷 7 號。表內預估 7 位、每人 700 元；翌日 04:00 接駁往向陽，住宿與接駁同一位聯絡人小鳳姐 0984-099726；車站到民宿沒有接送，要自己走過去。"],
+ photo:["https://upload.wikimedia.org/wikipedia/commons/a/a1/TRA_Guanshan_Station_20130331.jpg",
+   "照片：臺東關山車站（2013）。Eeveelugia｜<a href='https://commons.wikimedia.org/wiki/File:TRA_Guanshan_Station_20130331.jpg' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://creativecommons.org/licenses/by-sa/4.0/' target='_blank' rel='noopener'>CC BY-SA 4.0 ↗</a>"]},
+
+{id:"d1",n:1,date:"10/8",dow:"四",tag:"五天四夜主線",short:"向陽・嘉明湖",title:"向陽 → 嘉明湖 → 布新",
+ lead:"第一天拉到布新營地，當晚下切取水，預備隔天布拉克桑往返。",
+ stats:[["上河 1.0 純步行","05:00–16:28｜11:28"],["里程","約 17.4 km"],["起點","2,311 m"],["終點","3,120 m"],["已列最高節點","3,480 m"]],
+ check:"上河 G18 主線從向陽至布新約 16.0 km、10 小時 53 分；此日進出嘉明湖另加 35 分，支線約 1.4 km 為近似值。16:28 是純步行推算，未含取水、休息。",
+ tl:[["05:00","向陽登山口","2,311 m",null,null,null,"上河高差圖標為向陽森林遊樂區 2,311 m。"],
+     ["06:20","林道登山口","2,659 m","2.6 km","80 分","節點淨升 +348 m",null],
+     ["07:30","向陽山屋","2,855 m","1.4 km","70 分","節點淨升 +196 m",null],
+     ["10:30","向陽山西側登山口","3,480 m","2.7 km","180 分","節點淨升 +625 m","此點高差圖未標高，採原表 3,480 m。",1],
+     ["11:10","嘉明湖避難山屋","3,363 m","1 km","40 分","節點淨降 117 m",null],
+     ["11:25","三叉路口",null,"0.3 km","15 分","節點淨高差未標",null],
+     ["12:05","北峰下解說牌",null,"1.3 km","40 分",null,"解說牌未標高；高差圖在此附近標的是向陽山北峰 3,458 m。"],
+     ["13:25","三叉山登山口",null,"1.6 km","80 分",null,"登山口未標高；高差圖標的是三叉山 3,496 m。"],
+     ["13:55","嘉明湖叉路口","3,390 m","1 km","30 分","節點淨高差未標",null],
+     ["14:15","嘉明湖","約 3,310 m","約 0.7 km","20 分",null,"湖邊支線，距離為近似值；依上河圖另加 20 分鐘。高差圖未標湖面高度，此數字採玉管處與林務局資料。",1],
+     ["14:30","嘉明湖叉路口","3,390 m","約 0.7 km","15 分",null,"循原支線返回；距離為近似值。"],
+     ["15:10","新康山岔路口",null,"0.9 km","40 分","節點淨高差未標",null],
+     ["16:20","布新叉路口","3,175 m","2.8 km","70 分","節點淨高差未標",null],
+     ["16:28","布新營地","3,120 m","0.4 km","8 分","節點淨降 55 m","紮營後下切取水，未計入上河步程。"]],
+ prof:[[0,2311,"向陽登山口"],[2.6,2659,"林道登山口"],[4.0,2855,"向陽山屋"],[6.7,3480,"向陽山西側登山口"],[7.7,3363,"嘉明湖避難山屋"],[11.9,3390,"嘉明湖叉路口"],[12.6,3310,"嘉明湖（支線）"],[13.3,3390,"嘉明湖叉路口"],[17.0,3175,"布新叉路口"],[17.4,3120,"布新營地"]],
+ friend:["過了嘉明湖之後，到布新營地蠻好走的；但背重裝到嘉明湖也蠻累。行程這樣排，第一、二天的難度比較平均。",
+         "布新營地下切取水，取水點在下切點右手邊，帶個水杯去撈水。",
+         "剛出新康的山友說，布新營地的石壁上有活水；但不代表下禮拜還有石壁活水，那邊一定會有水，只是沒有流動。",
+         "營地要注意找路：晚上走錯的機率很大，我們當時差點找不到上去的點。布新營地其實也不算有訊號。"],
+ verify:[["依上河文化 G18 步程圖逐段加總，主線 653 分；嘉明湖支線進出 20＋15 分。里程以公開行程的分段轉錄相加，湖支線約 0.7 km 單程是近似值。",SRC.sun,SRC.biji],
+         ["新康山線高海拔長段水源少；嘉明湖停留、布新下切取水及休息都應另留時間。",SRC.ysnpTrail]],
+ stay:["布新營地","營地附近下切找水；是否有活水、下切時間以當天所見為準。"],
+ photo:["https://upload.wikimedia.org/wikipedia/commons/7/78/Jiaming_lake.jpg",
+   "照片：嘉明湖清晨。大欣 Dryden｜<a href='https://commons.wikimedia.org/wiki/File:Jiaming_lake.jpg' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://creativecommons.org/licenses/by-sa/2.0/' target='_blank' rel='noopener'>CC BY-SA 2.0 ↗</a>"]},
+
+{id:"d2",n:2,date:"10/9",dow:"五",tag:"五天四夜主線",short:"布拉克桑",title:"布拉克桑山往返",
+ lead:"從布新輕裝往返布拉克桑，回營地後再補水。",
+ stats:[["上河 1.0 純步行","05:00–13:30｜8:30"],["里程","15.4 km 往返"],["起點","3,120 m"],["終點","3,120 m"],["已列最高節點","3,120 m"]],
+ check:"上河 G18 去程 200＋30 分、回程 20＋260 分，共 510 分。分段里程往返 15.4 km；表單「基本」16 km 與此接近，「行程規劃」9.2 km 漏計了部分往返距離。",
+ tl:[["05:00","布新營地","3,120 m",null,null,null,null],
+     ["06:50","草原大窪地",null,"4.8 km","110 分","節點淨高差未標","往布拉克桑，輕裝。"],
+     ["08:20","2835 鞍部","2,835 m","2.25 km","90 分","節點淨高差未標",null],
+     ["08:50","布拉克桑山","3,021 m","0.65 km","30 分","節點淨升 +186 m","可測試手機訊號。",1],
+     ["09:10","2835 鞍部","2,835 m","0.65 km","20 分","節點淨降 186 m",null],
+     ["11:10","草原大窪地",null,"2.25 km","120 分","節點淨高差未標",null],
+     ["13:30","布新營地","3,120 m","4.8 km","140 分","節點淨高差未標","回營地補水。"]],
+ prof:[[0,3120,"布新營地"],[7.05,2835,"2835 鞍部"],[7.7,3021,"布拉克桑山"],[8.35,2835,"2835 鞍部"],[15.4,3120,"布新營地"]],
+ friend:["以中華電信來說，有訊號的是往布拉克桑山中途的幾個地方，還有布拉克桑山的三角點。",
+         "路上通訊點的牌子都是假的，跟實際收得到訊號的位置不一致；最好輪流一直開手機找。",
+         "行程這樣排，第一、二天的難度比較平均。回到布新再取水，留足明天走到桃源的量。"],
+ verify:[["上河 G18 逐段為布新→2835 鞍部 200 分、鞍部→山頂 30 分、回鞍部 20 分、回布新 260 分。距離 7.7 km 去、7.7 km 回；時間採原圖 1.0 倍。",SRC.sun,SRC.biji],
+         ["手機訊號參考點無法保證收訊；布拉克桑沿途與山頂以山銘誌的實測作通報機會。",SRC.comm]],
+ stay:["布新營地","返抵布新後再取水；留足 D3 走到桃源的量。"],
+ photo:["https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Mount_Bulaksang_viewed_from_Mount_Taguan.jpg/960px-Mount_Bulaksang_viewed_from_Mount_Taguan.jpg",
+   "照片：從塔關山遠望布拉克桑山。Tiouraren｜<a href='https://commons.wikimedia.org/wiki/File:Mount_Bulaksang_viewed_from_Mount_Taguan.jpg' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://creativecommons.org/licenses/by-sa/4.0/' target='_blank' rel='noopener'>CC BY-SA 4.0 ↗</a>"]},
+
+{id:"d3",n:3,date:"10/10",dow:"六",tag:"五天四夜主線",short:"重裝連理・新仙",title:"布新 → 桃源 → 新仙",
+ lead:"今天的重點是背包重量：在桃源取足一天半的水之後，要重裝翻上連理山和新仙山，是全程最累的一段。",
+ stats:[["上河 1.0 純步行","05:00–14:45｜9:45"],["里程","10.1 km"],["起點","3,120 m"],["終點","3,120 m＊"],["已列最高節點","3,175 m"]],
+ check:"上河 G18 從布新至新仙逐段共 585 分，05:00 起行約 14:45 到營地；桃源取水往返另約 50 分，推估至少約 15:35，還未加裝水與休息。原表 08:40 少了部分步程。",
+ tl:[["05:00","布新營地","3,120 m",null,null,null,null],
+     ["05:15","布新叉路口","3,175 m","0.4 km","15 分","節點淨升 +55 m",null],
+     ["06:35","3058 峰","3,058 m","1.8 km","80 分","節點淨降 117 m",null],
+     ["07:25","連理西峰前營地","3,088 m","1 km","50 分","節點淨升 +30 m",null],
+     ["08:05","西峰東稜平台",null,"0.6 km","40 分",null,"平台未標高；高差圖在此附近標的是連理山西峰 3,165 m。"],
+     ["09:25","飛機殘骸","2,825 m","1.8 km","80 分","節點淨高差未標",null],
+     ["10:25","桃源營地","2,749 m","1 km","60 分","節點淨降 76 m","取水往返約 50 分鐘另計，不含裝水及休息。"],
+     ["12:35","連理山","3,145 m","1.3 km","130 分","節點淨升 +396 m",null,1],
+     ["13:40","鞍部黑水塘",null,"1.1 km","65 分","節點淨高差未標",null],
+     ["14:25","新仙山前營地","3,090 m","0.8 km","45 分","節點淨高差未標",null],
+     ["14:45","新仙山營地","3,120 m＊","0.3 km","20 分","節點淨升 +30 m","上河與試算表都標 3,120 m；玉管處同名營地另列 2,960 m，仍以隊伍宿營點核對。"]],
+ prof:[[0,3120,"布新營地"],[0.4,3175,"布新叉路口"],[2.2,3058,"3058 峰"],[3.2,3088,"連理西峰前營地"],[5.6,2825,"飛機殘骸"],[6.6,2749,"桃源營地"],[7.9,3145,"連理山"],[9.8,3090,"新仙山前營地"],[10.1,3120,"新仙山營地＊"]],
+ friend:["不要背太重。重裝上連理山、重裝上新仙山都非常非常的累，重點是你還要背一天半的水；食物夠吃就好，不要帶太多太重的東西。背太重的話，第三天會掛掉。",
+         "桃源營地一定要取水，而且不要切錯取水點：有兩個地方可以蓄水，一個很好取、一個不好取。取水點在下切點左手邊；另一組女生團切到比較難下的那個，正確的入口要在下前 100 公尺。",
+         "判斷方法：走得很好走、很快就到、水聲很大，就是對的；如果很難走又走很久，代表切錯位置。",
+         "從布新營地之後就完全沒有訊號。"],
+ verify:[["上河 G18 由布新叉路經飛機殘骸、桃源、連理山至新仙營地逐段 585 分；桃源取水支線圖示來回約 50 分，另計。",SRC.sun,SRC.biji],
+         ["玉管處記桃源活水在營地北側稜脊溪溝，實際水況到點確認。新仙山營地水源不穩；表單 3,120 m 與玉管處同名營地 2,960 m 不一致，請以宿營點定位核對。",SRC.taoyuan,SRC.xinxian]],
+ stay:["新仙山營地","玉管處列此營地水源缺乏，低窪地水不穩且常乾；不要預設抵達才取水。"],
+ photo:["https://www.ysnp.gov.tw/UploadPlugin?file=i%2BifzMiqxoOGxT%2FVr25SKzsDjCs7OItEOJlnGmQ4RxhFG%2BRJhQTyrTmPYmpaEWETQ3IHM4vSGMz3IcrNVtXjdg%3D%3D",
+   "照片：連理山、新仙山與新康山。玉管處｜<a href='https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395?ID=8c31ed21-142f-4e55-9b8f-cfaf9c3c9e1f&Tab=2' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://www.ysnp.gov.tw/StaticPage/Opendata' target='_blank' rel='noopener'>開放宣告 ↗</a>"]},
+
+{id:"d4",n:4,date:"10/11",dow:"日",tag:"五天四夜主線",short:"新康・抱崖",title:"新康山 → 天宮堡壘 → 抱崖",
+ lead:"清晨輕裝登頂，回新仙後長下坡接古道，天黑前找到抱崖山屋。",
+ stats:[["上河 1.0 純步行","04:30–15:17｜10:47"],["里程","約 10.3 km"],["起點","3,120 m＊"],["終點","1,714 m"],["已列最高節點","3,338 m"]],
+ check:"上河 G18 新仙往返新康與堡壘約 347 分，取重裝後到抱崖 300 分，共 647 分。5.0 km 下切合段只列一個總距離，松針營地與下切點各自里程未公布，不拆成假精度。新仙山營地 3,120 m 到抱崖 1,714 m 的端點淨降 1,406 m；這不是實際累積下降。",
+ tl:[["04:30","新仙山營地","3,120 m＊",null,null,null,null],
+     ["04:31","新仙山","3,127 m","本節距離未分列","1 分","節點淨升 +7 m","營地至山頂短接續，里程未分列。"],
+     ["05:41","最低鞍部",null,"0.6 km","70 分","節點淨高差未標",null],
+     ["06:56","新康山三角點","3,338 m","0.7 km","75 分",null,"輕裝登頂，可測試訊號。玉管處另標 3,331 m。",1],
+     ["07:21","天宮堡壘（天空堡壘）",null,"0.2 km","25 分","節點淨高差未標","朋友所說天空堡壘；官方稱天宮堡壘，可測試訊號。"],
+     ["07:46","新康山三角點","3,338 m","0.2 km","25 分","節點淨高差未標",null],
+     ["08:46","最低鞍部",null,"0.7 km","60 分","節點淨高差未標",null],
+     ["10:16","新仙山","3,127 m","0.6 km","90 分","節點淨高差未標",null],
+     ["10:17","新仙山營地","3,120 m＊","本節距離未分列","1 分","節點淨降 7 m","取重裝；營地兩端短接續里程未分列。"],
+     ["11:27","松針營地",null,"本節距離未分列","70 分","節點淨高差未標","以下至新康山登山口合計約 5.0 km。"],
+     ["12:07","下切點",null,"本節距離未分列","40 分","節點淨高差未標","繩段與岔路小心辨識。"],
+     ["14:27","新康山登山口／古道交會處",null,"5.0 km（合段）","140 分",null,"從新仙山營地經松針營地、下切點合計約 5.0 km；此處未標高。"],
+     ["15:17","抱崖山屋","1,714 m","2.3 km","50 分",null,"紮營補水；收妥食物。"]],
+ prof:[[0,3120,"新仙山營地"],[0.05,3127,"新仙山"],[1.35,3338,"新康山"],[2.65,3120,"返回新仙山營地"],[9.95,1714,"抱崖山屋"]],
+ friend:["天空堡壘和新康山的三角點有訊號。",
+         "新仙山下到八通關古道之後就不用擔心水源了，沿途到處都有溪溝的水。",
+         "抱崖山屋附近有溪，山屋也有水龍頭，不需要靠溪水；不過水龍頭的水是熱的，溪溝的水比較清涼一點。",
+         "可以洗澡，但那一帶相對會出現黑熊，食物和垃圾要收妥。"],
+ verify:[["上河 G18 的登頂往返含兩段約 1 分鐘短接續；全日 647 分。距離約 10.2 km 依公開路程分段相加，未含營地至新仙山短接續的微小里程。",SRC.sun,SRC.biji],
+         ["玉管處稱山旁巨岩「天宮堡壘」，新康山標高 3,331 m。堡壘本身不以表單 3,330 m 當作已核定標高；營地位置另依隊伍定位。",SRC.xinkang,SRC.ysnpTrail],
+         ["玉管處建議團體行進並收好食物與垃圾，避免吸引黑熊。",SRC.bear],
+         ["新仙山下到古道交會處有陡峭繩段，下降時容易錯過路徑；盡量白天完成，岔口用離線軌跡和現地標示雙重核對。此為一般路況提醒，非山銘誌原話。"]],
+ stay:["抱崖山屋","試算表標註附近有溪；朋友近期回報山屋水龍頭有水，也有附近溪水備選。"],
+ photo:["https://www.ysnp.gov.tw/UploadPlugin?file=i%2BifzMiqxoOGxT%2FVr25SKzsDjCs7OItEOJlnGmQ4RxjLi2x0EWvWDZZlkHzTYqocYh2PR7VO%2FnzEbzU%2F5Wn19g%3D%3D",
+   "照片：新康山與天宮堡壘。玉管處｜<a href='https://www.ysnp.gov.tw/Trail/ba81933a-a5e2-4ac7-8aa8-d3930c1ec395?ID=26b9cb27-9fad-4680-a05b-0ef785c6db15&Tab=2' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://www.ysnp.gov.tw/StaticPage/Opendata' target='_blank' rel='noopener'>開放宣告 ↗</a>"]},
+
+{id:"d5",n:5,date:"10/12",dow:"一",tag:"五天四夜主線",short:"瓦拉米出山",title:"抱崖 → 瓦拉米 → 山風",
+ lead:"沿八通關越嶺東段經瓦拉米山屋到山風步道口，接駁往玉里。",
+ stats:[["上河 1.0 純步行","05:00–15:00｜10:00"],["里程","約 28.3 km"],["起點","1,714 m"],["終點","450 m"],["已列最高節點","1,714 m"]],
+ check:"上河 G18 抱崖→瓦拉米 305 分、瓦拉米→山風步道起點 295 分，共 600 分。上河高差圖距離 14.3＋14＝28.3 km（玉管處為 14.2＋13.6＝27.8 km）；接駁提早抵達等候，無需把原表 14:00 當作截止時間。",
+ tl:[["05:00","抱崖山屋","1,714 m",null,null,null,null],
+     ["10:05","瓦拉米山屋","1,076 m","14.3 km","305 分","節點淨降 638 m","途中經多土袞駐在所，朋友於約 18K 一帶測得訊號；該點無上河獨立步程。"],
+     ["15:00","山風／瓦拉米步道登山口","450 m","14 km","295 分","節點淨降 626 m","高差圖未標步道起點高度，450 m 採玉管處；圖上另標步道起點→南安遊客中心 6K。"],
+     ["約 16:00","接駁抵玉里車站",null,null,null,null,"純步行基準抵達登山口後約 1 小時內到玉里；可先洗澡、吃飯。"],
+     ["18:29","玉里　搭自強號（3000 型）北上",null,null,null,null,"已訂票，出山後仍要留時間取票。"],
+     ["21:38","臺北到站",null,null,null,null,null]],
+ prof:[[0,1714,"抱崖山屋"],[14.3,1076,"瓦拉米山屋"],[28.3,450,"山風登山口"]],
+ friend:["第 3 天到第 5 天，只有多土袞駐在所有訊號，大約在八通關古道 18K、古道某個駐在所的轉角；連出古道的終點也幾乎沒有訊號，但一般市話打得通。",
+         "手機電力要保留到 D5，抱崖之後訊號很差。",
+         "瓦拉米山屋也有水龍頭，但水是熱的，溪溝的水比較清涼；沿途會經過一堆有溪水的地方。"],
+ verify:[["上河 G18 兩大段為 305＋295＝600 分。距離採上河高差圖 14.3＋14＝28.3 km；玉管處另列 14.2＋13.6＝27.8 km。",SRC.sun,SRC.baoya,SRC.walamiDist],
+         ["瓦拉米山屋標高採上河 1,076 m（玉管處另標約 1,060 m）；山風登山口終點約 450 m 採玉管處。",SRC.walamiHut],
+         ["手機訊號依地形、電信及天候變動；多土袞約 18K 的測得位置是山銘誌提供，並非官方固定收訊保證。",SRC.comm],
+         ["低海拔路段螞蝗多；襪口與褲腳整理好，休息和出山時檢查。此為一般路況提醒，非山銘誌原話。"]],
+ stay:["玉里／返程","接駁通常提早到登山口等候；純步行基準約 15:00 到登山口，回玉里後距離 18:29 的班車約有 2 小時餘裕。"],
+ photo:["https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg/960px-Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg",
+   "照片：瓦拉米步道林間吊橋。lienyuan lee｜<a href='https://commons.wikimedia.org/wiki/File:Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg' target='_blank' rel='noopener'>原圖 ↗</a>｜<a href='https://creativecommons.org/licenses/by/3.0/' target='_blank' rel='noopener'>CC BY 3.0 ↗</a>"]}
+];
+const WALK=DAYS.filter(d=>d.prof);
+const DAYLINE={d0:"臺北 13:52 發車 → 關山 18:03，補給後入住小鳳民宿（中華路 40 巷）",d1:"向陽登山口 → 嘉明湖 → 布新營地｜約 17.4 km",d2:"布新 ⇄ 布拉克桑山｜原路往返 15.4 km",
+ d3:"布新 → 桃源 → 新仙｜重裝上連理山、新仙山，10.1 km",d4:"新康山・天宮堡壘 → 抱崖山屋｜約 10.3 km",d5:"抱崖 → 瓦拉米 → 山風登山口｜約 28.3 km，玉里 18:29 北上"};
+
+/* ---------- profile ---------- */
+const NS="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=n=>Number(n).toLocaleString("en-US");
+let CUM=[];{let c=0;WALK.forEach(d=>{const last=d.prof[d.prof.length-1][0];CUM.push({d,x0:c,pts:d.prof.map(p=>[c+p[0],p[1],p[2]])});c+=last;});}
+const TOTKM=CUM[CUM.length-1].pts[CUM[CUM.length-1].pts.length-1][0];
+function drawProfile(svg,day,hl){
+  const cw=svg.parentElement.clientWidth||900, small=cw<560;
+  const W=small?520:Math.min(1100,cw), m={l:small?40:52,r:small?14:22,t:small?34:42,b:small?26:30}, H=day?(small?230:280):(small?200:250);
+  const segs=day?[{d:day,x0:0,pts:day.prof}]:CUM;
+  const xs=segs.flatMap(s=>s.pts.map(p=>p[0])),ys=segs.flatMap(s=>s.pts.map(p=>p[1]));
+  const xmax=Math.max(...xs),ylo=Math.floor((Math.min(...ys)-120)/250)*250,yhi=Math.ceil((Math.max(...ys)+150)/250)*250;
+  const X=v=>m.l+v/xmax*(W-m.l-m.r), Y=v=>m.t+(1-(v-ylo)/(yhi-ylo))*(H-m.t-m.b), base=H-m.b;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  for(let a=ylo;a<=yhi;a+=(yhi-ylo>2000?1000:500)){mk("line",{x1:m.l,x2:W-m.r,y1:Y(a),y2:Y(a),stroke:"#1B2E27","stroke-opacity":.09,"stroke-dasharray":"2 5"},svg);
+    const t=mk("text",{x:m.l-6,y:Y(a)+4,"text-anchor":"end","font-size":small?10:11,fill:"#5F6F66"},svg);t.textContent=fmt(a);}
+  segs.forEach(s=>{
+    const on=!hl||hl===s.d.id, c=C[s.d.id];
+    const dstr=s.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+    mk("path",{d:dstr+` L${X(s.pts[s.pts.length-1][0])} ${base} L${X(s.pts[0][0])} ${base} Z`,fill:c,opacity:on?.14:.05},svg);
+    mk("path",{d:dstr,fill:"none",stroke:on?c:"#C3CCC2","stroke-width":on?(hl?3.4:2.6):2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    if(!day){const hit=mk("rect",{x:X(s.pts[0][0]),y:0,width:X(s.pts[s.pts.length-1][0])-X(s.pts[0][0]),height:H,fill:"transparent",style:"cursor:pointer"},svg);
+      const tt=mk("title",{},hit);tt.textContent=`D${s.d.n} ${s.d.short}`;hit.addEventListener("click",()=>go(s.d.id));
+      hit.addEventListener("mouseenter",()=>{homeHL=s.d.id;drawHome();});hit.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+      const lab=mk("text",{x:(X(s.pts[0][0])+X(s.pts[s.pts.length-1][0]))/2,y:H-8,"text-anchor":"middle","font-size":small?10:11,"font-weight":700,fill:on?C[s.d.id]:"#9AA79A"},svg);lab.textContent="D"+s.d.n;}
+  });
+  const top=segs.flatMap(s=>s.pts).reduce((a,b)=>b[1]>a[1]?b:a);
+  segs.forEach(s=>{const on=!hl||hl===s.d.id;s.pts.forEach(p=>{
+    mk("circle",{cx:X(p[0]),cy:Y(p[1]),r:p===top?4.5:3,fill:p===top?"#C2802B":"#FBFCF8",stroke:on?C[s.d.id]:"#C3CCC2","stroke-width":2},svg);});});
+  if(day){const boxes=[];const free=(x,y,w,h)=>{if(x<2||x+w>W-2||y<2||y+h>H-2)return false;
+      for(const b of boxes){if(x<b[0]+b[2]&&x+w>b[0]&&y<b[1]+b[3]&&y+h>b[1])return false;}boxes.push([x,y,w,h]);return true;};
+    const used=new Set(),xs2=[];
+    day.prof.forEach((p,i)=>{if(used.has(p[2]))return;
+      const key=i===0||i===day.prof.length-1||p[1]===top[1];
+      if(!key&&xs2.some(v=>Math.abs(v-X(p[0]))<34))return;
+      used.add(p[2]);xs2.push(X(p[0]));
+      const txt=`${p[2]} ${fmt(p[1])}`,fs=small?9.5:10.5,w=txt.length*fs*.92;
+      const anchor=i===0?"start":i===day.prof.length-1?"end":"middle";
+      const ox=i===0?0:i===day.prof.length-1?0:0;
+      for(const dy of [-12,16,-26,28,-40]){
+        const bx=X(p[0])+ox-(anchor==="middle"?w/2:anchor==="end"?w:0), by=Y(p[1])+dy-(dy<0?fs:0);
+        if(free(bx,by,w,fs+3)){const t=mk("text",{x:X(p[0])+ox,y:Y(p[1])+dy,"text-anchor":anchor,"font-size":fs,"font-weight":700,fill:"#1B2E27",
+          "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":3.5,"stroke-linejoin":"round"},svg);t.textContent=txt;break;}}});}
+  else{const t=mk("text",{x:X(top[0]),y:Y(top[1])-10,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"#1B2E27"},svg);t.textContent=`${top[2]} ${fmt(top[1])} m`;}
+}
+let homeHL=null;
+function drawHome(){drawProfile(document.getElementById("prof"),null,homeHL);drawRoute(document.getElementById("rmap"),homeHL);
+  document.querySelectorAll("#daykey button").forEach(b=>b.classList.toggle("dim",!!homeHL&&b.dataset.go!==homeHL));}
+
+
+/* ---------- 路線拓樸圖 ---------- */
+const RN={vy:[.07,.60,"向陽"],jm:[.30,.33,"嘉明湖"],bx:[.45,.48,"布新"],bl:[.50,.72,"布拉克桑"],ty:[.60,.53,"桃源"],
+ xx:[.71,.40,"新仙"],xk:[.80,.16,"新康"],bo:[.88,.23,"堡壘"],by:[.90,.63,"抱崖"],wl:[.68,.88,"瓦拉米"],sf:[.38,.94,"山風"]};
+const RE=[{d:"d1",p:["vy","jm","bx"]},{d:"d2",p:["bx","bl"],two:1},{d:"d3",p:["bx","ty","xx"]},
+ {d:"d4",p:["xx","xk","bo"],two:1},{d:"d4",p:["xx","by"]},{d:"d5",p:["by","wl","sf"]}];
+function curve(pts){if(pts.length<3)return "M"+pts.map(p=>p.join(" ")).join(" L");
+  let d="M"+pts[0][0]+" "+pts[0][1];
+  for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
+    d+=` C${c1[0]} ${c1[1]} ${c2[0]} ${c2[1]} ${p2[0]} ${p2[1]}`;}
+  return d;}
+function drawRoute(svg,hl){
+  const cw=svg.parentElement.clientWidth||900, small=cw<560;
+  const W=small?520:Math.min(1000,cw), H=Math.round(W*(small?.62:.5));
+  const pad={l:small?40:60,r:small?40:70,t:small?26:32,b:small?34:40};
+  const X=f=>pad.l+f*(W-pad.l-pad.r), Y=f=>pad.t+f*(H-pad.t-pad.b);
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  const off=(pts,o)=>pts.map((q,i)=>{const a=pts[Math.max(0,i-1)],b=pts[Math.min(pts.length-1,i+1)];
+    let dx=b[0]-a[0],dy=b[1]-a[1];const L=Math.hypot(dx,dy)||1;return [q[0]-dy/L*o,q[1]+dx/L*o];});
+  RE.forEach(e=>{const on=!hl||hl===e.d, c=on?C[e.d]:"#CBD3C9", w=on?(hl?9:7):5;
+    const base=e.p.map(k=>[X(RN[k][0]),Y(RN[k][1])]);
+    const paths=e.two?[off(base,4.5),off(base,-4.5)]:[base];
+    paths.forEach(pp=>{const g=mk("path",{d:curve(pp),fill:"none",stroke:c,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round",opacity:on?1:.6},svg);
+      if(!hl){g.style.cursor="pointer";g.addEventListener("click",()=>go(e.d));
+        g.addEventListener("mouseenter",()=>{homeHL=e.d;drawHome();});g.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+        const t=mk("title",{},g);const dd=DAYS.find(x=>x.id===e.d);t.textContent=`D${dd.n} ${dd.short}`;}});});
+  Object.entries(RN).forEach(([k,[fx,fy,name]])=>{const x=X(fx),y=Y(fy);
+    mk("circle",{cx:x,cy:y,r:small?6:7,fill:"#FBFCF8",stroke:"#1B2E27","stroke-width":2.4},svg);
+    const up=["jm","xk","bo","bx","by","bl"].includes(k);
+    const t=mk("text",{x,y:up?y-14:y+22,"text-anchor":"middle","font-size":small?12:14,"font-weight":700,fill:"#1B2E27",
+      "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":4,"stroke-linejoin":"round","font-family":"var(--serif)"},svg);t.textContent=name;});
+}
+/* ---------- home ---------- */
+const totMin=688+510+585+647+600;
+document.getElementById("kpi").innerHTML=[
+ [`${Math.round(TOTKM)} km`,"累計步行距離（含往返）"],
+ [`${Math.floor(totMin/60)} 小時 ${totMin%60} 分`,"上河 1.0 純步行合計"],
+ ["3,480 m","最高節點（向陽山西側登山口）"],
+ ["450 m","終點（山風登山口）"]
+].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
+document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
+document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
+  <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
+  <span class="rt">${d.title}</span><span class="st">${d.stats[0][1]}</span>
+  <span class="stay">宿：${d.stay[0]}</span></button>`).join("");
+document.getElementById("srclist").innerHTML=SRCLIST.map(([t,u,k])=>`<li><a href="${u}" target="_blank" rel="noopener">${t} ↗</a><small>${k}</small></li>`).join("");
+const tl=document.getElementById("tl");
+tl.innerHTML=DAYS.map(d=>`<button class="node" data-go="${d.id}"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><span><b class="num">${d.date}（${d.dow}）</b><small>${d.short}</small></span></button>`).join("");
+
+/* ---------- day view ---------- */
+const panel=(h,body,cls="",tag="")=>`<section class="panel ${cls}"><h3>${h}${tag?`<span class="tagi">${tag}</span>`:""}</h3>${body}</section>`;
+const list=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+let cur="d0",view="home";
+function ctxLine(d){const seg=CUM.find(s=>s.d.id===d.id);
+  if(!seg)return "D0 是關山集合日，還沒起登；圖上是 D1–D5 的全段路線。位置與線長不按真實地理比例。";
+  const a=seg.pts[0][0],b=seg.pts[seg.pts.length-1][0];
+  return `高亮的是今天走的路段，落在全程的第 ${Math.round(a)}–${Math.round(b)} 公里（累計步行距離，含往返）。位置與線長不按真實地理比例。`;}
+function renderDay(){
+  const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
+  let extra=[];
+  if(d.prof){let up=0,dn=0;for(let i=1;i<d.prof.length;i++){const v=d.prof[i][1]-d.prof[i-1][1];if(v>0)up+=v;else dn-=v;}
+    extra=[["累計上升（已知節點）",`↑${fmt(up)} m`],["累計下降（已知節點）",`↓${fmt(dn)} m`]];}
+  else extra=[["&nbsp;","&nbsp;"],["&nbsp;","&nbsp;"],["&nbsp;","&nbsp;"]];
+  const stats=`<dl class="stats num">${d.stats.concat(extra).map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+    <p class="note" style="margin:6px 0 0">${d.prof?`${d.id==="d1"?"里程含嘉明湖支線約 1.4 km；":""}${d.id==="d3"?"里程不含桃源取水支線；":""}${d.id==="d4"?"里程為已標主段；":""}${d.id==="d5"?"里程為抱崖→山風；":""}累計升降只加總已知標高節點之間的落差，未標高路段的起伏不計，實際更多。`:"&nbsp;"}</p>`;
+  const times=`<ol class="times">${d.tl.map(r=>{const [t,name,alt,km,min,delta,rem,peak]=r;
+    const segs=[km,min?`上河 1.0 · ${min}`:null,delta].filter(Boolean);
+    return `<li><time class="num">${t}</time><span class="mk ${peak?"peak":""}"></span><span><b>${name}${alt?` <span class="alt num">${alt}</span>`:""}</b>
+      ${segs.length?`<span class="segs">${segs.map(x=>`<span>${x}</span>`).join("")}</span>`:""}${rem?`<span class="rem">${rem}</span>`:""}</span></li>`;}).join("")}</ol>`;
+  const friend=panel("山銘誌提供訊息",list(d.friend),"friend","朋友現地經驗");
+  const verify=panel("查證補充訊息",`<ul>${d.verify.map(v=>`<li>${v[0]}${v.slice(1).map(u=>` <a class="src" href="${u}" target="_blank" rel="noopener">↗ 來源</a>`).join("")}</li>`).join("")}</ul>`,"verify","公開資料與上河核對");
+  document.getElementById("day").innerHTML=`<div class="fade">
+    <div class="dtop">
+      <div>
+        <div class="dhead"><span class="chip lg" style="background:${C[d.id]}">D${d.n}</span>
+          <div><p class="when num">2026/${d.date}（${d.dow}）｜${d.tag}</p><h2>${d.title}</h2></div></div>
+        <p class="lead">${d.lead}</p>
+        ${stats}
+      </div>
+      <figure style="margin:0">
+        <div class="banner"><img src="${d.photo[0]}" alt="D${d.n} ${d.title}"></div>
+        <figcaption class="credit">${d.photo[1]}</figcaption>
+      </figure>
+    </div>
+    <div class="toprow">
+      <div class="stack">
+        ${panel("今天走哪一段",`<div class="mini"><svg id="rmapday" role="img" aria-label="今天在整段路線的位置"></svg></div><p class="note" style="margin-top:4px">${ctxLine(d)}</p>`)}
+        ${d.prof?panel("今天的高度",'<div class="mini"><svg id="dayprof" role="img" aria-label="當日高度剖面"></svg></div><p class="note" style="margin-top:4px">只連接已知標高的節點，不是實際坡度或 GPS 軌跡。</p>'):""}
+      </div>
+      <div class="stack">
+        ${d.id==="d0"?panel("關山車站 → 小鳳民宿",`<p style="margin:0 0 8px"><b>小鳳民宿</b><br>956 臺東縣關山鎮中福里中華路 40 巷 7 號<br>聯絡人小鳳姐 0984-099726（住宿與 04:00 接駁同一位；車站到民宿沒有接送）</p>
+        <ol class="steps2">
+          <li><b>出站後先補給</b>：車站附近有 7-ELEVEN 與全家，全聯超市也在鎮上，行動糧、早餐、電池與瓦斯今晚買齊。</li>
+          <li><b>再走去民宿</b>：民宿沒有車站接送，都是自己走過去；中華路是鎮上的主要道路，用手機導航最快。天黑後走，記得帶頭燈或開手機手電筒。</li>
+          <li><b>抵達後</b>：確認隔晨 04:00 的上車地點與乘車人數。</li>
+        </ol>
+        <p style="margin:8px 0 0"><a href="https://www.google.com/maps/dir/?api=1&origin=%E9%97%9C%E5%B1%B1%E8%BB%8A%E7%AB%99&destination=%E8%87%BA%E6%9D%B1%E7%B8%A3%E9%97%9C%E5%B1%B1%E9%8E%AE%E4%B8%AD%E7%A6%8F%E9%87%8C%E4%B8%AD%E8%8F%AF%E8%B7%AF40%E5%B7%B77%E8%99%9F" target="_blank" rel="noopener">車站到民宿路線 ↗</a>　<a href="https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E6%9D%B1%E7%B8%A3%E9%97%9C%E5%B1%B1%E9%8E%AE%E4%B8%AD%E7%A6%8F%E9%87%8C%E4%B8%AD%E8%8F%AF%E8%B7%AF40%E5%B7%B77%E8%99%9F" target="_blank" rel="noopener">民宿地圖 ↗</a></p>`,"check"):""}
+        ${friend}
+        ${panel("今晚停留",`<p style="margin:0"><b>${d.stay[0]}</b><br>${d.stay[1]}</p>`,"stay")}
+      </div>
+    </div>
+    <div class="dgrid" style="margin-top:16px">
+      <div class="stack">
+        ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">時間自起點按上河 G18 1.0 連續累加，只計行走；每段標示里程、上河分鐘與兩個已知標高間的淨升降。未分列的里程或標高不推算。</p>${times}`)}
+      </div>
+      <div class="stack">
+        ${panel("上河核對",`<p style="margin:0">${d.check}</p>`,"check")}
+        ${verify}
+        ${panel("上河 G18 原圖",`<p style="margin:0"><a href="https://www.sunriver.com.tw/images/hiking/G18_hiking.jpg" target="_blank" rel="noopener">步程圖 ↗</a>\u3000<a href="https://www.sunriver.com.tw/images/hiking/xG18.jpg" target="_blank" rel="noopener">高差圖 ↗</a><br><span class="note">原圖 © 上河文化，由官方網站連結載入；需連網。圖上時間僅供參考，請依天氣、路況與隊伍腳程調整。</span></p>`)}
+      </div>
+    </div>
+    <nav class="pager">
+      <button ${pv?"":"disabled"} data-go="${pv?pv.id:""}"><small>上一天</small>D${pv?pv.n:""} <span class="pn">${pv?pv.short:""}</span></button>
+      <button class="next" ${nx?"":"disabled"} data-go="${nx?nx.id:""}"><small>下一天</small>D${nx?nx.n:""} <span class="pn">${nx?nx.short:""}</span></button>
+    </nav></div>`;
+  drawRoute(document.getElementById("rmapday"),d.id);
+  if(d.prof)drawProfile(document.getElementById("dayprof"),d);
+  const im=document.querySelector("#day .banner img");
+  if(im)im.onerror=()=>{const bn=im.parentElement;bn.innerHTML=`<div class="ph" style="--c:${C[d.id]}">D${d.n}｜${d.title}</div>`;
+    const cr=document.querySelector("#day .credit");if(cr)cr.insertAdjacentHTML("beforeend","（照片需連網才會顯示）");};
+  bind(document.getElementById("day"));
+}
+function show(v){view=v;["home","day","prep"].forEach(n=>document.getElementById("v-"+n).classList.toggle("on",n===v));
+  document.querySelectorAll(".views button").forEach(b=>b.setAttribute("aria-current",b.dataset.view===v));
+  tl.querySelectorAll(".node").forEach(n=>{const on=v==="day"&&n.dataset.go===cur;n.setAttribute("aria-current",on);
+    if(on)tl.scrollTo({left:n.offsetLeft-tl.clientWidth/2+n.clientWidth/2,behavior:"smooth"});});
+  if(v==="home")requestAnimationFrame(drawHome);}
+function go(id){if(id==="home"||id==="prep"){history.replaceState(null,"","#"+id);show(id);window.scrollTo({top:0});return;}
+  if(!DAYS.some(d=>d.id===id))return;cur=id;history.replaceState(null,"","#"+id);show("day");renderDay();window.scrollTo({top:0,behavior:"smooth"});}
+function bind(root){root.querySelectorAll("[data-go]").forEach(b=>{if(b.dataset.go)b.onclick=()=>go(b.dataset.go);});
+  root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));}
+bind(document);
+document.addEventListener("keydown",e=>{if(view!=="day")return;const i=DAYS.findIndex(d=>d.id===cur);
+  if(e.key==="ArrowRight"&&DAYS[i+1])go(DAYS[i+1].id);if(e.key==="ArrowLeft"&&DAYS[i-1])go(DAYS[i-1].id);});
+let sx=null,sy=null;const dv=document.getElementById("v-day");
+dv.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+dv.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const i=DAYS.findIndex(d=>d.id===cur),t=DAYS[i+(dx<0?1:-1)];if(t)go(t.id);}});
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(view==="home")drawHome();
+  if(view==="day"){const d=DAYS.find(x=>x.id===cur);drawRoute(document.getElementById("rmapday"),d.id);if(d.prof)drawProfile(document.getElementById("dayprof"),d);}},150);});
+const h=(location.hash||"#home").slice(1);
+if(DAYS.some(d=>d.id===h))go(h);else show(h==="prep"?"prep":"home");
+</script>
+</body>
+</html>
