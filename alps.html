@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="2027/9/28–10/11 日本北阿爾卑斯：表銀座縱走、槍岳、涸澤紅葉、穗高連峰、八ヶ岳赤岳。含山屋開搶日曆、天氣決策表、每日撤退方案與紅葉海拔時間軸。">
+<title>2027 北阿爾卑斯｜表銀座・穗高・八ヶ岳 行程手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0EA; --card:#FBFCF8; --ink:#1B2E27; --muted:#5F6F66; --line:#D3DCD1;
+  --moss:#2F6B4F; --sun:#C2802B; --alert:#A6432C; --mist:#E3E9E0; --koyo:#C2552B;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Hiragino Sans","Microsoft JhengHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+a{color:var(--moss);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+.top{position:sticky;top:0;z-index:30;background:rgba(237,240,234,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:0 auto;padding:0 18px;height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.05rem;border:0;background:none;padding:0;cursor:pointer;white-space:nowrap}
+.brand i{display:inline-block;width:10px;height:10px;background:var(--sun);transform:rotate(45deg);margin-right:8px}
+.views{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
+.views::-webkit-scrollbar{display:none}
+.views button{border:0;background:none;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:700;white-space:nowrap}
+.views button[aria-current="true"]{background:var(--ink);color:#fff}
+.tl{max-width:1240px;margin:0 auto;display:flex;overflow-x:auto;padding:2px 18px 9px;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.node{flex:1 0 104px;min-width:104px;border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;text-align:left;color:var(--muted)}
+.node b{display:block;font-size:.85rem;color:var(--ink);line-height:1.2}
+.node small{display:block;font-size:.74rem;line-height:1.25}
+.node[aria-current="true"]{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.chip{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--moss);color:#fff;font-family:var(--serif);font-weight:900;font-size:.78rem;flex:0 0 auto}
+.chip.lg{width:52px;height:52px;border-radius:14px;font-size:1.1rem}
+
+.view{display:none;max-width:1240px;margin:0 auto;padding:22px 18px 46px}
+.view.on{display:block}
+h1,h2,h3{font-family:var(--serif)}
+.kicker{margin:0;color:var(--moss);font-weight:800;letter-spacing:.04em}
+.sub{color:var(--muted);margin:0 0 16px;max-width:48em}
+
+/* home */
+.hero h1{font-weight:900;font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1.14;margin:6px 0 12px}
+.hero .meta{margin:0;font-size:1.06rem}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 6px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--serif);font-size:1.35rem;line-height:1.3}
+.kpi small{display:block;color:var(--muted);font-size:.82rem}
+.profcard{margin:18px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 8px}
+.profcard>svg,.mini>svg{width:100%;display:block}
+.daykey{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 14px;margin:8px 2px 2px}
+.daykey button{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:4px 6px;border-radius:8px;cursor:pointer}
+.daykey button:hover{background:#fff}
+.daykey button.dim{opacity:.35}
+.daykey i{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.daykey b{font-size:.86rem;white-space:nowrap}
+.daykey span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.note{font-size:.8rem;color:var(--muted);margin:6px 2px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.three article{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:16px 18px}
+.three small{display:block;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--moss)}
+.three strong{display:block;font-family:var(--serif);font-size:1.16rem;margin:6px 0}
+.three p{margin:0;color:var(--muted);font-size:.93rem}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.dcard{border:1px solid var(--line);border-top:4px solid var(--c);background:var(--card);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.dcard:hover{border-color:var(--sun)}
+.dcard .hd{display:flex;align-items:center;gap:9px}
+.dcard .hd b{font-family:var(--serif)}
+.dcard .rt{font-family:var(--serif);font-weight:900;font-size:1.1rem;line-height:1.35}
+.dcard .st{font-size:.88rem;color:var(--muted)}
+.dcard .stay{margin-top:auto;padding-top:6px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 20px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+/* day */
+.dtop{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:stretch;height:348px}
+.dtop>div{overflow:hidden;display:flex;flex-direction:column}
+.dtop .note{height:44px;overflow:hidden}
+.dtop .lead{height:3.5em;overflow:hidden}
+.dtop .stats{height:133px;overflow:hidden}
+.dtop figure{display:flex;flex-direction:column;height:100%;margin:0}
+.dtop .banner{flex:1 1 auto;display:flex;min-height:230px}
+.banner{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0E1A16}
+.banner svg{width:100%;height:100%;display:block}
+.credit{font-size:.76rem;color:var(--muted);margin:6px 2px 0;border-left:3px solid var(--sun);padding-left:10px;min-height:40px}
+.dhead{display:flex;align-items:center;gap:14px;margin:4px 0 4px}
+.dhead .when{margin:0;color:var(--muted);font-weight:700}
+.dhead h2{margin:0;font-weight:900;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.25}
+.lead{font-size:1.04rem;margin:6px 0 0;max-width:40em;min-height:3.5em}
+.stats{display:grid;grid-template-columns:1.5fr repeat(3,minmax(0,1fr));grid-auto-rows:minmax(48px,auto);gap:8px 20px;align-content:start;min-height:112px;padding:12px 0;margin:14px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats dt{font-size:.78rem;color:var(--muted)}
+.stats dd{margin:0;font-weight:700;font-size:1.02rem;white-space:nowrap}
+.toprow,.dgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:16px}
+.stack{display:grid;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.panel h3{margin:0 0 8px;font-size:1.06rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel h3 .tagi{font-family:var(--sans);font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 9px;background:var(--mist);color:var(--muted)}
+.panel ul{margin:0;padding-left:1.15em}
+.panel li{margin:6px 0}
+.panel.koyo{border-left:5px solid var(--koyo);background:#FCF4EE}
+.panel.bail{border-left:5px solid #6E86A6;background:#F4F6FA}
+.panel.check{border-left:5px solid var(--moss)}
+.panel.stay{background:#F4F6F1}
+.panel.gng{border:2px solid var(--alert);background:#FBF1EE}
+.panel.gng h3{color:var(--alert)}
+.src{font-size:.8rem;margin-left:6px;white-space:nowrap}
+.times{list-style:none;margin:4px 0 0;padding:0;position:relative}
+.times:before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.times li{display:grid;grid-template-columns:70px 18px 1fr;gap:9px;padding:5px 0}
+.times time{color:var(--moss);font-weight:800;font-size:.9rem}
+.times .mk{width:12px;height:12px;border:2px solid var(--moss);border-radius:50%;background:var(--card);margin:6px 3px;z-index:1}
+.times .mk.peak{background:var(--sun);border-color:var(--ink)}
+.times .mk.risk{background:var(--alert);border-color:var(--ink)}
+.times b{display:block;line-height:1.4}
+.times .alt{font-weight:700;color:var(--ink)}
+.times .segs{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 0}
+.times .segs span{font-size:.74rem;background:var(--mist);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.times .rem{display:block;font-size:.84rem;color:var(--muted);margin:3px 0 0}
+.mini{margin-top:4px}
+.mini text{font-family:var(--sans)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pager button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;cursor:pointer;text-align:left;max-width:48%}
+.pager button[disabled]{visibility:hidden}
+.pager small{display:block;color:var(--muted);font-size:.76rem}
+.pager .next{text-align:right}
+.fade{animation:fade .22s ease}@keyframes fade{from{opacity:.3}to{opacity:1}}
+
+/* tables & topic pages */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.two.wide{grid-template-columns:1fr}
+.panel h2{margin:0 0 8px;font-size:1.3rem}
+.date{color:var(--moss);font-weight:800;white-space:nowrap}
+.warn{color:var(--alert);font-weight:800}
+.wrap{overflow-x:auto;margin:4px -4px 0;padding:0 4px}
+table.t{border-collapse:collapse;width:100%;font-size:.9rem;min-width:620px}
+table.t th,table.t td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t th{font-size:.78rem;color:var(--muted);font-weight:700;white-space:nowrap;border-bottom:2px solid var(--line)}
+table.t tr:last-child td{border-bottom:0}
+table.t td b{white-space:nowrap}
+.pri{display:inline-block;min-width:30px;text-align:center;border-radius:6px;padding:1px 7px;font-size:.76rem;font-weight:800;color:#fff}
+.p0{background:#8E1F1F}.p1{background:#A6432C}.p2{background:#C2802B}.p3{background:#7A8C80}
+.stars{color:var(--koyo);letter-spacing:1px;white-space:nowrap;font-size:.9rem}
+.gobox{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 0}
+.gobox div{border-radius:12px;padding:12px 14px;font-size:.92rem}
+.gobox .go{background:#EDF4EE;border:1px solid #9CC2A8}
+.gobox .no{background:#FBF1EE;border:1px solid #D9A99C}
+.gobox h4{margin:0 0 6px;font-family:var(--serif);font-size:1rem}
+.gobox ul{margin:0;padding-left:1.15em}
+.gobox li{margin:4px 0}
+.steps2{margin:0;padding-left:1.25em}
+.steps2 li{margin:6px 0}
+.checklist{list-style:none;padding:0!important}
+.checklist li{padding-left:26px;position:relative}
+.checklist li:before{content:"□";position:absolute;left:0;color:var(--moss);font-size:1.15rem}
+.srclist{list-style:none;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.srclist small{display:block;color:var(--muted)}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.foot p{margin:3px 0;max-width:62em}
+
+@media (max-width:1000px){.kpi{grid-template-columns:1fr 1fr}.three,.days{grid-template-columns:1fr}.daykey{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.dgrid,.two,.dtop,.toprow,.gobox{grid-template-columns:1fr}.dtop{height:auto}.dtop .lead,.dtop .note,.dtop .stats{height:auto;overflow:visible}.lead{min-height:0}.stats{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+  .stats dd{white-space:normal}.dtop figure{order:-1}}
+@media (max-width:600px){
+  .view{padding:16px 12px 40px}
+  .panel{padding:14px 16px}
+  .daykey{grid-template-columns:1fr}
+  .times:before{left:66px}
+  .times li{grid-template-columns:58px 18px 1fr;gap:7px}
+  .pager{position:sticky;bottom:0;background:rgba(237,240,234,.96);padding:8px 0}
+  .pager .pn{display:none}
+  .srclist{grid-template-columns:1fr}
+  .node{flex:0 0 auto}
+  .node small{display:none}
+}
+@media print{.top,.pager,.cta{display:none!important}.view{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <button class="brand" data-view="home"><i></i>北阿爾卑斯 2027</button>
+    <nav class="views" aria-label="頁面">
+      <button data-view="home">總覽</button>
+      <button data-view="huts">山屋開搶</button>
+      <button data-view="gng">天氣決策</button>
+      <button data-view="bail">撤退方案</button>
+      <button data-view="koyo">紅葉時間軸</button>
+      <button data-view="prep">行前</button>
+    </nav>
+  </div>
+  <nav class="tl" id="tl" aria-label="選擇日期"></nav>
+</header>
+
+<main>
+  <section class="view" id="v-home">
+    <div class="hero">
+      <p class="kicker">中房進、茅野出</p>
+      <h1>追著紅葉線<br>往低海拔走</h1>
+      <p class="meta"><b class="num">2027/9/28（二）– 10/11（一）｜14 天｜2 人</b></p>
+      <p class="sub" style="margin-top:10px">表銀座縱走走完整段到槍岳，再接槍沢、涸澤、穗高連峰，最後兩天一夜橫斷八ヶ岳，宿 2,150 m 的本沢温泉。全程住山屋。行程方向與紅葉見頃前緣同向：從 2,700 m 的稜線一路下到 1,500 m 的河畔。</p>
+    </div>
+
+    <div class="kpi" id="kpi"></div>
+
+    <div class="profcard">
+      <svg id="rmap" role="img" aria-label="全段路線拓樸示意"></svg>
+      <p class="note">路線拓樸示意：位置、方向與線長不按真實地理比例。虛線為鐵路／巴士轉場（上高地→茅野→桜平）。雙線代表原路往返（D5 南岳、D8 北穗）。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="profcard">
+      <svg id="prof" role="img" aria-label="全程高度剖面"></svg>
+      <div class="daykey" id="daykey"></div>
+      <p class="note">橫軸為累計步行距離（含往返段）。曲線連接各日已知標高節點，不是 GPS 軌跡，也不代表實際坡度。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="three">
+      <article style="--c:#8E1F1F"><small>01 · 最該先處理的事</small><strong>涸澤 10/4、10/5 兩晚</strong><p>住宿日前一個月的 08:00 開放，連住要分兩天搶，兩人分頭。2027/10/9–10/11 是日本三連休，但八ヶ岳改成兩天一夜之後已經完全避開。</p></article>
+      <article style="--c:#C2552B"><small>02 · 紅葉打在哪幾天</small><strong>10/3 槍沢、10/4–10/5 涸澤</strong><p>見頃前緣每下降 300 m 延後約 4 天。涸澤 2,300 m 的 10 月初正是正中心，而且兩晚都落在平日。</p></article>
+      <article style="--c:#A6432C"><small>03 · 兩個 Go／No-Go 日</small><strong>D4 東鎌尾根、D10 吊尾根</strong><p>兩段都沒有中途橫向退路。D4 的判斷點比 D10 更早——09:30 過水俣乗越之後就沒有選擇了。</p></article>
+    </div>
+
+    <h2 style="margin:34px 0 4px;font-size:1.5rem">十四天，一天一頁</h2>
+    <p class="sub">點卡片看當天的時刻、紅葉期待值、今晚的山屋與走不了時退哪裡。</p>
+    <div class="days" id="daycards"></div>
+
+    <div class="cta">
+      <button class="btn" data-go="d1">從 D1 開始看</button>
+      <button class="btn ghost" data-view="huts">山屋開搶日曆</button>
+      <button class="btn ghost" data-view="gng">天氣決策表</button>
+    </div>
+  </section>
+
+  <section class="view" id="v-day"><article id="day" aria-live="polite"></article></section>
+  <section class="view" id="v-huts"><div id="hutsbody"></div></section>
+  <section class="view" id="v-gng"><div id="gngbody"></div></section>
+  <section class="view" id="v-bail"><div id="bailbody"></div></section>
+  <section class="view" id="v-koyo"><div id="koyobody"></div></section>
+  <section class="view" id="v-prep"><div id="prepbody"></div></section>
+</main>
+
+<script>
+const C={d1:"#8A8574",d2:"#2F6B4F",d3:"#3B7A58",d4:"#C2802B",d5:"#D19A3C",
+ d6:"#3F7FA6",d7:"#A6432C",d8:"#C2552B",d9:"#8E3B5A",d10:"#6B5EA6",
+ d11:"#6E86A6",d12:"#2F6B8C",d13:"#7A8C80",d14:"#8A8574"};
+
+const SRC={
+ enzanso:"https://www.enzanso.co.jp/",
+ yarisanso:"https://www.yarigatake.co.jp/",
+ yokoo:"https://www.yokoo-sanso.co.jp/",
+ karasawaH:"https://www.karasawa-hyutte.com/",
+ karasawaG:"https://www.karasawagoya.com/",
+ hotaka:"https://www.hotakadakesanso.com/",
+ akadake:"https://akadakekousen.jp/",
+ kamikochi:"https://www.kamikochi.or.jp/",
+ alpico:"https://www.alpico.co.jp/",
+ nanan:"https://www.nan-an.co.jp/",
+ compass:"https://www.mt-compass.com/",
+ jma:"https://www.jma.go.jp/bosai/",
+ yamaten:"https://i.yamatenki.co.jp/",
+ koyo:"https://weathernews.jp/koyo/",
+ nagano:"https://www.pref.nagano.lg.jp/kankoki/sangyo/kanko/sangaku/",
+ centrair:"https://www.centrair.jp/",
+ yamap:"https://yamap.com/"
+};
+const SRCLIST=[
+ ["燕山莊集團｜有明莊・燕山莊・大天莊・ヒュッテ大槍・ヒュッテ西岳",SRC.enzanso,"山屋官網"],
+ ["槍岳山莊集團｜槍岳山莊・南岳小屋・槍沢ロッヂ",SRC.yarisanso,"山屋官網"],
+ ["橫尾山莊",SRC.yokoo,"山屋官網"],
+ ["涸澤ヒュッテ",SRC.karasawaH,"山屋官網"],
+ ["涸澤小屋",SRC.karasawaG,"山屋官網"],
+ ["穗高岳山莊",SRC.hotaka,"山屋官網"],
+ ["赤岳鉱泉・行者小屋",SRC.akadake,"山屋官網"],
+ ["上高地公式網站｜交通與住宿",SRC.kamikochi,"官方"],
+ ["アルピコ交通｜上高地線・新島々・諏訪地區巴士",SRC.alpico,"交通"],
+ ["南安計程車／中房線乘合巴士",SRC.nanan,"交通"],
+ ["コンパス｜登山計畫書線上提出",SRC.compass,"官方／法規"],
+ ["長野縣｜山岳情報與登山安全條例",SRC.nagano,"官方／法規"],
+ ["氣象廳｜防災氣象情報",SRC.jma,"天氣"],
+ ["山の天気予報（ヤマテン）｜稜線風速與結冰預報",SRC.yamaten,"天氣／付費"],
+ ["ウェザーニュース｜紅葉情報",SRC.koyo,"紅葉"],
+ ["中部國際機場 Centrair",SRC.centrair,"交通"],
+ ["YAMAP｜路線與標準時間對照",SRC.yamap,"路線資料"]
+];
+
+/* tl row: [time, name, alt|null, km|null, ct|null, delta|null, remark|null, mark] mark: 1=peak 2=risk */
+const DAYS=[
+{id:"d1",n:1,date:"9/28",dow:"二",tag:"移動日",short:"台北→中房",title:"台北 → 松本 → 中房",
+ lead:"當天進到登山口旁的溫泉旅館，把隔天早上完整留給合戰尾根。",
+ stats:[["里程","移動日"],["飛行","桃園 → 中部國際"],["鐵路","特急しなの＋大糸線"],["終點","有明莊 1,380 m"],["抵達 NGO","約 12:30"],["松本","約 15:05"],["穗高站","約 15:35"],["有明莊","約 16:20"]],
+ check:"走名古屋進、東京出。中部國際到松本有特急しなの直達（約 2 時），比羽田轉新宿再搭あずさ少一次換乘，而且班機時段更鬆。若改走羽田：羽田→新宿巴士→特急あずさ→松本，抵達時間會晚約 1 時半，穗高站到有明莊就只剩計程車。",
+ tl:[["08:05","桃園機場 TPE",null,null,null,null,"建議選上午班機；下午班機接不上當天的大糸線與接駁。"],
+     ["12:30","中部國際機場 NGO",null,null,null,null,"入境後搭名鐵到名古屋站，約 30 分。"],
+     ["13:40","名古屋　特急しなの",null,null,null,null,"指定席建議事先訂；紅葉季週末很滿。"],
+     ["15:05","松本",null,null,null,null,"轉 JR 大糸線往穗高；若時間足夠可在松本採買行動糧與瓦斯。"],
+     ["15:35","穗高站",null,null,null,null,"中房線乘合巴士末班多在下午，若接不上就改南安計程車（約 40 分）。"],
+     ["16:20","有明莊","1,380 m",null,null,null,"燕山莊集團經營的溫泉旅館，露天風呂。今晚先把大背包整理好。"],
+     ["18:00","晚餐與行前確認",null,null,null,null,"確認隔天 06:00 出發、登山計畫書已線上提出、ヤマテン 的稜線預報。"]],
+ koyo:[2,"有明莊 1,380 m 一帶的紅葉通常還要再晚兩週；今天看到的是中房溪谷的綠與初黃。真正的紅葉從明天的合戰尾根中段開始。"],
+ bail:["今天沒有山上風險。唯一的風險是班機延誤接不上大糸線末班。","備案：延誤就住松本（車站周邊旅館多），隔天清晨搭首班大糸線＋中房線巴士直接上山，D2 起登時間往後推 2–3 時，當天仍可到燕山莊（CT 5:30）。","若延誤到隔天，立刻通知有明莊取消，並同步確認燕山莊那一晚不受影響。"],
+ stay:["有明莊（燕山莊集團）","中房溫泉下方約 1.5 km、海拔 1,380 m。有露天溫泉與正式晚餐，是全程最舒服的一晚。到燕岳登山口步行約 20–25 分上坡，也可請旅館或計程車接送。與燕山莊、大天莊同屬一個預約系統。"],
+ verify:[["燕山莊集團旗下包含有明莊、燕山莊、大天莊、ヒュッテ大槍與ヒュッテ西岳，預約在同一個系統開放。",SRC.enzanso],
+         ["長野縣登山安全條例：北阿爾卑斯等指定登山道須提出登山計畫書，可用「コンパス」線上提出。",SRC.compass,SRC.nagano],
+         ["中房線乘合巴士與計程車的運行期間、班次每年調整，出發前要再確認末班時間。",SRC.nanan]]},
+
+{id:"d2",n:2,date:"9/29",dow:"三",tag:"表銀座",short:"合戰尾根・燕岳",title:"中房溫泉 → 燕岳 → 燕山莊",
+ lead:"北阿爾卑斯三大急坂之一，但一路有五個休息點，節奏其實很好抓。",
+ stats:[["里程","7.8 km"],["上升","↑約 1,420 m"],["下降","↓約 130 m"],["預估時間","6 時 30 分"],["標準 CT","合戰尾根 5:30＋燕岳往返 1:00"],["起點","1,380 m"],["終點","2,712 m"],["最高點","燕岳 2,763 m"]],
+ check:"合戰尾根的標準 CT 從中房溫泉登山口（1,462 m）起算 5 時 30 分；有明莊到登山口再加 25 分。第一／二／三ベンチ 與富士見ベンチ 的間距都在 35–45 分之間，是全程最好掌握配速的一天。",
+ tl:[["06:00","有明莊出發","1,380 m",null,null,null,"上坡約 25 分到登山口；可請旅館接送省下這一段。"],
+     ["06:25","中房溫泉・燕岳登山口","1,462 m","0.6 km","25 分","＋82 m","登山屆投函處；水在這裡裝滿。"],
+     ["07:00","第一ベンチ","1,670 m","0.7 km","35 分","＋208 m","旁邊有水場（往下約 1 分）。"],
+     ["07:40","第二ベンチ","1,820 m","0.8 km","40 分","＋150 m",null],
+     ["08:25","第三ベンチ","1,990 m","0.8 km","45 分","＋170 m",null],
+     ["09:10","富士見ベンチ","2,200 m","0.7 km","45 分","＋210 m","天氣好時可以看到富士山。"],
+     ["09:55","合戰小屋","2,350 m","0.8 km","45 分","＋150 m","名物西瓜（供應期間）。這裡開始視野打開，紅葉帶的上緣。"],
+     ["10:20","合戰沢ノ頭","2,489 m","0.5 km","25 分","＋139 m","槍岳第一次現身。"],
+     ["11:30","燕山莊","2,712 m","1.1 km","70 分","＋223 m","入住、放大背包，輕裝上燕岳。"],
+     ["12:30","燕岳","2,763 m","0.9 km","30 分","＋51 m","花崗岩與奇岩（イルカ岩、眼鏡岩）。",1],
+     ["13:30","回燕山莊","2,712 m","0.9 km","30 分","−51 m","下午可往北燕岳方向散策，或在山莊喝咖啡等夕照。"],
+     ["17:30","晚餐・夕照",null,null,null,null,"燕山莊的日落與角笛是這一晚的重點。"]],
+ koyo:[3,"合戰尾根 1,700–2,300 m 一帶是今天的紅葉帶：下部ブナ、上部ダケカンバ 與ナナカマド。9/29 大致打在這條帶子的正中段，第二ベンチ 到合戰小屋之間最好看。2,500 m 以上的ナナカマド 可能已經開始落葉。"],
+ bail:["退路非常單純：原路下中房溫泉，CT 約 3 時 30 分，下到 1,462 m 就有巴士與計程車到穗高站。","判斷點在合戰小屋（2,350 m）。到這裡若已經明顯落後標準時間、或稜線在下雨起風，就不要再上燕山莊。","下撤後接續：穗高站 → 松本，隔天可改走常念岳或轉上高地觀光。但燕山莊之後的每一晚都要逐一取消，愈早打電話愈好。"],
+ stay:["燕山莊","2,712 m，北阿爾卑斯最有名的山屋之一，完全預約制。有生啤酒、咖啡與蛋糕，晚餐後老闆的角笛演奏是傳統。3,000 m 以下但稜線上風大，睡袋內衣物要備足。"],
+ verify:[["燕山莊為完全預約制，開放時間由燕山莊集團統一公告（2026 年為 3 月中旬起分批開放）。2027 年規則以官網公告為準。",SRC.enzanso],
+         ["合戰尾根沿線有第一〜第三ベンチ、富士見ベンチ、合戰小屋五個標準休息點，間距 35–45 分。",SRC.yamap],
+         ["紅葉見頃每年受 9 月氣溫與首霜日影響，可能前後移動 1–2 週；出發前看現地情報再調整期待值。",SRC.koyo]]},
+
+{id:"d3",n:3,date:"9/30",dow:"四",tag:"表銀座",short:"大天井岳",title:"燕山莊 → 大天井岳 → 大天莊",
+ lead:"表銀座最舒服的一段稜線，一路朝著槍岳走過去。",
+ stats:[["里程","6.6 km"],["上升","↑約 550 m"],["下降","↓約 400 m"],["預估時間","4 時 35 分"],["標準 CT","燕山莊→大天莊 4:00"],["起點","2,712 m"],["終點","2,870 m"],["最高點","大天井岳 2,922 m"]],
+ check:"今天是短程日，CT 4 時出頭，刻意留下午。重點是切通岩前後的鎖場與梯子（喜作レリーフ），以及大下りの頭 之後約 100 m 的下降再爬回來。大天莊到大天井岳山頂只要 10–15 分，可以傍晚和清晨各上一次。",
+ tl:[["06:30","燕山莊","2,712 m",null,null,null,"清晨先在山莊前看槍岳的晨光再出發。"],
+     ["07:00","蛙岩（げえろいわ）","2,660 m","1.2 km","30 分","−52 m","冬季的危險通過點，無雪期沿步道通過沒問題。"],
+     ["07:45","大下りの頭","2,680 m","1.4 km","45 分","＋20 m","之後是表銀座最大的一段下降。"],
+     ["09:00","切通岩・喜作レリーフ","2,620 m","1.7 km","75 分","−60 m","鎖場與金屬梯；通過後開始往大天井岳爬升。",2],
+     ["10:00","大天井岳分岐","2,800 m","1.0 km","60 分","＋180 m","往右是大天井ヒュッテ（明天的路），往左上大天莊。"],
+     ["10:45","大天莊","2,870 m","0.5 km","45 分","＋70 m","入住、放大背包。"],
+     ["11:05","大天井岳","2,922 m","0.4 km","20 分","＋52 m","槍、穗高、常念、裏銀座的全景；表銀座最好的展望點。",1],
+     ["下午","山頂反覆往返・等光線",null,null,null,null,"短程日的意義在這裡：可以等雲開、等側光，不用趕。"],
+     ["17:00","晚餐",null,null,null,null,"明天是直推槍岳的長日，今晚把行動糧與頭燈先備好。"]],
+ koyo:[2,"今天幾乎全程在 2,600 m 以上的稜線，這個高度的ナナカマド 在 9 月底多半已經落盡，紅葉是「在腳下」而不是在身邊——往東俯瞰常念方向的谷地，往西俯瞰高瀨川的源頭，紅黃帶都在 2,000–2,400 m 之間。大天井岳山頂的俯瞰角度最好。"],
+ bail:["兩個方向都有退路，但代價不同。往回退燕山莊 CT 約 4 時，再下中房共約 7 時半，當天可以到穗高站。","往前退：從大天井岳分岐 下常念乗越 → 一ノ沢 → 穗高（CT 約 5 時），這是表銀座中段唯一的側向出口，也是明天開始就沒有的選項。","所以今天的判斷很關鍵：如果明天的稜線預報已經轉差，今天就該在分岐 決定要不要走常念下山，而不是進了大天莊再想。"],
+ stay:["大天莊（燕山莊集團）","2,870 m，就在大天井岳山頂下方 10 分鐘。與燕山莊同一個預約系統。山頂日出日落都在步行距離內，是全程最好的展望型山屋。"],
+ verify:[["大天莊 2026 年營業期為 6 月中旬至 11 月初；2027 年日期以官網公告為準。",SRC.enzanso],
+         ["切通岩一帶有鎖場與梯子，是表銀座稜線上少數需要手腳並用的通過點。",SRC.yamap],
+         ["大天井岳分岐 下常念乗越 至一ノ沢登山口，是表銀座中段的側向下山路線。",SRC.yamap]]},
+
+{id:"d4",n:4,date:"10/1",dow:"五",tag:"表銀座・Go／No-Go",short:"東鎌尾根・槍岳",title:"大天莊 → 東鎌尾根 → 槍岳",
+ lead:"表銀座的收尾。一天走完西岳與東鎌尾根，中午前就能進槍岳山莊。",
+ stats:[["里程","10.0 km"],["上升","↑約 1,050 m"],["下降","↓約 620 m"],["預估時間","7 時 25 分"],["標準 CT","大天莊→槍岳山莊 6:30＋登頂 0:55"],["起點","2,870 m"],["終點","3,080 m"],["最高點","槍岳 3,180 m"]],
+ check:"這是表銀座的標準走法（經典四天版就是中房→燕山莊→大天莊→槍岳山莊）。05:00 出發、08:30 過水俣乗越、11:30 進山莊，下午完整空著——比中間多住一晚西岳更早到，也把槍岳登頂的時間拉到光線還好的時候。原本的西岳那一晚改成明天在槍岳山莊連住。",
+ tl:[["05:00","大天莊","2,870 m",null,null,null,"頭燈出發；若前夜有結霜，稜線的岩面會滑。"],
+     ["05:30","大天井ヒュッテ","2,650 m","1.3 km","30 分","−220 m","燕山莊集團的小屋。牛首展望台往返約 15 分，是今天最好的紅葉俯瞰點。"],
+     ["06:10","ビックリ平","2,700 m","1.0 km","40 分","＋50 m","喜作新道進入西岳區段。"],
+     ["07:00","赤岩岳","2,769 m","0.9 km","50 分","＋69 m","山頂在步道旁，標示不明顯，容易走過頭。"],
+     ["07:40","ヒュッテ西岳","2,680 m","1.4 km","40 分","−89 m","最後一間有人的屋子。到槍岳山莊還有 4 時，水與行動糧在這裡最後確認。"],
+     ["08:30","水俣乗越","2,480 m","0.9 km","50 分","−200 m","最晚的 Go／No-Go 時點。往下可切槍沢到ババ平；過了這裡，東鎌尾根就沒有橫向退路。",2],
+     ["11:00","東鎌尾根・梯子鎖場段 → ヒュッテ大槍","2,880 m","3.3 km","150 分","＋400 m","連續長梯子與鎖場，一路曝露在稜線上。風大時格外小心。",2],
+     ["11:30","槍岳山莊","3,080 m","0.8 km","30 分","＋200 m","入住、放大背包。明天還住這裡，不用整包搬。"],
+     ["12:10","槍岳","3,180 m","0.2 km","30 分","＋100 m","垂直梯子，上下分流。人少的時段反而是中午過後。",1],
+     ["12:45","回槍岳山莊","3,080 m","0.2 km","25 分","−100 m","今天光線不好就不用勉強，明天清晨還有一次機會。"]],
+ gng:1,
+ koyo:[3,"今天的紅葉在腳下：大天井ヒュッテ 的牛首展望台往西俯瞰高瀨川源頭，以及水俣乗越 往下看槍沢源頭的碗狀谷地，2,300–2,500 m 的紅黃帶在 10/1 大致正好。東鎌尾根上的稜線本身已經是岩與ハイマツ 的世界，沒有紅葉。"],
+ bail:["水俣乗越（08:30 前後）是唯一的分水嶺，而且必須在抵達時就決定，不能邊走邊看。","No-Go 選項 A：水俣乗越 下切槍沢 → ババ平 → 槍沢ロッヂ 或橫尾（CT 約 3–4 時）。放棄槍岳，直接把 D6 的行程提前，隔天可以休息或提前上涸澤。","No-Go 選項 B：原路退回大天莊（CT 約 3 時 30 分），再下常念乗越 → 一ノ沢，整個表銀座中止。","進入梯子段之後就只有往前。若在稜線中段遇到雷雨或強風，就地找岩壁背風處等待，不要在梯子上改主意。"],
+ stay:["槍岳山莊（連住第 1 晚）","3,080 m，槍岳肩上。槍岳山莊集團經營，可容數百人，有乾燥室。今晚與明晚連住兩晚——這是全程唯一能「原地多留一天」的位置，因為床位是事先訂下的，天氣壞也不必取消任何後面的預約。"],
+ verify:[["大天莊至槍岳山莊為表銀座經典四天版的標準行程段，標準 CT 約 6 時 30 分。",SRC.yamap],
+         ["東鎌尾根的水俣乗越 有下切槍沢（ババ平方向）的路線，是該段唯一的側向退路。",SRC.yamap],
+         ["槍岳山莊 2026 年營業至 11 月初；2027 年以官網公告為準。",SRC.yarisanso]]},
+
+{id:"d5",n:5,date:"10/2",dow:"六",tag:"連住・彈性日",short:"槍岳山莊連住",title:"槍岳山莊連住｜南岳往返",
+ lead:"事先訂下的第二晚。天氣好就走三千公尺稜線，天氣壞就待在屋裡——兩種都不用取消任何預約。",
+ stats:[["里程","7.2 km（往返）"],["上升","↑約 450 m"],["下降","↓約 450 m"],["預估時間","3 時 50 分"],["標準 CT","南岳小屋往返 3:50"],["海拔帶","3,000–3,101 m"],["住宿","槍岳山莊（連住）"],["最高點","大喰岳 3,101 m"]],
+ check:"這一天是把原本西岳那一晚換過來的。意義不只是多玩一天：日本旺季山屋不能臨時延住，唯一合法的彈性就是事先訂兩晚。天氣壞的時候，這一天就是整趟 14 天裡唯一不必付代價的緩衝；天氣好的時候，它是三座 3,000 m 級加上大切戶的正面視角。",
+ tl:[["05:30","（選項）槍岳再登看日出","3,180 m",null,null,null,"人少、光線最好。前一天已登頂，今天純粹為了光線。"],
+     ["06:00","槍岳山莊","3,080 m",null,null,null,"A 案出發；早餐後看當日稜線預報再決定。"],
+     ["06:30","大喰岳","3,101 m","0.9 km","30 分","＋21 m","日本第 10 高峰，離山莊最近的 3,000 m 級。",1],
+     ["07:00","中岳","3,084 m","0.8 km","30 分","−17 m","途中一處梯子。",1],
+     ["07:50","南岳","3,033 m","1.6 km","50 分","−51 m","稜線寬緩，和東鎌尾根完全不同的性格。",1],
+     ["08:00","南岳小屋","3,000 m","0.3 km","10 分","−33 m","小屋前就是大切戶的正面俯視點。"],
+     ["09:30","南岳小屋出發",null,null,null,null,"在這裡慢慢看大切戶——用安全的方式先勘一次未來那一趟。"],
+     ["11:20","回槍岳山莊","3,080 m","3.6 km","110 分","＋80 m","下午休息、洗衣、補眠，或再登一次槍岳。"],
+     ["整天","B 案｜大喰岳・中岳往返",null,null,"約 2 時 30 分",null,"天氣一般時的縮短版，只走到中岳折返。"],
+     ["整天","C 案｜留在山莊",null,null,null,null,"風雨、結冰或能見度差就不出門。這一天本來就是為了可以不走而存在的。"]],
+ koyo:[1,"今天全程在 3,000 m 以上，沒有紅葉。從大喰岳與中岳往東看，槍沢的紅葉帶在腳下 1,000 m 處——那是明天要走下去的地方，可以先看清楚明天的紅葉在哪一段。"],
+ bail:["這一天本身就是備案，不需要退路：隨時原路回槍岳山莊，床位已經訂好。","反過來說，如果前面幾天已經延誤，這一天就是用來補回來的——直接放棄南岳，照 C 案休息，不要再加量。","若天氣預報顯示 10/3 之後轉差，可考慮今天就下槍沢到橫尾（提前一天），但橫尾與涸澤的預約日期要同步改，旺季不一定改得動，所以這是最後手段。"],
+ stay:["槍岳山莊（連住第 2 晚）","同一間、同一個床位區。連住的好處是大背包可以留在山莊，白天只帶輕裝；也不必在清晨整包打包。"],
+ verify:[["槍岳山莊至南岳小屋沿稜線經大喰岳、中岳，單程標準 CT 約 2 時。",SRC.yamap],
+         ["南岳小屋為槍岳山莊集團經營，2026 年營業至 10 月中旬；若當天要進小屋休息請先確認營業狀態。",SRC.yarisanso],
+         ["大切戶（大キレット）屬技術性岩稜路段，本行程不進入，僅在南岳小屋前觀看。",SRC.yamap]]},
+{id:"d6",n:6,date:"10/3",dow:"日",tag:"槍沢下降・紅葉",short:"槍沢→橫尾",title:"槍沢 → 橫尾",
+ lead:"從 3,080 m 一路下到 1,620 m，整天都在槍沢的紅葉帶裡。",
+ stats:[["里程","13.5 km"],["上升","↑約 50 m"],["下降","↓約 1,480 m"],["預估時間","5 時 50 分"],["標準 CT","槍岳山莊→橫尾 5:00"],["起點","3,080 m"],["終點","1,620 m"],["紅葉帶","2,350→1,620 m"]],
+ check:"標準 CT 5 時，但這一天的意義不在速度。槍沢從大曲（2,350 m）到橫尾（1,620 m）正是紅葉帶，而 10/3 的見頃前緣大約就落在 2,000–2,300 m，所以我把預估時間放寬到 5 時 50 分，把差額留給停下來看。橫尾山莊有浴室，是五天來第一次洗澡。",
+ tl:[["06:00","槍岳山莊","3,080 m",null,null,null,"回頭看一眼槍岳再下去。"],
+     ["06:40","天狗原分岐","2,600 m","1.3 km","40 分","−480 m","往天狗原（氷河公園）是另一條線，本行程不走。"],
+     ["07:20","大曲","2,350 m","1.3 km","40 分","−250 m","紅葉帶從這裡開始，往下愈來愈密。"],
+     ["08:00","ババ平（槍沢キャンプ場）","2,000 m","1.0 km","40 分","−350 m","水場與廁所。昨天如果 No-Go 下切，就是從這裡接上來。"],
+     ["08:40","槍沢ロッヂ","1,820 m","1.0 km","40 分","−180 m","槍岳山莊集團，營業期間有生啤酒與淋浴。"],
+     ["09:40","一ノ俣","1,700 m","2.9 km","60 分","−120 m","開始進入平緩的梓川右岸林道。"],
+     ["10:30","二俣","1,660 m","2.0 km","50 分","−40 m",null],
+     ["11:50","橫尾山莊","1,620 m","4.0 km","80 分","−40 m","入住、洗澡、洗衣。下午可走橫尾大橋看屏風岩。"],
+     ["下午","橫尾大橋・屏風岩",null,null,null,null,"明天只走 3 時，今天可以把下午全部用掉。"]],
+ koyo:[5,"今天是全程紅葉期待值最高的兩天之一。槍沢的紅葉帶大致在 1,700–2,400 m：上段ダケカンバ 的金黃、中段ナナカマド 的紅、下段的楓與ブナ。10/3 的見頃前緣估在 2,000 m 上下，等於你一整天都在穿過它。大曲到槍沢ロッヂ 這 2 km 最密。"],
+ bail:["這一整天本身就是下撤方向，沒有「退路」問題——只有要停在哪裡的問題。","可以中止的點：槍沢ロッヂ（1,820 m，營業期間可住）、橫尾山莊（今晚的目的地）。從橫尾步行 3 時到上高地就有巴士。","如果前面延誤或身體狀況不好，從橫尾直接走上高地結束山上行程是最乾淨的中止點——這是全程最容易退出的一天。"],
+ stay:["橫尾山莊","1,620 m，梓川畔。有浴室（肥皂不可用）、乾燥室，是北阿爾卑斯設備最好的山屋之一。位置在上高地、涸澤、槍沢三條線的交會點，所以也是最容易改計畫的一晚。"],
+ verify:[["橫尾山莊 2026 年營業至 11 月初，設有浴室；2027 年以官網公告為準。",SRC.yokoo],
+         ["橫尾山莊的部分名額在特定期間可提前兩個月於網路預約，電話預約為一個月前；規則每年調整。",SRC.yokoo],
+         ["槍沢ロッヂ 為槍岳山莊集團經營，位於槍沢下段。",SRC.yarisanso]]},
+
+{id:"d7",n:7,date:"10/4",dow:"一",tag:"涸澤紅葉",short:"橫尾→涸澤",title:"橫尾 → 本谷橋 → 涸澤",
+ lead:"刻意只走半天。下午完整留給涸澤カール 的紅葉。",
+ stats:[["里程","6.0 km"],["上升","↑約 690 m"],["下降","↓0 m"],["預估時間","3 時"],["標準 CT","橫尾→涸澤 3:00"],["起點","1,620 m"],["終點","2,309 m"],["星期","週一（避開人潮）"]],
+ check:"這一天看起來「刻意拆短」，但那正是目的。從橫尾上涸澤只要 3 時，07:00 出發 10:00 就到，整個下午都在カール 裡。而且 10/4 是週一——紅葉季的涸澤在週六日會有上千人紮營，平日完全是另一個地方。涸澤ヒュッテ 與涸澤小屋 兩間都在，選哪一間都可以。",
+ tl:[["07:00","橫尾山莊","1,620 m",null,null,null,"不用早起。先吃完早餐再走。"],
+     ["08:00","本谷橋","1,780 m","3.3 km","60 分","＋160 m","吊橋與溪邊的大石，是紅葉季最有名的休息點。10/4 這一帶的紅葉應該正好。"],
+     ["10:00","涸澤（ヒュッテ／小屋）","2,309 m","2.7 km","120 分","＋529 m","最後一段爬升；回頭可以看到屏風岩與常念。"],
+     ["10:30","入住・放大背包",null,null,null,null,"兩晚都住這裡，大背包可以直接安置。"],
+     ["下午","涸澤カール 散策",null,null,null,null,"涸澤ヒュッテ 的テラス、涸澤小屋 上方的斜坡、往パノラマコース 方向走一小段，都是不同的俯視角度。"],
+     ["16:00","光線時段",null,null,null,null,"午後側光打在穗高的岩壁上，紅葉的顏色最飽。這是今天真正的目的。"],
+     ["17:30","晚餐",null,null,null,null,"明天的 A／B 案在今晚看完預報再決定。"]],
+ koyo:[4,"今天分兩段：本谷橋（1,780 m）一帶的溪谷紅葉，以及涸澤カール（2,309 m）的ナナカマド。涸澤的見頃是 9 月下旬到 10 月上旬，10/4 打在正中心附近；但カール 的ナナカマド 落葉比下方早，如果 9 月有早霜，上緣可能已經過了——這也是為什麼明天留了一整天的彈性。"],
+ bail:["原路回橫尾，CT 約 2 時 30 分，再走 3 時到上高地，當天可以離開山區。這是全程退路最單純的一天。","今天也是整趟的「最後一次簡單退出點」：從涸澤往上（穗高連峰）之後，退路就變成要翻回來。","若今天就下雨，不要提前上穗高——照原計畫住涸澤，把明天的彈性日當成等天氣用，這就是它存在的理由。"],
+ stay:["涸澤（涸澤ヒュッテ 或 涸澤小屋）","2,309 m，連住兩晚。兩間都是紅葉季最難訂的山屋之一，繁忙期（約 9 月中到 10 月中）會加收旺季費用。ヒュッテ 的テラス 視野開闊、小屋 位置稍高且正對奧穗。訂到哪一間就住哪一間，不必挑。"],
+ verify:[["涸澤的紅葉見頃一般為 9 月下旬至 10 月上旬。",SRC.koyo],
+         ["涸澤ヒュッテ 預約規則為住宿日前一個月同日開放（2026 年為當日 08:00）；2027 年以官網公告為準。",SRC.karasawaH],
+         ["涸澤小屋 亦接受預約，與涸澤ヒュッテ 為不同經營者，開放規則各自公告。",SRC.karasawaG]]},
+
+{id:"d8",n:8,date:"10/5",dow:"二",tag:"彈性核心日",short:"北穗往返／紅葉",title:"涸澤 ⇄ 北穗高岳｜彈性日",
+ lead:"本來就有東西可以玩，但隨時可以犧牲。整趟 14 天裡第二個不必付代價的緩衝。",
+ stats:[["里程","5.0 km（往返）"],["上升","↑約 800 m"],["下降","↓約 800 m"],["預估時間","5 時 30 分"],["標準 CT","北穗往返 5:30"],["起點","2,309 m"],["終點","2,309 m"],["最高點","北穗高岳 3,106 m"]],
+ check:"A 案走北穗高岳南稜往返，B 案純紅葉日。這一天不預先承諾，當天早上看天氣和腿的狀況再決定——如果前面哪一天延誤了、或明天的穗高段預報轉差，這一天就直接變成休息日，整個行程不需要改任何預約。",
+ tl:[["05:30","（A 案）涸澤出發","2,309 m",null,null,null,"南稜的鎖場與梯子段在上半部，愈早愈不會堵。"],
+     ["07:00","南稜取付上部","2,650 m","1.2 km","90 分","＋341 m","開始連續的鎖場與梯子。"],
+     ["08:40","北穗高岳・北穗高小屋","3,106 m","1.3 km","100 分","＋456 m","日本最高位置的山屋之一，咖啡很有名。小屋前正對大切戶與槍岳。",1],
+     ["09:30","下山開始",null,null,null,null,"下南稜比上去更花心思，不要趕。"],
+     ["11:50","回涸澤","2,309 m","2.5 km","140 分","−797 m","下午在カール 休息。"],
+     ["整天","B 案｜純紅葉日",null,null,"—",null,"涸澤ヒュッテ テラス、パノラマコース 入口方向、涸澤小屋 上方斜坡；加上睡午覺。體力完全保留給明後兩天。"],
+     ["整天","C 案｜補時間",null,null,"—",null,"若前面任一天延誤，今天就是補回來的地方，直接休息。"],
+     ["17:00","晚餐・明天的決策",null,null,null,null,"今晚拿到的預報決定明天下午要不要先把奧穗收掉。"]],
+ koyo:[5,"涸澤カール 的正中心日。如果見頃如期，今天是整趟照片最多的一天；如果已經過了見頃上緣，A 案上北穗反而更好——從 3,100 m 俯視整個カール，紅葉的範圍一次看完。兩種情況都不吃虧，這是把這一天排在這裡的另一個理由。"],
+ bail:["A 案在南稜上任何位置都可以原路折返，是全程最自由的一天。","判斷點：07:00 到南稜取付上部 時若已明顯落後、或有落石／結冰，就折返，改 B 案。","北穗高小屋 在營業期間可緊急避難，但不要把它當成計畫的一部分——今天的設計就是「隨時能回涸澤」。"],
+ stay:["涸澤（連住第 2 晚）","同一間。大背包留在山屋，A 案只帶輕裝。"],
+ verify:[["北穗高岳南稜為涸澤往北穗的標準路線，含鎖場與梯子，往返標準 CT 約 5 時 30 分。",SRC.yamap],
+         ["北穗高小屋 位於北穗高岳山頂附近，2026 年營業至 11 月初；2027 年以官網公告為準。",SRC.yamap],
+         ["涸澤繁忙期（約 9 月中至 10 月中）山屋收取旺季加價，兩間規則不同。",SRC.karasawaH,SRC.karasawaG]]},
+
+{id:"d9",n:9,date:"10/6",dow:"三",tag:"穗高連峰",short:"涸澤→穗高岳山莊",title:"涸澤 → ザイテングラート → 穗高岳山莊",
+ lead:"只走 3 時上到 2,983 m。下午去不去奧穗，看明天的預報決定。",
+ stats:[["里程","2.5 km（＋下午選項）"],["上升","↑約 690 m"],["下降","↓0 m"],["預估時間","3 時（＋選項 1–1.7 時）"],["標準 CT","涸澤→穗高岳山莊 3:00"],["起點","2,309 m"],["終點","2,983 m"],["下午選項","涸澤岳 或 奧穗"]],
+ check:"原本的版本是今天下午就把奧穗收掉，但那樣明天還要再爬一次；改成條件式：今晚的預報穩，就只去涸澤岳（離山莊 20 分），把腿留給明天、順路走過奧穗；預報邊緣或轉差，今天下午就先把奧穗拿下來，明天再決定走吊尾根或撤涸澤。這樣兩種情況都不會白爬，也不會空手。",
+ tl:[["07:00","涸澤出發","2,309 m",null,null,null,"不用早起。今天的重點是省力。"],
+     ["07:50","パノラマコース分岐","2,600 m","1.3 km","50 分","＋291 m","往左是パノラマコース（經屏風のコル 下上高地），本行程不走。"],
+     ["08:20","ザイテングラート 取付","2,700 m","0.6 km","30 分","＋100 m","從這裡開始是岩稜，鎖場與鐵樁連續。落石區，不要在下方久留。",2],
+     ["10:00","穗高岳山莊（白出のコル）","2,983 m","0.6 km","100 分","＋283 m","入住。山莊就在奧穗與涸澤岳之間的鞍部。"],
+     ["下午","Ａ｜涸澤岳往返","3,110 m","0.6 km","40 分","＋127 m","離山莊 20 分，可以俯視涸澤與看明天的吊尾根全貌。明天預報穩就選這個。",1],
+     ["下午","Ｂ｜奧穗高岳往返","3,190 m","1.2 km","100 分","＋207 m","明天預報邊緣或轉差就選這個，先把日本第三高峰收進口袋。",1],
+     ["17:00","晚餐・明天的主要決策",null,null,null,null,"吊尾根的 Go／No-Go 今晚就要做完，不是明天早上在路上想。"]],
+ gng:2,
+ koyo:[5,"ザイテングラート 是今天的主角：一邊往上爬，一邊整個涸澤カール 在腳下展開，紅葉的輪廓從 2,300 m 往上收。這個俯視角度是在涸澤底下看不到的，而且愈往上愈完整。到了 2,983 m 的山莊就沒有紅葉了，但回頭的視野是全程最好的一次。"],
+ bail:["原路 ザイテングラート 下涸澤，CT 約 2 時。但涸澤的床位今晚已經沒有了，所以要一路退到橫尾（再 2 時 30 分）。","判斷點在 08:20 的ザイテン取付：岩面有結冰、起霧或下雨就不要上，直接回涸澤→橫尾。這一段落石本來就多，濕滑時風險倍增。","上到山莊之後，退路就只剩「原路回涸澤」一條，而且明天才能用。所以今天的 No-Go 要在取付 就做。"],
+ stay:["穗高岳山莊","2,983 m，白出のコル。奧穗與涸澤岳之間的鞍部，兩邊都是 20–60 分的輕裝往返。10 月初在這個高度已經可能降雪或結霜，是全程最冷的一晚。"],
+ verify:[["涸澤經ザイテングラート 至穗高岳山莊，標準 CT 約 3 時，沿途為岩稜與鎖場。",SRC.yamap],
+         ["穗高岳山莊 2026 年營業至 11 月初，預約規則為一個月前開放（2026 年為當日 08:00）；2027 年以官網公告為準。",SRC.hotaka],
+         ["涸澤岳（3,110 m）位於穗高岳山莊北側，往返約 40 分。",SRC.yamap]]},
+
+{id:"d10",n:10,date:"10/7",dow:"四",tag:"穗高連峰・Go／No-Go",short:"吊尾根・前穗",title:"奧穗 → 吊尾根 → 前穗 → 上高地",
+ lead:"全程最長、曝露感最高的一天。決策在山莊就做完，路上只做持續撤退判斷。",
+ stats:[["里程","8.0 km"],["上升","↑約 350 m"],["下降","↓約 1,830 m"],["預估時間","8 時 30 分"],["標準 CT","吊尾根＋重太郎新道 8:30"],["起點","2,983 m"],["終點","1,505 m"],["最高點","奧穗高岳 3,190 m"]],
+ check:"這一天不適合「邊走邊看」。吊尾根與前穗之間沒有中途下撤點，紀美子平 是唯一的分歧（可略過前穗直接下重太郎新道），但一旦進入吊尾根就要走完。所以主要決策在出發前於穗高岳山莊完成；上路之後只做「要不要折返」的持續判斷，不把壞天氣拿來試。重太郎新道連續下降 1,400 m，是全程最耗腿的一段，濕滑時風險比技術難度更高。",
+ tl:[["05:30","穗高岳山莊","2,983 m",null,null,null,"出發前最後確認：岩面是否結霜、風速、全天是否轉雨。決策在這裡做完。",2],
+     ["06:30","奧穗高岳","3,190 m","0.6 km","60 分","＋207 m","日本第三高峰。穗高神社嶺宮。昨天若已登頂，今天仍必須經過這裡才能上吊尾根。",1],
+     ["08:30","紀美子平","2,910 m","1.6 km","120 分","−280 m","吊尾根的終點，也是唯一的分歧：往上前穗，或直接下重太郎新道。",2],
+     ["09:40","前穗高岳","3,090 m","0.5 km","70 分","＋180 m","往返；背包放紀美子平。時間或體力不夠就直接略過。",1],
+     ["10:00","回紀美子平","2,910 m","0.5 km","30 分","−180 m","這裡吃午餐，接下來是連續下降。"],
+     ["12:30","雷鳥廣場一帶","2,500 m","0.8 km","90 分","−410 m","重太郎新道上段，長梯子與鎖場連續。"],
+     ["13:30","岳沢小屋","2,170 m","1.5 km","60 分","−330 m","最後的補給與休息點。開始進入岳沢的紅葉帶。"],
+     ["15:20","上高地","1,505 m","2.5 km","110 分","−665 m","河童橋。今晚住上高地，明天轉八ヶ岳。"]],
+ gng:3,
+ koyo:[4,"今天的紅葉在最後三分之一：岳沢小屋（2,170 m）往下到上高地（1,505 m），10/7 大致打在這條帶子的上半。前段在 3,000 m 以上的岩稜沒有紅葉，但從奧穗與吊尾根往下看，岳沢整條谷的紅黃一次看完——這是「追著紅葉線往下走」最具體的一天。"],
+ bail:["No-Go 選項 A（首選）：不走吊尾根，從穗高岳山莊原路 ザイテングラート 下涸澤 → 橫尾 → 上高地，CT 約 7 時，當天仍可到上高地，今晚的住宿不受影響。","No-Go 選項 B：早上狀況好但預報午後轉差，就只上奧穗往返，再走 A。","No-Go 選項 C：穗高岳山莊續住（當天與山莊談，旺季不保證），隔天走 A。但這會壓縮明天的轉場，赤岳鉱泉那一晚要同步處理。","途中的持續判斷：到紀美子平（08:30）若落後標準時間超過 1 時，就略過前穗直接下重太郎新道。進了吊尾根之後沒有回頭的捷徑。"],
+ stay:["上高地（五千尺・西糸屋・白樺莊 等）","1,505 m。旅館系統，不是山屋，預約比山屋容易得多，但紅葉季仍要早訂。今晚是山上七晚之後第一次回到有商店、有郵局、有正常浴室的地方。"],
+ verify:[["奧穗高岳經吊尾根至紀美子平、前穗高岳，再下重太郎新道至上高地，標準 CT 合計約 8 時 30 分。",SRC.yamap],
+         ["重太郎新道為岳沢至紀美子平的陡峭路線，連續梯子與鎖場，下降落差約 1,400 m。",SRC.yamap],
+         ["上高地的住宿與巴士資訊由上高地公式網站公告。",SRC.kamikochi]]},
+{id:"d11",n:11,date:"10/8",dow:"五",tag:"轉場・八ヶ岳",short:"上高地→本沢温泉",title:"上高地 → 茅野 → 本沢温泉",
+ lead:"上午留給上高地，下午走兩個半小時，住進日本最高的野天風呂。",
+ stats:[["步行里程","4.8 km"],["上升","↑約 530 m"],["下降","↓約 280 m"],["步行時間","2 時 30 分"],["上高地散策","06:15–08:30｜明神池往返 6 km"],["起點","桜平 1,900 m"],["終點","本沢温泉 2,150 m"],["今晚","雲上の湯 2,150 m"]],
+ check:"原本 07:00 就坐車離開，等於在上高地過夜卻沒看。改成早上散策明神池往返（平路 6 km、2 時 15 分），09:00 才上巴士，整串往後推兩小時，14:50 到本沢温泉——仍然從容。八ヶ岳改成兩天一夜之後有這個餘裕，而且那一晚落在 10/8（五），避開 10/9 開始的三連休，原本最難訂的那一床消失了。",
+ tl:[["05:45","河童橋の朝","1,505 m",null,null,null,"清晨無風時梓川會把穗高倒映出來——昨天你們就是從那上面下來的。這是整趟最好的回望。",1],
+     ["06:15","出發散策",null,null,null,null,"輕裝。大背包寄放旅館，回來再拿。"],
+     ["07:15","明神池・穗高神社奧宮","1,530 m","3.0 km","60 分",null,"梓川右岸平路。明神池是神域，進奧宮要拜觀料；一之池、二之池的水面幾乎不動。",1],
+     ["08:30","回河童橋","1,505 m","3.0 km","60 分",null,"左岸回程（木道，景色不同）。時間不夠就原路折返。"],
+     ["09:00","上高地　巴士",null,null,null,null,"紅葉季加班車多但也排隊，預留 30 分。替代方案：搭巴士到大正池再走回河童橋（約 1 時），時間更短但同樣值得。"],
+     ["10:05","新島々",null,null,null,null,"轉アルピコ交通 上高地線電車。"],
+     ["10:40","松本",null,null,null,null,"轉 JR 中央本線往東。在松本車站買午餐（駅弁或蕎麥）。"],
+     ["11:30","茅野",null,null,null,null,"八ヶ岳的入口。計程車務必前一天預約。"],
+     ["12:20","桜平","1,900 m",null,null,null,"計程車約 50 分。<b>桜平林道是未鋪裝山路，雨後或季節末可能通行止</b>，出發前一定要跟車行確認可否通行。",2],
+     ["12:40","夏沢鉱泉","2,060 m","0.8 km","20 分","＋160 m","林道盡頭的小屋。"],
+     ["13:40","オーレン小屋","2,330 m","1.7 km","60 分","＋270 m","林間的大屋，水場。"],
+     ["14:10","夏沢峠","2,430 m","1.0 km","30 分","＋100 m","稜線鞍部。往南是明天的硫黃岳，往東下本沢温泉。"],
+     ["14:50","本沢温泉","2,150 m","1.3 km","40 分","−280 m","入住。從峠下切，路好走。"],
+     ["15:30","雲上の湯","2,150 m",null,null,null,"小屋上方步行約 8 分。<b>日本最高的野天風呂</b>，混浴、幾乎沒有遮蔽與更衣處（帶一條大浴巾）。水溫約 43 °C，10 月的外氣溫可能只有個位數——這個落差正是重點。",1],
+     ["傍晚","內湯（檜風呂）",null,null,null,null,"小屋內另有內湯，天氣不好或不想露天時泡這個。"],
+     ["17:30","晚餐・明天的橫斷確認",null,null,null,null,"明天 CT 8 時 15 分，是山上最後也最長的一天，05:00 出發。"]],
+ koyo:[3,"八ヶ岳的紅葉比北阿爾卑斯晚，主色是カラマツ（落葉松）的金黃，和涸澤的ナナカマド 完全不同。桜平（1,900 m）到オーレン小屋（2,330 m）這一段在 10/8 大致剛進見頃，林間的黃與針葉的深綠交錯。泡雲上の湯時抬頭就是這片顏色。"],
+ bail:["<b>今天真正的風險是交通，不是山。</b>桜平林道通行止、或上高地巴士大排長龍導致抵達茅野超過 13:00，都會讓今天上不去。<b>散策是第一個該砍的東西</b>——早上看狀況，巴士班次緊就直接走。","備案 A：改走稲子湯（みどり池入口）上本沢温泉，CT 約 2 時，從 JR 小海線松原湖站搭計程車。路線更穩定，但從上高地過去要繞小淵沢，多 1 時半。","備案 B：今天住茅野或原村（有日歸溫泉旅館），明天清晨直接上，D12 縮短為硫黃岳往返或赤岳往返。","山上的退路：本沢温泉本身就在半山腰，原路回桜平 2 時、或下稲子湯 2 時，兩邊都簡單。"],
+ stay:["本沢温泉","2,150 m。通年營業的山中溫泉宿。<b>雲上の湯是日本海拔最高的野天風呂</b>，另有內湯。位置在夏沢峠東側下方，明天從這裡直接上稜線。10/8 是週五，比三連休的週六好訂得多，但它比赤岳鉱泉小，仍要早處理。"],
+ verify:[["本沢温泉的野天風呂「雲上の湯」位於海拔約 2,150 m，為日本海拔最高的露天／野天風呂。","https://tabi-mag.jp/highaltitude-rotenburo/"],
+         ["本沢温泉通年營業，可由稲子湯（みどり池入口）、本沢入口，或經夏沢峠自桜平側進入。","https://www.bepal.net/archives/7712"],
+         ["上高地至新島々的巴士與上高地線電車由アルピコ交通營運，班次隨季節調整。",SRC.alpico,SRC.kamikochi]]},
+
+{id:"d12",n:12,date:"10/9",dow:"六",tag:"八ヶ岳橫斷・最後一天",short:"硫黃・橫岳・赤岳",title:"本沢温泉 → 硫黃岳 → 橫岳 → 赤岳 → 下山",
+ lead:"八ヶ岳主稜由北往南橫斷。山上最後一天，也是全程第二長的一天。",
+ stats:[["里程","13.0 km"],["上升","↑約 1,100 m"],["下降","↓約 1,760 m"],["預估時間","8 時 15 分"],["標準 CT","本沢温泉→赤岳→美濃戶口 8:15"],["起點","2,150 m"],["終點","美濃戶口 1,490 m"],["最高點","赤岳 2,899 m"]],
+ check:"由北往南走的好處是不必回頭：從本沢温泉直接上稜線，一路硫黃岳→橫岳→赤岳，最後下文三郎道到美濃戶口接車。比原本「從赤岳鉱泉繞一圈再回來」少走 1 時多，而且三座山頂是連著的而不是繞回來的。代價是今天要背全裝（不像連住可以放大背包），所以 05:00 出發、把下午留給交通。",
+ tl:[["05:00","本沢温泉","2,150 m",null,null,null,"頭燈出發。全裝——今天不回來了。"],
+     ["05:50","夏沢峠","2,430 m","1.3 km","50 分","＋280 m","回到稜線。往南開始。"],
+     ["06:40","硫黃岳","2,760 m","1.5 km","50 分","＋330 m","巨大的爆裂火口壁。山頂寬闊，風大時完全沒有遮蔽。",1],
+     ["07:05","硫黃岳山莊","2,650 m","0.7 km","25 分","−110 m","鞍部的山屋，廁所乾淨。橫岳的鎖場段從這裡開始。"],
+     ["08:15","橫岳","2,829 m","1.3 km","70 分","＋179 m","一連串小峰（台座ノ頭、無名峰、三叉峰），鎖場與梯子連續，是今天技術性最高的一段。",2],
+     ["09:15","地藏の頭","2,722 m","1.3 km","60 分","−107 m","<b>最後的下撤分歧</b>：從這裡可以走地藏尾根直接下行者小屋（CT 1 時），不上赤岳。",2],
+     ["10:15","赤岳・赤岳頂上山莊","2,899 m","0.6 km","60 分","＋177 m","八ヶ岳最高峰。天氣好時富士山、南阿爾卑斯與北阿爾卑斯一次看完——包括前幾天走的槍與穗高。",1],
+     ["11:25","行者小屋","2,350 m","1.3 km","70 分","−549 m","文三郎道下。階梯與鐵網連續，膝蓋的最後考驗。"],
+     ["12:25","美濃戶山莊","1,720 m","2.4 km","60 分","−630 m","南沢沿溪，林相很好。"],
+     ["13:15","美濃戶口","1,490 m","2.6 km","50 分","−230 m","計程車到茅野（前一天預約）。山上的部分到此結束。"],
+     ["14:20","上諏訪｜片倉館 千人風呂",null,null,null,null,"大正時代的洋館浴場，<b>國家指定重要文化財</b>。浴槽深 1.1 m 要站著泡，底下鋪小石子。把十一天的山洗掉，這比在車站隨便沖一下有意思得多。",1],
+     ["16:00","諏訪湖畔",null,null,null,null,"泡完走一段湖畔。天氣好的話對岸看得到八ヶ岳——今天早上你們還在上面。"],
+     ["17:00","松本",null,null,null,null,"住松本，不急著進東京。晚餐：馬刺し、山賊焼き、信州蕎麥。"]],
+ koyo:[3,"稜線在 2,650–2,900 m，這個高度 10 月上旬的紅葉已經結束。今天的紅葉在下降段：行者小屋（2,350 m）到美濃戶口（1,490 m）的南沢，カラマツ 與ダケカンバ 的黃配溪流。這是整趟「紅葉海拔時間軸」的終點——從 9/29 的 2,000 m 一路走到今天的 1,500 m。"],
+ bail:["退路多，是這條走向的優點：硫黃岳山莊、赤岳頂上山莊都在路上可緊急避難。","<b>09:15 地藏の頭是最後的分歧。</b>若在這裡已經風大、起霧或落後標準時間超過 1 時，就走地藏尾根直接下行者小屋，放棄赤岳。CT 省 1 時半，而且避開文三郎道的長階梯。","若在硫黃岳就天氣不好：原路回夏沢峠 → 本沢温泉或桜平下山（CT 2 時），改搭車進東京，整個赤岳段放棄。","今天背的是全裝，所以任何一次下撤都直接下山、不再上來——這是山上最後一天，放棄的成本最低。"],
+ stay:["松本","平地。山上的八晚到今天結束。選松本不選東京的理由：茅野到松本只要 1 小時（到東京要 2 小時），走完 8 時 15 分的山路之後早點進旅館；而且明天上午剛好留給松本城。瓦斯罐在這裡處理掉。"],
+ verify:[["本沢温泉經夏沢峠、硫黃岳、橫岳至赤岳，再下文三郎道至美濃戶口，標準 CT 合計約 8 時 15 分。",SRC.yamap],
+         ["片倉館（上諏訪）為大正 17 年建的洋風浴場，含千人風呂在內的建築群為國家指定重要文化財。",null],
+         ["橫岳段含連續鎖場、梯子與鐵樁，是八ヶ岳主稜技術性最高的路段。",SRC.yamap],
+         ["2027/10/11 為體育之日（10 月第 2 個週一），10/9–10/11 為三連休；特急指定席與計程車都要提前預約。",SRC.nagano]]},
+
+{id:"d13",n:13,date:"10/10",dow:"日",tag:"純觀光・緩衝",short:"松本→東京",title:"松本城 → 東京",
+ lead:"十一天來第一次不用看天氣。上午松本、下午進東京。",
+ stats:[["里程","平地日"],["上午","松本觀光"],["下午","特急あずさ → 東京"],["今晚","東京（羽田一帶）"],["功能","同時是班機前的緩衝"],["山上天數","11 天"],["山屋晚數","8 晚"],["備註","三連休中日"]],
+ check:"這一天有兩個身分。順利的話它是純觀光：松本是整趟的門戶城市，你們來回經過三次都沒停下來。延誤的話它是保險——班機是全程唯一不能移動的東西，而日本旺季山屋不能臨時延住，所以前面只要有一天走不了，就從這一天扣。只能扣一次。",
+ tl:[["08:30","松本城",null,null,null,null,"<b>國寶五城之一</b>，現存最古老的五重六階天守。黑色的壁板配北阿爾卑斯的背景——天氣好時從護城河對岸可以一起入鏡。開館 08:30，旺季會排隊，開門就去。",1],
+     ["10:30","舊開智學校",null,null,null,null,"明治初期的洋風校舍，也是<b>國寶</b>，離松本城步行 10 分。對建築有興趣就進去，沒有就跳過。"],
+     ["11:30","中町通り・縄手通り",null,null,null,null,"藏造的白牆老街。中町是工藝與酒藏，縄手是沿河的小店街。午餐吃信州蕎麥或馬肉。"],
+     ["13:30","松本車站",null,null,null,null,"買伴手禮（味噌、蕎麥、信州葡萄酒）。瓦斯罐若還沒處理，在這裡解決。"],
+     ["14:30","特急あずさ",null,null,null,null,"松本→新宿約 2 時 40 分。<b>今天是三連休中日，指定席務必事先訂。</b>"],
+     ["17:10","新宿 → 羽田一帶",null,null,null,null,"住機場附近，明天不用趕。"],
+     ["晚間","最後一頓",null,null,null,null,"行李打包：登山杖、冰爪與任何尖銳物品託運，瓦斯罐確認已處理掉。"],
+     ["—","如果前面延誤過",null,null,null,null,"放棄松本觀光，直接搭車進東京休息。班機不受影響，這就是這一天存在的目的。"]],
+ koyo:[1,"山上的紅葉昨天就結束了。松本城護城河邊的樹 10 月中還沒轉，東京都心要等到 11 月下旬——這一天是看建築與吃東西，不是看葉子。"],
+ bail:["這一天本身就是全趟的緩衝，沒有自己的退路問題。","使用方式：前面每延誤一天就從這一天扣，扣完了才需要動到回程班機——只能算一次。","最先被犧牲的順序：松本城 → 上諏訪片倉館（D12）→ 上高地散策（D11）。這三段都是純觀光，砍掉不影響任何預約。"],
+ stay:["東京（羽田一帶）","平地。選羽田附近是為了明天的班機，不是為了逛東京——真要逛東京得再多留一天，這趟沒有。"],
+ verify:[["松本城天守為日本國寶五城之一，現存最古老的五重六階天守。",null],
+         ["舊開智學校校舍為近代學校建築中首件被指定為國寶者。",null],
+         ["2027/10/10 為三連休第二天；特急指定席與東京住宿在此期間較滿。",SRC.nagano],
+         ["瓦斯罐（OD 罐、CB 罐）不可手提亦不可託運上飛機，須在日本境內處理。",SRC.kamikochi]]},
+
+{id:"d14",n:14,date:"10/11",dow:"一",tag:"返程・總結",short:"東京→台北",title:"東京 → 台北",
+ lead:"十四天、八十八公里、十二座山頂。從 2,700 m 的稜線一路走到 1,500 m 的河畔。",
+ stats:[["里程","返程日"],["出發","羽田 HND"],["抵達","桃園 TPE"],["飛行","約 3 時 40 分"],["總里程","84 km"],["累計上升","↑7,680 m"],["累計下降","↓7,750 m"],["山頂","12 座（7 座 3,000 m 級）"]],
+ check:"12 座山頂：燕岳 2,763、大天井岳 2,922、槍岳 3,180、大喰岳 3,101、中岳 3,084、南岳 3,033、北穗高岳 3,106、奧穗高岳 3,190、前穗高岳 3,090、赤岳 2,899、橫岳 2,829、硫黃岳 2,760。其中 7 座在 3,000 m 以上，含日本第 3 高峰（奧穗）、第 5（槍）與第 10（大喰）。",
+ tl:[["上午","羽田機場",null,null,null,null,"國際線航廈。出發前再確認行李內無瓦斯與打火機。"],
+     ["—","返台",null,null,null,null,"約 3 時 40 分。"],
+     ["—","回顧｜高度適應",null,null,null,null,"燕山莊 2,712 → 大天莊 2,870 → 槍岳山莊 3,080 ×2 → 穗高岳山莊 2,983，是一路往上睡的順序，沒有一次大跳。這是這條排法最被低估的優點。"],
+     ["—","回顧｜紅葉",null,null,null,null,"9/29 合戰尾根 2,000 m → 10/3 槍沢 2,000 m → 10/4–10/5 涸澤 2,309 m → 10/7 岳沢 2,170→1,505 m → 10/10 北沢 1,490 m。行程方向與見頃前緣同向。"],
+     ["—","下一趟",null,null,null,null,"D5 在南岳小屋前看過的大切戶，留給另外安排的「槍→大切戶→北穗→奧穗」。那是技術縱走，不該和紅葉行程混在一起。"]],
+ koyo:[1,"行程結束。2027 年 9 月中旬起可以回頭對照：實際的見頃和這本手冊的推估差了幾天，下一趟排日期時就有自己的資料了。"],
+ bail:["無。","如果整趟有任何一天改動，回來後把實際走法記下來——日本山屋的預約規則、三連休的位置、見頃的實際日期，這三件事每年都會變，但自己的紀錄比任何推估都準。"],
+ stay:["—","行程結束。"],
+ verify:[["奧穗高岳（3,190 m）為日本第 3 高峰，槍岳（3,180 m）第 5，大喰岳（3,101 m）第 10。",SRC.yamap],
+         ["本手冊的所有山屋營業期與預約規則均以 2026 年為參考；2027 年日期須於各屋官網公告後重新確認。",SRC.enzanso]]}
+];
+
+/* PROF[id] = [[累計km, 標高, 節點名, 必標?]] */
+const PROF={
+ d2:[[0,1380,"有明莊",1],[0.6,1462,"登山口",1],[1.3,1670,"第一ベンチ"],[2.1,1820,"第二ベンチ"],[2.9,1990,"第三ベンチ"],[3.6,2200,"富士見ベンチ"],[4.4,2350,"合戰小屋",1],[4.9,2489,"合戰沢ノ頭"],[6.0,2712,"燕山莊",1],[6.9,2763,"燕岳",1],[7.8,2712,"回燕山莊"]],
+ d3:[[0,2712,"燕山莊",1],[1.2,2660,"蛙岩"],[2.6,2680,"大下りの頭"],[4.3,2620,"切通岩",1],[5.3,2800,"大天井岳分岐"],[5.8,2870,"大天莊",1],[6.2,2922,"大天井岳",1],[6.6,2870,"回大天莊"]],
+ d4:[[0,2870,"大天莊",1],[1.3,2650,"大天井ヒュッテ",1],[2.3,2700,"ビックリ平"],[3.2,2769,"赤岩岳"],[4.6,2680,"ヒュッテ西岳",1],[5.5,2480,"水俣乗越",1],[7.6,2800,"東鎌尾根"],[8.8,2880,"ヒュッテ大槍"],[9.6,3080,"槍岳山莊",1],[9.8,3180,"槍岳",1],[10.0,3080,"回山莊"]],
+ d5:[[0,3080,"槍岳山莊",1],[0.9,3101,"大喰岳",1],[1.7,3084,"中岳"],[3.3,3033,"南岳",1],[3.6,3000,"南岳小屋",1],[7.2,3080,"回槍岳山莊",1]],
+ d6:[[0,3080,"槍岳山莊",1],[1.3,2600,"天狗原分岐"],[2.6,2350,"大曲",1],[3.6,2000,"ババ平"],[4.6,1820,"槍沢ロッヂ",1],[7.5,1700,"一ノ俣"],[9.5,1660,"二俣"],[13.5,1620,"橫尾山莊",1]],
+ d7:[[0,1620,"橫尾山莊",1],[3.3,1780,"本谷橋",1],[6.0,2309,"涸澤",1]],
+ d8:[[0,2309,"涸澤",1],[1.2,2650,"南稜取付上"],[2.5,3106,"北穗高岳",1],[3.8,2650,"南稜下部"],[5.0,2309,"回涸澤",1]],
+ d9:[[0,2309,"涸澤",1],[1.3,2600,"パノラマ分岐"],[1.9,2700,"ザイテン取付",1],[2.5,2983,"穗高岳山莊",1]],
+ d10:[[0,2983,"穗高岳山莊",1],[0.6,3190,"奧穗高岳",1],[2.2,2910,"紀美子平",1],[2.7,3090,"前穗高岳",1],[3.2,2910,"回紀美子平"],[4.0,2500,"雷鳥廣場"],[5.5,2170,"岳沢小屋",1],[8.0,1505,"上高地",1]],
+ d11:[[0,1900,"桜平",1],[0.8,2060,"夏沢鉱泉"],[2.5,2330,"オーレン小屋",1],[3.5,2430,"夏沢峠",1],[4.8,2150,"本沢温泉",1]],
+ d12:[[0,2150,"本沢温泉",1],[1.3,2430,"夏沢峠"],[2.8,2760,"硫黃岳",1],[3.5,2650,"硫黃岳山莊"],[4.8,2829,"橫岳",1],[6.1,2722,"地藏の頭",1],[6.7,2899,"赤岳",1],[8.0,2350,"行者小屋",1],[10.4,1720,"美濃戶山莊"],[13.0,1490,"美濃戶口",1]]
+};
+
+const DAYLINE={
+ d1:"台北 → 名古屋 → 松本 → 穗高｜移動日，宿有明莊 1,380 m",
+ d2:"中房溫泉 → 合戰尾根 → 燕岳｜7.8 km、↑1,420 m",
+ d3:"燕山莊 → 切通岩 → 大天井岳｜6.6 km，短程日",
+ d4:"大天莊 → 西岳 → 東鎌尾根 → 槍岳｜10 km，Go／No-Go 日",
+ d5:"槍岳山莊連住｜南岳往返 7.2 km，或待在屋裡",
+ d6:"槍沢下降 → 橫尾｜13.5 km、↓1,480 m，紅葉帶正中心",
+ d7:"橫尾 → 本谷橋 → 涸澤｜6 km，下午留給紅葉",
+ d8:"涸澤 ⇄ 北穗高岳｜5 km 往返，或純紅葉日",
+ d9:"涸澤 → ザイテン → 穗高岳山莊｜2.5 km，下午條件式",
+ d10:"奧穗 → 吊尾根 → 前穗 → 上高地｜8 km、↓1,830 m，Go／No-Go 日",
+ d11:"上高地明神池散策 → 茅野 → 桜平 → 本沢温泉｜泡 2,150 m 的雲上の湯",
+ d12:"本沢温泉 → 硫黃岳 → 橫岳 → 赤岳 → 片倉館 → 松本｜13 km，八ヶ岳橫斷",
+ d13:"松本城 → 東京｜純觀光日，同時是班機前的緩衝",
+ d14:"東京 → 台北｜返程日"
+};
+const WALK=DAYS.filter(d=>PROF[d.id]);
+/* ---------- 山屋開搶日曆 ---------- */
+/* [日期, 星期, 山屋, 海拔, 預約系統, 2026 規則, 2027 推估動作, 優先級, 負責人] */
+const HUTS=[
+ ["10/4","一","涸澤ヒュッテ／涸澤小屋","2,309 m","各屋獨立","住宿日前一個月同日 08:00（2026 為涸澤ヒュッテ 規則）","推估 2027/9/4 08:00。兩間都投，先中哪間就住哪間。整趟最難的一組。","P1","Ａ／Ｂ 分頭"],
+ ["10/5","二","涸澤ヒュッテ／涸澤小屋","2,309 m","各屋獨立","同上","推估 2027/9/5 08:00。連住要分兩天搶，兩天都要有人在線上。","P1","Ａ／Ｂ 分頭"],
+ ["10/6","三","穗高岳山莊","2,983 m","穗高岳山莊","一個月前 08:00（2026）","推估 2027/9/6 08:00。","P1","Ｂ"],
+ ["10/1","五","槍岳山莊（第 1 晚）","3,080 m","槍岳山莊集團","住宿日前一個月（2026）","推估 2027/9/1。","P1","Ａ"],
+ ["10/2","六","槍岳山莊（第 2 晚）","3,080 m","槍岳山莊集團","同上","推估 2027/9/2。週六夜，連住兩晚一起送出比較穩。","P1","Ａ"],
+ ["9/29","三","燕山莊","2,712 m","燕山莊集團","集團統一分批開放（2026 為 3 月中旬起）","2027 年 3 月中旬公告後，三晚（有明莊・燕山莊・大天莊）一次處理。","P2","Ｂ"],
+ ["9/30","四","大天莊","2,870 m","燕山莊集團","同上","與燕山莊同一次。","P2","Ｂ"],
+ ["9/28","二","有明莊","1,380 m","燕山莊集團","同上（溫泉旅館，名額較寬）","與燕山莊同一次。","P2","Ｂ"],
+ ["10/8","五","本沢温泉","2,150 m","本沢温泉","通年營業；預約規則以官網為準","八ヶ岳唯一的一晚。<b>落在週五，避開了 10/9 開始的三連休</b>，比原本的赤岳鉱泉週六好訂得多；但屋小，仍要早處理。","P2","Ａ"],
+ ["10/3","日","橫尾山莊","1,620 m","橫尾山莊","電話一個月前；特定期間部分名額可兩個月前網路預約","先試網路（推估 2027/8 月初），沒中再走電話（9 月初）。","P3","Ａ"],
+ ["10/7","四","上高地（五千尺・西糸屋・白樺莊 等）","1,505 m","各旅館","旅館系統，開放較早","旅館不是山屋，但紅葉季仍要早訂；可比山屋更早處理。","P3","Ｂ"],
+ ["10/9","六","松本（車站周邊）","—","飯店","隨時","下山當晚。茅野到松本只要 1 小時，比進東京早到一個鐘頭；隔天上午剛好給松本城。","P3","Ｂ"],
+ ["10/10","日","東京（羽田一帶）","—","飯店","隨時","班機前一晚。三連休中日價格會高，但隨時訂得到。","P3","Ｂ"]
+];
+const PRILEG=[
+ ["P1","<b>涸澤 ×2、槍岳山莊 ×2、穗高岳山莊。</b>旺季熱門、名額有限、而且是 08:00 整點開放。涸澤的連住要連兩天分別搶，兩人分頭、各用自己的帳號。這五晚決定了整趟能不能成立。"],
+ ["P2","<b>燕山莊集團三晚</b>（有明莊・燕山莊・大天莊）與<b>本沢温泉</b>。燕山莊集團一次開放、一次處理完，但開放日比其他屋早很多（3 月中旬），容易忘；本沢温泉落在週五，比週六好訂。"],
+ ["P3","橫尾、上高地、東京。替代方案多，最後處理。橫尾是這組裡唯一要留意的，因為它有「兩個月前網路」與「一個月前電話」兩條路。"]
+];
+const HUTNOTE=[
+ "本表的 2026 規則與日期是參考值，用來判斷「哪一家會先開、哪一家最難」。<b>2027 年的營業期與開放日都要回各屋官網確認後再改寫這張表</b>。",
+ "<b>原本的 P0 已經消失了。</b>八ヶ岳改成兩天一夜之後，唯一那一晚從 10/9（三連休週六的赤岳鉱泉）換成 10/8（週五的本沢温泉）——全程最難搶的那一床不見了，現在最難的是涸澤兩晚。",
+ "<b>ヒュッテ西岳</b> 也不需要了——大天莊直推槍岳山莊之後，表銀座這側名額最少的那一間從清單上消失，燕山莊集團從四晚變三晚。",
+ "<b>兩個人要分頭搶。</b> 涸澤與穗高岳山莊是 08:00 整點開放，兩人各用一個帳號同時投比一個人連點有效得多；中了之後再取消多的那一間。",
+ "<b>取消規則各家不同</b>，當日取消多為全額或半額。因為旺季訂不到就等於走不了，所以寧可先訂、後取消，不要等天氣確定再訂。",
+ "若 <b>槍岳山莊連住兩晚只中一晚</b>：優先保 10/1（表銀座當天一定要到），10/2 改成直接下槍沢到橫尾（提前一天），後面全部往前挪一天——但這會讓涸澤變成 10/3（日）、10/4（一），週日夜的涸澤是紅葉季最擠的一晚，所以這是最後手段。",
+ "若 <b>本沢温泉訂不到</b>：改回赤岳鉱泉 10/8 一晚，隔天走赤岳鉱泉→地藏尾根→赤岳→橫岳→硫黃岳→赤岩の頭→赤岳鉱泉→美濃戶口（CT 約 9 時 20 分，較長），或縮短為赤岳往返。溫泉改成下山後在茅野泡日歸。"
+];
+
+/* ---------- 天氣決策表 ---------- */
+const GNGS=[
+ {id:"d4",n:4,date:"10/1（五）",title:"東鎌尾根｜大天莊 → 槍岳山莊",
+  why:"從水俣乗越 到ヒュッテ大槍 約 2 時 30 分全在稜線上，連續長梯子與鎖場，沒有遮蔽、沒有中途逃生口。這是整趟判斷時間最早、也最不能改主意的一段。",
+  when:["10/1 05:00 出發前（大天莊）——看前夜氣溫與是否結霜。","<b>08:30 前後抵達水俣乗越時——最晚的決策點。</b>","09:00 之後：進入梯子段，只剩往前。"],
+  go:["稜線風速低於 15 m/s","岩面無結冰、前夜無新雪","能見度可見槍岳","當日無雷雨預報","抵達水俣乗越未落後標準時間超過 40 分"],
+  no:["<b>A｜下切槍沢</b>　水俣乗越 → ババ平 → 槍沢ロッヂ 或橫尾，CT 3–4 時。放棄槍岳，把 D6 提前，隔天休息或提前上涸澤。",
+      "<b>B｜原路退回</b>　回大天莊 CT 3 時 30 分，再下常念乗越 → 一ノ沢，表銀座中止。",
+      "<b>C｜稜線中段遇突發天氣</b>　就地找岩壁背風處等待，不要在梯子上折返。"],
+  key:"注意：選 A 之後，10/1 與 10/2 的槍岳山莊兩晚都用不到了。但那兩晚是事先訂的，取消的代價遠低於在東鎌尾根上冒險。"},
+ {id:"d9",n:9,date:"10/6（三）",title:"條件式｜今天下午要不要先把奧穗收掉",
+  why:"這不是安全決策，是效率與保險的取捨。原版今天下午登奧穗、明天再爬一次，等於爬兩次；但如果不爬，而明天被天氣吃掉，就完全拿不到日本第三高峰。",
+  when:["<b>10/6 17:00 晚餐前——拿到 10/7 的預報之後決定。</b>","08:20 ザイテン取付 另有一個安全性的 No-Go（見下方撤退欄），與這個判斷無關。"],
+  go:["<b>明天預報穩</b>（無結霜、風速低於 12 m/s、全天不轉雨）<br>→ 今天下午只去<b>涸澤岳</b>（往返 40 分），省腿力，奧穗留給明天順路走過。"],
+  no:["<b>明天預報邊緣或轉差</b><br>→ 今天下午就走<b>奧穗往返</b>（CT 1 時 40 分），先把 3,190 m 收進口袋。明天再決定走吊尾根或撤涸澤。"],
+  key:"兩種選擇都不會白爬：涸澤岳 能俯視涸澤並看清明天的吊尾根全貌，奧穗 則是保險。真正要避免的是「今天什麼都不做，明天又走不了」。"},
+ {id:"d10",n:10,date:"10/7（四）",title:"吊尾根｜穗高岳山莊 → 前穗 → 上高地",
+  why:"奧穗到紀美子平 的吊尾根沒有中途下撤點。紀美子平 是唯一的分歧（可略過前穗直接下重太郎新道），但一旦進入吊尾根就必須走完。後半的重太郎新道連續下降 1,400 m，濕滑時風險比技術難度更高。",
+  when:["<b>10/6 晚間——拿到預報，做出初判。</b>","<b>10/7 05:30 出發前於穗高岳山莊——主要決策在這裡完成。</b>","上路之後只做「要不要折返」的持續判斷，不把壞天氣拿來試。","08:30 紀美子平——若落後標準時間超過 1 時，略過前穗直接下重太郎新道。"],
+  go:["岩面無結霜、無薄冰（看前夜氣溫與是否降雪）","稜線風速低於 12 m/s","能見度良好","全天不轉雨，午後無雷雨預報","兩人狀態都好——這一天沒有「一個人撐一下」的空間"],
+  no:["<b>A｜首選</b>　不走吊尾根，原路 ザイテングラート 下涸澤 → 橫尾 → 上高地，CT 約 7 時。當天仍到上高地，今晚的住宿不受影響。",
+      "<b>B｜折衷</b>　早上狀況好但預報午後轉差，只上奧穗往返，再走 A。",
+      "<b>C｜續住</b>　穗高岳山莊再住一晚（當天與山莊談，旺季不保證），隔天走 A。但會壓縮 10/8 的轉場，赤岳鉱泉那一晚要同步處理。"],
+  key:"A 案不是失敗，是這一天本來就該有的兩條路之一。涸澤→橫尾→上高地的紅葉一樣好看，而且當天就能到上高地。"}
+];
+const GNGSRC=[
+ ["山の天気予報（ヤマテン）",SRC.yamaten,"稜線風速與結冰預報。付費，但這兩天值得。"],
+ ["氣象廳｜防災氣象情報",SRC.jma,"雷雨、大雨與強風警報。"],
+ ["長野縣｜山岳情報",SRC.nagano,"路況、崩塌與警戒資訊。"],
+ ["各山屋官網／社群",null,"當日現地狀況最準：燕山莊集團、槍岳山莊、涸澤兩屋、穗高岳山莊、赤岳鉱泉都會發當日照片與路況。"]
+];
+/* ---------- 每日撤退方案 ---------- */
+/* [日, 位置, 下撤路線, CT, 下撤後到哪, 能否重接] */
+const BAILS=[
+ ["D1","9/28","移動中","班機延誤接不上大糸線末班 → 住松本","—","松本","可。隔天清晨首班上山，D2 起登延後 2–3 時仍可到燕山莊。"],
+ ["D2","9/29","合戰尾根","原路下中房溫泉","3:30","穗高站 → 松本","可，但燕山莊之後每一晚都要逐一取消。判斷點在合戰小屋 2,350 m。"],
+ ["D3","9/30","燕山莊→大天井","Ａ 回燕山莊再下中房<br>Ｂ 大天井岳分岐 下常念乗越 → 一ノ沢","Ａ 7:30<br>Ｂ 5:00","穗高站","Ｂ 是表銀座中段<b>唯一的側向出口</b>，明天開始就沒有了。要退就今天退。"],
+ ["D4","10/1","東鎌尾根","Ａ 水俣乗越 下切槍沢 → ババ平 → 橫尾<br>Ｂ 原路回大天莊 → 常念乗越","Ａ 3–4:00<br>Ｂ 8:30","Ａ 橫尾<br>Ｂ 穗高站","Ａ 可直接接 D6 之後的行程（槍岳山莊兩晚取消）。<b>08:30 水俣乗越 是最晚決策點。</b>"],
+ ["D5","10/2","槍岳山莊連住","本身就是備案；隨時原路回山莊","—","原地","這一天存在的目的就是可以不走。前面延誤就用它補回來。"],
+ ["D6","10/3","槍沢下降","整天都是下撤方向","—","槍沢ロッヂ／橫尾","全程最容易退出的一天。從橫尾走 3 時到上高地就有巴士。"],
+ ["D7","10/4","橫尾→涸澤","原路回橫尾 → 上高地","2:30＋3:00","上高地","<b>最後一次簡單退出點。</b>往上穗高之後，退路都要翻回來。"],
+ ["D8","10/5","涸澤 ⇄ 北穗","南稜任何位置原路折返","≤2:30","涸澤（床位已訂）","最自由的一天。判斷點 07:00 南稜取付上部。"],
+ ["D9","10/6","涸澤→穗高岳山莊","原路 ザイテン 下涸澤 → 橫尾","2:00＋2:30","橫尾","<b>08:20 ザイテン取付 是 No-Go 點。</b>涸澤今晚沒床位了，要一路退到橫尾。"],
+ ["D10","10/7","吊尾根","Ａ 原路 ザイテン 下涸澤 → 橫尾 → 上高地<br>Ｂ 僅奧穗往返再走 Ａ<br>Ｃ 穗高岳山莊續住","Ａ 7:00","上高地","Ａ 當天仍到上高地，今晚住宿不受影響。<b>決策在山莊完成，不在路上。</b>"],
+ ["D11","10/8","桜平 → 本沢温泉","原路回桜平，或下稲子湯","2:00","茅野／松原湖","<b>風險在交通不在山。</b>桜平林道可能通行止，備案改走稲子湯側上；13:00 後到茅野就不要上山。"],
+ ["D12","10/9","八ヶ岳主稜","Ａ 地藏の頭 下地藏尾根 → 行者小屋（放棄赤岳）<br>Ｂ 硫黃岳前退回夏沢峠 → 桜平／本沢温泉<br>避難：硫黃岳山莊、赤岳頂上山莊","Ａ 省 1:30<br>Ｂ 2:00","美濃戶口 → 松本","<b>09:15 地藏の頭是最後分歧。</b>今天背全裝，任何下撤都直接下山不再上來——山上最後一天，放棄成本最低。"],
+ ["D13","10/10","松本 → 東京","這一天本身就是緩衝","—","—","前面每延誤一天就從這一天扣，只能算一次。<b>最先砍的是純觀光</b>：松本城 → 片倉館 → 上高地散策。"],
+ ["D14","10/11","返程","—","—","—","無。"]
+];
+const BAILTRANS=[
+ ["中房溫泉 → 穗高站","中房線乘合巴士（季節運行）或南安計程車","約 40–55 分","D2、D3 的下撤出口。末班時間每年不同，行前抄下來。",SRC.nanan],
+ ["一ノ沢登山口 → 穗高站","計程車（需電話叫車，山上可能沒訊號）","約 40 分","D3 走常念下山時用。建議事先把車行電話抄在紙上。",SRC.nanan],
+ ["橫尾 → 上高地","步行","3:00","D4(A)、D6、D7、D9、D10(A) 全部匯流到這條。平緩林道，雨天也能走。",null],
+ ["上高地 → 新島々 → 松本","アルピコ交通巴士＋上高地線電車","約 1:40","旺季巴士會排隊，預留 30 分。",SRC.alpico],
+ ["上高地 → 平湯／高山","濃飛巴士（往岐阜側）","約 1:30","替代出口。若松本方向有狀況（鐵路事故、颱風）可以往岐阜走。",SRC.kamikochi],
+ ["茅野站 → 桜平","計程車","約 50 分","D11 上山。<b>桜平林道是未鋪裝山路，雨後或季節末可能通行止</b>，叫車時先問車行能否通行。",SRC.alpico],
+ ["本沢温泉 → 稲子湯 → 松原湖站","步行 2 時＋計程車 15 分","約 2:15","D11、D12 的東側出口（JR 小海線）。桜平側通行止時的備案進出口。",null],
+ ["美濃戶口 → 茅野站","計程車（約 35 分）或季節巴士","約 35 分","D12 下山。計程車前一天預約，10/9 是三連休第一天尤其要早。",SRC.alpico]
+];
+const BAILNOTE=[
+ "<b>日本旺季山屋不能臨時延住。</b>所以這趟的備援不是「原地多住一晚」，而是「今天如果不能走，哪裡下撤、哪裡中止、後面怎麼重接」。整本手冊是照這個邏輯寫的。",
+ "唯一的例外是 <b>D5 槍岳山莊連住</b> 與 <b>D8 涸澤連住</b>——那兩天的床位是事先訂的，所以可以合法地「不走」。這是整趟 14 天裡唯一兩個不必付代價的緩衝。",
+ "<b>下撤在日本其實是交通問題。</b>走下去只是第一步，接下來是：怎麼回到鐵路沿線、後面幾晚怎麼取消、費用怎麼算。所以把巴士與計程車放在這一頁，而不是另外一頁。",
+ "<b>取消要立刻打電話。</b>各屋規則不同，當日取消多為全額或半額，前一日多為 50%。山上可能沒訊號，所以下撤決定一做就打——在還有訊號的地方打。",
+ "<b>留守與通報。</b>登山計畫書用「コンパス」線上提出，同時給留守人一份。約定每天的通報時間與延遲處理流程；北阿爾卑斯稜線多數山屋附近有訊號，但路段中間經常沒有。",
+ "<b>保險。</b>海外登山要確認保單涵蓋 3,000 m 以上與直升機搜救。日本另有 ココヘリ（會員制搜救發信器）可短期租用，兩人各一個。"
+];
+
+/* ---------- 紅葉海拔時間軸 ---------- */
+/* [日期label, dayId, 地點, 低標高, 高標高, 星數, 說明] */
+const KOYOS=[
+ ["9/29","d2","合戰尾根",1462,2712,3,"下部ブナ、上部ダケカンバ 與ナナカマド。第二ベンチ 到合戰小屋（1,800–2,350 m）最好看。"],
+ ["9/30","d3","大天井岳稜線",2620,2922,2,"稜線本身的ナナカマド 多已落盡；紅葉在腳下的谷地，從山頂俯瞰最好。"],
+ ["10/1","d4","大天井ヒュッテ・水俣乗越",2480,2880,3,"牛首展望台俯瞰高瀨川源頭，水俣乗越 俯瞰槍沢源頭。2,300–2,500 m 的紅黃帶正好。"],
+ ["10/2","d5","南岳稜線",3000,3101,1,"3,000 m 以上，沒有紅葉。但可以從上面看清楚明天要下去的槍沢紅葉在哪一段。"],
+ ["10/3","d6","槍沢",1620,2350,5,"全程期待值最高的兩天之一。大曲到槍沢ロッヂ 這 2 km 最密，整天都在穿過紅葉帶。"],
+ ["10/4","d7","本谷橋・涸澤",1620,2309,4,"本谷橋（1,780 m）的溪谷紅葉，加上午後抵達的涸澤カール。週一，人少。"],
+ ["10/5","d8","涸澤カール",2309,3106,5,"涸澤的正中心日。若見頃已過上緣，改上北穗從 3,100 m 俯視整片カール，一樣值得。"],
+ ["10/6","d9","ザイテングラート",2309,2983,5,"邊爬邊看涸澤カール 在腳下展開，愈往上愈完整。這個俯視角在谷底看不到。"],
+ ["10/7","d10","岳沢 → 上高地",1505,2170,4,"今天的紅葉在最後三分之一。從吊尾根往下看，岳沢整條谷的紅黃一次看完。"],
+ ["10/8","d11","桜平 → 本沢温泉",1900,2430,3,"換成カラマツ 的金黃，和涸澤的ナナカマド 完全不同。泡雲上の湯時抬頭就是這片顏色。"],
+ ["10/9","d12","八ヶ岳橫斷 → 南沢",1490,2899,3,"稜線已過見頃；紅葉在最後的下降段，行者小屋 2,350 m 到美濃戶口 1,490 m 的南沢。整趟時間軸的終點。"]
+];
+const KOYONOTE=[
+ "<b>見頃前緣由高往低推進，大約每下降 300 m 延後 4 天。</b>圖上那條斜帶就是依這個速率畫的：以涸澤 2,300 m 在 10 月初為基準，往左上（早、高）、往右下（晚、低）延伸，帶寬 ±250 m。",
+ "<b>每一天的直條是當天的海拔區間。</b>條子和斜帶重疊得愈多，那天的紅葉期待值就愈高。10/3 槍沢、10/4–10/6 涸澤一帶正好落在帶子中心。",
+ "<b>這是期待值，不是預報。</b>見頃每年受 9 月氣溫與首霜日影響，可能前後移動 1–2 週。2027 年 9 月中旬起看ウェザーニュース 紅葉情報，以及涸澤ヒュッテ／涸澤小屋 每天發的現地照片，再回來修正這張圖。",
+ "<b>行程方向與紅葉推進同向</b>，這是這個排法的結構優勢，不是運氣。從 9/29 的合戰尾根 2,000 m 一路往下到 10/10 的北沢 1,500 m，等於跟著見頃前緣一起走。"
+];
+
+/* ---------- 行前 ---------- */
+const PREPGEAR=[
+ ["基本層","10 月初的北阿爾卑斯稜線是初冬，不是秋天。3,000 m 的清晨可能 −5 °C 以下，而且會下雪。羽絨外套、刷毛中層、防風硬殼上下、厚手套＋備用薄手套、毛帽、綁腿。"],
+ ["腳","中高筒登山靴（吊尾根與橫岳的鎖場需要硬底）。輕冰爪（チェーンスパイク）兩人各一副——10 月初的結霜路段用得上，重量不到 400 g，不帶會後悔。"],
+ ["行進","登山杖（吊尾根與重太郎新道的下降用）。頭燈＋備用電池（D4 05:00、D10 05:30 都是暗的）。安全帽非必要，但北穗南稜與ザイテン 落石多，想戴就戴。"],
+ ["住宿","山屋提供寢具，不需要睡袋，但要帶<b>睡袋內襯或排汗內衣</b>。耳塞與眼罩（通鋪）。室內拖鞋山屋有。毛巾與小盥洗包（橫尾有浴室、有明莊有溫泉）。"],
+ ["電","行動電源 20,000 mAh 等級。山屋多數可充電但要收費或排隊，而且 7 晚沒有穩定電源。手機離線地圖先下載好。"],
+ ["食","山屋都有早晚餐，所以只需要行動糧與午餐。日本山屋可以買便當、麵包與飲料，不用從台灣背。瓦斯罐在松本或上高地買，返台前處理掉。"],
+ ["其他","現金（山屋多數不收卡，也沒有 ATM；七晚住宿＋餐飲建議每人準備 15–20 萬日圓現金或確認可刷卡的屋）。常備藥與個人藥品。防曬與太陽眼鏡（高海拔＋殘雪反射）。"]
+];
+const PREPTODO=[
+ ["2027/3 月中旬","燕山莊集團開放公告 → 有明莊（9/28）、燕山莊（9/29）、大天莊（9/30）一次訂完。"],
+ ["2027/4 月初","<b class='warn'>赤岳鉱泉全季開放 → 10/8、10/9 兩晚立刻訂。這是全程第一順位。</b>"],
+ ["2027/6–7 月","確認各屋 2027 年營業期公告，回頭修正山屋頁與每日頁的日期。訂機票（名古屋進、東京出）。"],
+ ["2027/8 月初","橫尾山莊網路名額（兩個月前）嘗試 10/3。上高地住宿（10/7）。"],
+ ["2027/9/1–9/2","槍岳山莊 10/1、10/2 兩晚（一個月前）。"],
+ ["2027/9/4–9/6 08:00","<b class='warn'>涸澤 10/4、10/5（兩天分別搶，兩人分頭）；穗高岳山莊 10/6。</b>"],
+ ["2027/9 月中旬起","看紅葉情報與現地照片，修正紅葉頁的推估。確認ヤマテン 訂閱。"],
+ ["出發前 2 週","登山計畫書（コンパス）提出並給留守人。保險確認涵蓋 3,000 m 以上與直升機搜救。ココヘリ 短期租用。"],
+ ["出發前 3 天","特急指定席（しなの 9/28、あずさ 10/10）。美濃戶口計程車（10/8）、一ノ沢與中房線車行電話抄在紙上。"],
+ ["出發前 1 天","各山屋再次電話確認；下載離線地圖與 GPX；與留守人約定每日通報時間。"]
+];
+const PREPLAW=[
+ "<b>登山計畫書</b>：長野縣登山安全條例規定，北阿爾卑斯等指定登山道須提出登山計畫書。用「コンパス」線上提出最方便，同時可以分享給留守人。",
+ "<b>護照與保險</b>：海外旅平險要確認涵蓋 3,000 m 以上的登山活動與直升機搜救費用。日本的山岳搜救在部分情況下由民間直升機執行，費用可達數百萬日圓。",
+ "<b>ココヘリ</b>：會員制搜救發信器，可短期租用，兩人各一個。日本山域普及率高，搜救單位有對應接收設備。",
+ "<b>瓦斯罐</b>：不可手提也不可託運上飛機。在松本或上高地買，返台前在日本處理掉。",
+ "<b>山屋禮節</b>：完全預約制、不可無預約闖入（緊急避難除外）。消燈時間多為 20:00–21:00。通鋪不可占位。垃圾全部帶下山。"
+];
+const NS="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=n=>Number(n).toLocaleString("en-US");
+let CUM=[];{let c=0;WALK.forEach(d=>{const gp=PROF[d.id];CUM.push({d,x0:c,pts:gp.map(p=>[c+p[0],p[1],p[2],p[3]])});c+=gp[gp.length-1][0];});}
+const TOTKM=CUM[CUM.length-1].pts.slice(-1)[0][0];
+let homeHL=null;
+
+/* ---------- 高度剖面 ---------- */
+function drawProfile(svg,day,hl){
+  if(!svg)return;
+  const cw=svg.parentElement.clientWidth||900, small=cw<560;
+  const W=small?520:Math.min(1100,cw), H=day?(small?250:300):(small?210:260);
+  const m={l:small?42:54,r:small?14:22,t:small?42:50,b:day?(small?34:38):(small?26:30)};
+  const segs=day?[{d:day,pts:PROF[day.id]}]:CUM;
+  const xs=segs.flatMap(s=>s.pts.map(p=>p[0])),ys=segs.flatMap(s=>s.pts.map(p=>p[1]));
+  const xmax=Math.max(...xs),ylo=Math.floor((Math.min(...ys)-150)/250)*250,yhi=Math.ceil((Math.max(...ys)+180)/250)*250;
+  const X=v=>m.l+v/xmax*(W-m.l-m.r), Y=v=>m.t+(1-(v-ylo)/(yhi-ylo))*(H-m.t-m.b), base=H-m.b;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML="";
+  for(let a=ylo;a<=yhi;a+=(yhi-ylo>2000?500:250)){
+    mk("line",{x1:m.l,x2:W-m.r,y1:Y(a),y2:Y(a),stroke:"#1B2E27","stroke-opacity":.09,"stroke-dasharray":"2 5"},svg);
+    const t=mk("text",{x:m.l-6,y:Y(a)+4,"text-anchor":"end","font-size":small?10:11,fill:"#5F6F66"},svg);t.textContent=fmt(a);}
+  segs.forEach(s=>{
+    const on=!hl||hl===s.d.id, c=C[s.d.id];
+    const dstr=s.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+    mk("path",{d:dstr+" L"+X(s.pts.slice(-1)[0][0])+" "+base+" L"+X(s.pts[0][0])+" "+base+" Z",fill:c,opacity:on?.14:.05},svg);
+    mk("path",{d:dstr,fill:"none",stroke:on?c:"#C3CCC2","stroke-width":on?(hl?3.4:2.6):2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    if(!day){
+      const x1=X(s.pts[0][0]),x2=X(s.pts.slice(-1)[0][0]);
+      const hit=mk("rect",{x:x1,y:0,width:Math.max(2,x2-x1),height:H,fill:"transparent",style:"cursor:pointer"},svg);
+      mk("title",{},hit).textContent="D"+s.d.n+" "+s.d.short;
+      hit.addEventListener("click",()=>go(s.d.id));
+      hit.addEventListener("mouseenter",()=>{homeHL=s.d.id;drawHome();});
+      hit.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+      const lab=mk("text",{x:(x1+x2)/2,y:H-8,"text-anchor":"middle","font-size":small?10:11,"font-weight":700,fill:on?c:"#9AA79A"},svg);
+      lab.textContent="D"+s.d.n;}
+  });
+  if(day){
+    const pts=PROF[day.id],fs=small?10:11.5,last=pts.length-1;
+    let maxi=0;pts.forEach((p,i)=>{if(p[1]>pts[maxi][1])maxi=i;});
+    const must=pts.map((p,i)=>i===0||i===last||i===maxi||p[3]?i:-1).filter(i=>i>=0);
+    must.forEach(i=>mk("circle",{cx:X(pts[i][0]),cy:Y(pts[i][1]),r:4,fill:"#C2802B",stroke:"#1B2E27","stroke-width":1.6},svg));
+    pts.forEach((p,i)=>{if(must.indexOf(i)<0)mk("circle",{cx:X(p[0]),cy:Y(p[1]),r:2.6,fill:"#8AA79A"},svg);});
+    const order=[0,last,maxi].concat(must.filter(i=>i!==0&&i!==last&&i!==maxi));
+    const used=[],gapX=small?56:70;
+    order.forEach(i=>{
+      const x=X(pts[i][0]);
+      if(used.some(u=>Math.abs(u-x)<gapX))return;
+      used.push(x);
+      const anchor=i===0?"start":i===last?"end":"middle";
+      const below=i===0&&pts[0][1]>pts[1][1]?false:i===0;
+      const t=mk("text",{x,y:Y(pts[i][1])+(below?20:-12),"text-anchor":anchor,"font-size":fs,"font-weight":700,fill:"#1B2E27",
+        "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":3.5,"stroke-linejoin":"round"},svg);
+      t.textContent=pts[i][2]+" "+fmt(pts[i][1]);});
+    const km=pts.slice(-1)[0][0];
+    for(let k=(km>12?4:2);k<km;k+=(km>12?4:2)){
+      const t=mk("text",{x:X(k),y:base+15,"text-anchor":"middle","font-size":small?9.5:10.5,fill:"#5F6F66"},svg);t.textContent=k+"K";}
+  }else{
+    let top=segs[0].pts[0];segs.forEach(s=>s.pts.forEach(p=>{if(p[1]>top[1])top=p;}));
+    mk("circle",{cx:X(top[0]),cy:Y(top[1]),r:4.5,fill:"#C2802B",stroke:"#1B2E27","stroke-width":1.6},svg);
+    const t=mk("text",{x:X(top[0]),y:Y(top[1])-11,"text-anchor":"middle","font-size":11.5,"font-weight":700,fill:"#1B2E27",
+      "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":3.5},svg);t.textContent=top[2]+" "+fmt(top[1])+" m";
+  }
+}
+
+/* ---------- 每日稜線示意（取代照片） ---------- */
+const FLATR=[[0,.2],[1,.55],[2,.35],[3,.8],[4,.45],[5,.95],[6,.5],[7,.7],[8,.3]];
+function drawRidge(svg,d){
+  if(!svg)return;
+  const W=640,H=480;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  svg.setAttribute("preserveAspectRatio","xMidYMid slice");
+  svg.innerHTML="";
+  const c=C[d.id],gid="g_"+d.id;
+  const defs=mk("defs",{},svg);
+  const g=mk("linearGradient",{id:gid,x1:0,y1:0,x2:0,y2:1},defs);
+  mk("stop",{offset:"0%","stop-color":"#0C1613"},g);
+  mk("stop",{offset:"52%","stop-color":c,"stop-opacity":".58"},g);
+  mk("stop",{offset:"100%","stop-color":"#0C1613"},g);
+  mk("rect",{x:0,y:0,width:W,height:H,fill:"url(#"+gid+")"},svg);
+  mk("circle",{cx:W*.76,cy:H*.24,r:30,fill:"#F2E4C6",opacity:".88"},svg);
+  const raw=PROF[d.id];
+  const pts=raw?raw.map(p=>[p[0],p[1]]):FLATR;
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  const x0=Math.min(...xs),x1=Math.max(...xs)||1,y0=Math.min(...ys),y1=Math.max(...ys);
+  const sx=v=>(v-x0)/((x1-x0)||1), sy=v=>(v-y0)/((y1-y0)||1);
+  const layer=(sh,op,yb,amp,rev)=>{
+    const src=rev?pts.slice().reverse():pts;
+    let dd="";
+    src.forEach((p,i)=>{
+      const x=(rev?1-sx(p[0]):sx(p[0]))*W*1.18-W*.09+sh;
+      const y=yb-sy(p[1])*amp;
+      dd+=(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);});
+    mk("path",{d:dd+" L"+(W*1.2)+" "+H+" L"+(-W*.2)+" "+H+" Z",fill:"#0A1310",opacity:op},svg);};
+  layer(-46,.26,H*.70,H*.26,1);
+  layer(24,.48,H*.84,H*.36,0);
+  layer(0,.93,H*1.02,H*.50,0);
+  let topi=0;pts.forEach((p,i)=>{if(p[1]>pts[topi][1])topi=i;});
+  const name=raw?raw[topi][2]:"移動日",ele=raw?fmt(raw[topi][1])+" m":"";
+  const t1=mk("text",{x:26,y:H-52,"font-size":27,"font-weight":900,fill:"#F6F2E6","font-family":"var(--serif)",opacity:".95"},svg);
+  t1.textContent="D"+d.n+"　"+name;
+  const t2=mk("text",{x:27,y:H-26,"font-size":19,"font-weight":700,fill:"#E7D9B6",opacity:".9"},svg);
+  t2.textContent=ele?"當日最高 "+ele:d.date+"（"+d.dow+"）";
+}
+
+/* ---------- 路線拓樸圖 ---------- */
+const RN={
+ nk:[.04,.74,"中房"],tb:[.11,.30,"燕岳",1],dt:[.21,.20,"大天井",1],ng:[.29,.33,"西岳"],
+ yr:[.36,.13,"槍岳",1],nd:[.43,.25,"南岳",1],yo:[.30,.64,"橫尾"],kr:[.39,.52,"涸澤",1],
+ kt:[.45,.39,"北穗",1],oh:[.49,.50,"奧穗",1],mh:[.47,.64,"前穗"],kk:[.35,.85,"上高地"],
+ sk:[.70,.62,"桜平"],nz:[.79,.46,"夏沢峠"],hs:[.90,.52,"本沢温泉",1],
+ iy:[.79,.28,"硫黃岳",1],yk:[.86,.42,"橫岳",1],gy:[.90,.64,"赤岳",1],mn:[.75,.86,"美濃戶口"]};
+const RE=[
+ {d:"d2",p:["nk","tb"]},{d:"d3",p:["tb","dt"]},{d:"d4",p:["dt","ng","yr"]},
+ {d:"d5",p:["yr","nd"],two:1},{d:"d6",p:["yr","yo"]},{d:"d7",p:["yo","kr"]},
+ {d:"d8",p:["kr","kt"],two:1},{d:"d9",p:["kr","oh"]},{d:"d10",p:["oh","mh","kk"]},
+ {d:"d11",p:["kk","sk"],tr:1},{d:"d11",p:["sk","nz","hs"]},
+ {d:"d12",p:["hs","nz","iy","yk","gy","mn"]}];
+function curve(pts){
+  if(pts.length<3)return "M"+pts.map(p=>p.join(" ")).join(" L");
+  let d="M"+pts[0][0]+" "+pts[0][1];
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
+    d+=" C"+c1[0]+" "+c1[1]+" "+c2[0]+" "+c2[1]+" "+p2[0]+" "+p2[1];}
+  return d;}
+function drawRoute(svg,hl){
+  if(!svg)return;
+  const cw=svg.parentElement.clientWidth||900, small=cw<560;
+  const W=small?520:Math.min(1020,cw), H=Math.round(W*(small?.66:.52));
+  const pad={l:small?34:52,r:small?44:74,t:small?26:32,b:small?34:40};
+  const X=f=>pad.l+f*(W-pad.l-pad.r), Y=f=>pad.t+f*(H-pad.t-pad.b);
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML="";
+  const off=(pts,o)=>pts.map((q,i)=>{const a=pts[Math.max(0,i-1)],b=pts[Math.min(pts.length-1,i+1)];
+    let dx=b[0]-a[0],dy=b[1]-a[1];const L=Math.hypot(dx,dy)||1;return [q[0]-dy/L*o,q[1]+dx/L*o];});
+  RE.forEach(e=>{
+    const on=!hl||hl===e.d, c=on?C[e.d]:"#CBD3C9", w=e.tr?3:(on?(hl?9:7):5);
+    const base=e.p.map(k=>[X(RN[k][0]),Y(RN[k][1])]);
+    const paths=e.two?[off(base,4.5),off(base,-4.5)]:[base];
+    paths.forEach(pp=>{
+      const a={d:curve(pp),fill:"none",stroke:c,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round",opacity:on?1:.6};
+      if(e.tr)a["stroke-dasharray"]="2 9";
+      const gg=mk("path",a,svg);
+      if(!hl){gg.style.cursor="pointer";gg.addEventListener("click",()=>go(e.d));
+        gg.addEventListener("mouseenter",()=>{homeHL=e.d;drawHome();});
+        gg.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+        const dd=DAYS.find(x=>x.id===e.d);mk("title",{},gg).textContent="D"+dd.n+" "+dd.short;}});});
+  Object.keys(RN).forEach(k=>{
+    const [fx,fy,name,up]=RN[k],x=X(fx),y=Y(fy);
+    mk("circle",{cx:x,cy:y,r:small?5.5:7,fill:"#FBFCF8",stroke:"#1B2E27","stroke-width":2.4},svg);
+    const t=mk("text",{x,y:up?y-14:y+22,"text-anchor":"middle","font-size":small?11:13.5,"font-weight":700,fill:"#1B2E27",
+      "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":4,"stroke-linejoin":"round","font-family":"var(--serif)"},svg);
+    t.textContent=name;});
+}
+
+/* ---------- 紅葉海拔時間軸 ---------- */
+const KDATES=["9/28","9/29","9/30","10/1","10/2","10/3","10/4","10/5","10/6","10/7","10/8","10/9","10/10","10/11"];
+function drawKoyo(svg){
+  if(!svg)return;
+  const cw=svg.parentElement.clientWidth||900, small=cw<620;
+  const W=small?560:Math.min(1100,cw), H=small?380:430;
+  const m={l:small?44:56,r:small?16:26,t:small?30:36,b:small?56:52};
+  const ylo=1400,yhi=3250,n=KDATES.length;
+  const X=i=>m.l+(i+.5)/n*(W-m.l-m.r);
+  const Y=v=>m.t+(1-(v-ylo)/(yhi-ylo))*(H-m.t-m.b);
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML="";
+  for(let a=1500;a<=3200;a+=250){
+    mk("line",{x1:m.l,x2:W-m.r,y1:Y(a),y2:Y(a),stroke:"#1B2E27","stroke-opacity":.09,"stroke-dasharray":"2 5"},svg);
+    const t=mk("text",{x:m.l-6,y:Y(a)+4,"text-anchor":"end","font-size":small?10:11,fill:"#5F6F66"},svg);t.textContent=fmt(a);}
+  const A=i=>2300-75*(i-4);
+  const defs=mk("defs",{},svg);
+  const bg=mk("linearGradient",{id:"kg",x1:0,y1:0,x2:1,y2:0},defs);
+  mk("stop",{offset:"0%","stop-color":"#C2802B","stop-opacity":".30"},bg);
+  mk("stop",{offset:"45%","stop-color":"#C2552B","stop-opacity":".42"},bg);
+  mk("stop",{offset:"100%","stop-color":"#8E3B2B","stop-opacity":".28"},bg);
+  let up="",dn="";
+  for(let i=0;i<n;i++){up+=(i?"L":"M")+X(i)+" "+Y(Math.min(yhi,A(i)+250));}
+  for(let i=n-1;i>=0;i--){dn+="L"+X(i)+" "+Y(Math.max(ylo,A(i)-250));}
+  mk("path",{d:up+dn+" Z",fill:"url(#kg)"},svg);
+  let ml="";for(let i=0;i<n;i++){ml+=(i?"L":"M")+X(i)+" "+Y(A(i));}
+  mk("path",{d:ml,fill:"none",stroke:"#C2552B","stroke-width":2,"stroke-dasharray":"7 5",opacity:.85},svg);
+  const lb=mk("text",{x:X(n-1),y:Y(A(n-1))-10,"text-anchor":"end","font-size":small?10.5:12,"font-weight":700,fill:"#A6432C",
+    "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":3.5},svg);
+  lb.textContent="見頃前緣推估";
+  const bw=small?13:17;
+  KOYOS.forEach(k=>{
+    const i=KDATES.indexOf(k[0]);if(i<0)return;
+    const x=X(i),y1=Y(k[4]),y2=Y(k[3]),c=C[k[1]];
+    const r=mk("rect",{x:x-bw/2,y:y1,width:bw,height:Math.max(3,y2-y1),rx:4,fill:c,opacity:.82,style:"cursor:pointer"},svg);
+    mk("title",{},r).textContent=k[0]+" "+k[2]+"｜"+fmt(k[3])+"–"+fmt(k[4])+" m｜期待值 "+k[5]+"/5";
+    r.addEventListener("click",()=>go(k[1]));
+    if(k[5]>=4){const s=mk("text",{x,y:y1-7,"text-anchor":"middle","font-size":small?10:11.5,"font-weight":800,fill:"#A6432C",
+      "paint-order":"stroke",stroke:"#FBFCF8","stroke-width":3.5},svg);s.textContent="★".repeat(k[5]-3);}
+  });
+  for(let i=0;i<n;i++){
+    const t=mk("text",{x:X(i),y:H-m.b+18,"text-anchor":"middle","font-size":small?9.5:10.5,fill:"#5F6F66"},svg);
+    t.textContent=KDATES[i];
+    const d=DAYS[i];
+    if(d){const t2=mk("text",{x:X(i),y:H-m.b+33,"text-anchor":"middle","font-size":small?9:10,"font-weight":700,fill:C[d.id]},svg);
+      t2.textContent="D"+d.n;}}
+  const ax=mk("text",{x:m.l-6,y:m.t-12,"text-anchor":"start","font-size":small?10:11,fill:"#5F6F66"},svg);
+  ax.textContent="海拔 m　／　直條＝當天的海拔區間，與斜帶重疊愈多，紅葉期待值愈高";
+}
+function drawHome(){
+  drawProfile(document.getElementById("prof"),null,homeHL);
+  drawRoute(document.getElementById("rmap"),homeHL);
+  document.querySelectorAll("#daykey button").forEach(b=>b.classList.toggle("dim",!!homeHL&&b.dataset.go!==homeHL));
+}
+const panel=(h,body,cls,tag)=>'<section class="panel '+(cls||"")+'"><h3>'+h+(tag?'<span class="tagi">'+tag+'</span>':"")+'</h3>'+body+'</section>';
+const list=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join("")+'</ul>';
+const stars=n=>'<span class="stars">'+"★".repeat(n)+"☆".repeat(5-n)+'</span>';
+let cur="d1",view="home";
+const VIEWS=["home","day","huts","gng","bail","koyo","prep"];
+
+/* ---------- home ---------- */
+document.getElementById("kpi").innerHTML=[
+ ["84 km","11 天步行總里程"],
+ ["↑7,680 m","累計上升"],
+ ["↓7,750 m","累計下降"],
+ ["12 座","途中山頂（7 座 3,000 m 級）"]
+].map(a=>'<div><b class="num">'+a[0]+'</b><small>'+a[1]+'</small></div>').join("");
+document.getElementById("daykey").innerHTML=DAYS.map(d=>
+ '<button data-go="'+d.id+'" style="--c:'+C[d.id]+'"><i></i><b class="num">D'+d.n+" "+d.date+'</b><span>'+DAYLINE[d.id]+'</span></button>').join("");
+document.getElementById("daycards").innerHTML=DAYS.map(d=>
+ '<button class="dcard" data-go="'+d.id+'" style="--c:'+C[d.id]+'">'+
+ '<span class="hd"><span class="chip" style="background:'+C[d.id]+'">D'+d.n+'</span><b class="num">'+d.date+"（"+d.dow+"）</b></span>"+
+ '<span class="rt">'+d.title+'</span><span class="st">'+d.stats[0][1]+"　"+stars(d.koyo[0])+'</span>'+
+ '<span class="stay">宿：'+d.stay[0]+'</span></button>').join("");
+const tl=document.getElementById("tl");
+tl.innerHTML=DAYS.map(d=>'<button class="node" data-go="'+d.id+'"><span class="chip" style="background:'+C[d.id]+'">D'+d.n+
+ '</span><span><b class="num">'+d.date+"（"+d.dow+"）</b><small>"+d.short+"</small></span></button>").join("");
+
+/* ---------- day ---------- */
+function ctxLine(d){
+  const seg=CUM.find(s=>s.d.id===d.id);
+  if(!seg)return "今天是移動日，沒有步行里程；圖上是全段路線。位置與線長不按真實地理比例。";
+  const a=seg.pts[0][0],b=seg.pts.slice(-1)[0][0];
+  return "高亮的是今天走的路段，落在全程的第 "+Math.round(a)+"–"+Math.round(b)+" 公里（累計步行距離，含往返）。位置與線長不按真實地理比例。";
+}
+function renderDay(){
+  const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
+  const stats='<dl class="stats num">'+d.stats.map(s=>'<div><dt>'+s[0]+'</dt><dd>'+s[1]+'</dd></div>').join("")+'</dl>'+
+    '<p class="note" style="margin:6px 0 0">'+(PROF[d.id]?
+      "里程與升降為依節點標高推算的估值；標準 CT 取自山與高原地圖／YAMAP，不含休息與拍照。":
+      "今天沒有步行里程。交通時刻為示意，實際班次以出發前查詢為準。")+'</p>';
+  const times='<ol class="times">'+d.tl.map(r=>{
+    const t=r[0],name=r[1],alt=r[2],km=r[3],ct=r[4],delta=r[5],rem=r[6],mark=r[7];
+    const segs=[km,ct?"標準 CT · "+ct:null,delta].filter(Boolean);
+    return '<li><time class="num">'+t+'</time><span class="mk '+(mark===1?"peak":mark===2?"risk":"")+'"></span><span><b>'+name+
+      (alt?' <span class="alt num">'+alt+'</span>':"")+'</b>'+
+      (segs.length?'<span class="segs">'+segs.map(x=>'<span>'+x+'</span>').join("")+'</span>':"")+
+      (rem?'<span class="rem">'+rem+'</span>':"")+'</span></li>';}).join("")+'</ol>';
+  const g=d.gng?GNGS.find(x=>x.id===d.id):null;
+  const gngPanel=g?panel("今天是 Go／No-Go 日",
+    '<p style="margin:0 0 8px">'+g.why+'</p><p style="margin:0 0 6px"><b>判斷時點</b></p>'+list(g.when)+
+    '<p style="margin:10px 0 0"><button class="btn ghost" data-view="gng" style="padding:6px 16px;font-size:.9rem">看完整決策表</button></p>',
+    "gng",d.id==="d9"?"條件式判斷":"沒有中途退路"):"";
+  const koyoPanel=panel("紅葉期待值 "+stars(d.koyo[0]),'<p style="margin:0">'+d.koyo[1]+'</p>',"koyo","依海拔與見頃推估");
+  const bailPanel=panel("今天走不了的話",list(d.bail),"bail","下撤與中止");
+  document.getElementById("day").innerHTML='<div class="fade">'+
+   '<div class="dtop"><div>'+
+    '<div class="dhead"><span class="chip lg" style="background:'+C[d.id]+'">D'+d.n+'</span>'+
+    '<div><p class="when num">2027/'+d.date+"（"+d.dow+"）｜"+d.tag+'</p><h2>'+d.title+'</h2></div></div>'+
+    '<p class="lead">'+d.lead+'</p>'+stats+'</div>'+
+    '<figure><div class="banner"><svg id="ridge" role="img" aria-label="D'+d.n+' 稜線示意"></svg></div>'+
+    '<figcaption class="credit">稜線示意圖：依當天已知標高節點生成，非實景照片，也不代表實際坡度。</figcaption></figure></div>'+
+   '<div class="toprow"><div class="stack">'+
+    panel("今天走哪一段",'<div class="mini"><svg id="rmapday" role="img" aria-label="今天在整段路線的位置"></svg></div><p class="note" style="margin-top:4px">'+ctxLine(d)+'</p>')+
+    (PROF[d.id]?panel("今天的高度",'<div class="mini"><svg id="dayprof" role="img" aria-label="當日高度剖面"></svg></div><p class="note" style="margin-top:4px">連接當天已知標高節點，橘點為起點、特徵點與終點。不是 GPS 軌跡。</p>'):"")+
+    '</div><div class="stack">'+gngPanel+koyoPanel+
+    panel("今晚的山屋",'<p style="margin:0"><b>'+d.stay[0]+'</b><br>'+d.stay[1]+'</p>',"stay")+
+    '</div></div>'+
+   '<div class="dgrid"><div class="stack">'+
+    panel("時間與路線",'<p class="note" style="margin:0 0 6px">時間自起點按標準 CT 連續累加，只計行走。橘點為山頂、紅點為風險或決策點。</p>'+times)+
+    '</div><div class="stack">'+
+    panel("行程與時間核對",'<p style="margin:0">'+d.check+'</p>',"check")+bailPanel+
+    panel("查證與來源",'<ul>'+d.verify.map(v=>'<li>'+v[0]+v.slice(1).filter(Boolean).map(u=>' <a class="src" href="'+u+'" target="_blank" rel="noopener">↗ 來源</a>').join("")+'</li>').join("")+'</ul>',"verify")+
+    '</div></div>'+
+   '<nav class="pager">'+
+    '<button '+(pv?"":"disabled")+' data-go="'+(pv?pv.id:"")+'"><small>上一天</small>D'+(pv?pv.n:"")+' <span class="pn">'+(pv?pv.short:"")+'</span></button>'+
+    '<button class="next" '+(nx?"":"disabled")+' data-go="'+(nx?nx.id:"")+'"><small>下一天</small>D'+(nx?nx.n:"")+' <span class="pn">'+(nx?nx.short:"")+'</span></button>'+
+   '</nav></div>';
+  drawRidge(document.getElementById("ridge"),d);
+  drawRoute(document.getElementById("rmapday"),d.id);
+  if(PROF[d.id])drawProfile(document.getElementById("dayprof"),d);
+  bind(document.getElementById("day"));
+}
+
+/* ---------- 專題頁 ---------- */
+function hero(k,h,s){return '<div class="hero"><p class="kicker">'+k+'</p><h1 style="font-size:clamp(1.9rem,4.2vw,3rem)">'+h+'</h1></div><p class="sub">'+s+'</p>';}
+document.getElementById("hutsbody").innerHTML=hero("Booking calendar","山屋開搶日曆",
+ "十三晚住宿、七個預約系統、四種開放規則。這一頁的用處不是列日期，是決定<b>先打哪一通</b>。")+
+ '<div class="panel"><h2>按優先級排序</h2><div class="wrap"><table class="t"><thead><tr>'+
+ ["優先","住宿日","山屋","海拔","預約系統","2026 規則（參考）","2027 要做的事","負責"].map(h=>'<th>'+h+'</th>').join("")+
+ '</tr></thead><tbody>'+HUTS.map(r=>'<tr><td><span class="pri p'+r[7][1]+'">'+r[7]+'</span></td><td><b class="num">'+r[0]+"（"+r[1]+"）</b></td><td><b>"+r[2]+
+ '</b></td><td class="num">'+r[3]+'</td><td>'+r[4]+'</td><td>'+r[5]+'</td><td>'+r[6]+'</td><td>'+r[8]+'</td></tr>').join("")+
+ '</tbody></table></div></div>'+
+ '<div class="two" style="margin-top:16px">'+
+ panel("優先級怎麼分",'<ul>'+PRILEG.map(p=>'<li><span class="pri p'+p[0][1]+'">'+p[0]+'</span>　'+p[1]+'</li>').join("")+'</ul>',"check")+
+ panel("這一頁的使用方式",list(HUTNOTE))+'</div>'+
+ '<div class="panel" style="margin-top:16px"><h2>行前時間表</h2><div class="wrap"><table class="t" style="min-width:520px"><tbody>'+
+ PREPTODO.map(r=>'<tr><td style="white-space:nowrap"><span class="date">'+r[0]+'</span></td><td>'+r[1]+'</td></tr>').join("")+
+ '</tbody></table></div></div>';
+
+document.getElementById("gngbody").innerHTML=hero("Go / No-Go","天氣決策表",
+ "兩個沒有中途退路的日子，加上一個條件式判斷。重點是<b>在哪裡做決定</b>，不是決定什麼。")+
+ GNGS.map(g=>'<div class="panel gng" style="margin-bottom:16px"><h3><span class="chip" style="background:'+C[g.id]+'">D'+g.n+
+ '</span>'+g.date+'　'+g.title+'</h3><p style="margin:0 0 10px">'+g.why+'</p>'+
+ '<p style="margin:0 0 4px"><b>判斷時點</b></p>'+list(g.when)+
+ '<div class="gobox"><div class="go"><h4>GO 條件（全部成立）</h4><ul>'+g.go.map(x=>'<li>'+x+'</li>').join("")+'</ul></div>'+
+ '<div class="no"><h4>NO-GO 選項</h4><ul>'+g.no.map(x=>'<li>'+x+'</li>').join("")+'</ul></div></div>'+
+ '<p class="note" style="margin-top:10px;font-size:.88rem">'+g.key+'</p>'+
+ '<p style="margin:8px 0 0"><button class="btn ghost" data-go="'+g.id+'" style="padding:6px 16px;font-size:.9rem">看 D'+g.n+' 當天那一頁</button></p></div>').join("")+
+ panel("判斷資料從哪裡來",'<ul>'+GNGSRC.map(s=>'<li>'+(s[1]?'<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+' ↗</a>':'<b>'+s[0]+'</b>')+'　'+s[2]+'</li>').join("")+'</ul>',"check");
+
+document.getElementById("bailbody").innerHTML=hero("Bail-out","每日撤退方案",
+ "日本旺季山屋不能臨時延住，所以備援不是「原地多住一晚」，而是<b>今天不能走就退哪裡、後面怎麼重接</b>。")+
+ '<div class="panel"><h2>十四天的退路</h2><div class="wrap"><table class="t"><thead><tr>'+
+ ["日","日期","位置","下撤路線","CT","到哪","重接與備註"].map(h=>'<th>'+h+'</th>').join("")+
+ '</tr></thead><tbody>'+BAILS.map(r=>'<tr><td><b>'+r[0]+'</b></td><td class="num">'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+
+ '</td><td class="num">'+r[4]+'</td><td>'+r[5]+'</td><td>'+r[6]+'</td></tr>').join("")+'</tbody></table></div></div>'+
+ '<div class="panel" style="margin-top:16px"><h2>下撤的交通</h2><p class="sub" style="margin-bottom:10px">走下去只是第一步。這些是行前要抄在紙上的——山上可能沒訊號。</p><div class="wrap"><table class="t"><thead><tr>'+
+ ["路段","方式","時間","什麼時候會用到",""].map(h=>'<th>'+h+'</th>').join("")+'</tr></thead><tbody>'+
+ BAILTRANS.map(r=>'<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td class="num">'+r[2]+'</td><td>'+r[3]+
+ '</td><td>'+(r[4]?'<a href="'+r[4]+'" target="_blank" rel="noopener">↗</a>':"")+'</td></tr>').join("")+'</tbody></table></div></div>'+
+ '<div style="margin-top:16px">'+panel("撤退的六件事",list(BAILNOTE),"bail")+'</div>';
+
+document.getElementById("koyobody").innerHTML=hero("Autumn colour","紅葉海拔時間軸",
+ "見頃前緣由高往低推進，而這趟行程剛好同向。這一頁判斷的是<b>哪幾天打在帶子正中心</b>。")+
+ '<div class="profcard"><svg id="koyochart" role="img" aria-label="紅葉見頃海拔時間帶狀圖"></svg></div>'+
+ '<div class="panel" style="margin-top:16px"><h2>逐日期待值</h2><div class="wrap"><table class="t"><thead><tr>'+
+ ["日期","日","地點","海拔帶","期待值","說明"].map(h=>'<th>'+h+'</th>').join("")+'</tr></thead><tbody>'+
+ KOYOS.map(k=>{const d=DAYS.find(x=>x.id===k[1]);
+  return '<tr><td class="num"><b>'+k[0]+'</b></td><td><button class="pri" style="background:'+C[k[1]]+';border:0;cursor:pointer" data-go="'+k[1]+'">D'+d.n+
+  '</button></td><td><b>'+k[2]+'</b></td><td class="num">'+fmt(k[3])+"–"+fmt(k[4])+' m</td><td>'+stars(k[5])+'</td><td>'+k[6]+'</td></tr>';}).join("")+
+ '</tbody></table></div></div>'+
+ '<div style="margin-top:16px">'+panel("這張圖怎麼讀",list(KOYONOTE),"koyo")+'</div>';
+
+document.getElementById("prepbody").innerHTML=hero("Before the trail","行前",
+ "裝備、法規、交通與來源。山屋預約在<b>山屋開搶</b>那一頁，天氣判斷在<b>天氣決策</b>那一頁。")+
+ '<div class="two">'+
+ panel("裝備｜10 月初是初冬，不是秋天",'<dl style="margin:0">'+PREPGEAR.map(g=>'<dt style="font-weight:800;margin-top:8px">'+g[0]+'</dt><dd style="margin:2px 0 0">'+g[1]+'</dd>').join("")+'</dl>')+
+ '<div class="stack">'+
+ panel("證件、法規與保險",list(PREPLAW),"check")+
+ panel("交通的大架構",'<ul><li><b>去程（9/28）</b>　桃園 → 中部國際 → 名古屋 → 特急しなの → 松本 → 大糸線 → 穗高 → 中房。名古屋進比羽田進少一次換乘。</li>'+
+ '<li><b>轉場（10/8）</b>　上高地 → 新島々 → 松本 → 茅野 → 美濃戶口。全程唯一的長距離轉場，整個上午都在車上。</li>'+
+ '<li><b>回程（10/10–10/11）</b>　茅野 → 特急あずさ → 新宿／東京，隔天羽田返台。下山日與返程日分開，是刻意留的餘裕。</li>'+
+ '<li><b>指定席</b>　しなの（9/28）與あずさ（10/10）都要事先訂，10/10 是三連休中日。</li></ul>')+
+ panel("純觀光排在哪裡",'<p style="margin:0 0 8px">八ヶ岳縮成兩天一夜之後空出來的時間，沒有拿去加山，而是切成三段純觀光。三段都不影響任何山屋預約，<b>延誤時就按這個順序砍</b>。</p>'+
+ '<ul><li><b>D11 上高地｜明神池往返</b>（06:15–08:30，平路 6 km）　在上高地過夜卻沒看，是原本最大的漏。清晨河童橋的穗高倒影是整趟最好的回望。<span class="note">最後才砍</span></li>'+
+ '<li><b>D12 上諏訪｜片倉館 千人風呂</b>（14:20–16:00）　大正時代的洋館浴場、國家指定重要文化財，浴槽深 1.1 m 要站著泡。下山當天把十一天的山洗掉。<span class="note">第二順位砍</span></li>'+
+ '<li><b>D13 松本｜松本城</b>（08:30–13:30）　國寶五城之一，加舊開智學校與中町通り。松本是整趟的門戶城市，來回經過三次。<span class="note">第一順位砍</span></li></ul>'+
+ '<p class="note" style="margin-top:8px">替代版本：想多留東京就把 D12 直接進東京、D13 整天東京；想多泡溫泉就 D12 住上諏訪、D13 上午再泡一次諏訪湖畔的旅館湯。</p>',"koyo")+
+ panel("這本手冊的四個操作頁",'<ul><li><b>山屋開搶日曆</b>　決定先打哪一通電話。涸澤兩晚是 P1。</li>'+
+ '<li><b>天氣決策表</b>　D4 東鎌尾根、D10 吊尾根，加上 D9 的條件式判斷。</li>'+
+ '<li><b>每日撤退方案</b>　含下撤交通與取消規則。</li>'+
+ '<li><b>紅葉海拔時間軸</b>　哪幾天打在見頃帶中心。</li></ul>'+
+ '<p class="note" style="margin-top:8px">每日頁上也有壓縮版的紅葉與撤退資訊——在山上早上五點讀的是當天那一頁，不會翻回來。</p>',"check")+
+ '</div></div>'+
+ '<div class="panel" style="margin-top:16px"><h2>來源</h2><p class="sub" style="margin-bottom:12px">山屋營業期與預約規則以 2026 年為參考，<b>2027 年公告後須重新確認</b>。里程與升降為依節點標高推算的估值，標準 CT 取自山與高原地圖／YAMAP 等公開資料。白馬三山因 2026 年多間核心山屋於 9 月下旬關閉而未納入，2027 年開放日公告後可再評估。</p><ul class="srclist">'+
+ SRCLIST.map(s=>'<li><a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+' ↗</a><small>'+s[2]+'</small></li>').join("")+'</ul></div>'+
+ '<div class="foot"><p>時間為標準 CT 連續累加，只計行走，不含休息、拍照與取水；實際依天氣、路況與兩人腳程調整。</p>'+
+ '<p>高度剖面與稜線示意圖只連接已知標高節點，不是 GPS 軌跡，也不代表實際坡度。</p>'+
+ '<p>紅葉見頃為依海拔推估的期待值，不是預報；每年可能前後移動 1–2 週。</p>'+
+ '<p>2026 年 10 月版｜規劃用，非現地指南。</p></div>';
+
+/* ---------- 路由 ---------- */
+function show(v){
+  view=v;
+  VIEWS.forEach(n=>document.getElementById("v-"+n).classList.toggle("on",n===v));
+  document.querySelectorAll(".views button,[data-view]").forEach(b=>{if(b.dataset.view)b.setAttribute("aria-current",b.dataset.view===v);});
+  tl.querySelectorAll(".node").forEach(n=>{
+    const on=v==="day"&&n.dataset.go===cur;n.setAttribute("aria-current",on);
+    if(on)tl.scrollTo({left:n.offsetLeft-tl.clientWidth/2+n.clientWidth/2,behavior:"smooth"});});
+  if(v==="home")requestAnimationFrame(drawHome);
+  if(v==="koyo")requestAnimationFrame(()=>drawKoyo(document.getElementById("koyochart")));
+}
+function go(id){
+  if(VIEWS.indexOf(id)>=0&&id!=="day"){history.replaceState(null,"","#"+id);show(id);window.scrollTo({top:0});return;}
+  if(!DAYS.some(d=>d.id===id))return;
+  cur=id;history.replaceState(null,"","#"+id);show("day");renderDay();window.scrollTo({top:0,behavior:"smooth"});
+}
+function bind(root){
+  root.querySelectorAll("[data-go]").forEach(b=>{if(b.dataset.go)b.onclick=()=>go(b.dataset.go);});
+  root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));
+}
+bind(document);
+document.addEventListener("keydown",e=>{
+  if(view!=="day")return;const i=DAYS.findIndex(d=>d.id===cur);
+  if(e.key==="ArrowRight"&&DAYS[i+1])go(DAYS[i+1].id);
+  if(e.key==="ArrowLeft"&&DAYS[i-1])go(DAYS[i-1].id);});
+let sx=null,sy=null;const dv=document.getElementById("v-day");
+dv.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+dv.addEventListener("touchend",e=>{
+  if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const i=DAYS.findIndex(d=>d.id===cur),t=DAYS[i+(dx<0?1:-1)];if(t)go(t.id);}});
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{
+  if(view==="home")drawHome();
+  if(view==="koyo")drawKoyo(document.getElementById("koyochart"));
+  if(view==="day"){const d=DAYS.find(x=>x.id===cur);drawRidge(document.getElementById("ridge"),d);
+    drawRoute(document.getElementById("rmapday"),d.id);if(PROF[d.id])drawProfile(document.getElementById("dayprof"),d);}},150);});
+const h0=(location.hash||"#home").slice(1);
+if(DAYS.some(d=>d.id===h0))go(h0);else show(VIEWS.indexOf(h0)>=0&&h0!=="day"?h0:"home");
+</script>
+</body>
+</html>
