@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="2027 南一段四天三夜：進涇橋進、特生中心出，並列隊伍計畫、上河 G19 步程與山銘誌影片實走時間。">
+<title>2027 南一段手冊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 沿用新康橫斷手冊的版面：sticky 日期軸＋總覽／一天一頁／行前三種視圖 */
+:root{
+  --bg:#EDF0EA; --card:#FBFCF8; --ink:#1B2E27; --muted:#5F6F66; --line:#D3DCD1;
+  --moss:#2F6B4F; --sun:#C2802B; --alert:#A6432C; --mist:#E3E9E0;
+  --friend:#FBF6EC; --verify:#F4F6FA; --verifyline:#6E86A6; --stay:#F4F6F1; --onchip:#FFFFFF; --bar:rgba(237,240,234,.96);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141C18; --card:#1C2621; --ink:#E4ECE6; --muted:#9AAAA1; --line:#2E3B34; --moss:#6FB08C; --sun:#D9A15A; --alert:#E07C62; --mist:#26332C;
+  --friend:#2A251B; --verify:#1D2430; --verifyline:#8BA3C4; --stay:#1F2A24; --onchip:#FFFFFF; --bar:rgba(20,28,24,.96); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141C18; --card:#1C2621; --ink:#E4ECE6; --muted:#9AAAA1; --line:#2E3B34; --moss:#6FB08C; --sun:#D9A15A; --alert:#E07C62; --mist:#26332C;
+  --friend:#2A251B; --verify:#1D2430; --verifyline:#8BA3C4; --stay:#1F2A24; --onchip:#FFFFFF; --bar:rgba(20,28,24,.96); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bar)}
+button{font:inherit;color:inherit}
+a{color:var(--moss);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bar);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:0 auto;height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.05rem;border:0;background:none;padding:0;cursor:pointer;white-space:nowrap}
+.brand i{display:inline-block;width:10px;height:10px;background:var(--sun);transform:rotate(45deg);margin-right:8px}
+.views{display:flex;gap:4px}
+.views button{border:0;background:none;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:700;white-space:nowrap}
+.views button[aria-current="true"]{background:var(--ink);color:var(--bg)}
+.tl{max-width:1240px;margin:0 auto;display:flex;overflow-x:auto;padding-bottom:9px;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.node{flex:1 0 110px;min-width:110px;border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;text-align:left;color:var(--muted)}
+.node b{display:block;font-size:.85rem;color:var(--ink);line-height:1.2}
+.node small{display:block;font-size:.74rem;line-height:1.25}
+.node[aria-current="true"]{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.chip{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--moss);color:var(--onchip);font-family:var(--serif);font-weight:900;font-size:.78rem;flex:0 0 auto}
+.chip.lg{width:52px;height:52px;border-radius:14px;font-size:1.1rem}
+
+.view{display:none;max-width:1240px;margin:0 auto;padding-block:22px 46px}
+.view.on{display:block}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance}
+.kicker{margin:0;color:var(--moss);font-weight:800;letter-spacing:.04em}
+.sub{color:var(--muted);margin:0 0 16px;max-width:46em}
+
+.hero h1{font-weight:900;font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1.14;margin:6px 0 12px}
+.hero .meta{margin:0;font-size:1.06rem}
+.alertbox{margin:18px 0 4px;background:var(--friend);border:1px solid var(--line);border-left:5px solid var(--alert);border-radius:12px;padding:12px 16px;max-width:60em}
+.alertbox b{color:var(--alert)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 6px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--serif);font-size:1.35rem;line-height:1.3}
+.kpi small{display:block;color:var(--muted);font-size:.82rem}
+.profcard{margin:18px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 8px;overflow-x:auto}
+.profcard>svg,.mini>svg{width:100%;display:block}
+.daykey{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 14px;margin:8px 2px 2px}
+.daykey button{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:4px 6px;border-radius:8px;cursor:pointer}
+.daykey button:hover{background:var(--bg)}
+.daykey button.dim{opacity:.35}
+.daykey i{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.daykey b{font-size:.86rem;white-space:nowrap}
+.daykey span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.note{font-size:.8rem;color:var(--muted);margin:6px 2px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.three article{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:16px 18px}
+.three small{display:block;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--moss)}
+.three strong{display:block;font-family:var(--serif);font-size:1.16rem;margin:6px 0}
+.three p{margin:0;color:var(--muted);font-size:.93rem}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.dcard{border:1px solid var(--line);border-top:4px solid var(--c);background:var(--card);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.dcard:hover{border-color:var(--sun)}
+.dcard .hd{display:flex;align-items:center;gap:9px}
+.dcard .hd b{font-family:var(--serif)}
+.dcard .rt{font-family:var(--serif);font-weight:900;font-size:1.1rem;line-height:1.35}
+.dcard .st{font-size:.88rem;color:var(--muted)}
+.dcard .stay{margin-top:auto;padding-top:6px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 20px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+.dtop{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:stretch}
+.dtop>div{min-width:0}
+.banner{border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:230px;height:100%;display:grid;place-items:center;text-align:center;padding:18px;background:linear-gradient(150deg,var(--c),#1B2E27);color:#fff}
+.banner b{display:block;font-family:var(--serif);font-weight:900;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.3}
+.banner span{display:block;margin-top:8px;font-size:.9rem;opacity:.85}
+.banner .big{font-family:var(--serif);font-weight:900;font-size:3.2rem;line-height:1;margin-top:14px}
+.dhead{display:flex;align-items:center;gap:14px;margin:4px 0 4px}
+.dhead .when{margin:0;color:var(--muted);font-weight:700}
+.dhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.25}
+.lead{font-size:1.04rem;margin:6px 0 0;max-width:40em}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 22px;padding:12px 0;margin:14px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats dt{font-size:.78rem;color:var(--muted)}
+.stats dd{margin:0;font-weight:700;font-size:1.02rem}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:16px}
+.stack{display:grid;gap:16px;min-width:0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;min-width:0}
+.panel h3{margin:0 0 8px;font-size:1.06rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel h3 .tagi{font-family:var(--sans);font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 9px;background:var(--mist);color:var(--muted)}
+.panel ul{margin:0;padding-left:1.15em}
+.panel li{margin:6px 0}
+.panel.friend{border-left:5px solid var(--sun);background:var(--friend)}
+.panel.verify{border-left:5px solid var(--verifyline);background:var(--verify)}
+.panel.check{border-left:5px solid var(--moss)}
+.panel.gate{border-left:5px solid var(--alert)}
+.panel.stay{background:var(--stay)}
+.src{font-size:.8rem;margin-left:6px;white-space:nowrap}
+.times{list-style:none;margin:4px 0 0;padding:0;position:relative}
+.times:before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.times li{display:grid;grid-template-columns:70px 18px minmax(0,1fr);gap:9px;padding:5px 0}
+.times time{color:var(--moss);font-weight:800;font-size:.9rem}
+.times .mk{width:12px;height:12px;border:2px solid var(--moss);border-radius:50%;background:var(--card);margin:6px 3px;z-index:1}
+.times .mk.peak{background:var(--sun);border-color:var(--ink)}
+.times b{display:block;line-height:1.4}
+.times .alt{font-weight:700}
+.times .segs{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 0}
+.times .segs span{font-size:.74rem;background:var(--mist);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.times .rem{display:block;font-size:.84rem;color:var(--muted);margin:3px 0 0}
+.mini text{font-family:var(--sans)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pager button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;cursor:pointer;text-align:left;max-width:48%}
+.pager button[disabled]{visibility:hidden}
+.pager small{display:block;color:var(--muted);font-size:.76rem}
+.pager .next{text-align:right}
+.fade{animation:fade .22s ease}@keyframes fade{from{opacity:.3}to{opacity:1}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel h2{margin:0 0 8px;font-size:1.3rem}
+.date{color:var(--moss);font-weight:800;white-space:nowrap}
+.warn{color:var(--alert);font-weight:800}
+.checklist{list-style:none;padding:0!important}
+.checklist li{padding-left:26px;position:relative}
+.checklist li:before{content:"□";position:absolute;left:0;color:var(--moss);font-size:1.15rem}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{font-size:.8rem;color:var(--muted);font-weight:700}
+.srclist{list-style:none;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.srclist small{display:block;color:var(--muted)}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.foot p{margin:3px 0;max-width:60em}
+
+@media (max-width:1000px){.kpi{grid-template-columns:1fr 1fr}.three,.days{grid-template-columns:1fr}.daykey{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.dgrid,.two,.dtop{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dtop .banner{min-height:150px}}
+@media (max-width:600px){
+  .view{padding-block:16px 40px}
+  .panel{padding:14px 16px}
+  .daykey{grid-template-columns:1fr}
+  .times:before{left:66px}
+  .times li{grid-template-columns:58px 18px minmax(0,1fr);gap:7px}
+  .pager{position:sticky;bottom:0;background:var(--bar);padding-block:8px calc(8px + env(safe-area-inset-bottom,0px))}
+  .pager .pn{display:none}
+  .srclist{grid-template-columns:1fr}
+  .node{flex:0 0 auto;min-width:0}
+  .node small{display:none}
+}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="bar gut">
+    <button class="brand" data-view="home"><i></i>南一段 2027</button>
+    <nav class="views" aria-label="頁面">
+      <button data-view="home">總覽</button>
+      <button data-view="prep">行前與接駁</button>
+    </nav>
+  </div>
+  <nav class="tl gut" id="tl" aria-label="選擇日期"></nav>
+</header>
+
+<main>
+  <section class="view gut" id="v-home">
+    <div class="hero">
+      <p class="kicker">進涇橋進、藤枝出</p>
+      <h1>從南台首岳<br>走到卑南主山</h1>
+      <p class="meta"><b class="num">2027/2/24 集合，2/25–2/28 四天三夜，228 下山</b></p>
+      <p class="sub" style="margin-top:10px">中央山脈南一段順走，不上庫哈諾辛山，第一晚直接紮 2920 鞍。時刻採隊伍的計畫（含休息），每段並列上河 G19 1.0 倍步程，以及山銘誌南一段影片的實走時間。</p>
+    </div>
+
+    <div class="alertbox">
+      <b>先確認南橫開放日。</b>南橫梅山口到向陽自 2025/12/1 起每週二到週四禁止通行，週五到週一 07:00–14:00 開放。2/25 是週四，照這個規則當天進不去。12 月再查一次公路局公告；規則若沒變，同一份四天行程改走 <b class="num">2/26（五）–3/1（一，補假）</b>，只要請 2/26 一天假。
+    </div>
+
+    <div class="kpi" id="kpi"></div>
+
+    <div class="profcard">
+      <svg id="rmap" role="img" aria-label="整段路線拓樸示意"></svg>
+      <p class="note">路線拓樸示意：位置與線長不按真實比例。雙線是原路往返（D3 卑南主山）。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="profcard">
+      <svg id="prof" role="img" aria-label="全程高度剖面"></svg>
+      <div class="daykey" id="daykey"></div>
+      <p class="note">橫軸是上河步程分鐘累加，不是里程；縱軸是節點標高。D4 走影片捷徑，沒有上河分段，未畫入剖面。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="three">
+      <article style="--c:#A6432C"><small>水</small><strong>2 月是南台灣乾季</strong><p>看天池多半沒水。活水靠 2920 鞍（下切約 150 m）和雲馬鞍；三叉營地當晚的水要從雲馬鞍背。</p></article>
+      <article style="--c:#C2802B"><small>植被</small><strong>小關難纏、雲水無水</strong><p>馬西巴秀山箭竹是影片裡的「大魔王」，迷路 2–3 次。全線約 1–2 成路徑不明顯，離線 GPX 人手一份。</p></article>
+      <article style="--c:#2F6B4F"><small>體力分配</small><strong>三天 12 小時以上，最後一天急降</strong><p>D1–D3 含休息都在 8.5–13 小時；D4 從 3,174 m 下到 1,650 m，最後是切西瓜捷徑急降，雙杖必備。</p></article>
+    </div>
+
+    <h2 style="margin:34px 0 4px;font-size:1.5rem">五頁，一天一頁</h2>
+    <p class="sub">D0 是集合日；D1–D4 是四天三夜主線。點卡片看當天的時刻、撤退判斷、影片提醒和水。</p>
+    <div class="days" id="daycards"></div>
+
+    <div class="cta">
+      <button class="btn" data-go="d0">從 D0 開始看</button>
+      <button class="btn ghost" data-view="prep">行前與接駁</button>
+    </div>
+  </section>
+
+  <section class="view gut" id="v-day"><article id="day" aria-live="polite"></article></section>
+
+  <section class="view gut" id="v-prep">
+    <div class="hero"><p class="kicker">Before the trail</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">行前與接駁</h1></div>
+    <p class="sub">兩端林道與南橫的狀態是這趟最大的變數，比體能更可能讓行程走不成。下面的事項依時間排列。</p>
+
+    <div class="two">
+      <div class="panel gate">
+        <h2>四件一定要先確認的事</h2>
+        <ul>
+          <li><b>南橫開放日</b>　梅山口至向陽目前週二到週四封閉，週五到週一 07:00–14:00 開放、17:00 前要離開管制路段。D1 是不是開放日，決定整趟日期。</li>
+          <li><b>藤枝 18K</b>　屏東分署林道頁記載 18K 路基崩坍、設管制門、禁止人車通行（2026/10/2 巡查）。要問清楚登山者從特生中心下來能否通過，以及有沒有業者接駁到特生中心。<br>屏東分署 <span class="num">08-723-6941</span>　六龜工作站 <span class="num">07-689-1002</span></li>
+          <li><b>藤枝森林遊樂區</b>　目前封園。出口實際在特生中心旁的南一段登山口。影片隊伍的接駁車開到特生中心，要確認現在還上得去。</li>
+          <li><b>D4 捷徑 GPX</b>　向山銘誌要影片那趟的軌跡，確認石山叉路口位置、廢棄林道與切西瓜段的走法。</li>
+        </ul>
+      </div>
+      <div class="panel check">
+        <h2>時程</h2>
+        <ul class="checklist">
+          <li><span class="date">12 月中</span>　查南橫開放規則、藤枝 18K 管制，敲定日期；預約兩端接駁（寶來→進涇橋、特生中心→六龜或左營）。</li>
+          <li><span class="date">1 月</span>　申請入園（玉山國家公園）與入山（桃源區山地管制區），申請時程以系統公告為準。這版不住山屋，不需抽庫哈諾辛山屋床位。</li>
+          <li><span class="date">出發前 3 天</span>　Windy（ECMWF）＋氣象署山區預報看 48–72 小時，決定照走或延期。</li>
+          <li><span class="date">D0 晚</span>　登山保險、身分證、離線軌跡與地圖、留守人通報時間與延遲流程。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>水源一覽（順走）</h2>
+        <div class="tbl"><table>
+          <thead><tr><th>地點</th><th>水源</th><th>怎麼用</th></tr></thead>
+          <tbody>
+            <tr><td>進涇橋</td><td>溪水</td><td>D1 背一整天的量，約 3 L</td></tr>
+            <tr><td>3026 山屋</td><td>蓄水桶</td><td>乾季常見底，不要依賴</td></tr>
+            <tr><td>2920 鞍</td><td>活水，下切約 150 m</td><td>D1 天黑前取完，D2 出發背約 3 L</td></tr>
+            <tr><td>海諾南南鞍</td><td>看天池</td><td>乾季不穩，不列入計畫</td></tr>
+            <tr><td>雲水池</td><td>看天池</td><td>有水是運氣，不列入計畫</td></tr>
+            <tr><td>雲馬鞍</td><td>活水，下切溪溝 12–15 分</td><td>D2 晚取水；D3 出發裝足到三叉營地當晚</td></tr>
+            <tr><td>三叉營地</td><td>看天池＋下切活水</td><td>下切約 20 分、回程約 30 分；計畫裡沒排這段時間</td></tr>
+            <tr><td>D4 沿途</td><td>不確定</td><td>從三叉背足 D4 一天的量</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="panel">
+        <h2>裝備重點</h2>
+        <ul>
+          <li><b>綁腿、長袖、手套</b>　刺柏與箭竹。</li>
+          <li><b>雙杖</b>　D4 從 3,174 m 下到 1,650 m，最後是急降捷徑。</li>
+          <li><b>輕冰爪</b>　2920、三叉營地清晨可能結霜。</li>
+          <li><b>水容量至少 5 L</b>　D3 要從雲馬鞍背一整天加一晚的水。</li>
+          <li><b>頭燈與備用電池</b>　D2、D3 都是摸黑出發。</li>
+          <li><b>衛星通訊器</b>　D2 之後幾乎沒有手機訊號，影片隊伍用衛星訊息向留守人回報。</li>
+          <li><b>高山症藥物</b>　依個人醫囑；第一天就爬到 3,668 m，前一晚開始準備。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>數據怎麼讀</h2>
+        <ul>
+          <li>左欄時刻是<b>隊伍自己的計畫，已含休息</b>。每段另列上河 G19 1.0 倍純步程，以及山銘誌影片隊伍的實走時間，三者可以互相對照。</li>
+          <li>D4 影片走的是石山廢棄林道接切西瓜捷徑，上河 G19 沒有這條的分段時間；出發前向山銘誌要 GPX 確認。</li>
+          <li>上河 G19 公開圖只有分鐘、沒有分段里程，所以本手冊不列各段公里數，剖面圖橫軸用累計分鐘。</li>
+          <li>標高以節點名稱（3026、3444、2920、3237）和查得的登山紀錄為準；未查到的節點標「未標」，不推估。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>撤退路線</h2>
+        <ul>
+          <li><b>D1</b>　10:30–11:00 未到庫哈諾辛山屋：停山屋或叉路營地，整趟延一天。</li>
+          <li><b>D2</b>　小關山四岔路口可經凹谷營地下小關山林道，但林道車輛管制狀況要事先確認，否則下山後還要走很長的林道。</li>
+          <li><b>D3 之後</b>　往前出藤枝比往回走近，以出藤枝為主。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h2>來源</h2>
+      <p class="sub" style="margin-bottom:12px">路況、水況和管制都會變動；本頁以 2026/10/28 查得的資料為版本日期。</p>
+      <ul class="srclist" id="srclist"></ul>
+    </div>
+
+    <div class="foot">
+      <p>時間為上河 G19 1.0 倍純步行推算，不含休息、取水與拍照；實際依天氣、路況與隊伍腳程調整。</p>
+      <p>高度剖面只連接已知標高節點，不是 GPS 軌跡，也不是實際坡度。</p>
+      <p>2026 年 10 月版（四天三夜，併入山銘誌影片實走）</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const VID="https://www.youtube.com/watch?v=i-ChtqNLgNk";
+const vt=s=>`${VID}&t=${s}`;
+const C={d0:"#7A8C80",d1:"#2F6B4F",d2:"#3F7FA6",d3:"#C2802B",d4:"#A6432C"};
+const SRC={
+ sun:"https://www.sunriver.com.tw/step2020.htm",
+ road:"https://udn.com/news/story/7266/9172089",
+ tengzhi:"https://pingtung.forest.gov.tw/ForestRoad/10003333",
+ tzNews:"https://udn.com/news/story/7327/9437366",
+ biji:"https://hiking.biji.co/index.php?q=trail&act=detail&id=630",
+ gpx3:"https://hiking.biji.co/index.php?q=trail&act=gpx_detail&id=1586158",
+ xg:"https://hiking.biji.co/index.php?q=review&act=info&review_id=17662",
+ ptt:"https://www.ptt.cc/bbs/Hiking/M.1654594998.A.E53.html",
+ sanCha:"https://xn--kwr22her7a6qdvs6a.tw/mountain/aaasouthone107.htm",
+ beinan:"https://vocus.cc/article/67a99f95fd89780001b248e2",
+ water:"https://www.ctee.com.tw/news/20241224701676-431401",
+ milong:"https://etaiwan.news/2026/05/08/%E9%80%99%E8%A3%A1%E6%AD%A3%E5%9C%A8%E4%BF%AE%E8%B7%AF%EF%BD%9C%E7%BE%8E%E7%93%8F%E5%B1%B1%E6%9E%97%E9%81%93%EF%BC%8C%E5%8D%B3%E6%97%A5%E8%B5%B7%E8%87%B38-31%E6%97%A5%E4%BA%A4%E9%80%9A%E7%AE%A1/",
+ zhou:"https://hiking.biji.co/index.php?q=review&act=info&review_id=28247"
+};
+const SRCLIST=[
+ ["山銘誌 Summit Features｜【百岳】中央山脈大縱走 南一段",VID,"影片實走"],
+ ["上河文化｜G19 南一段縱走步程示意圖",SRC.sun,"上河原圖"],
+ ["聯合報｜南橫梅山口至向陽週二至週四禁止通行（2025/11）",SRC.road,"交通管制"],
+ ["屏東分署｜藤枝聯外道路林道現況",SRC.tengzhi,"官方"],
+ ["聯合報｜藤枝林道屢斷屢修、遊樂區封園（2026/4）",SRC.tzNews,"新聞"],
+ ["東台灣新聞網｜美瓏山（小關山）林道施工交管（2026/5）",SRC.milong,"撤退路線"],
+ ["工商時報｜玉山國家公園入冬山屋儲水不佳",SRC.water,"水情"],
+ ["健行筆記｜南一段路線頁與路況回報",SRC.biji,"路線資料"],
+ ["健行筆記｜神池-小關山-卑南主山-藤枝 GPX（2022/12）",SRC.gpx3,"實走紀錄"],
+ ["健行筆記｜小關山＋海諾南山紀錄",SRC.xg,"實走紀錄"],
+ ["PTT Hiking｜南一段逆走營地與水源（2022/6）",SRC.ptt,"實走紀錄"],
+ ["台灣百岳｜南橫三星＋南一段（三叉營地取水）",SRC.sanCha,"實走紀錄"],
+ ["方格子｜卑南主山石山東鞍營地紀錄（2025/1）",SRC.beinan,"實走紀錄"],
+ ["健行筆記｜南一段＋東藤枝山六日行",SRC.zhou,"實走紀錄"]
+];
+
+/* tl row: [time, name, alt|null, min|null, delta|null, remark|null, peak?] */
+/* tl row: [time, name, alt|null, 上河分|null, 影片實走|null, remark|null, peak?] */
+const DAYS=[
+{id:"d0",n:0,date:"2/24",dow:"三",tag:"集合日",short:"寶來集合",title:"左營 → 寶來／梅山",
+ lead:"前一晚住到梅山口管制站外，隔天開閘後進南橫，08:30 從進涇橋起登。",
+ stats:[["集合","左營高鐵站"],["住宿","寶來或梅山"],["隔天過閘","07:00"],["隔天起登","08:30"]],
+ gate:"南橫週二到週四封閉。D1（2/25 週四）照現行規則進不去；規則沒變就整趟改 2/26（五）–3/1（一，補假）。",
+ tl:[["下午","左營高鐵站集合",null,null,null,"搭預約接駁往寶來。"],
+     ["傍晚","寶來最後補給",null,null,null,"行動糧、瓦斯、電池；山上沒有任何補給。"],
+     ["晚間","入住",null,null,null,"確認隔晨上車時間與人數；水壺先裝滿。"],
+     ["睡前","核對證件與裝備",null,null,null,"身分證、入園入山許可、離線 GPX、衛星通訊器、留守聯絡。"]],
+ tips:["南橫梅山口以上道路窄、有落石；包車由熟悉南橫的業者開。","高山症藥物依個人醫囑準備，第一天就爬到 3,668 m。","全線約 1–2 成路徑不明顯、布條混雜；每個人手機都要有離線 GPX。"],
+ verify:[["梅山口至向陽週五至週一 07:00–14:00 開放、17:00 前須離開管制路段；週二至週四禁止通行。",SRC.road]],
+ stay:["寶來／梅山民宿","隔晨出發；接駁業者與費用待確認。"],
+ big:"集合"},
+
+{id:"d1",n:1,date:"2/25",dow:"四",tag:"四天三夜主線",short:"關山・2920",title:"進涇橋 → 關山 → 2920 鞍",
+ lead:"不住山屋，一天推到 2920 鞍。全程最高點關山在第一天，登頂前有一段攀岩拉繩，之後的森林段雨後很滑。",
+ stats:[["計畫時段","08:30–17:00"],["上河 1.0 純步行","9 時 55 分"],["影片實走","08:10 起登，約 14:00 登關山"],["營地","2920 鞍"]],
+ gate:"10:30–11:00 還沒到庫哈諾辛山屋，當晚就停山屋或叉路營地，整趟延一天。山屋之後到 2920 中間沒有好的營地。",
+ tl:[["08:30","進涇橋登山口","2,370 m",null,"08:10 起登","南橫 28.3K。前段約 4,000 階木梯；從溪邊背足一整天的水。"],
+     ["10:40","庫哈諾辛山屋／叉路營地","3,026 m","135 分","1 時 43 分","影片隊伍在此休息 12 分。庫哈諾辛山這版不上。"],
+     ["14:30","關山","3,668 m","150＋130 分","約 5 時 50 分","登頂前約 500 m 是攀岩拉繩區，手腳並用。全程最高點。",1],
+     ["17:00","2920 鞍營地","2,920 m","180 分","傍晚前抵達","81–85 號牌一帶進森林後，雨天會變成泥巴水道，落差大易滑。取水要下切約 150 m。"]],
+ prof:[[0,2370,"進涇橋"],[135,3026,"庫哈諾辛山屋"],[415,3668,"關山"],[595,2920,"2920 鞍"]],len:595,
+ tips:[`關山前約 500 m 的攀岩拉繩區要手腳並用，登山杖先收起來。<a class="src" href="${vt(628)}" target="_blank" rel="noopener">↗ 影片 10:28</a>`,
+       `關山往 2920 的森林段（81–85 號牌）雨後是泥巴水道，落差大、極滑。<a class="src" href="${vt(1003)}" target="_blank" rel="noopener">↗ 影片 16:43</a>`,
+       `2920 的活水要下切約 150 m，取水來回要預留時間，天黑前完成。<a class="src" href="${vt(1212)}" target="_blank" rel="noopener">↗ 影片 20:12</a>`],
+ verify:[["上河 G19：進涇橋→山屋 135、山屋→3444 主稜 150、主稜→關山 130、關山→2920 鞍 180 分。計畫時段比上河快約 1 小時，影片實走也比上河快。",SRC.sun],
+         ["玉山國家公園冬季枯水期，庫哈諾辛山屋儲水曾見底。",SRC.water]],
+ stay:["2920 鞍營地","活水，下切約 150 m。補滿水，明天要走一整天到雲馬鞍。"],
+ big:"3,668 m"},
+
+{id:"d2",n:2,date:"2/26",dow:"五",tag:"四天三夜主線",short:"海諾南・小關",title:"2920 → 海諾南山 → 小關山 → 雲馬鞍",
+ lead:"「小關難纏」的一天。摸黑上海諾南山看日出，過小關山北峰瘦稜、小關山，經雲水池到雲馬鞍取水紮營。",
+ stats:[["計畫時段","03:50–16:40"],["上河 1.0 純步行","11 時 22 分"],["影片實走","04:00 起登，15:52 到取水叉路"],["營地","雲馬鞍"]],
+ gate:"14:00 前沒到小關山，改在小關山下森林營地紮營（無水，要從 2920 背水）。",
+ tl:[["03:50","2920 鞍營地","2,920 m",null,"04:00 起登","背約 3 L 出發。"],
+     ["05:50","海諾南山","3,175 m","130 分","05:55 登頂","日出約 06:25；大休到 06:40。影片隊伍停留約 1 小時。",1],
+     ["09:30","小關山北峰",null,"170 分","約 09:10","瘦稜段，注意風勢與踩點。"],
+     ["12:00","小關山","3,249 m","160＋2 分","12:05 登頂","四岔路口卸重裝輕裝攻頂；午餐大休到 13:00。",1],
+     ["14:10","最低鞍部",null,"70 分","13:17 過黑水塘","黑水塘是看天池。"],
+     ["15:10","雲水山／雲水池",null,"60 分","約 14:00","雲水池是看天池，乾季不穩。"],
+     ["16:40","雲馬鞍營地","","90 分","15:52 到取水叉路","下切溪溝取水約 12–15 分，路況破碎、有倒木。"]],
+ prof:[[0,2920,"2920 鞍"],[130,3175,"海諾南山"],[462,3249,"小關山"]],len:682,
+ tips:[`小關山北峰是瘦稜，風大時重心放低。<a class="src" href="${vt(1833)}" target="_blank" rel="noopener">↗ 影片 30:33</a>`,
+       `小關山往雲水池一路刺柏、箭竹茂密，樹根多、容易拐腳；綁腿、手套今天一定要。<a class="src" href="${vt(2257)}" target="_blank" rel="noopener">↗ 影片 37:37</a>`,
+       `雲馬鞍取水的下切溪溝路況破碎、有倒木。<a class="src" href="${vt(2365)}" target="_blank" rel="noopener">↗ 影片 39:25</a>`,
+       `影片隊伍到營地時已客滿，往前推約 300 m 才紮營。228 連假人更多，要有備案。<a class="src" href="${vt(2462)}" target="_blank" rel="noopener">↗ 影片 41:02</a>`],
+ verify:[["上河 G19：2920→海諾南山 130、→小關山北峰 170、→四岔 160、四岔↔小關山 1、→最低鞍部 70、→雲水山 60、→雲馬鞍 90 分；雲馬鞍取水 15＋20 分。",SRC.sun],
+         ["小關山林道是傳統撤退路線，但 2026 年施工期間曾封閉部分路段、禁止車輛。",SRC.milong]],
+ stay:["雲馬鞍營地","活水下切 12–15 分。明天的水在這裡一次裝足，三叉營地可能沒時間取水。"],
+ big:"3,249 m"},
+
+{id:"d3",n:3,date:"2/27",dow:"六",tag:"四天三夜主線",short:"3237・卑南",title:"雲馬鞍 → 3237 峰 → 三叉 ↔ 卑南主山",
+ lead:"先過「大魔王」馬西巴秀山箭竹段，再走全程最長的單段到 3237 峰，下午在三叉搭營後輕裝上卑南主山。",
+ stats:[["計畫時段","04:50–17:30"],["上河 1.0 純步行","9 時 30 分"],["影片實走","04:50 起登，12:30 到三叉"],["營地","三叉峰下營地"]],
+ gate:"Plan B：11:00 前沒到石洞營地，就在石洞紮營（要背水），卑南主山改到 D4 清晨。D4 會因此變長，出發前講好。",
+ tl:[["04:50","雲馬鞍營地",null,null,"約 04:50 起登","清晨風大時影片隊伍稍延後出發。"],
+     ["06:00","馬西巴秀山",null,"70 分","06:14（1 時 20 分）","約 1 km 濃密箭竹，影片隊伍迷路找路 2–3 次。日出約 06:25。"],
+     ["07:00","馬西巴秀石洞營地","3,000 m","35 分",null,"Plan B 判斷點：11:00。"],
+     ["13:30","3237 公尺峰","3,237 m","330 分",null,"全程最長單段，刺柏密、有攀爬段。",1],
+     ["14:40","三叉峰下營地","3,174 m","60 分","12:30 到三叉","搭營。水要從雲馬鞍背來。"],
+     ["16:20","卑南主山","3,295 m","10＋25 分","40–50 分","輕裝來回，爬升約 130–140 m；山頂休息 30 分。",1],
+     ["17:30","回三叉峰下營地","3,174 m","30＋10 分",null,"日落約 18:00，頭燈放在隨身包。"]],
+ prof:[[105,3000,"石洞營地"],[435,3237,"3237 峰"],[495,3174,"三叉營地"],[530,3295,"卑南主山"],[570,3174,"三叉營地"]],len:570,
+ tips:[`馬西巴秀山一帶箭竹極密、路徑難辨，影片稱為「大魔王」路段，要不時對 GPX。<a class="src" href="${vt(2530)}" target="_blank" rel="noopener">↗ 影片 42:10</a>`,
+       `三叉營地雨後泥濘濕滑，搭營位置挑高處。<a class="src" href="${vt(2639)}" target="_blank" rel="noopener">↗ 影片 43:59</a>`,
+       `卑南主山頂無遮蔽，影片隊伍遇到白牆和風雨；天氣不好時縮短停留。<a class="src" href="${vt(2695)}" target="_blank" rel="noopener">↗ 影片 44:55</a>`,
+       "影片隊伍 07:00 用衛星通訊向留守人回報；這段沒有手機訊號，建議帶衛星通訊器。"],
+ verify:[["上河 G19：雲馬鞍→馬西巴秀山 70、→石洞營地 35、→3237 峰 330、→三叉峰下營地 60、三叉→三岔 10、三岔↔卑南主山 25／30 分。",SRC.sun],
+         ["三叉營地缺水時，325 哩程標旁下切約 20 分可到活水，上坡回程約 30 分。",SRC.sanCha]],
+ stay:["三叉峰下營地","看天池＋下切活水（來回約 50 分）。計畫時段不夠下切，水以雲馬鞍背來的為主。"],
+ big:"3,295 m"},
+
+{id:"d4",n:4,date:"2/28",dow:"日",tag:"228 下山",short:"出特生中心",title:"三叉 → 石山 → 廢棄林道 → 特生中心",
+ lead:"影片隊伍從三叉營地到特生中心約 6 小時：翻石山岩壁、接石山廢棄林道，再走切西瓜捷徑急降到特生中心。上河 G19 經石山西鞍、溪南山的路線要約 12 小時。",
+ stats:[["計畫出發","05:00"],["影片實走","07:30 出發，13:00–14:00 到特生中心"],["上河 G19 路線","約 12 時（經西鞍、溪南山）"],["終點","特生中心登山口"]],
+ gate:"這天能不能 4 天走完，取決於兩件事：拿到影片隊伍的 GPX 照同一條捷徑走，以及接駁能上到特生中心。任一件不成立，就要在石山西鞍多住一晚。",
+ tl:[["05:00","三叉峰下營地","3,174 m",null,"07:30 出發",null],
+     ["約 07:20","石山叉路口",null,null,"09:50（2 時 20 分）","經陡峭濕滑岩壁攀爬後抵達，卸包順登石山。影片標此處海拔約 3,262 m，與石山 2,814 m 不符，以 GPX 為準。"],
+     ["約 08:00–08:30","接石山廢棄林道",null,null,"10:30–11:00","林道有崩塌，需高繞。"],
+     ["約 10:30–11:30","特生中心登山口","1,650 m",null,"13:00–14:00","切西瓜捷徑：穿芒草區連續急降。影片隊伍在此上車。"]],
+ prof:null,len:0,
+ tips:[`石山攀爬段是垂直岩壁，石頭濕滑，三點不動一點動。<a class="src" href="${vt(3025)}" target="_blank" rel="noopener">↗ 影片 50:25</a>`,
+       `廢棄林道有崩塌、高繞和急降下切段。<a class="src" href="${vt(3162)}" target="_blank" rel="noopener">↗ 影片 52:42</a>`,
+       `最後是穿芒草區的連續急降，雙杖全程用，下坡寧可慢。<a class="src" href="${vt(3249)}" target="_blank" rel="noopener">↗ 影片 54:09</a>`,
+       "影片隊伍的接駁車開到特生中心；藤枝 18K 目前有管制門，要向接駁業者確認現在還能不能上去。"],
+ verify:[["上河 G19 經石山西鞍、溪南山到特生中心約 719 分；再走到 18K 另加 160 分。",SRC.sun],
+         ["藤枝聯外道路 18K 路基崩坍、設管制門禁止人車通行；遊樂區封園。",SRC.tengzhi,SRC.tzNews],
+         ["南一段登山口（特生中心旁）約 1,650 m。",SRC.beinan]],
+ stay:["六龜／左營，返程","預計中午前後到特生中心上車。"],
+ big:"228"}
+];
+const WALK=DAYS.filter(d=>d.prof);
+const DAYLINE={d0:"左營集合 → 寶來／梅山住宿",d1:"進涇橋 → 關山 → 2920 鞍｜08:30–17:00",d2:"2920 → 海諾南 → 小關山 → 雲馬鞍｜03:50–16:40",
+ d3:"雲馬鞍 → 3237 → 三叉 ↔ 卑南主山｜04:50–17:30",d4:"三叉 → 石山 → 林道 → 特生中心｜228 下山"};
+
+const NS="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=n=>Number(n).toLocaleString("en-US");
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+let CUM=[];{let c=0;WALK.forEach(d=>{CUM.push({d,x0:c,x1:c+d.len,pts:d.prof.map(p=>[c+p[0],p[1],p[2]])});c+=d.len;});}
+function drawProfile(svg,day,hl){
+  const ink=css("--ink"),muted=css("--muted"),card=css("--card"),line=css("--line");
+  const cw=svg.parentElement.clientWidth||900,small=cw<560;
+  const W=small?520:Math.min(1100,cw),m={l:small?40:52,r:small?14:22,t:small?34:42,b:small?26:30},H=day?(small?230:270):(small?200:250);
+  const segs=day?[{d:day,x0:0,x1:day.len,pts:day.prof}]:CUM;
+  const ys=segs.flatMap(s=>s.pts.map(p=>p[1]));
+  const xmax=segs[segs.length-1].x1,ylo=Math.floor((Math.min(...ys)-150)/500)*500,yhi=Math.ceil((Math.max(...ys)+150)/500)*500;
+  const X=v=>m.l+v/xmax*(W-m.l-m.r),Y=v=>m.t+(1-(v-ylo)/(yhi-ylo))*(H-m.t-m.b),base=H-m.b;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  for(let a=ylo;a<=yhi;a+=500){mk("line",{x1:m.l,x2:W-m.r,y1:Y(a),y2:Y(a),stroke:line,"stroke-dasharray":"2 5"},svg);
+    const t=mk("text",{x:m.l-6,y:Y(a)+4,"text-anchor":"end","font-size":small?10:11,fill:muted},svg);t.textContent=fmt(a);}
+  segs.forEach(s=>{
+    const on=!hl||hl===s.d.id,c=C[s.d.id];
+    if(!day){mk("rect",{x:X(s.x0),y:m.t,width:X(s.x1)-X(s.x0),height:base-m.t,fill:c,opacity:on?.06:.02},svg);}
+    if(s.pts.length>1){const dstr=s.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+      mk("path",{d:dstr+` L${X(s.pts[s.pts.length-1][0])} ${base} L${X(s.pts[0][0])} ${base} Z`,fill:c,opacity:on?.16:.05},svg);
+      mk("path",{d:dstr,fill:"none",stroke:on?c:line,"stroke-width":on?3:2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);}
+    if(!day){const hit=mk("rect",{x:X(s.x0),y:0,width:X(s.x1)-X(s.x0),height:H,fill:"transparent",style:"cursor:pointer"},svg);
+      const tt=mk("title",{},hit);tt.textContent=`D${s.d.n} ${s.d.short}`;hit.addEventListener("click",()=>go(s.d.id));
+      hit.addEventListener("mouseenter",()=>{homeHL=s.d.id;drawHome();});hit.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+      const lab=mk("text",{x:(X(s.x0)+X(s.x1))/2,y:H-8,"text-anchor":"middle","font-size":small?10:11,"font-weight":700,fill:on?C[s.d.id]:muted},svg);lab.textContent="D"+s.d.n;}
+  });
+  const all=segs.flatMap(s=>s.pts),top=all.reduce((a,b)=>b[1]>a[1]?b:a);
+  segs.forEach(s=>{const on=!hl||hl===s.d.id;s.pts.forEach(p=>{
+    mk("circle",{cx:X(p[0]),cy:Y(p[1]),r:p===top?4.5:3,fill:p===top?"#C2802B":card,stroke:on?C[s.d.id]:line,"stroke-width":2},svg);});});
+  if(day){const boxes=[],xs2=[];const free=(x,y,w,h)=>{if(x<2||x+w>W-2||y<2||y+h>H-2)return false;
+      for(const b of boxes){if(x<b[0]+b[2]&&x+w>b[0]&&y<b[1]+b[3]&&y+h>b[1])return false;}boxes.push([x,y,w,h]);return true;};
+    day.prof.forEach((p,i)=>{if(xs2.some(v=>Math.abs(v-X(p[0]))<30)&&p!==top)return;xs2.push(X(p[0]));
+      const txt=`${p[2]} ${fmt(p[1])}`,fs=small?9.5:10.5,w=txt.length*fs*.9;
+      const anchor=i===0?"start":i===day.prof.length-1?"end":"middle";
+      for(const dy of [-12,18,-26,30]){const bx=X(p[0])-(anchor==="middle"?w/2:anchor==="end"?w:0),by=Y(p[1])+dy-(dy<0?fs:0);
+        if(free(bx,by,w,fs+3)){const t=mk("text",{x:X(p[0]),y:Y(p[1])+dy,"text-anchor":anchor,"font-size":fs,"font-weight":700,fill:ink,
+          "paint-order":"stroke",stroke:card,"stroke-width":3.5,"stroke-linejoin":"round"},svg);t.textContent=txt;break;}}});}
+  else{const t=mk("text",{x:X(top[0]),y:Y(top[1])-10,"text-anchor":"middle","font-size":11,"font-weight":700,fill:ink},svg);t.textContent=`${top[2]} ${fmt(top[1])} m`;}
+}
+let homeHL=null;
+function drawHome(){drawProfile(document.getElementById("prof"),null,homeHL);drawRoute(document.getElementById("rmap"),homeHL);
+  document.querySelectorAll("#daykey button").forEach(b=>b.classList.toggle("dim",!!homeHL&&b.dataset.go!==homeHL));}
+
+const RN={jj:[.04,.10,"進涇橋"],hut:[.14,.24,"3026 山屋"],gs:[.27,.14,"關山"],an:[.36,.34,"2920 鞍"],hn:[.47,.22,"海諾南山"],
+ xg:[.60,.36,"小關山"],ys:[.66,.56,"雲水山"],ym:[.74,.70,"雲馬鞍"],sc:[.86,.62,"三叉營地"],bn:[.96,.78,"卑南主山"],
+ ss:[.66,.90,"石山"],td:[.30,.90,"特生中心"]};
+const RE=[{d:"d1",p:["jj","hut","gs","an"]},{d:"d2",p:["an","hn","xg","ys","ym"]},{d:"d3",p:["ym","sc"]},
+ {d:"d3",p:["sc","bn"],two:1},{d:"d4",p:["sc","ss","td"]}];
+function curve(pts){if(pts.length<3)return "M"+pts.map(p=>p.join(" ")).join(" L");
+  let d="M"+pts[0][0]+" "+pts[0][1];
+  for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
+    d+=` C${c1[0]} ${c1[1]} ${c2[0]} ${c2[1]} ${p2[0]} ${p2[1]}`;}
+  return d;}
+function drawRoute(svg,hl){
+  const ink=css("--ink"),card=css("--card"),line=css("--line");
+  const cw=svg.parentElement.clientWidth||900,small=cw<560;
+  const W=small?520:Math.min(1000,cw),H=Math.round(W*(small?.62:.46));
+  const pad={l:small?44:60,r:small?44:70,t:small?28:34,b:small?30:36};
+  const X=f=>pad.l+f*(W-pad.l-pad.r),Y=f=>pad.t+f*(H-pad.t-pad.b);
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  const off=(pts,o)=>pts.map((q,i)=>{const a=pts[Math.max(0,i-1)],b=pts[Math.min(pts.length-1,i+1)];
+    let dx=b[0]-a[0],dy=b[1]-a[1];const L=Math.hypot(dx,dy)||1;return [q[0]-dy/L*o,q[1]+dx/L*o];});
+  RE.forEach(e=>{const on=!hl||hl===e.d,c=on?C[e.d]:line,w=on?(hl?9:7):5;
+    const base=e.p.map(k=>[X(RN[k][0]),Y(RN[k][1])]);
+    (e.two?[off(base,4.5),off(base,-4.5)]:[base]).forEach(pp=>{const g=mk("path",{d:curve(pp),fill:"none",stroke:c,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round"},svg);
+      if(!hl){g.style.cursor="pointer";g.addEventListener("click",()=>go(e.d));
+        g.addEventListener("mouseenter",()=>{homeHL=e.d;drawHome();});g.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+        const t=mk("title",{},g);const dd=DAYS.find(x=>x.id===e.d);t.textContent=`D${dd.n} ${dd.short}`;}});});
+  Object.entries(RN).forEach(([k,[fx,fy,name]])=>{const x=X(fx),y=Y(fy);
+    mk("circle",{cx:x,cy:y,r:small?6:7,fill:card,stroke:ink,"stroke-width":2.4},svg);
+    const up=["gs","hn","jj","hut","sc"].includes(k);
+    const t=mk("text",{x,y:up?y-14:y+22,"text-anchor":k==="bn"?"end":k==="jj"?"start":"middle","font-size":small?12:14,"font-weight":700,fill:ink,
+      "paint-order":"stroke",stroke:card,"stroke-width":4,"stroke-linejoin":"round","font-family":"Noto Serif TC, serif"},svg);t.textContent=name;});
+}
+
+document.getElementById("kpi").innerHTML=[
+ ["4 天 3 夜","2/25–2/28，228 下山"],
+ ["4 座","百岳：關山、海諾南、小關、卑南"],
+ ["3,668 m","最高點：關山（D1）"],
+ ["12 時 50 分","最長一天：D2（03:50–16:40，含休息）"]
+].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
+document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
+document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
+  <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
+  <span class="rt">${d.title}</span><span class="st">${d.stats[0][1]}</span>
+  <span class="stay">宿：${d.stay[0]}</span></button>`).join("");
+document.getElementById("srclist").innerHTML=SRCLIST.map(([t,u,k])=>`<li><a href="${u}" target="_blank" rel="noopener">${t} ↗</a><small>${k}</small></li>`).join("");
+const tl=document.getElementById("tl");
+tl.innerHTML=DAYS.map(d=>`<button class="node" data-go="${d.id}"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><span><b class="num">${d.date}（${d.dow}）</b><small>${d.short}</small></span></button>`).join("");
+
+const panel=(h,body,cls="",tag="")=>`<section class="panel ${cls}"><h3>${h}${tag?`<span class="tagi">${tag}</span>`:""}</h3>${body}</section>`;
+const list=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+let cur="d0",view="home";
+function renderDay(){
+  const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
+  const stats=`<dl class="stats num">${d.stats.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
+  const times=`<ol class="times">${d.tl.map(r=>{const [t,name,alt,min,vid,rem,peak]=r;
+    const segs=[min?`上河 1.0 · ${min}`:null,vid?`影片 · ${vid}`:null].filter(Boolean);
+    return `<li><time class="num">${t}</time><span class="mk ${peak?"peak":""}"></span><span><b>${name}${alt?` <span class="alt num">${alt}</span>`:""}</b>
+      ${segs.length?`<span class="segs">${segs.map(x=>`<span>${x}</span>`).join("")}</span>`:""}${rem?`<span class="rem">${rem}</span>`:""}</span></li>`;}).join("")}</ol>`;
+  const verify=panel("查證補充",`<ul>${d.verify.map(v=>`<li>${v[0]}${v.slice(1).map(u=>` <a class="src" href="${u}" target="_blank" rel="noopener">↗ 來源</a>`).join("")}</li>`).join("")}</ul>`,"verify","上河與公開資料");
+  document.getElementById("day").innerHTML=`<div class="fade">
+    <div class="dtop">
+      <div>
+        <div class="dhead"><span class="chip lg" style="background:${C[d.id]}">D${d.n}</span>
+          <div><p class="when num">2027/${d.date}（${d.dow}）｜${d.tag}</p><h2>${d.title}</h2></div></div>
+        <p class="lead">${d.lead}</p>
+        ${stats}
+      </div>
+      <div class="banner" style="--c:${C[d.id]}"><div><b>${d.title}</b><span>${DAYLINE[d.id]}</span><div class="big num">${d.big}</div></div></div>
+    </div>
+    <div class="dgrid">
+      <div class="stack">
+        ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">左欄時刻是隊伍計畫（含休息）。每段下方標上河 G19 1.0 純步程，以及山銘誌影片隊伍的實走時間。</p>${times}`)}
+        ${d.prof?panel("今天的高度",'<div class="mini"><svg id="dayprof" role="img" aria-label="當日高度剖面"></svg></div><p class="note" style="margin-top:4px">橫軸為當日上河分鐘；只連接已知標高的節點。</p>'):""}
+      </div>
+      <div class="stack">
+        ${panel("撤退與判斷",`<p style="margin:0">${d.gate}</p>`,"gate","出發前定好")}
+        ${panel("今天要注意",list(d.tips),"friend","山銘誌影片")}
+        ${panel("今晚停留",`<p style="margin:0"><b>${d.stay[0]}</b><br>${d.stay[1]}</p>`,"stay")}
+        ${verify}
+      </div>
+    </div>
+    <nav class="pager">
+      <button ${pv?"":"disabled"} data-go="${pv?pv.id:""}"><small>上一天</small>D${pv?pv.n:""} <span class="pn">${pv?pv.short:""}</span></button>
+      <button class="next" ${nx?"":"disabled"} data-go="${nx?nx.id:""}"><small>下一天</small>D${nx?nx.n:""} <span class="pn">${nx?nx.short:""}</span></button>
+    </nav></div>`;
+  if(d.prof)drawProfile(document.getElementById("dayprof"),d);
+  bind(document.getElementById("day"));
+}
+function show(v){view=v;["home","day","prep"].forEach(n=>document.getElementById("v-"+n).classList.toggle("on",n===v));
+  document.querySelectorAll(".views button").forEach(b=>b.setAttribute("aria-current",b.dataset.view===v));
+  tl.querySelectorAll(".node").forEach(n=>{const on=v==="day"&&n.dataset.go===cur;n.setAttribute("aria-current",on);
+    if(on)tl.scrollTo({left:n.offsetLeft-tl.clientWidth/2+n.clientWidth/2,behavior:"smooth"});});
+  if(v==="home")requestAnimationFrame(drawHome);}
+function go(id){if(id==="home"||id==="prep"){history.replaceState(null,"","#"+id);show(id);window.scrollTo({top:0});return;}
+  if(!DAYS.some(d=>d.id===id))return;cur=id;history.replaceState(null,"","#"+id);show("day");renderDay();window.scrollTo({top:0,behavior:"smooth"});}
+function bind(root){root.querySelectorAll("[data-go]").forEach(b=>{if(b.dataset.go)b.onclick=()=>go(b.dataset.go);});
+  root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));}
+bind(document);
+document.addEventListener("keydown",e=>{if(view!=="day")return;const i=DAYS.findIndex(d=>d.id===cur);
+  if(e.key==="ArrowRight"&&DAYS[i+1])go(DAYS[i+1].id);if(e.key==="ArrowLeft"&&DAYS[i-1])go(DAYS[i-1].id);});
+let sx=null,sy=null;const dv=document.getElementById("v-day");
+dv.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+dv.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const i=DAYS.findIndex(d=>d.id===cur),t=DAYS[i+(dx<0?1:-1)];if(t)go(t.id);}});
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(view==="home")drawHome();
+  if(view==="day"){const d=DAYS.find(x=>x.id===cur);if(d.prof)drawProfile(document.getElementById("dayprof"),d);}},150);});
+function route(){const h=(location.hash||"#home").slice(1);
+  if(DAYS.some(d=>d.id===h)){cur=h;show("day");renderDay();}else show(h==="prep"?"prep":"home");}
+window.addEventListener("hashchange",route);
+route();
+</script>
+
+</body>
+</html>
