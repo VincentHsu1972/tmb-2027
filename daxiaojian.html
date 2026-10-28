@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="2027 大小劍三天兩夜：仁壽橋進出、油婆蘭山屋兩晚，時間以上河 1.0 為準，對照 2026/8 實走 GPX 與山銘誌影片。">
+<title>2027 大小劍手冊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 沿用新康橫斷手冊的版面：sticky 日期軸＋總覽／一天一頁／行前三種視圖 */
+:root{
+  --bg:#EDF0EA; --card:#FBFCF8; --ink:#1B2E27; --muted:#5F6F66; --line:#D3DCD1;
+  --moss:#2F6B4F; --sun:#C2802B; --alert:#A6432C; --mist:#E3E9E0;
+  --friend:#FBF6EC; --verify:#F4F6FA; --verifyline:#6E86A6; --stay:#F4F6F1; --onchip:#FFFFFF; --bar:rgba(237,240,234,.96);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141C18; --card:#1C2621; --ink:#E4ECE6; --muted:#9AAAA1; --line:#2E3B34; --moss:#6FB08C; --sun:#D9A15A; --alert:#E07C62; --mist:#26332C;
+  --friend:#2A251B; --verify:#1D2430; --verifyline:#8BA3C4; --stay:#1F2A24; --onchip:#FFFFFF; --bar:rgba(20,28,24,.96); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141C18; --card:#1C2621; --ink:#E4ECE6; --muted:#9AAAA1; --line:#2E3B34; --moss:#6FB08C; --sun:#D9A15A; --alert:#E07C62; --mist:#26332C;
+  --friend:#2A251B; --verify:#1D2430; --verifyline:#8BA3C4; --stay:#1F2A24; --onchip:#FFFFFF; --bar:rgba(20,28,24,.96); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bar)}
+button{font:inherit;color:inherit}
+a{color:var(--moss);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bar);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:0 auto;height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.05rem;border:0;background:none;padding:0;cursor:pointer;white-space:nowrap}
+.brand i{display:inline-block;width:10px;height:10px;background:var(--sun);transform:rotate(45deg);margin-right:8px}
+.views{display:flex;gap:4px}
+.views button{border:0;background:none;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:700;white-space:nowrap}
+.views button[aria-current="true"]{background:var(--ink);color:var(--bg)}
+.tl{max-width:1240px;margin:0 auto;display:flex;overflow-x:auto;padding-bottom:9px;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.node{flex:1 0 110px;min-width:110px;border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;text-align:left;color:var(--muted)}
+.node b{display:block;font-size:.85rem;color:var(--ink);line-height:1.2}
+.node small{display:block;font-size:.74rem;line-height:1.25}
+.node[aria-current="true"]{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.chip{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--moss);color:var(--onchip);font-family:var(--serif);font-weight:900;font-size:.78rem;flex:0 0 auto}
+.chip.lg{width:52px;height:52px;border-radius:14px;font-size:1.1rem}
+
+.view{display:none;max-width:1240px;margin:0 auto;padding-block:22px 46px}
+.view.on{display:block}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance}
+.kicker{margin:0;color:var(--moss);font-weight:800;letter-spacing:.04em}
+.sub{color:var(--muted);margin:0 0 16px;max-width:46em}
+
+.hero h1{font-weight:900;font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1.14;margin:6px 0 12px}
+.hero .meta{margin:0;font-size:1.06rem}
+.alertbox{margin:18px 0 4px;background:var(--friend);border:1px solid var(--line);border-left:5px solid var(--alert);border-radius:12px;padding:12px 16px;max-width:60em}
+.alertbox b{color:var(--alert)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 6px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--serif);font-size:1.35rem;line-height:1.3}
+.kpi small{display:block;color:var(--muted);font-size:.82rem}
+.profcard{margin:18px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 8px;overflow-x:auto}
+.profcard>svg,.mini>svg{width:100%;display:block}
+.daykey{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 14px;margin:8px 2px 2px}
+.daykey button{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:4px 6px;border-radius:8px;cursor:pointer}
+.daykey button:hover{background:var(--bg)}
+.daykey button.dim{opacity:.35}
+.daykey i{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.daykey b{font-size:.86rem;white-space:nowrap}
+.daykey span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.note{font-size:.8rem;color:var(--muted);margin:6px 2px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.three article{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:16px 18px}
+.three small{display:block;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--moss)}
+.three strong{display:block;font-family:var(--serif);font-size:1.16rem;margin:6px 0}
+.three p{margin:0;color:var(--muted);font-size:.93rem}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.dcard{border:1px solid var(--line);border-top:4px solid var(--c);background:var(--card);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.dcard:hover{border-color:var(--sun)}
+.dcard .hd{display:flex;align-items:center;gap:9px}
+.dcard .hd b{font-family:var(--serif)}
+.dcard .rt{font-family:var(--serif);font-weight:900;font-size:1.1rem;line-height:1.35}
+.dcard .st{font-size:.88rem;color:var(--muted)}
+.dcard .stay{margin-top:auto;padding-top:6px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 20px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+.dtop{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:stretch}
+.dtop>div{min-width:0}
+.banner{border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:230px;height:100%;display:grid;place-items:center;text-align:center;padding:18px;background:linear-gradient(150deg,var(--c),#1B2E27);color:#fff}
+.banner b{display:block;font-family:var(--serif);font-weight:900;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.3}
+.banner span{display:block;margin-top:8px;font-size:.9rem;opacity:.85}
+.banner .big{font-family:var(--serif);font-weight:900;font-size:3.2rem;line-height:1;margin-top:14px}
+.dhead{display:flex;align-items:center;gap:14px;margin:4px 0 4px}
+.dhead .when{margin:0;color:var(--muted);font-weight:700}
+.dhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.25}
+.lead{font-size:1.04rem;margin:6px 0 0;max-width:40em}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 22px;padding:12px 0;margin:14px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats dt{font-size:.78rem;color:var(--muted)}
+.stats dd{margin:0;font-weight:700;font-size:1.02rem}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:16px}
+.stack{display:grid;gap:16px;min-width:0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;min-width:0}
+.panel h3{margin:0 0 8px;font-size:1.06rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel h3 .tagi{font-family:var(--sans);font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 9px;background:var(--mist);color:var(--muted)}
+.panel ul{margin:0;padding-left:1.15em}
+.panel li{margin:6px 0}
+.panel.friend{border-left:5px solid var(--sun);background:var(--friend)}
+.panel.verify{border-left:5px solid var(--verifyline);background:var(--verify)}
+.panel.check{border-left:5px solid var(--moss)}
+.panel.gate{border-left:5px solid var(--alert)}
+.panel.stay{background:var(--stay)}
+.src{font-size:.8rem;margin-left:6px;white-space:nowrap}
+.times{list-style:none;margin:4px 0 0;padding:0;position:relative}
+.times:before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.times li{display:grid;grid-template-columns:70px 18px minmax(0,1fr);gap:9px;padding:5px 0}
+.times time{color:var(--moss);font-weight:800;font-size:.9rem}
+.times .mk{width:12px;height:12px;border:2px solid var(--moss);border-radius:50%;background:var(--card);margin:6px 3px;z-index:1}
+.times .mk.peak{background:var(--sun);border-color:var(--ink)}
+.times b{display:block;line-height:1.4}
+.times .alt{font-weight:700}
+.times .segs{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 0}
+.times .segs span{font-size:.74rem;background:var(--mist);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.times .rem{display:block;font-size:.84rem;color:var(--muted);margin:3px 0 0}
+.mini text{font-family:var(--sans)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pager button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;cursor:pointer;text-align:left;max-width:48%}
+.pager button[disabled]{visibility:hidden}
+.pager small{display:block;color:var(--muted);font-size:.76rem}
+.pager .next{text-align:right}
+.fade{animation:fade .22s ease}@keyframes fade{from{opacity:.3}to{opacity:1}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel h2{margin:0 0 8px;font-size:1.3rem}
+.date{color:var(--moss);font-weight:800;white-space:nowrap}
+.warn{color:var(--alert);font-weight:800}
+.checklist{list-style:none;padding:0!important}
+.checklist li{padding-left:26px;position:relative}
+.checklist li:before{content:"□";position:absolute;left:0;color:var(--moss);font-size:1.15rem}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{font-size:.8rem;color:var(--muted);font-weight:700}
+.srclist{list-style:none;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.srclist small{display:block;color:var(--muted)}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.foot p{margin:3px 0;max-width:60em}
+
+@media (max-width:1000px){.kpi{grid-template-columns:1fr 1fr}.three,.days{grid-template-columns:1fr}.daykey{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.dgrid,.two,.dtop{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dtop .banner{min-height:150px}}
+@media (max-width:600px){
+  .view{padding-block:16px 40px}
+  .panel{padding:14px 16px}
+  .daykey{grid-template-columns:1fr}
+  .times:before{left:66px}
+  .times li{grid-template-columns:58px 18px minmax(0,1fr);gap:7px}
+  .pager{position:sticky;bottom:0;background:var(--bar);padding-block:8px calc(8px + env(safe-area-inset-bottom,0px))}
+  .pager .pn{display:none}
+  .srclist{grid-template-columns:1fr}
+  .node{flex:0 0 auto;min-width:0}
+  .node small{display:none}
+}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="bar gut">
+    <button class="brand" data-view="home"><i></i>大小劍 2027</button>
+    <nav class="views" aria-label="頁面">
+      <button data-view="home">總覽</button>
+      <button data-view="prep">行前與接駁</button>
+    </nav>
+  </div>
+  <nav class="tl gut" id="tl" aria-label="選擇日期"></nav>
+</header>
+
+<main>
+  <section class="view gut" id="v-home">
+    <div class="hero">
+      <p class="kicker">仁壽橋進出・油婆蘭山屋兩晚</p>
+      <h1>大劍日出<br>小劍來回</h1>
+      <p class="meta"><b class="num">2027/3/27 集合，3/28–3/30 三天兩夜</b></p>
+      <p class="sub" style="margin-top:10px">D1 從仁壽橋走林道接防火巷「天梯」上油婆蘭山屋；D2 輕裝來回佳陽山、小劍山；D3 摸黑上大劍山看日出，回山屋後重裝下山。時刻以上河 1.0 純步程為準，每段並列 2026/8 實走 GPX 的時間與里程，注意事項參考山銘誌大小劍影片。</p>
+    </div>
+
+    <div class="alertbox">
+      <b>3 月底的高山。</b>大劍山 3,594 m，清晨仍可能結霜、強風低溫；山頂停留時間依天氣縮短。日出約 05:50，日落約 18:15。D2 小劍來回是全程最硬的一天，照行程表的時間閘門執行。
+    </div>
+
+    <div class="kpi" id="kpi"></div>
+
+    <div class="profcard">
+      <svg id="rmap" role="img" aria-label="大小劍路線拓樸示意"></svg>
+      <p class="note">路線拓樸示意：位置與線長不按真實比例。雙線是原路往返（D2 小劍、D3 大劍）；D3 下山與 D1 同一條路。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="profcard">
+      <svg id="prof" role="img" aria-label="全程高度剖面"></svg>
+      <div class="daykey" id="daykey"></div>
+      <p class="note">2026/8 實走 GPX 的高程剖面，橫軸為累計里程。手錶高度與官方標高可能有落差。點任一段可跳到當天。</p>
+    </div>
+
+    <div class="three">
+      <article style="--c:#A6432C"><small>水</small><strong>樂山橋之後沒有活水</strong><p>樂山橋是最後的活水；獵寮營地、油婆蘭山屋有儲水桶，推論池、油婆蘭池是黑水塘。濾水器必帶。</p></article>
+      <article style="--c:#C2802B"><small>植被</small><strong>箭竹會讓人全身濕透</strong><p>推論山 6.6K 之後和往小劍的稜線箭竹極密，有露水或前一天下過雨，晴天也要穿雨褲和防水外套。</p></article>
+      <article style="--c:#2F6B4F"><small>體力分配</small><strong>天梯、小劍、長下坡</strong><p>D1 天梯單日爬升約 1,700 m；D2 小劍來回上河 12 時 25 分，GPX 實走 14.5 小時；D3 大劍加下山共 19.5 km。</p></article>
+    </div>
+
+    <h2 style="margin:34px 0 4px;font-size:1.5rem">四天，一天一頁</h2>
+    <p class="sub">D0 是交通與住宿日；D1–D3 是三天兩夜主線。點卡片看當天的時刻、時間閘門、影片提醒和水。</p>
+    <div class="days" id="daycards"></div>
+
+    <div class="cta">
+      <button class="btn" data-go="d0">從 D0 開始看</button>
+      <button class="btn ghost" data-view="prep">行前與接駁</button>
+    </div>
+  </section>
+
+  <section class="view gut" id="v-day"><article id="day" aria-live="polite"></article></section>
+
+  <section class="view gut" id="v-prep">
+    <div class="hero"><p class="kicker">Before the trail</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">行前與接駁</h1></div>
+    <p class="sub">下面依時間排列要先確認的事、水源、裝備和撤退方式。</p>
+
+    <div class="two">
+      <div class="panel gate">
+        <h2>一定要先確認的事</h2>
+        <ul>
+          <li><b>入山證</b>　在仁壽橋檢查哨繳交，身分證隨身。申請方式與時程以申請系統公告為準。</li>
+          <li><b>接駁只到仁壽橋</b>　影片提醒：仁壽橋之後的林道窄、有倒木和邊坡崩塌，一般車輛不要硬開進去，迴車會車都危險。</li>
+          <li><b>油婆蘭山屋或營地</b>　人多時可能要紮營，帳篷依隊伍安排帶上。</li>
+          <li><b>林道與步道現況</b>　出發前一週查林道、山屋水況與最新路況回報。</li>
+        </ul>
+      </div>
+      <div class="panel check">
+        <h2>時程</h2>
+        <ul class="checklist">
+          <li><span class="date">出發前一個月</span>　申請入山證；預約 D0 交通、環境宮住宿與 D3 回程。</li>
+          <li><span class="date">出發前 3 天</span>　Windy（ECMWF）＋氣象署山區預報看 48–72 小時，決定照走或延期。</li>
+          <li><span class="date">3/27 13:30</span>　板橋車站集合出發。</li>
+          <li><span class="date">3/27 20:00</span>　行前會議：起登時間、撤退點、水源、天氣。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>水源一覽</h2>
+        <div class="tbl"><table>
+          <thead><tr><th>地點</th><th>水源</th><th>怎麼用</th></tr></thead>
+          <tbody>
+            <tr><td>樂山橋</td><td>活水</td><td>D1 最後的穩定水源，裝滿到山屋</td></tr>
+            <tr><td>獵寮營地（3.4K）</td><td>儲水桶</td><td>到點確認，不要預設有</td></tr>
+            <tr><td>推論池</td><td>黑水塘</td><td>推論山續行約 150 m 左側；過濾煮沸</td></tr>
+            <tr><td>油婆蘭山屋</td><td>儲水桶</td><td>D1–D2 的主要水源</td></tr>
+            <tr><td>油婆蘭池</td><td>黑水塘</td><td>備用；過濾煮沸</td></tr>
+            <tr><td>大劍鞍部水源</td><td>水源岔路下切</td><td>上河來回約 60 分，D3 通常不取</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="panel">
+        <h2>裝備重點</h2>
+        <ul>
+          <li><b>雨褲＋防水防刮外套</b>　箭竹露水，晴天也要。</li>
+          <li><b>手套</b>　佳陽大崩壁、布伕奇寒山附近有拉繩攀岩。</li>
+          <li><b>頭燈與備用電池</b>　D1–D3 都是摸黑出發。</li>
+          <li><b>濾水器</b>　樂山橋之後都是儲水桶或黑水塘。</li>
+          <li><b>保暖與防風</b>　大劍山頂風大、低溫。</li>
+          <li><b>登山杖</b>　D3 天梯長下坡；鞋帶綁緊，避免黑指甲和水泡。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>數據怎麼讀</h2>
+        <ul>
+          <li>左欄時刻<b>以上河大小劍步程示意圖 1.0 倍純步程為準</b>，從每天出發時間連續累加，不含休息。</li>
+          <li>仁壽橋到松茂水文站，上河標的是車程 10 分；接駁只到仁壽橋，本手冊用行程表的林道步行約 65 分計算。</li>
+          <li>對照用的 <b>GPX 是 2026/8/12–14 的大小劍三天實走紀錄</b>（含休息，總長 49.0 km）；里程與高度剖面取自這份 GPX。</li>
+          <li>D0 交通與 D1–D3 的時間閘門沿用行程表。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>撤退判斷</h2>
+        <ul>
+          <li><b>D1</b>　13:00 還沒到推論山，就退回獵寮營地（有儲水桶）紮營。</li>
+          <li><b>D2</b>　06:30 還沒到佳陽山要檢討；09:20 還沒到小劍山就折返；13:00 最晚離開佳陽山；17:00 前全員回到山屋。</li>
+          <li><b>D3</b>　強風、白牆或結冰就不上大劍山，直接收拾下山。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h2>來源</h2>
+      <p class="sub" style="margin-bottom:12px">路況、水況會變動；本頁以 2026/10/28 整理的資料為版本日期。</p>
+      <ul class="srclist" id="srclist"></ul>
+    </div>
+
+    <div class="foot">
+      <p>時間為上河 1.0 倍純步行推算，不含休息與拍照；實際依天氣、路況與隊伍腳程調整。</p>
+      <p>高度剖面為 2026/8 實走 GPX，手錶高度與官方標高可能有落差。</p>
+      <p>2026 年 10 月版</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const VID="https://www.youtube.com/watch?v=-wnAL1ry27U";
+const vt=s=>`${VID}&t=${s}`;
+const C={d0:"#7A8C80",d1:"#2F6B4F",d2:"#C2802B",d3:"#3F7FA6"};
+const SRC={sun:"https://www.sunriver.com.tw/step2020.htm"};
+const SRCLIST=[
+ ["山銘誌 Summit Features｜大小劍山三天兩夜",VID,"影片實走"],
+ ["上河文化｜大小劍步程示意圖",SRC.sun,"上河原圖"]
+];
+const TRK={"d1":[[0.0,1471],[0.2,1476],[0.4,1488],[0.6,1501],[0.8,1536],[1.0,1552],[1.2,1566],[1.4,1575],[1.6,1584],[1.8,1594],[2.01,1591],[2.2,1583],[2.41,1585],[2.6,1586],[2.8,1607],[3.01,1560],[3.2,1551],[3.4,1534],[3.6,1528],[3.8,1524],[4.01,1516],[4.2,1520],[4.4,1531],[4.6,1548],[4.8,1546],[5.0,1558],[5.2,1565],[5.4,1567],[5.6,1576],[5.8,1627],[6.0,1690],[6.2,1761],[6.4,1834],[6.6,1891],[6.8,1939],[7.0,2004],[7.2,2060],[7.4,2067],[7.6,2079],[7.8,2067],[8.0,2077],[8.2,2135],[8.4,2180],[8.6,2206],[8.8,2243],[9.0,2275],[9.2,2314],[9.4,2323],[9.6,2369],[9.8,2370],[10.0,2393],[10.2,2423],[10.4,2456],[10.6,2471],[10.8,2494],[11.0,2526],[11.2,2571],[11.4,2622],[11.6,2664],[11.8,2727],[12.0,2762],[12.2,2791],[12.4,2804],[12.6,2813],[12.8,2827],[13.0,2844],[13.2,2879],[13.4,2928],[13.6,2969],[13.8,3035],[14.0,3090],[14.2,3152],[14.4,3226],[14.6,3270],[14.8,3305],[15.0,3265],[15.06,3266]],"d2":[[0.0,3299],[0.2,3290],[0.41,3310],[0.6,3285],[0.8,3264],[1.0,3240],[1.2,3269],[1.4,3261],[1.6,3293],[1.8,3248],[2.0,3152],[2.2,3156],[2.4,3115],[2.6,3100],[2.8,3086],[3.0,3119],[3.2,3101],[3.4,3135],[3.6,3197],[3.8,3263],[4.0,3307],[4.2,3222],[4.4,3150],[4.6,3128],[4.8,3145],[5.0,3120],[5.2,3091],[5.4,3079],[5.6,3098],[5.8,3150],[6.0,3183],[6.2,3197],[6.4,3204],[6.6,3215],[6.8,3207],[7.0,3223],[7.2,3264],[7.4,3219],[7.6,3208],[7.8,3219],[8.0,3208],[8.2,3206],[8.4,3159],[8.6,3125],[8.8,3093],[9.0,3089],[9.2,3105],[9.4,3114],[9.6,3147],[9.8,3115],[10.0,3162],[10.2,3236],[10.4,3312],[10.6,3251],[10.8,3182],[11.0,3126],[11.2,3091],[11.4,3116],[11.6,3081],[11.8,3110],[12.0,3131],[12.2,3169],[12.4,3143],[12.6,3219],[12.8,3284],[13.0,3268],[13.2,3282],[13.4,3251],[13.6,3264],[13.8,3306],[14.0,3308],[14.2,3302],[14.38,3271]],"d3":[[0.0,3269],[0.21,3242],[0.4,3237],[0.6,3221],[0.8,3210],[1.0,3202],[1.2,3246],[1.4,3328],[1.6,3350],[1.8,3384],[2.0,3413],[2.2,3478],[2.4,3535],[2.6,3593],[2.8,3549],[3.0,3478],[3.2,3418],[3.4,3379],[3.6,3342],[3.8,3326],[4.0,3242],[4.21,3196],[4.4,3208],[4.6,3219],[4.81,3233],[5.0,3242],[5.2,3267],[5.4,3292],[5.6,3279],[5.8,3238],[6.0,3165],[6.2,3087],[6.4,3025],[6.6,2953],[6.8,2909],[7.0,2857],[7.2,2834],[7.4,2816],[7.6,2805],[7.8,2773],[8.0,2737],[8.2,2690],[8.4,2616],[8.6,2573],[8.8,2513],[9.0,2482],[9.2,2463],[9.4,2439],[9.6,2405],[9.8,2368],[10.0,2373],[10.2,2341],[10.4,2321],[10.6,2286],[10.81,2243],[11.0,2214],[11.2,2180],[11.4,2134],[11.61,2075],[11.8,2069],[12.0,2080],[12.2,2060],[12.4,2055],[12.6,1992],[12.8,1915],[13.0,1843],[13.2,1775],[13.4,1697],[13.6,1625],[13.8,1577],[14.0,1576],[14.2,1562],[14.4,1566],[14.6,1550],[14.81,1548],[15.0,1541],[15.2,1528],[15.4,1522],[15.61,1523],[15.8,1517],[16.0,1532],[16.21,1542],[16.41,1551],[16.6,1562],[16.8,1597],[17.0,1578],[17.2,1585],[17.4,1583],[17.6,1596],[17.8,1593],[18.0,1585],[18.2,1574],[18.4,1573],[18.6,1559],[18.8,1521],[19.0,1492],[19.2,1489],[19.4,1473],[19.52,1470]]};
+/* tl row: [時刻(上河 1.0 累加), 地點, 標高, 上河分段, GPX 實走, 備註, 山頂?] ; marks: [當日 GPX km, 名稱, 標高標示] */
+const DAYS=[
+{id:"d0",n:0,date:"3/27",dow:"六",short:"交通・環境宮",title:"板橋 → 羅東 → 環境宮",
+ lead:"下午從板橋出發，經羅東、南山部落補給，晚上住環境宮，隔天清晨從仁壽橋起登。",
+ stats:[["集合","13:30 板橋車站"],["最後補給","南山部落便利商店"],["住宿","環境宮（通鋪）"],["海拔","約 1,450 m"]],
+ gate:"20:00 行前會議確認起登時間、撤退點、水源和天氣；天氣不好就在這裡決定延期。",
+ tl:[["13:30","板橋車站集合出發",null,null,null,"建議提前 15 分到。"],
+     ["15:00","羅東車站",null,null,null,"接朋友，接到後繼續。"],
+     ["16:45","南山部落便利商店",null,null,null,"最後補給、上廁所，17:00 出發。"],
+     ["18:15","抵達環境宮",null,null,null,"整理床位、休息。"],
+     ["18:30","晚餐",null,null,null,"清淡為主，多喝水。"],
+     ["19:15","整理 D1 裝備",null,null,null,"水、頭燈、雨具、行動糧。"],
+     ["20:00","行前會議",null,null,null,"確認起登、撤退點、水源、天氣。"],
+     ["20:30","熄燈睡覺",null,null,null,"隔天清晨起登。"]],
+ tips:["南山部落之後沒有補給，行動糧、瓦斯、電池在這之前買齊。","睡前把明天的水裝好，起床後只需要吃早餐出發。"],
+ verify:[["D0 交通與時間依隊伍行程表。"]],
+ stay:["環境宮（通鋪）","海拔約 1,450 m。"],
+ big:"1,450 m"},
+
+{id:"d1",n:1,date:"3/28",dow:"日",short:"天梯・油婆蘭",title:"仁壽橋 → 天梯 → 推論山 → 油婆蘭山屋",
+ lead:"林道走到防火巷登山口，接著是一路陡上的「天梯」，經獵寮營地、推論山，進箭竹林到油婆蘭山屋。單日爬升約 1,700 m。",
+ stats:[["上河 1.0 純步行","9 時 45 分（含林道 65 分）"],["上河時段","03:45–13:30"],["GPX 實走","8/12｜15.1 km｜04:21–14:45"],["住宿","油婆蘭山屋"]],
+ gate:"行程表控制點：05:45 前到防火巷、08:45 前到獵寮、11:35 前到推論山午餐、15:00 前到山屋。13:00 還沒到推論山，就退回獵寮營地（有儲水桶）紮營。",
+ tl:[["03:45","仁壽橋（檢查哨）","約 1,460 m",null,"8/12 04:21 起點","繳交入山證。接駁到此下車，車子不要往林道裡開。"],
+     ["04:50","松茂水文站",null,null,null,"林道步行約 65 分（行程表；上河標車程 10 分）。林道約 3.5K 有高繞，上爬約 60 m 再下切，約 10–15 分。"],
+     ["05:05","樂山橋",null,"15 分",null,"活水，最後的穩定水源，裝滿到山屋。"],
+     ["05:35","防火巷登山口（0K）","1,566 m","30 分","06:44（5.6 km）","「天梯」起點。"],
+     ["08:25","獵寮營地（3.4K）","約 2,310 m","170 分","09:20（9.3 km）","上河標為 2082 公尺稜線；營地有儲水桶。"],
+     ["11:25","推論山（6K）","2,801 m","180 分","11:31（12.3 km）","續行約 150 m 左側有推論池（黑水塘）。",1],
+     ["13:25","油婆蘭山",null,"120 分",null,"6.6K 之後進原始林與極陡箭竹坡。"],
+     ["13:30","油婆蘭山屋（8.2K）","3,270 m","5 分","14:45（15.1 km）","有儲水桶；油婆蘭池為黑水塘。"]],
+ trk:"d1",marks:[[0,"仁壽橋","1,460"],[5.6,"防火巷登山口","1,566"],[9.34,"獵寮營地",""],[12.29,"推論山","2,801"],[15.06,"油婆蘭山屋","3,270"]],
+ tips:[`林道有小崩塌要踩高跨越；約 3.5K 的高繞路跡清楚，上爬約 60 m 再下切。<a class="src" href="${vt(501)}" target="_blank" rel="noopener">↗ 影片 08:21</a>`,
+       `天梯防火巷遮蔭少、景色重複，對阿基里斯腱和大腿負擔大，配速放慢。<a class="src" href="${vt(308)}" target="_blank" rel="noopener">↗ 影片 05:08</a>`,
+       `6.6K 之後箭竹極密，有露水衣服會全濕，進箭竹林前就穿上雨褲和防水外套。<a class="src" href="${vt(1276)}" target="_blank" rel="noopener">↗ 影片 21:16</a>`],
+ verify:[["上河：松茂水文站→樂山橋 15、→防火巷登山口 30、→2082 稜線 170、→推論山 180、→油婆蘭山 120、→油婆蘭營地 5 分；仁壽橋→松茂水文站標為車程 10 分。",SRC.sun],
+         [`影片隊伍 08:05 從仁壽橋出發，09:45 到天梯起點，14:38 推論山，約 17:15 到油婆蘭山屋。<a class="src" href="${vt(80)}" target="_blank" rel="noopener">↗ 影片</a>`]],
+ stay:["油婆蘭山屋","海拔 3,270 m；有儲水桶，油婆蘭池為黑水塘。明天 02:30 出發，早點睡。"],
+ big:"3,270 m"},
+
+{id:"d2",n:2,date:"3/29",dow:"一",short:"佳陽・小劍",title:"油婆蘭山屋 ⇄ 佳陽山 ⇄ 小劍山",
+ lead:"輕裝來回小劍山。先下切到老伍營地再翻佳陽山，往小劍一路假山頭、倒木和巨石；回程要從老伍營地陡上爬回布伕奇寒山，比去程更硬。",
+ stats:[["上河 1.0 純步行","12 時 25 分"],["上河時段","02:30–14:55"],["GPX 實走","8/13｜14.4 km｜02:31–17:02"],["住宿","油婆蘭山屋"]],
+ gate:"行程表時間閘門：06:30 還沒到佳陽山要檢討是否繼續；09:20 還沒到小劍山就折返；13:00 最晚離開佳陽山；17:00 前全員回到山屋。",
+ tl:[["02:30","油婆蘭山屋","3,270 m",null,"8/13 02:31 出發","輕裝；雨褲、防水外套、手套。"],
+     ["02:40","油婆蘭山",null,"10 分","02:44",null],
+     ["03:40","布伕奇寒山",null,"60 分","03:51（1.6 km）","影片稱布伋寒山；附近有拉繩攀岩段。"],
+     ["04:30","老伍營地","3,098 m","50 分","05:05（2.8 km）","鞍部最低點。"],
+     ["05:50","佳陽山","3,314 m","80 分","06:38（4.0 km）","登頂前是佳陽大崩壁攀爬段。日出約 05:50。",1],
+     ["08:30","小劍山","3,253 m","160 分","09:38（7.2 km）","時間閘門：09:20。",1],
+     ["11:30","佳陽山","3,314 m","180 分","12:30（10.4 km）","最晚 13:00 離開。"],
+     ["12:30","老伍營地","3,098 m","60 分","13:53（11.5 km）",null],
+     ["13:40","布伕奇寒山",null,"70 分",null,"從鞍部連續大陡上，回程最累的一段。"],
+     ["14:50","油婆蘭山",null,"70 分",null,null],
+     ["14:55","油婆蘭山屋","3,270 m","5 分","17:02（14.4 km）",null]],
+ trk:"d2",marks:[[0,"山屋","3,270"],[1.6,"布伕奇寒山",""],[2.76,"老伍營地","3,098"],[3.97,"佳陽山","3,314"],[7.18,"小劍山","3,253"],[11.51,"老伍營地",""],[14.38,"山屋",""]],
+ tips:[`佳陽大崩壁、布伕奇寒山附近有拉繩攀岩，下切或攀爬時確認踩點，樹根和岩石受潮很滑。<a class="src" href="${vt(1594)}" target="_blank" rel="noopener">↗ 影片 26:34</a>`,
+       `佳陽往小劍途中箭竹、倒木、巨石多，假山頭一個接一個。<a class="src" href="${vt(2040)}" target="_blank" rel="noopener">↗ 影片 34:00</a>`,
+       `回程從老伍營地陡上布伕奇寒山時體力已經消耗大半，水和行動糧留一份給這段。<a class="src" href="${vt(2439)}" target="_blank" rel="noopener">↗ 影片 40:39</a>`,
+       "影片隊伍 04:00 出發、約 17:50 回山屋；GPX 隊伍 02:31 出發、17:02 回山屋。實際都要 13.5–14 小時。"],
+ verify:[["上河：油婆蘭營地→油婆蘭山 10、→布伕奇寒山 60、→老伍營地 50、→佳陽山 80、→小劍山 160；回程 180、60、70、70、5 分。",SRC.sun],
+         [`影片：小劍山輕裝來回抓 12–14 小時，建議 03:00–04:00 前出發。<a class="src" href="${vt(1474)}" target="_blank" rel="noopener">↗ 影片 24:34</a>`]],
+ stay:["油婆蘭山屋","明天 02:40 出發上大劍山看日出。"],
+ big:"3,314 m"},
+
+{id:"d3",n:3,date:"3/30",dow:"二",short:"大劍・下山",title:"大劍山日出 → 重裝下山 → 仁壽橋",
+ lead:"摸黑上大劍山看日出，回山屋收拾重裝，沿 D1 原路下天梯、走林道回仁壽橋。全天約 19.5 km，下降超過 2,100 m。",
+ stats:[["上河 1.0 純步行","10 時 50 分（含林道 65 分）"],["上河時段","02:40–14:35"],["GPX 實走","8/14｜19.5 km｜03:03–14:39"],["終點","仁壽橋"]],
+ gate:"強風、白牆或結冰就不上大劍山，直接收拾下山。大劍山 06:30 前一定要下撤；山屋 09:30 前要重裝出發。",
+ tl:[["02:40","油婆蘭山屋","3,270 m",null,"8/14 03:03 出發","輕裝；保暖、防風、頭燈。"],
+     ["03:10","鞍部水源岔路",null,"30 分",null,"水源下切來回約 60 分，通常不取。"],
+     ["05:50","大劍山","3,594 m","160 分","05:21 登頂（2.6 km）","日出約 05:50；山頂停 30 分。",1],
+     ["07:50","鞍部水源岔路",null,"90 分",null,"06:20 從山頂下撤。"],
+     ["08:25","油婆蘭山屋","3,270 m","35 分","07:12（5.2 km）","收拾重裝，09:00 出發。"],
+     ["09:10","油婆蘭山",null,"10 分",null,null],
+     ["10:10","推論山","2,801 m","60 分",null,null],
+     ["11:30","獵寮營地（3.4K）","約 2,310 m","80 分","10:29（10.4 km）",null],
+     ["12:50","防火巷登山口","1,566 m","80 分","12:33（13.9 km）","天梯長下坡結束。"],
+     ["13:15","樂山橋",null,"25 分",null,"活水。"],
+     ["13:30","松茂水文站",null,"15 分",null,null],
+     ["14:35","仁壽橋","約 1,460 m",null,"14:39（19.5 km）","林道步行約 65 分（行程表）。接駁返程。"]],
+ trk:"d3",marks:[[0,"山屋","3,270"],[2.6,"大劍山","3,594"],[5.2,"山屋",""],[10.35,"獵寮營地",""],[13.88,"防火巷登山口","1,566"],[19.52,"仁壽橋","1,460"]],
+ tips:[`從山屋到大劍山實際爬升超過 500 m，稜線風強、氣溫低，登頂前碎石坡與岩壁要保暖防風。<a class="src" href="${vt(3086)}" target="_blank" rel="noopener">↗ 影片 51:26</a>`,
+       `天梯下坡落差大，腳趾頂鞋頭容易黑指甲或起水泡；下切前鞋帶綁緊，用登山杖緩衝。<a class="src" href="${vt(3665)}" target="_blank" rel="noopener">↗ 影片 1:01:05</a>`,
+       "影片隊伍 03:15 出發、05:08 登頂大劍山，07:56 回山屋，08:45 重裝下山，中午前後回到仁壽橋。"],
+ verify:[["上河：油婆蘭營地→鞍部水源岔路 30、→大劍山 160；回程 90、35 分。下山：營地→油婆蘭山 10、→推論山 60、→2082 稜線 80、→防火巷登山口 80、→樂山橋 25、→松茂水文站 15 分。",SRC.sun]],
+ stay:["返程","仁壽橋上接駁；約定好延誤時的聯絡方式。"],
+ big:"3,594 m"}
+];
+DAYS.forEach(d=>{if(d.trk){d.pts=TRK[d.trk];d.len=d.pts[d.pts.length-1][0];}});
+const DAYLINE={d0:"板橋 → 羅東 → 南山 → 環境宮住宿",d1:"仁壽橋 → 天梯 → 推論山 → 油婆蘭山屋｜上河 03:45–13:30",d2:"山屋 ⇄ 佳陽山 ⇄ 小劍山｜上河 02:30–14:55",d3:"大劍山日出 → 下山仁壽橋｜上河 02:40–14:35"};
+const NS="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=n=>Number(n).toLocaleString("en-US");
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+let CUM=[];{let c=0;DAYS.filter(d=>d.pts).forEach(d=>{CUM.push({d,x0:c,x1:c+d.len,pts:d.pts.map(p=>[c+p[0],p[1]]),marks:d.marks.map(m=>[c+m[0],m[1],m[2]])});c+=d.len;});}
+function eleAt(pts,x){let b=pts[0];for(const p of pts){if(Math.abs(p[0]-x)<Math.abs(b[0]-x))b=p;}return b[1];}
+function drawProfile(svg,day,hl){
+  const ink=css("--ink"),muted=css("--muted"),card=css("--card"),line=css("--line");
+  const cw=svg.parentElement.clientWidth||900,small=cw<560;
+  const W=small?520:Math.min(1100,cw),m={l:small?40:52,r:small?14:22,t:small?34:42,b:small?30:34},H=day?(small?230:270):(small?210:260);
+  const segs=day?[{d:day,x0:0,x1:day.len,pts:day.pts,marks:day.marks}]:CUM;
+  const ys=segs.flatMap(s=>s.pts.map(p=>p[1]));
+  const xmax=segs[segs.length-1].x1,ylo=Math.floor((Math.min(...ys)-100)/500)*500,yhi=Math.ceil((Math.max(...ys)+100)/500)*500;
+  const X=v=>m.l+v/xmax*(W-m.l-m.r),Y=v=>m.t+(1-(v-ylo)/(yhi-ylo))*(H-m.t-m.b),base=H-m.b;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  for(let a=ylo;a<=yhi;a+=500){mk("line",{x1:m.l,x2:W-m.r,y1:Y(a),y2:Y(a),stroke:line,"stroke-dasharray":"2 5"},svg);
+    const t=mk("text",{x:m.l-6,y:Y(a)+4,"text-anchor":"end","font-size":small?10:11,fill:muted},svg);t.textContent=fmt(a);}
+  const kstep=day?(xmax>12?4:2):10;
+  for(let k=0;k<=xmax+0.01;k+=kstep){const t=mk("text",{x:X(k),y:H-(day?10:20),"text-anchor":"middle","font-size":10,fill:muted},svg);t.textContent=k+(k===0?"":"")+(day&&k===0?" km":"");}
+  if(!day){const t=mk("text",{x:W-m.r,y:H-20,"text-anchor":"end","font-size":10,fill:muted},svg);t.textContent="km";}
+  segs.forEach(s=>{
+    const on=!hl||hl===s.d.id,c=C[s.d.id];
+    const dstr=s.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+    mk("path",{d:dstr+` L${X(s.pts[s.pts.length-1][0])} ${base} L${X(s.pts[0][0])} ${base} Z`,fill:c,opacity:on?.18:.05},svg);
+    mk("path",{d:dstr,fill:"none",stroke:on?c:line,"stroke-width":on?2.6:1.8,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    if(!day){const hit=mk("rect",{x:X(s.x0),y:0,width:X(s.x1)-X(s.x0),height:H,fill:"transparent",style:"cursor:pointer"},svg);
+      const tt=mk("title",{},hit);tt.textContent=`D${s.d.n} ${s.d.short}`;hit.addEventListener("click",()=>go(s.d.id));
+      hit.addEventListener("mouseenter",()=>{homeHL=s.d.id;drawHome();});hit.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+      const lab=mk("text",{x:(X(s.x0)+X(s.x1))/2,y:H-6,"text-anchor":"middle","font-size":small?10:11,"font-weight":700,fill:on?C[s.d.id]:muted},svg);lab.textContent="D"+s.d.n;}
+  });
+  const top=segs.flatMap(s=>s.marks.map(mm=>[mm[0],eleAt(s.pts,mm[0]),mm[1],mm[2],s])).reduce((a,b)=>b[1]>a[1]?b:a);
+  segs.forEach(s=>{const on=!hl||hl===s.d.id;s.marks.forEach(mm=>{const e=eleAt(s.pts,mm[0]);
+    mk("circle",{cx:X(mm[0]),cy:Y(e),r:mm[1]===top[2]&&mm[0]===top[0]?4.5:3,fill:mm[0]===top[0]?"#C2802B":card,stroke:on?C[s.d.id]:line,"stroke-width":2},svg);});});
+  if(day){const boxes=[],xs2=[];const free=(x,y,w,h)=>{if(x<2||x+w>W-2||y<2||y+h>H-2)return false;
+      for(const b of boxes){if(x<b[0]+b[2]&&x+w>b[0]&&y<b[1]+b[3]&&y+h>b[1])return false;}boxes.push([x,y,w,h]);return true;};
+    day.marks.forEach((mm,i)=>{const e=eleAt(day.pts,mm[0]);
+      const txt=mm[2]?`${mm[1]} ${mm[2]}`:mm[1],fs=small?9.5:10.5,w=txt.length*fs*.92;
+      const anchor=i===0?"start":i===day.marks.length-1&&mm[0]>day.len-0.5?"end":"middle";
+      for(const dy of [-12,18,-26,30,-40]){const bx=X(mm[0])-(anchor==="middle"?w/2:anchor==="end"?w:0),by=Y(e)+dy-(dy<0?fs:0);
+        if(free(bx,by,w,fs+3)){const t=mk("text",{x:X(mm[0]),y:Y(e)+dy,"text-anchor":anchor,"font-size":fs,"font-weight":700,fill:ink,
+          "paint-order":"stroke",stroke:card,"stroke-width":3.5,"stroke-linejoin":"round"},svg);t.textContent=txt;break;}}});}
+  else{const t=mk("text",{x:X(top[0]),y:Y(top[1])-10,"text-anchor":"middle","font-size":11,"font-weight":700,fill:ink},svg);t.textContent=`${top[2]} ${top[3]} m`;}
+}
+let homeHL=null;
+function drawHome(){drawProfile(document.getElementById("prof"),null,homeHL);drawRoute(document.getElementById("rmap"),homeHL);
+  document.querySelectorAll("#daykey button").forEach(b=>b.classList.toggle("dim",!!homeHL&&b.dataset.go!==homeHL));}
+
+const RN={rs:[.97,.90,"仁壽橋"],ls:[.84,.80,"樂山橋"],tk:[.72,.92,"防火巷登山口"],lr:[.62,.70,"獵寮營地"],tl:[.53,.50,"推論山"],
+ yp:[.43,.30,"油婆蘭山屋"],dj:[.50,.06,"大劍山"],bf:[.31,.42,"布伕奇寒山"],lw:[.22,.56,"老伍營地"],jy:[.13,.40,"佳陽山"],xj:[.03,.66,"小劍山"]};
+const RE=[{d:"d1",p:["rs","ls","tk","lr","tl","yp"]},{d:"d2",p:["yp","bf","lw","jy","xj"],two:1},{d:"d3",p:["yp","dj"],two:1}];
+function curve(pts){if(pts.length<3)return "M"+pts.map(p=>p.join(" ")).join(" L");
+  let d="M"+pts[0][0]+" "+pts[0][1];
+  for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
+    d+=` C${c1[0]} ${c1[1]} ${c2[0]} ${c2[1]} ${p2[0]} ${p2[1]}`;}
+  return d;}
+function drawRoute(svg,hl){
+  const ink=css("--ink"),card=css("--card"),line=css("--line");
+  const cw=svg.parentElement.clientWidth||900,small=cw<560;
+  const W=small?520:Math.min(1000,cw),H=Math.round(W*(small?.62:.46));
+  const pad={l:small?44:60,r:small?44:70,t:small?28:34,b:small?30:36};
+  const X=f=>pad.l+f*(W-pad.l-pad.r),Y=f=>pad.t+f*(H-pad.t-pad.b);
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  const off=(pts,o)=>pts.map((q,i)=>{const a=pts[Math.max(0,i-1)],b=pts[Math.min(pts.length-1,i+1)];
+    let dx=b[0]-a[0],dy=b[1]-a[1];const L=Math.hypot(dx,dy)||1;return [q[0]-dy/L*o,q[1]+dx/L*o];});
+  RE.forEach(e=>{const on=!hl||hl===e.d,c=on?C[e.d]:line,w=on?(hl?9:7):5;
+    const base=e.p.map(k=>[X(RN[k][0]),Y(RN[k][1])]);
+    (e.two?[off(base,4.5),off(base,-4.5)]:[base]).forEach(pp=>{const g=mk("path",{d:curve(pp),fill:"none",stroke:c,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round"},svg);
+      if(!hl){g.style.cursor="pointer";g.addEventListener("click",()=>go(e.d));
+        g.addEventListener("mouseenter",()=>{homeHL=e.d;drawHome();});g.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});
+        const t=mk("title",{},g);const dd=DAYS.find(x=>x.id===e.d);t.textContent=`D${dd.n} ${dd.short}`;}});});
+  Object.entries(RN).forEach(([k,[fx,fy,name]])=>{const x=X(fx),y=Y(fy);
+    mk("circle",{cx:x,cy:y,r:small?6:7,fill:card,stroke:ink,"stroke-width":2.4},svg);
+    const up=["yp","dj","tl","jy","bf"].includes(k);
+    const t=mk("text",{x,y:up?y-14:y+22,"text-anchor":k==="rs"?"end":k==="xj"?"start":"middle","font-size":small?12:14,"font-weight":700,fill:ink,
+      "paint-order":"stroke",stroke:card,"stroke-width":4,"stroke-linejoin":"round","font-family":"Noto Serif TC, serif"},svg);t.textContent=name;});
+}
+
+document.getElementById("kpi").innerHTML=[
+ ["49.0 km","GPX 實走總里程（3 天）"],
+ ["33 時","上河 1.0 純步程合計（含林道）"],
+ ["3,594 m","最高點：大劍山（D3）"],
+ ["3 座","大劍山、佳陽山、小劍山"]
+].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
+document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
+document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
+  <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
+  <span class="rt">${d.title}</span><span class="st">${d.stats[0][1]}</span>
+  <span class="stay">宿：${d.stay[0]}</span></button>`).join("");
+document.getElementById("srclist").innerHTML=SRCLIST.map(([t,u,k])=>`<li><a href="${u}" target="_blank" rel="noopener">${t} ↗</a><small>${k}</small></li>`).join("");
+const tl=document.getElementById("tl");
+tl.innerHTML=DAYS.map(d=>`<button class="node" data-go="${d.id}"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><span><b class="num">${d.date}（${d.dow}）</b><small>${d.short}</small></span></button>`).join("");
+
+const panel=(h,body,cls="",tag="")=>`<section class="panel ${cls}"><h3>${h}${tag?`<span class="tagi">${tag}</span>`:""}</h3>${body}</section>`;
+const list=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+let cur="d1",view="home";
+function renderDay(){
+  const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
+  const stats=`<dl class="stats num">${d.stats.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
+  const times=`<ol class="times">${d.tl.map(r=>{const [t,name,alt,min,vid,rem,peak]=r;
+    const segs=[min?`上河 1.0 · ${min}`:null,vid?`GPX · ${vid}`:null].filter(Boolean);
+    return `<li><time class="num">${t}</time><span class="mk ${peak?"peak":""}"></span><span><b>${name}${alt?` <span class="alt num">${alt}</span>`:""}</b>
+      ${segs.length?`<span class="segs">${segs.map(x=>`<span>${x}</span>`).join("")}</span>`:""}${rem?`<span class="rem">${rem}</span>`:""}</span></li>`;}).join("")}</ol>`;
+  const verify=panel("查證補充",`<ul>${d.verify.map(v=>`<li>${v[0]}${v.slice(1).map(u=>` <a class="src" href="${u}" target="_blank" rel="noopener">↗ 來源</a>`).join("")}</li>`).join("")}</ul>`,"verify","上河與公開資料");
+  document.getElementById("day").innerHTML=`<div class="fade">
+    <div class="dtop">
+      <div>
+        <div class="dhead"><span class="chip lg" style="background:${C[d.id]}">D${d.n}</span>
+          <div><p class="when num">2027/${d.date}（${d.dow}）｜三天兩夜</p><h2>${d.title}</h2></div></div>
+        <p class="lead">${d.lead}</p>
+        ${stats}
+      </div>
+      <div class="banner" style="--c:${C[d.id]}"><div><b>${d.title}</b><span>${DAYLINE[d.id]}</span><div class="big num">${d.big}</div></div></div>
+    </div>
+    <div class="dgrid">
+      <div class="stack">
+        ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">左欄時刻是上河 1.0 純步程從出發時間連續累加，不含休息。每段下方標上河分段分鐘，以及 2026/8 GPX 實走的時間與里程（含休息）。</p>${times}`)}
+        ${d.pts?panel("今天的高度",'<div class="mini"><svg id="dayprof" role="img" aria-label="當日高度剖面"></svg></div><p class="note" style="margin-top:4px">2026/8 實走 GPX 的高程與里程（手機 GPS 高度，與官方標高可能有落差）。</p>'):""}
+      </div>
+      <div class="stack">
+        ${panel("撤退與判斷",`<p style="margin:0">${d.gate}</p>`,"gate","出發前定好")}
+        ${panel("今天要注意",list(d.tips),"friend",d.id==="d0"?"行程表":"山銘誌影片")}
+        ${panel("今晚停留",`<p style="margin:0"><b>${d.stay[0]}</b><br>${d.stay[1]}</p>`,"stay")}
+        ${verify}
+      </div>
+    </div>
+    <nav class="pager">
+      <button ${pv?"":"disabled"} data-go="${pv?pv.id:""}"><small>上一天</small>D${pv?pv.n:""} <span class="pn">${pv?pv.short:""}</span></button>
+      <button class="next" ${nx?"":"disabled"} data-go="${nx?nx.id:""}"><small>下一天</small>D${nx?nx.n:""} <span class="pn">${nx?nx.short:""}</span></button>
+    </nav></div>`;
+  if(d.pts)drawProfile(document.getElementById("dayprof"),d);
+  bind(document.getElementById("day"));
+}
+function show(v){view=v;["home","day","prep"].forEach(n=>document.getElementById("v-"+n).classList.toggle("on",n===v));
+  document.querySelectorAll(".views button").forEach(b=>b.setAttribute("aria-current",b.dataset.view===v));
+  tl.querySelectorAll(".node").forEach(n=>{const on=v==="day"&&n.dataset.go===cur;n.setAttribute("aria-current",on);
+    if(on)tl.scrollTo({left:n.offsetLeft-tl.clientWidth/2+n.clientWidth/2,behavior:"smooth"});});
+  if(v==="home")requestAnimationFrame(drawHome);}
+function go(id){if(id==="home"||id==="prep"){history.replaceState(null,"","#"+id);show(id);window.scrollTo({top:0});return;}
+  if(!DAYS.some(d=>d.id===id))return;cur=id;history.replaceState(null,"","#"+id);show("day");renderDay();window.scrollTo({top:0,behavior:"smooth"});}
+function bind(root){root.querySelectorAll("[data-go]").forEach(b=>{if(b.dataset.go)b.onclick=()=>go(b.dataset.go);});
+  root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));}
+bind(document);
+document.addEventListener("keydown",e=>{if(view!=="day")return;const i=DAYS.findIndex(d=>d.id===cur);
+  if(e.key==="ArrowRight"&&DAYS[i+1])go(DAYS[i+1].id);if(e.key==="ArrowLeft"&&DAYS[i-1])go(DAYS[i-1].id);});
+let sx=null,sy=null;const dv=document.getElementById("v-day");
+dv.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+dv.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const i=DAYS.findIndex(d=>d.id===cur),t=DAYS[i+(dx<0?1:-1)];if(t)go(t.id);}});
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(view==="home")drawHome();
+  if(view==="day"){const d=DAYS.find(x=>x.id===cur);if(d.pts)drawProfile(document.getElementById("dayprof"),d);}},150);});
+function route(){const h=(location.hash||"#home").slice(1);
+  if(DAYS.some(d=>d.id===h)){cur=h;show("day");renderDay();}else show(h==="prep"?"prep":"home");}
+window.addEventListener("hashchange",route);
+route();
+</script>
+
+</body>
+</html>
