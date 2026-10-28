@@ -175,6 +175,10 @@ h1,h2,h3{font-family:var(--serif);text-wrap:balance}
 .hero .sword{color:var(--sun)}
 .hero .red{color:var(--alert)}
 .tagline{margin:0 0 10px;font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--muted)}
+.times .segs span.g{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.dtot{margin:-2px 0 4px;font-weight:700;font-size:1.02rem;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.dtot span{font-size:.78rem;color:var(--muted);font-weight:400}
+.dtot i{font-style:normal;color:var(--line)}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -290,6 +294,7 @@ h1,h2,h3{font-family:var(--serif);text-wrap:balance}
       <div class="panel">
         <h2>數據怎麼讀</h2>
         <ul>
+          <li><b>距離與爬升／下降</b>取自 GPX：每段從上一個在 GPX 上定得到位置的節點算起；高度先平滑再累計（手機 GPS 高度），累積爬升下降可能有 ±10% 的誤差。上河圖沒有這些數字。</li>
           <li>左欄時刻<b>以上河大小劍步程示意圖 1.0 倍純步程為準</b>，從每天出發時間連續累加，不含休息。</li>
           <li>仁壽橋到松茂水文站，上河標的是車程 10 分；接駁只到仁壽橋，本手冊用行程表的林道步行約 65 分計算。</li>
           <li>對照用的 <b>GPX 是 2026/8/12–14 的大小劍三天實走紀錄</b>（含休息，總長 49.0 km）；里程與高度剖面取自這份 GPX。</li>
@@ -421,6 +426,7 @@ const DAYS=[
 ];
 DAYS.forEach(d=>{if(d.trk){d.pts=TRK[d.trk];d.len=d.pts[d.pts.length-1][0];}});
 const DAYLINE={d0:"板橋 → 羅東 → 南山 → 環境宮住宿",d1:"仁壽橋 → 天梯 → 推論山 → 油婆蘭山屋｜上河 05:00–14:45",d2:"山屋 ⇄ 佳陽山 ⇄ 小劍山｜上河 03:30–15:55",d3:"大劍山日出 → 下山仁壽橋｜上河 03:00–14:50"};
+const SEG={"d1": {"segs": [null, null, null, "自仁壽橋・5.6 km ↑230 ↓120 m", "3.7 km ↑750 ↓20 m", "2.9 km ↑490 ↓0 m", null, "自推論山・2.8 km ↑510 ↓50 m"], "tot": "15.1 km｜↑1,990 m｜↓190 m"}, "d2": {"segs": [null, "0.4 km ↑40 ↓0 m", "1.2 km ↑80 ↓90 m", "1.2 km ↑40 ↓260 m", "1.2 km ↑290 ↓50 m", "3.2 km ↑240 ↓290 m", "3.2 km ↑280 ↓240 m", "1.1 km ↑40 ↓270 m", "1.4 km ↑270 ↓50 m", null, "自布伕奇寒山・1.5 km ↑100 ↓120 m"], "tot": "14.4 km｜↑1,380 m｜↓1,380 m"}, "d3": {"segs": [null, null, "自山屋・2.6 km ↑390 ↓70 m", null, "自大劍山・2.6 km ↑70 ↓400 m", null, "自山屋・2.5 km ↑30 ↓500 m", "2.7 km ↑0 ↓490 m", "3.5 km ↑10 ↓750 m", null, null, "自防火巷登山口・5.6 km ↑130 ↓230 m"], "tot": "19.5 km｜↑650 m｜↓2,440 m"}};
 const NS="http://www.w3.org/2000/svg";
 const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
 const fmt=n=>Number(n).toLocaleString("en-US");
@@ -508,7 +514,7 @@ document.getElementById("kpi").innerHTML=[
 document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
 document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
   <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
-  <span class="rt">${d.title}</span><span class="st">${d.stats[0][1]}</span>
+  <span class="rt">${d.title}</span><span class="st">${d.stats[0][1]}</span>${SEG[d.id]?`<span class="st num">GPX ${SEG[d.id].tot}</span>`:""}
   <span class="stay">宿：${d.stay[0]}</span></button>`).join("");
 document.getElementById("srclist").innerHTML=SRCLIST.map(([t,u,k])=>`<li><a href="${u}" target="_blank" rel="noopener">${t} ↗</a><small>${k}</small></li>`).join("");
 const tl=document.getElementById("tl");
@@ -519,11 +525,12 @@ const list=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
 let cur="d1",view="home";
 function renderDay(){
   const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
-  const stats=`<dl class="stats num">${d.stats.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
-  const times=`<ol class="times">${d.tl.map(r=>{const [t,name,alt,min,vid,rem,peak]=r;
+  const stats=`<dl class="stats num">${d.stats.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>${SEG[d.id]?`<p class="dtot num"><span>GPX 全日</span>${SEG[d.id].tot.replace(/｜/g,"<i>｜</i>")}</p>`:""}`;
+  const sg=(SEG[d.id]||{}).segs||[];
+  const times=`<ol class="times">${d.tl.map((r,i)=>{const [t,name,alt,min,vid,rem,peak]=r;
     const segs=[min?`上河 1.0 · ${min}`:null,vid?`GPX · ${vid}`:null].filter(Boolean);
     return `<li><time class="num">${t}</time><span class="mk ${peak?"peak":""}"></span><span><b>${name}${alt?` <span class="alt num">${alt}</span>`:""}</b>
-      ${segs.length?`<span class="segs">${segs.map(x=>`<span>${x}</span>`).join("")}</span>`:""}${rem?`<span class="rem">${rem}</span>`:""}</span></li>`;}).join("")}</ol>`;
+      ${segs.length||sg[i]?`<span class="segs">${segs.map(x=>`<span>${x}</span>`).join("")}${sg[i]?`<span class="g num">${sg[i]}</span>`:""}</span>`:""}${rem?`<span class="rem">${rem}</span>`:""}</span></li>`;}).join("")}</ol>`;
   const verify=panel("查證補充",`<ul>${d.verify.map(v=>`<li>${v[0]}${v.slice(1).map(u=>` <a class="src" href="${u}" target="_blank" rel="noopener">↗ 來源</a>`).join("")}</li>`).join("")}</ul>`,"verify","上河與公開資料");
   document.getElementById("day").innerHTML=`<div class="fade">
     <div class="dtop">
@@ -537,7 +544,7 @@ function renderDay(){
     </div>
     <div class="dgrid">
       <div class="stack">
-        ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">左欄時刻是上河 1.0 純步程從出發時間連續累加，不含休息。每段下方標上河分段分鐘，以及 2026/8 GPX 實走的時間與里程（含休息）。</p>${times}`)}
+        ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">左欄時刻是上河 1.0 純步程從出發時間連續累加，不含休息。每段下方標上河分段分鐘、2026/8 GPX 實走時間，以及這一段的 GPX 距離與爬升／下降（↑↓，從上一個有 GPX 位置的節點算起）。</p>${times}`)}
         ${d.pts?panel("今天的高度",'<div class="mini"><svg id="dayprof" role="img" aria-label="當日高度剖面"></svg></div><p class="note" style="margin-top:4px">2026/8 實走 GPX 的高程與里程（手機 GPS 高度，與官方標高可能有落差）。</p>'):""}
       </div>
       <div class="stack">
