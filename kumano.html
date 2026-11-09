@@ -726,18 +726,18 @@ document.getElementById("stampdays").innerHTML=Object.keys(STAMPS).map(id=>{cons
 function stampPanel(id){if(!STAMPS[id])return "";return panel(`今天可以蓋的章（${STAMPS[id].length} 個）`,"mount",stampList(id)+`<p style="margin:8px 0 0;font-size:.88rem"><a href="#stamp" data-view="stamp" style="color:var(--ink)">雙朝聖認證怎麼辦</a></p>`);}
 /* ---------- transport legs ---------- */
 const LEGS=[
- {d:"d1",m:"train",f:"關西機場",t:"日根野",op:"JR 關空快速",tm:"約 15 分",py:"IC 卡或車票；JR 通票可用"},
- {d:"d1",m:"train",f:"日根野",t:"紀伊田邊",op:"JR 特急黑潮（新宮方向）",tm:"約 1 小時 32 分",py:"需特急券，建議先劃指定席；JR 通票含指定席"},
+ {d:"d1",m:"train",f:"關西機場（Kansai-Airport）",t:"日根野（Hineno）",op:"JR 關空快速（Kansai-Airport Rapid）",tm:"約 15 分",py:"IC 卡或車票；JR 通票可用"},
+ {d:"d1",m:"train",f:"日根野（Hineno）",t:"紀伊田邊（Kii-Tanabe）",op:"JR 特急くろしお（Kuroshio，新宮方向）",tm:"約 1 小時 32 分",py:"需特急券，建議先劃指定席；JR 通票含指定席。買票：Kansai-Airport → Kii-Tanabe"},
  {d:"d2",m:"bus",f:"紀伊田邊站前",t:"瀧尻王子",op:"明光快速／龍神巴士（本宮線）",tm:"本 08:30→09:08／08:37→09:15（兩班互為備援）｜早班 06:55→07:27・06:16→06:52｜後 10:25→11:03",py:"龍神：現金、PayPay｜明光：現金、IC 卡、PayPay"},
  {d:"d3",m:"bus",f:"發心門王子",t:"川湯溫泉",op:"龍神巴士（本宮線・直達川湯，不需轉乘）",tm:"本 15:45→16:10｜前 14:48→15:16｜後・末班 16:23→16:51",py:"龍神：現金、PayPay"},
  {d:"d4",m:"bus",f:"川湯溫泉",t:"發心門王子",op:"龍神巴士（本宮線，同車經本宮大社前續行）",tm:"本 08:07→08:37｜後 08:29→08:54／09:32→10:00（08:07 為首班，無更早）",py:"現金最保險；秋季溫泉臨時巴士可當備案"},
  {d:"d4",m:"bus",f:"本宮大社前",t:"速玉大社前",op:"熊野御坊南海 川丈線（速玉大社前下車）",tm:"本 13:25→新宮 14:24｜前 12:15→13:14｜後 14:45→15:44（¥1,540・※週日再確認）",py:"南海：現金、感應式信用卡｜奈良交通：現金、IC 卡"},
- {d:"d4",m:"train",f:"新宮站（速玉大社步行 15 分）",t:"紀伊勝浦",op:"JR 紀勢本線",tm:"約 20–25 分、班次密（¥240）",py:"車票；JR 通票可用"},
+ {d:"d4",m:"train",f:"新宮站（Shingu・速玉大社步行 15 分）",t:"紀伊勝浦（Kii-Katsuura）",op:"JR 紀勢本線",tm:"約 20–25 分、班次密（¥240）",py:"車票；JR 通票可用。買票：Shingu → Kii-Katsuura"},
  {d:"d5",m:"bus",f:"紀伊勝浦站",t:"大門坂",op:"熊野御坊南海 那智山線",tm:"本 07:30→07:52｜前 06:45→07:09｜後 08:25→08:49",py:"現金、感應式信用卡、Apple／Google Pay；不收 IC 卡"},
  {d:"d5",m:"bus",f:"那智瀑布前",t:"紀伊勝浦站",op:"熊野御坊南海 那智山線",tm:"本 10:34→10:58｜前 09:49→10:13｜後 11:09→11:33",py:"同上；10:34 這班不要錯過"},
- {d:"d5",m:"train",f:"紀伊勝浦",t:"大阪方向",op:"JR 特急くろしお（Kuroshio）",tm:"本 ~11:49→新大阪~15:50｜前 ~08:55｜後 ~13:29→~17:40（¥7,260）",py:"需特急券，建議先用 e5489 劃指定席；JR 通票含指定席"},
- {d:"d6",m:"train",f:"難波",t:"關西機場",op:"南海電鐵",tm:"約 45 分",py:"IC 卡或車票；特急 rapi:t 需另購特急券"},
- {d:"d6",m:"train",f:"臨空城",t:"關西機場",op:"JR 或南海電鐵",tm:"約 5–10 分",py:"IC 卡或車票"}
+ {d:"d5",m:"train",f:"紀伊勝浦（Kii-Katsuura）",t:"大阪方向（Shin-Osaka／Tennoji；住臨空城在 Hineno 下車）",op:"JR 特急くろしお（Kuroshio）",tm:"本 ~11:49→新大阪~15:50｜前 ~08:55｜後 ~13:29→~17:40（¥7,260）",py:"需特急券，建議先用 e5489 劃指定席；JR 通票含指定席。買票：Kii-Katsuura → Shin-Osaka"},
+ {d:"d6",m:"train",f:"難波（Namba）",t:"關西機場（Kansai-Airport）",op:"南海電鐵（Nankai）",tm:"約 45 分",py:"IC 卡或車票；特急 rapi:t 需另購特急券"},
+ {d:"d6",m:"train",f:"臨空城（Rinku-Town）",t:"關西機場（Kansai-Airport）",op:"JR 或南海電鐵",tm:"約 5–10 分",py:"IC 卡或車票（OMO 關西機場旁）"}
 ];
 (function(){let last="";document.getElementById("legs").innerHTML=`<thead><tr><th>日期</th><th>區間</th><th>交通</th><th>約需</th><th>怎麼付</th></tr></thead><tbody>${LEGS.map(l=>{const d=DAYS.find(x=>x.id===l.d),first=l.d!==last;last=l.d;
   return `<tr class="${first?"dstart":""}" data-go="${l.d}"><td class="num">${first?`D${d.n} ${d.date}`:""}</td><td>${l.f} → ${l.t}</td><td><span class="md ${l.m}">${l.m==="bus"?"巴士":"電車"}</span>${l.op}</td><td class="num">${l.tm}</td><td>${l.py}</td></tr>`;}).join("")}</tbody>`;})();
