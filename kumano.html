@@ -726,8 +726,8 @@ document.getElementById("stampdays").innerHTML=Object.keys(STAMPS).map(id=>{cons
 function stampPanel(id){if(!STAMPS[id])return "";return panel(`今天可以蓋的章（${STAMPS[id].length} 個）`,"mount",stampList(id)+`<p style="margin:8px 0 0;font-size:.88rem"><a href="#stamp" data-view="stamp" style="color:var(--ink)">雙朝聖認證怎麼辦</a></p>`);}
 /* ---------- transport legs ---------- */
 const LEGS=[
- {d:"d1",m:"train",f:"關西機場（Kansai-Airport）",t:"日根野（Hineno）",op:"JR 關空快速（Kansai-Airport Rapid）",tm:"約 15 分",py:"IC 卡或車票；JR 通票可用"},
- {d:"d1",m:"train",f:"日根野（Hineno）",t:"紀伊田邊（Kii-Tanabe）",op:"JR 特急くろしお（Kuroshio，新宮方向）",tm:"約 1 小時 32 分",py:"需特急券，建議先劃指定席；JR 通票含指定席。買票：Kansai-Airport → Kii-Tanabe"},
+ {d:"d1",m:"train",f:"關西機場（Kansai-Airport）",t:"日根野（Hineno）",op:"JR 關空快速（Kansai-Airport Rapid）",tm:"約 15 分",py:"直接刷 IC（ICOCA/Suica）進站即可"},
+ {d:"d1",m:"train",f:"日根野（Hineno）",t:"紀伊田邊（Kii-Tanabe）",op:"JR 特急くろしお（Kuroshio，新宮方向）",tm:"約 1 小時 32 分",py:"紀伊田邊在 ICOCA 範圍：IC 卡一路刷到底當乘車券，只需另買くろしお指定席特急券（KIX 綠色機台或手機 e5489）；日根野站內轉乘免出閘。JR 通票則含指定席"},
  {d:"d2",m:"bus",f:"紀伊田邊站前",t:"瀧尻王子",op:"明光快速／龍神巴士（本宮線）",tm:"本 08:30→09:08／08:37→09:15（兩班互為備援）｜早班 06:55→07:27・06:16→06:52｜後 10:25→11:03",py:"龍神：現金、PayPay｜明光：現金、IC 卡、PayPay"},
  {d:"d3",m:"bus",f:"發心門王子",t:"川湯溫泉",op:"龍神巴士（本宮線・直達川湯，不需轉乘）",tm:"本 15:45→16:10｜前 14:48→15:16｜後・末班 16:23→16:51",py:"龍神：現金、PayPay"},
  {d:"d4",m:"bus",f:"川湯溫泉",t:"發心門王子",op:"龍神巴士（本宮線，同車經本宮大社前續行）",tm:"本 08:07→08:37｜後 08:29→08:54／09:32→10:00（08:07 為首班，無更早）",py:"現金最保險；秋季溫泉臨時巴士可當備案"},
