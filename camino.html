@@ -254,7 +254,7 @@ tr[data-go]{cursor:pointer}tr[data-go]:hover td{background:#fff}
     <div class="hero">
       <p class="kicker">接續熊野，走完雙朝聖的另一半</p>
       <h1>葡萄牙朝聖之路<br>Baiona → Santiago</h1>
-      <p class="meta"><b class="num">最後 127 km</b>｜6 天徒步｜7 人同行｜9 月</p>
+      <p class="meta"><b class="num">最後 127 km</b>｜6 天徒步｜7 人同行｜5 月・勞動節連假</p>
     </div>
 
     <div class="mapcard">
@@ -404,10 +404,11 @@ tr[data-go]{cursor:pointer}tr[data-go]:hover td{background:#fff}
       <div class="panel">
         <h2><span class="seal">季</span>季節與聖年</h2>
         <ul>
-          <li><b>最佳季節</b>：9 月上–中旬——暑熱退、人潮比盛夏少；越近月底雨機率略升。</li>
-          <li><b>天氣</b>：加利西亞偏濕，白天約 18–25°C、早晚涼，隨時可能下雨，雨具不離身。</li>
+          <li><b>最佳季節</b>：5 月上旬——晚春、天氣溫和、沿途最綠、野花盛開；日照長（日落約 21:30），對 26 km 長日很有利。</li>
+          <li><b>天氣</b>：加利西亞偏濕，白天約 12–22°C、早晚涼，春天偶有陣雨，雨具不離身。</li>
           <li><b>2027 聖年</b>：朝聖者多，住宿務必提早訂；小鎮午後常 siesta 店休、週日商店關門，補給趁早。</li>
           <li><b>用餐</b>：西班牙晚餐很晚（20:00 後），朝聖者套餐（menú del peregrino）時間較早、份量足。</li>
+          <li><b>假期</b>：錨定 <b>5/1 勞動節連假</b>（2027/5/1 週六・補假週一 5/3）；12 天約請 <b>7 天假</b>，前三天連假把去程與第一天徒步都蓋掉。</li>
         </ul>
       </div>
     </div>
@@ -423,6 +424,12 @@ tr[data-go]{cursor:pointer}tr[data-go]:hover td{background:#fff}
     </div>
   </section>
 </main>
+  <footer class="foot" style="max-width:1180px;margin:0 auto;padding:16px 18px 44px">
+    <p>¡Buen Camino！一步一步，從大西洋海岸走到聖雅各的城。接續熊野，完成雙朝聖。</p>
+    <p>照片為 <a href="https://commons.wikimedia.org/" style="color:var(--ink)">Wikimedia Commons</a> 自由授權之景點示意圖（非實拍，建議日後換成自己的照片）。距離為官方分段概值，班次與票價出發前再確認。</p>
+    <p>規劃：Baiona 起、Santiago 止｜海岸轉中央｜7 人・2027 年 5 月（勞動節連假，適逢聖年）。</p>
+  </footer>
+
 
 <script>
 const IMG={d0:"https://commons.wikimedia.org/wiki/Special:FilePath/Fortaleza_de_Monterreal.jpg?width=1280",d1:"https://commons.wikimedia.org/wiki/Special:FilePath/Vigo_Cangas_Morrazo_puerto.jpg?width=1280",d2:"https://commons.wikimedia.org/wiki/Special:FilePath/Marker_Camino_de_Santiago.jpg?width=1280",d3:"https://commons.wikimedia.org/wiki/Special:FilePath/Pontevedra-009-2-virgen-peregrina.jpg?width=1280",d4:"https://commons.wikimedia.org/wiki/Special:FilePath/Caldas_de_Reis-Ponte_Romano.JPG?width=1280",d5:"https://commons.wikimedia.org/wiki/Special:FilePath/Freccia_del_cammino_di_santiago.JPG?width=1280",d6:"https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_santiago_compostela.jpg?width=1280",d7:"https://commons.wikimedia.org/wiki/Special:FilePath/Spain.Santiago.de.Compostela.Obradoiro.jpg?width=1280"};
@@ -441,56 +448,56 @@ const stars=n=>`<span class="stars" aria-label="難度 ${n} / 5">${"★".repeat(
 
 /* t: [icon, time, text, route?]  icon: plane|train|bus|walk|dot */
 const DAYS=[
-{id:"d0",n:0,date:"9/25",dow:"六",title:"台北 → Vigo → Baiona",short:"台北→Baiona",card:"交通 + 準備日",stay:"Baiona（Paso Pías 等）",
+{id:"d0",n:0,date:"5/1",dow:"六",title:"台北 → Vigo → Baiona",short:"台北→Baiona",card:"交通 + 準備日",stay:"Baiona（Paso Pías 等）",
  tl:[["plane","","台北出發，經轉機飛西班牙（Porto／Vigo）"],["dot","","抵達後往 Vigo"],["bus","","Vigo → Baiona｜ATSA 巴士約 45 分"],["step","","Baiona 住宿入住，港邊散步調時差"]],
  blocks:[{h:"景點特色",icon:"mount",p:"Baiona 是 1493 年哥倫布『平塔號』返航靠港、歐洲最早得知新大陸消息之地；港邊 Monterreal 城堡（今 parador）可環海步道走一圈。"},
          {h:"今日必辦",icon:"bed",items:["到朝聖者辦公室或遊客中心領『朝聖者護照 credencial』","明天起每天蓋章（最後 100 km 每日兩章）","確認明早出發點的第一個蓋章處"]}],
  notes:["長程飛行＋轉機抓一整天；時差先在 Baiona 緩一緩。","先把 credencial 領好、確認住宿與隔天出發時間。","熊野蓋印單記得帶著（雙朝聖登記要用）。"]},
 
-{id:"d1",n:1,date:"9/27",dow:"一",title:"Baiona → Vigo",short:"Baiona→Vigo",card:"26 km｜海岸",stay:"Vigo（Hotel Pantón）",
+{id:"d1",n:1,date:"5/3",dow:"一",title:"Baiona → Vigo",short:"Baiona→Vigo",card:"26 km｜海岸",stay:"Vigo（Hotel Pantón）",
  stats:{km:"26 km",time:"6–7 小時",up:"約 300 m",down:"約 300 m",lv:3},
  tl:[["dot","","Baiona 出發，沿海岸南緣"],["walk","","徒步 26 km｜6–7 小時｜海岸平緩、柏油多","Baiona → Sabarís／A Ramallosa → Nigrán → Praia América → Samil → Vigo"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["A Ramallosa 中世紀石橋","Praia América 大西洋海灘","Samil 海濱大道","午後走進加利西亞最大城 Vigo"]},
          {h:"住宿",icon:"bed",items:["Vigo 市中心 Hotel Pantón（CP 佳）","老城 A Pedra 市場的生蠔攤；晚餐海鮮"]}],
  notes:["全程最長、柏油路段多：護膝與鞋墊先備好。","海岸無遮蔭，防曬與補水。","記得每天蓋兩個章（起點＋終點）。"]},
 
-{id:"d2",n:2,date:"9/28",dow:"二",title:"Vigo → Arcade",short:"Vigo→Arcade",card:"23 km｜併入中央線",stay:"Arcade（Restaurante Isape）",
+{id:"d2",n:2,date:"5/4",dow:"二",title:"Vigo → Arcade",short:"Vigo→Arcade",card:"23 km｜併入中央線",stay:"Arcade（Restaurante Isape）",
  stats:{km:"23 km",time:"6 小時",up:"約 450 m",down:"約 450 m",lv:3},
  tl:[["dot","","Vigo 出發，爬升離開市區"],["walk","","徒步 23 km｜6 小時｜出城爬升後下海灣","Vigo → A Madroa → Redondela（併中央線）→ Cesantes → Arcade"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["Rande 海灣高處展望","Redondela：海岸線與中央線會合，之後是最多人走的經典路段","Arcade 以生蠔（ostras）聞名"]},
          {h:"住宿",icon:"bed",items:["Arcade Restaurante Isape（朝聖者常住、附餐）","小鎮選擇少，務必最早訂"]}],
- notes:["出 Vigo 有一段爬升。","Redondela 之後朝聖者變多，熱門住宿先訂。","今天是台灣教師節（連假起點）。"]},
+ notes:["出 Vigo 有一段爬升。","Redondela 之後朝聖者變多，熱門住宿先訂。","5/3 補假後今天起要請假；聖年人潮多，沿途蓋章別漏。"]},
 
-{id:"d3",n:3,date:"9/29",dow:"三",title:"Arcade → Pontevedra",short:"Arcade→Pontevedra",card:"12 km｜短程",stay:"Pontevedra（Hotel Rúas）",
+{id:"d3",n:3,date:"5/5",dow:"三",title:"Arcade → Pontevedra",short:"Arcade→Pontevedra",card:"12 km｜短程",stay:"Pontevedra（Hotel Rúas）",
  stats:{km:"12 km",time:"3 小時",up:"約 150 m",down:"約 150 m",lv:2},
  tl:[["dot","","Arcade 出發"],["walk","","徒步 12 km｜3 小時｜輕鬆","Arcade → Ponte Sampaio 古橋 → Pontevedra 老城"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["Ponte Sampaio 中世紀古橋","Pontevedra：西班牙保存最好的無車老城之一","A Peregrina 貝殼造型朝聖者教堂"]},
          {h:"住宿",icon:"bed",items:["Hotel Rúas（老城中心、經典 CP）","Praza da Ferrería 周邊 tapas"]}],
  notes:["今天最短，善用下午逛老城、洗衣、補給。","為明天 22 km 養精蓄銳。"]},
 
-{id:"d4",n:4,date:"9/30",dow:"四",title:"Pontevedra → Caldas de Reis",short:"Pontevedra→Caldas",card:"22 km｜森林・溫泉",stay:"Caldas de Reis（Hostal O Cruceiro）",
+{id:"d4",n:4,date:"5/6",dow:"四",title:"Pontevedra → Caldas de Reis",short:"Pontevedra→Caldas",card:"22 km｜森林・溫泉",stay:"Caldas de Reis（Hostal O Cruceiro）",
  stats:{km:"22 km",time:"5–6 小時",up:"約 350 m",down:"約 300 m",lv:3},
  tl:[["dot","","Pontevedra 出發"],["walk","","徒步 22 km｜5–6 小時｜森林與緩坡","Pontevedra → San Amaro → Tivo → Caldas de Reis"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["尤加利與橡樹林、鄉間小路","Caldas 自羅馬時代就是溫泉鎮","鎮上免費熱泉出水口可泡腳——走了四天的腳最需要"]},
          {h:"住宿",icon:"bed",items:["Hostal O Cruceiro（舒適、含衛浴、評價好）"]}],
  notes:["林間潮濕路滑，雨後尤其小心。","泡腳舒緩，別泡太久影響隔天。"]},
 
-{id:"d5",n:5,date:"10/1",dow:"五",title:"Caldas de Reis → Padrón",short:"Caldas→Padrón",card:"19 km｜葡萄園",stay:"Padrón（Pensión Cuco）",
+{id:"d5",n:5,date:"5/7",dow:"五",title:"Caldas de Reis → Padrón",short:"Caldas→Padrón",card:"19 km｜葡萄園",stay:"Padrón（Pensión Cuco）",
  stats:{km:"19 km",time:"5 小時",up:"約 300 m",down:"約 300 m",lv:2},
  tl:[["dot","","Caldas 出發"],["walk","","徒步 19 km｜5 小時｜起伏葡萄園","Caldas de Reis → Carracedo → 葡萄園緩丘 → Padrón"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["葡萄園與小村","Padrón：傳說聖雅各遺體乘石船登陸之地","名產 Padrón 青椒——有些辣、有些不辣，配啤酒剛好"]},
          {h:"住宿",icon:"bed",items:["Pensión Cuco（舒適含衛浴、CP 高）","或 Hotel Scala（較大、好容 7 人）"]}],
  notes:["明天就是聖地牙哥，今晚早點休息。","確認 credencial 今天兩個章都蓋到。"]},
 
-{id:"d6",n:6,date:"10/2",dow:"六",title:"Padrón → Santiago de Compostela",short:"Padrón→Santiago",card:"26 km｜抵達・領證",stay:"Santiago（Hostal Giadas）",
+{id:"d6",n:6,date:"5/8",dow:"六",title:"Padrón → Santiago de Compostela",short:"Padrón→Santiago",card:"26 km｜抵達・領證",stay:"Santiago（Hostal Giadas）",
  stats:{km:"26 km",time:"6–7 小時",up:"約 400 m",down:"約 250 m",lv:4},
  tl:[["dot","","一早從 Padrón 出發"],["walk","","徒步 26 km｜6–7 小時｜緩升入城","Padrón → O Milladoiro → Monte do Gozo（初見尖塔）→ Praza do Obradoiro"],["dot","","到朝聖者辦公室（Rúa Carretas 33）領 Compostela"],["dot","","趕得上就參加朝聖者彌撒，或許見 botafumeiro 擺盪"]],
  blocks:[{h:"沿途特色",icon:"mount",items:["Monte do Gozo（歡喜之丘）：第一次望見大教堂尖塔","Praza do Obradoiro：千里終點就在眼前","加利西亞章魚 pulpo、Albariño 白酒慶功"]},
          {h:"領證",icon:"bed",items:["朝聖者辦公室 Rúa Carretas 33 憑 credencial 領 Compostela","旺季與聖年排隊長，一早抵達先排","住宿 Hostal Giadas（近大教堂）"]}],
  notes:["最後一段，一早出發以免太晚到。","每天兩個章的規定到今天為止務必齊全。"]},
 
-{id:"d7",n:7,date:"10/3",dow:"日",title:"聖地牙哥 · 雙朝聖登記 / 機動",short:"Santiago·雙朝聖",card:"Dual Pilgrim・Finisterre",stay:"Santiago / 返程",
- tl:[["dot","","大教堂、博物館、老城石巷"],["step","","Turismo 遊客中心 Rúa do Vilar 63：雙朝聖登記（憑兩側證明領徽章）"],["bus","","（可選）Santiago → Finisterre／Muxía 世界盡頭一日"],["dot","","10/4–10/5 返程交通，10/6 抵台北（+1 天）"]],
+{id:"d7",n:7,date:"5/9",dow:"日",title:"聖地牙哥 · 雙朝聖登記 / 機動",short:"Santiago·雙朝聖",card:"Dual Pilgrim・Finisterre",stay:"Santiago / 返程",
+ tl:[["dot","","大教堂、博物館、老城石巷"],["step","","Turismo 遊客中心 Rúa do Vilar 63：雙朝聖登記（憑兩側證明領徽章）"],["bus","","（可選）Santiago → Finisterre／Muxía 世界盡頭一日"],["dot","","5/10–5/11 返程交通，5/12 抵台北（+1 天）"]],
  blocks:[{h:"雙朝聖登記",icon:"mount",items:["憑 Camino 的 Compostela／credencial ＋ 熊野蓋印單","在 Turismo de Santiago（Rúa do Vilar 63）登記領徽章","須本人到場，不郵寄"]},
          {h:"世界盡頭（可選）",icon:"bed",items:["巴士往 Finisterre／Muxía，古人心中『世界的盡頭』","來回一日，或留宿看海，為朝聖畫下句點"]}],
  notes:["想看 botafumeiro 先查當日彌撒場次（不是每天擺盪）。","雙朝聖徽章須本人領取。","回程交通日請抓足轉機時間。"]}
@@ -654,7 +661,7 @@ function renderDay(){
   }
   document.getElementById("day").innerHTML=`<div class="fade">
     <div class="banner"><img src="${IMG[d.id]}" alt="${d.title}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.banner').remove()"></div>
-    <div class="dhead"><span class="seal lg" style="background:${DAYC[d.id]}">D${d.n}</span><div><p class="when num">2026/${d.date}（${d.dow}）</p><h2>${d.title}${d.hard?'<span class="tag">全程最辛苦</span>':""}</h2></div></div>
+    <div class="dhead"><span class="seal lg" style="background:${DAYC[d.id]}">D${d.n}</span><div><p class="when num">2027/${d.date}（${d.dow}）</p><h2>${d.title}${d.hard?'<span class="tag">全程最辛苦</span>':""}</h2></div></div>
     ${st}${body}
     <nav class="pager"><button class="prev" ${pv?"":"disabled"} data-go="${pv?pv.id:""}"><small>上一天</small>${pv?`D${pv.n} <span class="pn">${pv.short}</span>`:""}</button>
     <button class="next" ${nx?"":"disabled"} data-go="${nx?nx.id:""}"><small>下一天</small>${nx?`D${nx.n} <span class="pn">${nx.short}</span>`:""}</button></nav></div>`;
