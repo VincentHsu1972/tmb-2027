@@ -2,431 +2,683 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>葡萄牙朝聖之路｜Baiona → Santiago</title>
+<title>葡萄牙朝聖之路｜Baiona → Santiago 手冊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Noto+Sans+TC:wght@400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
 <style>
-/* Layout: paged pilgrim handbook — sticky tab nav + one panel per day; Atlantic-blue structure, yellow-arrow accent, stone neutrals */
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-img{display:block;max-width:100%}
-button{font:inherit;color:inherit}
-[hidden]{display:none!important}
-:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
 :root{
-  --bg:#f6f2e9; --surface:#fffdf8; --ink:#241f1a; --muted:#6b6256; --line:#e3dac9;
-  --sea:#1f5565; --sea-soft:#dcebee; --arrow:#e9a400; --arrow-ink:#8a5a00; --red:#a8402f;
-  --shadow:0 1px 2px rgba(40,30,15,.06),0 6px 20px rgba(40,30,15,.06);
-  --serif:"Fraunces","Noto Serif TC",Georgia,serif;
-  --sans:"Noto Sans TC","Inter",system-ui,sans-serif;
-  color-scheme:light;
+  --paper:#F3ECDD; --card:#FBF7EE; --ink:#1D3347; --muted:#6B6355; --line:#DACDB3;
+  --seal:#9E2F28; --moss:#3E5B3A; --gold:#B5893F; --wash:#E9E0CC;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  --head:108px;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#17181b; --surface:#1f2024; --ink:#ece7dd; --muted:#9a9488; --line:#33343a;
-  --sea:#6fc0d2; --sea-soft:#1c2e33; --arrow:#f0b623; --arrow-ink:#f0b623; --red:#e08972;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#17181b; --surface:#1f2024; --ink:#ece7dd; --muted:#9a9488; --line:#33343a;
-  --sea:#6fc0d2; --sea-soft:#1c2e33; --arrow:#f0b623; --arrow-ink:#f0b623; --red:#e08972;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(243,236,221,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1180px;margin:0 auto;padding:0 18px;height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.05rem;border:0;background:none;padding:0;cursor:pointer;color:var(--ink);white-space:nowrap}
+.brand i{font-style:normal;color:var(--seal)}
+.views{display:flex;gap:4px}
+.views button{border:0;background:none;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:600;white-space:nowrap}
+.views button[aria-current="true"]{background:var(--ink);color:#fff}
+.tl{max-width:1180px;margin:0 auto;display:flex;gap:0;overflow-x:auto;padding:2px 18px 10px;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.node{flex:1 0 96px;border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;text-align:left;color:var(--muted)}
+.node .seal{flex:0 0 auto}
+.node b{display:block;font-size:.86rem;color:var(--ink);line-height:1.2}
+.node small{display:block;font-size:.74rem;line-height:1.25}
+.node[aria-current="true"]{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.seal{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--seal);color:#fff;font-family:var(--serif);font-weight:900;font-size:.8rem;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.seal.lg{width:52px;height:52px;font-size:1.25rem}
+
+.view{display:none;max-width:1180px;margin:0 auto;padding:22px 18px 48px}
+.view.on{display:block}
+h1,h2,h3{font-family:var(--serif)}
+.sub{color:var(--muted);margin:0 0 16px;max-width:44em}
+
+/* home */
+.hero h1{font-weight:900;font-size:clamp(2.3rem,5.4vw,4.2rem);line-height:1.12;margin:6px 0 10px;letter-spacing:.02em}
+.hero .kicker{margin:0;color:var(--seal);font-weight:700}
+.hero .meta{margin:0;font-size:1.1rem}
+.hero .meta b{font-family:var(--serif)}
+.strip{margin:26px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px 10px;overflow-x:auto}
+.route{display:flex;align-items:flex-start;min-width:900px}
+.stn{flex:0 0 auto;width:68px;text-align:center;font-size:.8rem;line-height:1.3;position:relative}
+.stn .pin{width:14px;height:14px;border-radius:50%;background:var(--card);border:2.5px solid var(--ink);margin:4px auto 6px}
+.stn.walk-end .pin{border-color:var(--seal)}
+.seg{flex:1 1 auto;height:22px;position:relative;min-width:26px}
+.seg:before{content:"";position:absolute;left:-10px;right:-10px;top:10px;border-top:2px solid #9C927E}
+.seg.walk:before{border-top:4px dashed var(--seal);top:9px}
+.seg span{position:absolute;left:50%;top:-14px;transform:translateX(-50%);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.seg.walk span{color:var(--seal);font-weight:700}
+.legend{display:flex;gap:18px;font-size:.8rem;color:var(--muted);margin:6px 2px 0}
+.legend i{display:inline-block;width:22px;margin-right:6px;vertical-align:middle;border-top:2px solid #9C927E}
+.legend i.w{border-top:4px dashed var(--seal)}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}
+.dcard{border-top:4px solid var(--c,var(--line))!important;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 12px 14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.dcard:hover{border-color:var(--gold)}
+.dcard .hd{display:flex;align-items:center;gap:8px}
+.dcard .hd b{font-family:var(--serif);font-size:1rem}
+.dcard .rt{font-weight:700;line-height:1.4}
+.dcard .st{font-size:.86rem;color:var(--muted)}
+.dcard .st.hard{color:var(--seal);font-weight:700}
+.dcard .stay{margin-top:auto;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.panel h2,.panel h3{margin:0 0 8px;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+.panel ul{margin:0;padding-left:1.1em}
+.panel li{margin:3px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 20px;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+/* day */
+.banner{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--wash)}
+.banner img{width:100%;height:clamp(150px,24vw,250px);object-fit:cover}
+.dhead{display:flex;align-items:center;gap:14px;margin:18px 0 6px}
+.dhead .when{margin:0;color:var(--muted);font-weight:700}
+.dhead h2{margin:0;font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.25}
+.tag{display:inline-block;margin-left:8px;font-family:var(--sans);font-size:.8rem;font-weight:700;color:#fff;background:var(--seal);border-radius:999px;padding:2px 10px;vertical-align:middle}
+.stats{display:flex;flex-wrap:wrap;gap:6px 28px;padding:12px 0;margin:8px 0 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats dt{font-size:.8rem;color:var(--muted)}
+.stats dd{margin:0;font-weight:700;font-size:1.1rem}
+.stars{letter-spacing:2px;color:var(--seal)}
+.stars .o{color:var(--line)}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+.stack{display:grid;gap:16px}
+.phead{display:flex;align-items:center;gap:8px}
+.phead svg{width:20px;height:20px;fill:var(--moss)}
+.panel.note{border-left:5px solid var(--seal)}
+.panel.note .phead svg{fill:var(--seal)}
+.times{list-style:none;margin:6px 0 0;padding:0;position:relative}
+.times:before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:var(--seal);opacity:.55}
+.times li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:6px 0;position:relative}
+.ic{width:28px;height:28px;border-radius:50%;background:var(--card);border:2px solid var(--seal);display:grid;place-items:center;position:relative;z-index:1}
+.ic svg{width:16px;height:16px;fill:var(--ink)}
+.ic.dot{width:14px;height:14px;margin:7px;border-width:2.5px}
+.ic.walk{background:var(--moss);border-color:var(--moss)}.ic.walk svg{fill:#fff}
+.times .t{font-family:var(--serif);font-weight:700;margin-right:6px}
+.times .x{display:block}
+.times .r{display:block;font-size:.9rem;color:var(--muted);margin-top:2px}
+.times li.walkrow .x{font-weight:700;color:var(--moss)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.pager button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;cursor:pointer;text-align:left;max-width:48%}
+.pager button[disabled]{visibility:hidden}
+.pager small{display:block;color:var(--muted);font-size:.76rem}
+.pager .next{text-align:right}
+.alert svg{width:22px;height:22px;fill:var(--seal);flex:0 0 auto}
+.alert{display:flex;gap:10px;align-items:center;background:#F6E3DC;border:1px solid #E3BFB3;color:var(--seal);border-radius:12px;padding:10px 14px;font-weight:700;margin:0 0 16px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plans .fit{margin:8px 0 0;font-size:.9rem;color:var(--muted)}
+.fade{animation:fade .22s ease}@keyframes fade{from{opacity:.3}to{opacity:1}}
+
+/* prep */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.chip{font-size:.88rem;border-radius:999px;padding:2px 12px;border:1px solid var(--line);background:#fff}
+.chip.no{color:var(--seal);border-color:#E3BFB3;background:#FBEDE8}
+.clab{font-weight:700;font-size:.88rem;margin-right:2px;align-self:center}
+.clab.no{color:var(--seal)}.clab.ok{color:var(--moss)}
+.chip.ok{color:var(--moss);border-color:#BFD0BB;background:#EEF4EC}
+.pack{display:grid;grid-template-columns:repeat(10,1fr);gap:10px}
+.pack figure{margin:0;text-align:center;font-size:.84rem}
+.pack img{width:100%;aspect-ratio:1;object-fit:contain;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px}
+.pack figcaption{margin-top:4px;line-height:1.3}
+.stays{list-style:none;margin:0;padding:0}
+.stays li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--line)}
+.stays li:last-child{border-bottom:0}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+.foot p{margin:3px 0}
+
+@media (max-width:1000px){
+  .days{grid-template-columns:repeat(3,1fr)}
+  .pack{grid-template-columns:repeat(5,1fr)}
 }
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
-h1,h2,h3{font-family:var(--serif);font-weight:600;text-wrap:balance;line-height:1.2}
-a{color:var(--sea)}
-.wrap{max-width:820px;margin:0 auto;
-  padding-left:max(18px,env(safe-area-inset-left,0px));
-  padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:0}
-
-/* masthead */
-.mast{padding-block:26px 14px}
-.mast .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--arrow-ink);font-weight:700}
-.mast h1{font-size:clamp(1.7rem,6vw,2.5rem);margin:.25em 0 .05em}
-.mast .route{font-family:var(--serif);font-style:italic;color:var(--sea);font-size:clamp(1rem,3.4vw,1.25rem);margin:0}
-
-/* sticky tab nav */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--bg)}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--line);
-  margin:0 calc(-1*max(18px,env(safe-area-inset-left,0px))) 0;
-  padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-.tabs button{flex:0 0 auto;font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--muted);
-  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer;white-space:nowrap;
-  transition:all .15s}
-.tabs button:hover{color:var(--ink)}
-.tabs button[aria-current="true"]{background:var(--sea);color:#fff;border-color:var(--sea)}
-:root[data-theme="dark"] .tabs button[aria-current="true"]{color:#12222a}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-current="true"]{color:#12222a}}
-.tabs button .km{font-weight:400;opacity:.8;font-size:.76rem}
-
-/* panels */
-main{padding-block:22px 40px;min-height:60vh}
-.panel[hidden]{display:none!important}
-.panel>.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--arrow-ink);font-weight:700}
-.panel h2{font-size:1.55rem;margin:.15em 0 .1em}
-.panel .route2{font-family:var(--serif);font-style:italic;color:var(--sea);font-size:1.1rem;margin:0 0 .2em}
-.lead{color:var(--muted);max-width:52ch}
-
-/* day stat strip */
-.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--line);
-  border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}
-.stat div{background:var(--surface);padding:11px 13px}
-.stat dt{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.stat dd{margin:.2em 0 0;font-family:var(--serif);font-size:1.15rem;color:var(--sea);font-weight:600;font-variant-numeric:tabular-nums}
-.stat dd small{font-size:.78rem;color:var(--muted);font-family:var(--sans);font-weight:400}
-
-h3.blk{font-size:1.02rem;color:var(--sea);margin:22px 0 .2em;display:flex;align-items:center;gap:.45em}
-h3.blk::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--arrow);display:inline-block}
-.panel p{margin:.5em 0 0}
-.panel ul{margin:.4em 0 0;padding-left:1.15em}
-.panel li{margin:.25em 0}
-.way{list-style:none;padding-left:0;margin:.5em 0 0}
-.way li{display:flex;gap:.7em;padding:.2em 0;align-items:baseline}
-.way .k{font-family:var(--serif);color:var(--arrow-ink);font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto;min-width:3.2em;font-size:.9rem}
-.sleep{display:inline-block;margin-top:.7em;font-size:.84rem;background:var(--sea-soft);color:var(--sea);padding:3px 12px;border-radius:999px;font-weight:600}
-
-.note{background:var(--sea-soft);border:1px solid var(--line);border-left:4px solid var(--sea);border-radius:12px;padding:14px 16px;margin:16px 0}
-.note.warn{border-left-color:var(--red)}
-.note h3{font-size:1rem;margin:0 0 .25em;color:var(--sea)}
-.note.warn h3{color:var(--red)}
-.note p,.note li{margin:.3em 0 0;font-size:.93rem}
-
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:18px 0}
-.facts div{background:var(--surface);padding:13px 15px}
-.facts dt{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.facts dd{margin:.2em 0 0;font-family:var(--serif);font-size:1.25rem;color:var(--sea);font-weight:600;font-variant-numeric:tabular-nums}
-.facts dd small{font-size:.78rem;color:var(--muted);font-family:var(--sans);font-weight:400}
-
-.stages{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.92rem}
-.stages th,.stages td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-.stages th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.stages td.km{font-family:var(--serif);color:var(--sea);font-weight:600;white-space:nowrap}
-.stages td.d{color:var(--arrow-ink);font-weight:700;white-space:nowrap}
-.stages tr.total td{border-top:2px solid var(--sea);border-bottom:none;font-weight:700}
-.tablewrap{overflow-x:auto;margin-top:8px}
-
-.cal{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:8px}
-.cal th,.cal td{padding:7px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.cal th{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.cal .dt{font-family:var(--serif);color:var(--sea);font-weight:600;white-space:nowrap}
-.cal .off{color:var(--muted)}
-.cal .lv{color:var(--red);font-weight:700;white-space:nowrap}
-.cal tr.hol td{background:var(--sea-soft)}
-
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px;margin-top:8px}
-.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
-.box h3{font-size:1rem;margin:0 0 .3em;color:var(--sea)}
-.box p,.box li{font-size:.9rem}
-.box ul{margin:.3em 0 0;padding-left:1.1em}
-.box .big{font-family:var(--serif);font-size:1.4rem;color:var(--sea);font-weight:600;font-variant-numeric:tabular-nums}
-
-.pager{display:flex;justify-content:space-between;gap:10px;margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
-.pager button{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--sea);background:var(--surface);
-  border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
-.pager button:disabled{opacity:.35;cursor:default}
-.buen{font-family:var(--serif);font-style:italic;color:var(--arrow-ink)}
-.foot{color:var(--muted);font-size:.8rem;margin-top:26px;border-top:1px solid var(--line);padding-block:16px 36px}
-.foot a{color:var(--sea)}
+@media (max-width:760px){
+  .two,.dgrid,.plans{grid-template-columns:1fr}
+  .days{grid-template-columns:1fr 1fr}
+  .view{padding:16px 12px 40px}
+  .pager{position:sticky;bottom:0;background:rgba(243,236,221,.95);padding:8px 0;margin-top:14px}
+  .pager .pn{display:none}
+  .node{flex:0 0 auto;gap:6px}
+  .node small{display:none}
+  .node b{white-space:nowrap}
+}
+@media (max-width:420px){
+  .bar{padding:0 12px}
+  .views button{padding:5px 9px;font-size:.9rem}
+  .brand{font-size:.95rem}
+  .pack{grid-template-columns:repeat(3,1fr)}
+}
+.mapcard{margin:24px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 12px 8px}
+.mapcard>svg,.minimap>svg{width:100%;display:block}
+.legend i{display:inline-block;width:22px;margin-right:6px;vertical-align:middle;border-top:2px solid #9C927E}
+.legend i.w{border-top:3px dashed var(--seal)}
+.legend i.b{border-top:2.5px solid var(--ink);opacity:.7}
+.legend i.t{border-top:3px solid var(--gold)}
+.klab{font-family:var(--serif);font-size:13px;font-weight:700;fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:3.5px;stroke-linejoin:round}
+.klab.dim{fill:var(--muted);font-weight:600}
+.klab.sm{font-size:11px}
+.koff{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+.khit{stroke:transparent;stroke-width:16;fill:none;cursor:pointer}
+.mini-h{font-size:1rem;margin:14px 0 4px}
+.steps{margin:0;padding-left:1.3em}.steps li{margin:4px 0}
+.pay{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pay>div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.pay b{display:block;font-family:var(--serif)}
+.pay span{display:block;font-size:.82rem;color:var(--muted)}
+.pay p{margin:6px 0 0;font-size:.93rem}
+.pay em{font-style:normal;color:var(--seal)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;color:var(--muted);font-weight:600}
+td .md{display:inline-block;font-size:.78rem;font-weight:700;border-radius:999px;padding:0 8px;margin-right:6px;color:#fff}
+.md.bus{background:var(--ink)}.md.train{background:var(--gold)}
+tr.dstart td{border-top:2px solid var(--line)}
+tr[data-go]{cursor:pointer}tr[data-go]:hover td{background:#fff}
+.links{columns:2;margin:0;padding-left:1.1em}.links a{color:var(--ink)}
+.legs li{margin:6px 0}
+.legs .op{font-weight:700}
+.legs .py{display:block;font-size:.88rem;color:var(--muted)}
+@media (max-width:1000px){.pay{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.pay{grid-template-columns:1fr}.links{columns:1}}
+.daykey{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 14px;margin:6px 4px 4px}
+.daykey button{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:4px 6px;border-radius:8px;cursor:pointer;transition:opacity .15s}
+.daykey button:hover{background:#fff}
+.daykey button.dim{opacity:.35}
+.daykey i{width:14px;height:14px;border-radius:50%;background:var(--c)}
+.daykey b{font-size:.86rem;white-space:nowrap}
+.daykey span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.legend span{display:inline-flex;align-items:center;white-space:nowrap}
+.legend i.w{border-top:5px solid #6B6355}
+.legend i.b{border-top:2.5px dashed #6B6355;opacity:1}
+.legend i.t{border-top:3px dotted #6B6355}
+@media (max-width:760px){.daykey{grid-template-columns:1fr}}
+.sanzan{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:8px 12px;align-items:stretch;margin:8px 4px 10px;padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.sanzan .sz-h{margin:0;display:flex;align-items:center;font-family:var(--serif);font-size:1rem;white-space:nowrap;padding-right:6px}
+.sanzan button{border:1px solid #E6D5B8;background:#fff;border-radius:10px;padding:8px 10px;text-align:left;cursor:pointer}
+.sanzan button:hover{border-color:var(--gold)}
+.sanzan button b{display:block;font-family:var(--serif);color:#9E2F28}
+.sanzan button span{display:block;font-size:.84rem;color:var(--muted);line-height:1.4;margin-top:2px}
+@media (max-width:900px){.sanzan{grid-template-columns:1fr}}
+.opt{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--line)}
+.opt:last-of-type{border-bottom:0}
+.opt .oi{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--serif)}
+.opt span{display:block;color:var(--muted);font-size:.92rem;margin-top:2px}
+.fine{font-size:.86rem;color:var(--muted);margin:8px 0 0}
+.stampdays{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sd{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;background:#fff;padding:10px 12px}
+.sdh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:0;background:none;padding:0 0 8px;cursor:pointer;text-align:left;width:100%}
+.sdh span:last-child{flex-basis:100%;font-size:.84rem;color:var(--muted)}
+.stamps{margin:0;padding-left:1.5em}
+.stamps li{margin:5px 0;padding-left:2px}
+.stamps li::marker{color:var(--muted);font-size:.85em}
+.stamps .sn{margin-right:6px}
+.stamps .tags i{display:inline-block;font-style:normal;font-size:.72rem;font-weight:700;border-radius:999px;padding:0 6px;margin-left:3px;line-height:1.5;vertical-align:1px}
+.stamps .t1{background:#E9EEF3;color:var(--ink)}
+.stamps .t3{background:#F6E3DC;color:#9E2F28}
+@media (max-width:1000px){.stampdays{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.stampdays{grid-template-columns:1fr}}
+@media (max-width:430px){.brand{font-size:.86rem}.views{gap:2px}.views button{padding:5px 7px;font-size:.84rem}}
+@media print{.top,.pager,.cta{display:none!important}.view{display:block!important}body{background:#fff}}
 </style>
 </head>
 <body>
+<header class="top">
+  <div class="bar">
+    <button class="brand" data-view="home">葡萄牙<i>・</i>朝聖之路</button>
+    <nav class="views" aria-label="頁面">
+      <button data-view="home">總覽</button>
+      <button data-view="prep">行前準備</button>
+      <button data-view="move">交通</button>
+      <button data-view="stamp">領證</button>
+    </nav>
+  </div>
+  <nav class="tl" id="tl" aria-label="選擇日期"></nav>
+</header>
 
-<div class="wrap">
-  <header class="mast">
-    <div class="eyebrow">Caminho Português · Dual Pilgrim 🐚</div>
-    <h1>葡萄牙朝聖之路</h1>
-    <p class="route">Baiona → Santiago de Compostela ・ 最後 127 km</p>
-  </header>
+<main>
+  <section class="view" id="v-home">
+    <div class="hero">
+      <p class="kicker">接續熊野，走完雙朝聖的另一半</p>
+      <h1>葡萄牙朝聖之路<br>Baiona → Santiago</h1>
+      <p class="meta"><b class="num">最後 127 km</b>｜6 天徒步｜7 人同行｜9 月</p>
+    </div>
 
-  <nav><div class="tabs" id="tabs" role="tablist"></div></nav>
+    <div class="mapcard">
+      <svg id="kmap" role="img" aria-label="葡萄牙朝聖之路位置圖，北方朝上"></svg>
+      <div class="sanzan">
+        <p class="sz-h"><svg width="22" height="22" viewBox="-11 -11 22 22" style="vertical-align:middle;margin-right:6px"><circle r="10.5" fill="#fff" stroke="#B5893F" stroke-width="1.6"/><path d="M0 5 L-7 -5 M0 5 L-3.5 -6.5 M0 5 L0 -7 M0 5 L3.5 -6.5 M0 5 L7 -5" stroke="#C0392B" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M-7 -5 Q0 -9.5 7 -5" stroke="#C0392B" stroke-width="1.4" fill="none"/></svg><b>雙朝聖 Dual Pilgrim</b>　熊野已完成，走完 Camino 這一半</p>
+        <button data-go="d1"><b>最後 127 km</b><span>從海岸小鎮 Baiona 起走，第 2 天併入中央線，6 天進聖地牙哥（穩穩超過領證門檻 100 km）</span></button>
+        <button data-go="d6"><b>大教堂 · Compostela</b><span>D6 走進 Obradoiro 廣場，在朝聖者辦公室領完成證書</span></button>
+        <button data-go="d7"><b>雙朝聖登記</b><span>D7 在 Rúa do Vilar 63 遊客中心，憑兩側證明領徽章（記得帶熊野蓋印單）</span></button>
+      </div>
+      <div class="daykey" id="daykey"></div>
+      <div class="legend"><span><svg width="30" height="10" style="vertical-align:middle;margin-right:6px"><line x1="1" y1="5" x2="29" y2="5" stroke="#6B6355" stroke-width="5" stroke-linecap="round"/></svg>徒步</span><span><svg width="30" height="10" style="vertical-align:middle;margin-right:6px"><line x1="1" y1="5" x2="29" y2="5" stroke="#6B6355" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 5"/></svg>巴士（接駁）</span><span><svg width="22" height="22" viewBox="-11 -11 22 22" style="vertical-align:middle;margin-right:6px"><circle r="10.5" fill="#fff" stroke="#B5893F" stroke-width="1.6"/><path d="M0 5 L-7 -5 M0 5 L0 -7 M0 5 L7 -5" stroke="#C0392B" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>聖地牙哥大教堂</span><span>箭頭為前進方向｜位置示意，非導航用</span></div>
+    </div>
 
-  <main id="main"></main>
+    <div class="days" id="daycards"></div>
 
-  <footer class="foot">
-    <p class="buen">¡Buen Camino! 一步一步,從大西洋海岸走到聖雅各的城。</p>
-    <p>資料來源:<a href="https://santiagoways.com/en/stages-camino-portuguese-coastal-route/">Santiago Ways</a>、<a href="https://www.caminoninja.com/tips/last-100-kilometers-camino-de-santiago">Camino Ninja</a>、<a href="https://www.tb-kumano.jp/en/?p=234">田邊市熊野觀光局</a>、<a href="https://caminoways.com/camino-holy-year">Camino Ways 聖年</a>。距離為官方分段概值,實走略有出入。</p>
-  </footer>
-</div>
+    <div class="two">
+      <div class="panel">
+        <h2><span class="seal">程</span>行程強度</h2>
+        <ul>
+          <li>最後約 127 km，6 天徒步，平均每天約 21 km。</li>
+          <li>最長日：D1 Baiona→Vigo、D6 Padrón→Santiago，各約 26 km。</li>
+          <li>路況：多為鄉道、林徑與柏油；加利西亞偏濕，常下雨。</li>
+          <li>以跑馬＋百岳的底子綽綽有餘，重點是連 6 天的腳與鞋適應。</li>
+        </ul>
+      </div>
+      <div class="panel note">
+        <h2><span class="seal">聖</span>聖年提醒</h2>
+        <ul>
+          <li>2027 是聖年（Xacobeo），朝聖人潮多，住宿提早 3–6 個月訂。</li>
+          <li>最後 100 km 每天要蓋兩個章（起點、終點），漏蓋會影響領證。</li>
+          <li>熊野蓋印單（含本宮完成印）一定要帶去西班牙。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta">
+      <button class="btn" data-go="d0">從第一天開始看</button>
+      <button class="btn ghost" data-view="prep">住宿、裝備與行前</button>
+      <button class="btn ghost" data-view="move">交通：怎麼去、怎麼回</button>
+      <button class="btn ghost" data-view="stamp">領證與雙朝聖</button>
+    </div>
+  </section>
+
+  <section class="view" id="v-day"><article id="day" aria-live="polite"></article></section>
+
+  <section class="view" id="v-move">
+    <div class="hero"><p class="kicker">怎麼去起點、怎麼從終點回來</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">交通攻略</h1></div>
+    <p class="sub">徒步各段靠雙腳，不列在表內；下面是需要搭車的銜接。實際班次與票價出發前再確認。</p>
+
+    <div class="panel">
+      <h2><span class="seal">覽</span>需要搭車的銜接</h2>
+      <div class="tbl"><table id="legs"></table></div>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h2><span class="seal">去</span>去程 → 起點 Baiona</h2>
+        <ul>
+          <li>台灣無直飛西／葡，經杜哈、伊斯坦堡、曼谷等轉機，進 <b>Porto（OPO）</b> 或 <b>Vigo（VGO）</b>。</li>
+          <li>抵達後往 <b>Vigo</b>，搭 <b>ATSA 巴士</b>約 45 分到海濱小鎮 <b>Baiona</b> 住一晚。</li>
+          <li>長程＋轉機抓一整天，先在 Baiona 緩時差。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2><span class="seal">回</span>回程 ← 終點 Santiago</h2>
+        <ul>
+          <li>由 <b>Santiago 機場（SCQ）</b>離開最順，經馬德里／里斯本或歐洲樞紐回台北。</li>
+          <li>想去大西洋盡頭 <b>Finisterre／Muxía</b>，從 Santiago 搭 Monbus 巴士，可來回一日。</li>
+          <li>回程落地多為 +1 天，轉機時間抓足。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:18px">
+      <h2><span class="seal">帶</span>行李與現金</h2>
+      <div class="two" style="margin-top:0">
+        <ul>
+          <li><b>行李托運</b>：多數路段有每日把大背包送到下一站旅館的服務，白天只背水和點心；7 人同行更划算。</li>
+          <li>先把每日住宿訂好，行李托運才接得上。</li>
+        </ul>
+        <ul>
+          <li>帶足 <b>歐元現金</b>：小鎮蓋章處、小店、泉水投幣常用。</li>
+          <li>朝聖者護照 <b>credencial</b> 去程在 Baiona 的朝聖者辦公室／遊客中心先領。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-stamp">
+    <div class="hero"><p class="kicker">Compostela 與 Dual Pilgrim</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">領證與雙朝聖</h1></div>
+    <p class="sub">走完最後 100 km 以上就能領 Compostela；接上熊野，就是世界唯二互認的「雙朝聖」。</p>
+
+    <div class="two">
+      <div class="panel">
+        <h2><span class="seal">證</span>Compostela 完成證書</h2>
+        <ul>
+          <li>徒步至少 <b>最後 100 km</b>（本行程 127 km，安全達標）。</li>
+          <li>需持 <b>credencial 朝聖者護照</b>；2025 年起規定最後 100 km <b>每天蓋兩個章</b>（起點一、終點一）——教堂、酒吧、旅館、咖啡店都能蓋。</li>
+          <li>抵達後在朝聖者辦公室（<b>Rúa Carretas 33</b>）領證。</li>
+        </ul>
+      </div>
+      <div class="panel note">
+        <h2><span class="seal">雙</span>雙朝聖 Dual Pilgrim</h2>
+        <ul>
+          <li>熊野側你已完成（走到本宮大社）；Camino 側走完 ≥100 km 即達標，順序不拘。</li>
+          <li>在 <b>聖地牙哥 Turismo 遊客中心（Rúa do Vilar 63）</b> 登記，出示兩側證明領徽章（須本人到場，不郵寄）。</li>
+          <li><b>務必攜帶熊野蓋印單（含本宮完成印）。</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin:24px 0 4px;font-size:1.2rem">每日蓋章（credential）</h2>
+    <p class="sub" style="margin-bottom:8px"><i class="t1" style="font-style:normal;background:#E9EEF3;color:var(--ink);border-radius:999px;padding:0 6px;font-size:.72rem;font-weight:700">①</i> ＝ 當日要蓋的章，起點、終點各一。</p>
+    <div class="stampdays" id="stampdays"></div>
+  </section>
+
+  <section class="view" id="v-prep">
+    <div class="hero"><p class="kicker">住宿、裝備、季節</p><h1 style="font-size:clamp(2rem,4.4vw,3.2rem)">行前準備</h1></div>
+
+    <div class="panel">
+      <h2><span class="seal">宿</span>住宿推薦（7 人）</h2>
+      <p class="sub" style="margin-bottom:6px">口碑與 CP 兼顧；聖年 + 7 人房源緊，<b>開訂就下手</b>。房型建議每站約 3 間雙人 + 1 間單人，或 2 間三人房 + 1 單人。實際評價以 Booking／Google 最新為準。</p>
+      <ul class="stays">
+        <li><b>Baiona</b><span>Hospedaría Paso Pías／Hotel Carabela la Pinta（近海、親民）　升級：Parador de Baiona（城堡海景）</span></li>
+        <li><b>Vigo</b><span>Hotel Pantón（市中心、交通方便、CP 佳）</span></li>
+        <li><b>Arcade</b><span>Restaurante Isape（朝聖者常住、附餐；小鎮選擇少，務必最早訂）</span></li>
+        <li><b>Pontevedra</b><span>Hotel Rúas（老城中心、經典 CP）　升級：Parador de Pontevedra</span></li>
+        <li><b>Caldas de Reis</b><span>Hostal O Cruceiro（舒適、含衛浴、評價好）　升級：Torre do Río</span></li>
+        <li><b>Padrón</b><span>Pensión Cuco（舒適含衛浴、CP 高）　或 Hotel Scala（較大、好容 7 人）</span></li>
+        <li><b>Santiago</b><span>Hostal Giadas（近大教堂、CP 佳）　升級：Pousadas de Compostela／San Francisco 修道院飯店</span></li>
+      </ul>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h2><span class="seal">裝</span>一定要帶</h2>
+        <div class="chips">
+          <span class="clab ok">必帶</span>
+          <span class="chip ok">credencial</span><span class="chip ok">熊野蓋印單</span><span class="chip ok">防水外套／雨衣</span><span class="chip ok">背包套</span><span class="chip ok">磨合好的健行鞋</span><span class="chip ok">備用鞋墊</span><span class="chip ok">水泡貼</span><span class="chip ok">護照</span><span class="chip ok">歐元現金</span><span class="chip ok">旅平險</span>
+        </div>
+        <div class="chips">
+          <span class="clab no">別依賴</span>
+          <span class="chip no">只帶一雙新鞋</span><span class="chip no">沒帶雨具</span><span class="chip no">只靠刷卡</span>
+        </div>
+        <p style="margin:6px 0 0;font-size:.92rem">身體準備：行前多走幾次 20 km 長程，把鞋穿到合腳；<b>水泡預防勝於治療</b>，起熱點立刻處理。D1／D6 各 26 km 最長，可備護膝。</p>
+      </div>
+      <div class="panel">
+        <h2><span class="seal">季</span>季節與聖年</h2>
+        <ul>
+          <li><b>最佳季節</b>：9 月上–中旬——暑熱退、人潮比盛夏少；越近月底雨機率略升。</li>
+          <li><b>天氣</b>：加利西亞偏濕，白天約 18–25°C、早晚涼，隨時可能下雨，雨具不離身。</li>
+          <li><b>2027 聖年</b>：朝聖者多，住宿務必提早訂；小鎮午後常 siesta 店休、週日商店關門，補給趁早。</li>
+          <li><b>用餐</b>：西班牙晚餐很晚（20:00 後），朝聖者套餐（menú del peregrino）時間較早、份量足。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:18px">
+      <h2><span class="seal">費</span>粗估費用・每人</h2>
+      <div class="pay">
+        <div><b>國際機票</b><span>台北往返・轉機</span><p>NT$ 42,000–58,000<em>（聖年旺季偏高，早訂省很多）</em></p></div>
+        <div><b>住宿 7–8 晚</b><span>團體房型分攤</span><p>NT$ 14,000–22,000<em>（每人每晚約 €30–45）</em></p></div>
+        <div><b>餐食・交通・雜支</b><span>套餐、巴士、托運、領證</span><p>NT$ 12,000–18,000</p></div>
+        <div><b>合計</b><span>不含個人購物、延伸行程</span><p>約 NT$ 68,000–98,000<em>／人</em></p></div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <script>
-const PAGES = [
- {id:"home", tab:"總覽", html:`
-   <div class="eyebrow">Overview</div>
-   <h2>總覽</h2>
-   <p class="lead">沿大西洋海岸起步,第 2 天在 Redondela 併入中央線,走完最後約 127 km 進入聖地牙哥。接續熊野,完成世界唯二互認的「雙朝聖」。</p>
-   <dl class="facts">
-     <div><dt>總長</dt><dd>127<small> km</small></dd></div>
-     <div><dt>徒步</dt><dd>6<small> 天</small></dd></div>
-     <div><dt>路線</dt><dd style="font-size:1rem">海岸→中央</dd></div>
-     <div><dt>月份</dt><dd style="font-size:1rem">9 月上–中旬</dd></div>
-     <div><dt>人數</dt><dd>7<small> 人</small></dd></div>
-     <div><dt>領證</dt><dd style="font-size:1rem">Compostela</dd></div>
-   </dl>
-   <div class="note warn"><h3>先記住兩件事</h3>
-     <ul><li><b>2027 是聖年(Xacobeo)</b>,朝聖人潮增加,住宿提早 3–6 個月訂。</li>
-     <li><b>帶上熊野蓋印單</b>(含本宮完成印)——雙朝聖登記時要出示熊野側證明。</li></ul></div>
-   <h3 class="blk">路線總表</h3>
-   <div class="tablewrap"><table class="stages">
-     <thead><tr><th>Day</th><th>路段</th><th>距離</th><th>重點</th></tr></thead><tbody>
-     <tr><td class="d">D1</td><td>Baiona → Vigo</td><td class="km">26 km</td><td>大西洋海岸</td></tr>
-     <tr><td class="d">D2</td><td>Vigo → Arcade</td><td class="km">23 km</td><td>併入中央線・生蠔</td></tr>
-     <tr><td class="d">D3</td><td>Arcade → Pontevedra</td><td class="km">12 km</td><td>短程・老城</td></tr>
-     <tr><td class="d">D4</td><td>Pontevedra → Caldas</td><td class="km">22 km</td><td>森林・溫泉</td></tr>
-     <tr><td class="d">D5</td><td>Caldas → Padrón</td><td class="km">19 km</td><td>葡萄園・青椒</td></tr>
-     <tr><td class="d">D6</td><td>Padrón → Santiago</td><td class="km">26 km</td><td>抵達・領證</td></tr>
-     <tr class="total"><td></td><td>合計</td><td class="km">≈127 km</td><td>穩穩超過 100 km</td></tr>
-     </tbody></table></div>
-   <h3 class="blk">建議日程・2027(錨定教師節連假)</h3>
-   <p style="font-size:.9rem;color:var(--muted)">9/28 教師節放假,只請 9/27(一)即可從 9/25 連休。全程 12 天只需請 <b>7 天假</b>。</p>
-   <div class="tablewrap"><table class="cal">
-     <thead><tr><th>日期</th><th>星期</th><th>行程</th><th>假</th></tr></thead><tbody>
-     <tr><td class="dt">9/25</td><td>六</td><td>交通日①・台北出發</td><td class="off">免</td></tr>
-     <tr><td class="dt">9/26</td><td>日</td><td>抵達→轉往 Baiona・準備</td><td class="off">免</td></tr>
-     <tr><td class="dt">9/27</td><td>一</td><td>徒步 D1 Baiona→Vigo</td><td class="lv">請1</td></tr>
-     <tr class="hol"><td class="dt">9/28</td><td>二</td><td>徒步 D2 Vigo→Arcade</td><td class="off">教師節</td></tr>
-     <tr><td class="dt">9/29</td><td>三</td><td>徒步 D3 Arcade→Pontevedra</td><td class="lv">請1</td></tr>
-     <tr><td class="dt">9/30</td><td>四</td><td>徒步 D4 Pontevedra→Caldas</td><td class="lv">請1</td></tr>
-     <tr><td class="dt">10/1</td><td>五</td><td>徒步 D5 Caldas→Padrón</td><td class="lv">請1</td></tr>
-     <tr><td class="dt">10/2</td><td>六</td><td>徒步 D6 Padrón→Santiago 抵達</td><td class="off">免</td></tr>
-     <tr><td class="dt">10/3</td><td>日</td><td>旅遊・雙朝聖登記</td><td class="off">免</td></tr>
-     <tr><td class="dt">10/4</td><td>一</td><td>旅遊・Finisterre 一日</td><td class="lv">請1</td></tr>
-     <tr><td class="dt">10/5</td><td>二</td><td>返程交通</td><td class="lv">請1</td></tr>
-     <tr><td class="dt">10/6</td><td>三</td><td>抵台北(+1 天)</td><td class="lv">請1</td></tr>
-     </tbody></table></div>
-   <p style="font-size:.88rem;color:var(--muted);margin-top:8px">精簡版:拿掉 10/4 Finisterre,10/3 旅遊後直接返程 → 11 天只請 <b>6 天假</b>。</p>
- `},
+const IMG={d0:"https://commons.wikimedia.org/wiki/Special:FilePath/Fortaleza_de_Monterreal.jpg?width=1280",d1:"https://commons.wikimedia.org/wiki/Special:FilePath/Vigo_Cangas_Morrazo_puerto.jpg?width=1280",d2:"https://commons.wikimedia.org/wiki/Special:FilePath/Marker_Camino_de_Santiago.jpg?width=1280",d3:"https://commons.wikimedia.org/wiki/Special:FilePath/Pontevedra-009-2-virgen-peregrina.jpg?width=1280",d4:"https://commons.wikimedia.org/wiki/Special:FilePath/Caldas_de_Reis-Ponte_Romano.JPG?width=1280",d5:"https://commons.wikimedia.org/wiki/Special:FilePath/Freccia_del_cammino_di_santiago.JPG?width=1280",d6:"https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_santiago_compostela.jpg?width=1280",d7:"https://commons.wikimedia.org/wiki/Special:FilePath/Spain.Santiago.de.Compostela.Obradoiro.jpg?width=1280"};
+const ICON={
+ plane:'<path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/>',
+ train:'<path d="M12 2c-4 0-8 .5-8 4v9.5A3.5 3.5 0 0 0 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19a3.5 3.5 0 0 0 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>',
+ bus:'<path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>',
+ walk:'<path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/>',
+ clock:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z"/>',
+ mount:'<path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>',
+ bed:'<path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>',
+ alert:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>'
+};
+const svg=(k)=>`<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
+const stars=n=>`<span class="stars" aria-label="難度 ${n} / 5">${"★".repeat(n)}<span class="o">${"★".repeat(5-n)}</span></span>`;
 
- {id:"d0", tab:"D0", html:`
-   <div class="eyebrow">Day 0 · 交通 + 準備</div>
-   <h2>抵達 · 前進起點 Baiona</h2>
-   <dl class="stat">
-     <div><dt>移動</dt><dd style="font-size:1rem">台北→歐洲</dd></div>
-     <div><dt>轉接</dt><dd style="font-size:1rem">Vigo→Baiona</dd></div>
-     <div><dt>車程</dt><dd>45<small> 分</small></dd></div>
-     <div><dt>住宿</dt><dd style="font-size:1rem">Baiona</dd></div>
-   </dl>
-   <h3 class="blk">今日動線</h3>
-   <ul class="way">
-     <li><span class="k">去程</span>台灣無直飛,經杜哈/伊斯坦堡/曼谷等轉機,進 Porto(OPO)或 Vigo(VGO)。</li>
-     <li><span class="k">接駁</span>往 Vigo,搭 ATSA 巴士約 45 分到海濱小鎮 Baiona。</li>
-     <li><span class="k">抵達</span>Baiona 住一晚,港邊散步調時差。</li>
-   </ul>
-   <h3 class="blk">看點</h3>
-   <p>Baiona 是 1493 年哥倫布「平塔號」返航靠港、歐洲最早得知新大陸消息的地方。港邊的 Monterreal 城堡(今 parador 旅館)可環海步道走一圈。</p>
-   <h3 class="blk">今日必辦</h3>
-   <div class="note"><p>到朝聖者辦公室或遊客中心領 <b>朝聖者護照 credencial</b>——明天開始每天蓋章。先確認明早出發點的第一個蓋章處。</p></div>
-   <span class="sleep">宿 · Baiona</span>
- `},
+/* t: [icon, time, text, route?]  icon: plane|train|bus|walk|dot */
+const DAYS=[
+{id:"d0",n:0,date:"9/25",dow:"六",title:"台北 → Vigo → Baiona",short:"台北→Baiona",card:"交通 + 準備日",stay:"Baiona（Paso Pías 等）",
+ tl:[["plane","","台北出發，經轉機飛西班牙（Porto／Vigo）"],["dot","","抵達後往 Vigo"],["bus","","Vigo → Baiona｜ATSA 巴士約 45 分"],["step","","Baiona 住宿入住，港邊散步調時差"]],
+ blocks:[{h:"景點特色",icon:"mount",p:"Baiona 是 1493 年哥倫布『平塔號』返航靠港、歐洲最早得知新大陸消息之地；港邊 Monterreal 城堡（今 parador）可環海步道走一圈。"},
+         {h:"今日必辦",icon:"bed",items:["到朝聖者辦公室或遊客中心領『朝聖者護照 credencial』","明天起每天蓋章（最後 100 km 每日兩章）","確認明早出發點的第一個蓋章處"]}],
+ notes:["長程飛行＋轉機抓一整天；時差先在 Baiona 緩一緩。","先把 credencial 領好、確認住宿與隔天出發時間。","熊野蓋印單記得帶著（雙朝聖登記要用）。"]},
 
- {id:"d1", tab:"D1", km:"26", type:"海岸", route:"Baiona → Vigo", dist:"26 km", time:"6–7 h", terrain:"平緩・柏油多", sleep:"Vigo",
-  way:[["0 km","Baiona 出發,沿海岸南緣"],["5 km","Sabarís · A Ramallosa(中世紀石橋)"],["10 km","Nigrán · Praia América 海灘"],["18 km","Samil 海濱大道"],["26 km","Vigo 市區"]],
-  see:"幾乎全程沿大西洋海岸,海風、浪聲、漁港,和熊野杉林古道完全不同的開場。午後走進加利西亞最大城 Vigo。",
-  eat:"Vigo 老城 A Pedra 市場的生蠔攤;晚餐海鮮。",
-  warn:"全程最長、柏油路段多,護膝與鞋墊先備好;海岸無遮蔭,防曬與補水。"},
+{id:"d1",n:1,date:"9/27",dow:"一",title:"Baiona → Vigo",short:"Baiona→Vigo",card:"26 km｜海岸",stay:"Vigo（Hotel Pantón）",
+ stats:{km:"26 km",time:"6–7 小時",up:"約 300 m",down:"約 300 m",lv:3},
+ tl:[["dot","","Baiona 出發，沿海岸南緣"],["walk","","徒步 26 km｜6–7 小時｜海岸平緩、柏油多","Baiona → Sabarís／A Ramallosa → Nigrán → Praia América → Samil → Vigo"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["A Ramallosa 中世紀石橋","Praia América 大西洋海灘","Samil 海濱大道","午後走進加利西亞最大城 Vigo"]},
+         {h:"住宿",icon:"bed",items:["Vigo 市中心 Hotel Pantón（CP 佳）","老城 A Pedra 市場的生蠔攤；晚餐海鮮"]}],
+ notes:["全程最長、柏油路段多：護膝與鞋墊先備好。","海岸無遮蔭，防曬與補水。","記得每天蓋兩個章（起點＋終點）。"]},
 
- {id:"d2", tab:"D2", km:"23", type:"海岸→中央", route:"Vigo → Arcade", dist:"23 km", time:"6 h", terrain:"出城爬升後下海灣", sleep:"Arcade",
-  way:[["0 km","Vigo 出發,爬升離開市區"],["8 km","A Madroa 高處・展望"],["15 km","Redondela —— 併入中央線"],["19 km","Cesantes 海灣"],["23 km","Arcade"]],
-  see:"沿 Rande 海灣高處展望;在 Redondela 正式與中央線會合,從這裡起就是多數朝聖者走的經典路段。",
-  eat:"Arcade 以生蠔(ostras)聞名,晚餐犒賞一下。",
-  warn:"出 Vigo 有一段爬升;Redondela 之後朝聖者變多,熱門住宿要先訂。"},
+{id:"d2",n:2,date:"9/28",dow:"二",title:"Vigo → Arcade",short:"Vigo→Arcade",card:"23 km｜併入中央線",stay:"Arcade（Restaurante Isape）",
+ stats:{km:"23 km",time:"6 小時",up:"約 450 m",down:"約 450 m",lv:3},
+ tl:[["dot","","Vigo 出發，爬升離開市區"],["walk","","徒步 23 km｜6 小時｜出城爬升後下海灣","Vigo → A Madroa → Redondela（併中央線）→ Cesantes → Arcade"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["Rande 海灣高處展望","Redondela：海岸線與中央線會合，之後是最多人走的經典路段","Arcade 以生蠔（ostras）聞名"]},
+         {h:"住宿",icon:"bed",items:["Arcade Restaurante Isape（朝聖者常住、附餐）","小鎮選擇少，務必最早訂"]}],
+ notes:["出 Vigo 有一段爬升。","Redondela 之後朝聖者變多，熱門住宿先訂。","今天是台灣教師節（連假起點）。"]},
 
- {id:"d3", tab:"D3", km:"12", type:"短程", route:"Arcade → Pontevedra", dist:"12 km", time:"3 h", terrain:"輕鬆", sleep:"Pontevedra",
-  way:[["0 km","Arcade 出發"],["2 km","Ponte Sampaio 中世紀古橋"],["8 km","Pontesampaio 林徑"],["12 km","Pontevedra 老城"]],
-  see:"今天最短,中午前就到 Pontevedra——西班牙保存最好的無車老城之一。別錯過貝殼造型的 A Peregrina 朝聖者教堂,整座設計成扇貝形狀。",
-  eat:"Praza da Ferrería 周邊 tapas;下午好好休息、洗衣。",
-  warn:"路程短,善用下午逛老城與補給,為明天 22 km 養精蓄銳。"},
+{id:"d3",n:3,date:"9/29",dow:"三",title:"Arcade → Pontevedra",short:"Arcade→Pontevedra",card:"12 km｜短程",stay:"Pontevedra（Hotel Rúas）",
+ stats:{km:"12 km",time:"3 小時",up:"約 150 m",down:"約 150 m",lv:2},
+ tl:[["dot","","Arcade 出發"],["walk","","徒步 12 km｜3 小時｜輕鬆","Arcade → Ponte Sampaio 古橋 → Pontevedra 老城"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["Ponte Sampaio 中世紀古橋","Pontevedra：西班牙保存最好的無車老城之一","A Peregrina 貝殼造型朝聖者教堂"]},
+         {h:"住宿",icon:"bed",items:["Hotel Rúas（老城中心、經典 CP）","Praza da Ferrería 周邊 tapas"]}],
+ notes:["今天最短，善用下午逛老城、洗衣、補給。","為明天 22 km 養精蓄銳。"]},
 
- {id:"d4", tab:"D4", km:"22", type:"森林", route:"Pontevedra → Caldas de Reis", dist:"22 km", time:"5–6 h", terrain:"森林與緩坡", sleep:"Caldas de Reis",
-  way:[["0 km","Pontevedra 出發"],["6 km","San Amaro · 尤加利林"],["14 km","Tivo · 橡樹林徑"],["22 km","Caldas de Reis"]],
-  see:"穿過尤加利與橡樹林、鄉間小路,典型加利西亞綠意。",
-  eat:"Caldas 自羅馬時代就是溫泉鎮,鎮上有免費熱泉出水口可泡腳——走了四天的腳最需要。",
-  warn:"林間潮濕路滑,雨後尤其小心;泡腳舒緩但別泡太久影響隔天。"},
+{id:"d4",n:4,date:"9/30",dow:"四",title:"Pontevedra → Caldas de Reis",short:"Pontevedra→Caldas",card:"22 km｜森林・溫泉",stay:"Caldas de Reis（Hostal O Cruceiro）",
+ stats:{km:"22 km",time:"5–6 小時",up:"約 350 m",down:"約 300 m",lv:3},
+ tl:[["dot","","Pontevedra 出發"],["walk","","徒步 22 km｜5–6 小時｜森林與緩坡","Pontevedra → San Amaro → Tivo → Caldas de Reis"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["尤加利與橡樹林、鄉間小路","Caldas 自羅馬時代就是溫泉鎮","鎮上免費熱泉出水口可泡腳——走了四天的腳最需要"]},
+         {h:"住宿",icon:"bed",items:["Hostal O Cruceiro（舒適、含衛浴、評價好）"]}],
+ notes:["林間潮濕路滑，雨後尤其小心。","泡腳舒緩，別泡太久影響隔天。"]},
 
- {id:"d5", tab:"D5", km:"19", type:"葡萄園", route:"Caldas de Reis → Padrón", dist:"19 km", time:"5 h", terrain:"起伏葡萄園", sleep:"Padrón",
-  way:[["0 km","Caldas 出發"],["7 km","Carracedo"],["13 km","葡萄園緩丘"],["19 km","Padrón"]],
-  see:"Padrón 是傳說中聖雅各遺體乘石船登陸之地,朝聖意味濃厚;也是詩人 Rosalía de Castro 故鄉。",
-  eat:"名產「Padrón 青椒」(pementos de Padrón)——有些辣、有些不辣,配啤酒剛好。",
-  warn:"明天就是聖地牙哥,今晚早點休息;確認 credencial 今天兩個章都蓋到。"},
+{id:"d5",n:5,date:"10/1",dow:"五",title:"Caldas de Reis → Padrón",short:"Caldas→Padrón",card:"19 km｜葡萄園",stay:"Padrón（Pensión Cuco）",
+ stats:{km:"19 km",time:"5 小時",up:"約 300 m",down:"約 300 m",lv:2},
+ tl:[["dot","","Caldas 出發"],["walk","","徒步 19 km｜5 小時｜起伏葡萄園","Caldas de Reis → Carracedo → 葡萄園緩丘 → Padrón"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["葡萄園與小村","Padrón：傳說聖雅各遺體乘石船登陸之地","名產 Padrón 青椒——有些辣、有些不辣，配啤酒剛好"]},
+         {h:"住宿",icon:"bed",items:["Pensión Cuco（舒適含衛浴、CP 高）","或 Hotel Scala（較大、好容 7 人）"]}],
+ notes:["明天就是聖地牙哥，今晚早點休息。","確認 credencial 今天兩個章都蓋到。"]},
 
- {id:"d6", tab:"D6", km:"26", type:"抵達", route:"Padrón → Santiago", dist:"26 km", time:"6–7 h", terrain:"緩升入城", sleep:"Santiago",
-  way:[["0 km","Padrón 出發"],["9 km","O Milladoiro"],["20 km","Monte do Gozo —— 初見大教堂尖塔"],["26 km","Praza do Obradoiro 大教堂廣場"]],
-  see:"最後一段。登上 Monte do Gozo(歡喜之丘)第一次望見尖塔,再走進 Obradoiro 廣場——千里終點就在眼前。趕得上的話參加朝聖者彌撒,或許能看到巨型香爐 botafumeiro 擺盪。",
-  eat:"抵達後慶功:加利西亞章魚 pulpo、Albariño 白酒。",
-  warn:"一早出發、先到朝聖者辦公室(Rúa Carretas 33)憑 credencial 領 Compostela;旺季與聖年排隊長,越早越好。"},
+{id:"d6",n:6,date:"10/2",dow:"六",title:"Padrón → Santiago de Compostela",short:"Padrón→Santiago",card:"26 km｜抵達・領證",stay:"Santiago（Hostal Giadas）",
+ stats:{km:"26 km",time:"6–7 小時",up:"約 400 m",down:"約 250 m",lv:4},
+ tl:[["dot","","一早從 Padrón 出發"],["walk","","徒步 26 km｜6–7 小時｜緩升入城","Padrón → O Milladoiro → Monte do Gozo（初見尖塔）→ Praza do Obradoiro"],["dot","","到朝聖者辦公室（Rúa Carretas 33）領 Compostela"],["dot","","趕得上就參加朝聖者彌撒，或許見 botafumeiro 擺盪"]],
+ blocks:[{h:"沿途特色",icon:"mount",items:["Monte do Gozo（歡喜之丘）：第一次望見大教堂尖塔","Praza do Obradoiro：千里終點就在眼前","加利西亞章魚 pulpo、Albariño 白酒慶功"]},
+         {h:"領證",icon:"bed",items:["朝聖者辦公室 Rúa Carretas 33 憑 credencial 領 Compostela","旺季與聖年排隊長，一早抵達先排","住宿 Hostal Giadas（近大教堂）"]}],
+ notes:["最後一段，一早出發以免太晚到。","每天兩個章的規定到今天為止務必齊全。"]},
 
- {id:"d7", tab:"D7", html:`
-   <div class="eyebrow">Day 7 · 旅遊 + 雙朝聖</div>
-   <h2>聖地牙哥 · 雙朝聖登記 / 機動</h2>
-   <dl class="stat">
-     <div><dt>重頭戲</dt><dd style="font-size:1rem">Dual Pilgrim</dd></div>
-     <div><dt>可選</dt><dd style="font-size:1rem">Finisterre</dd></div>
-     <div><dt>住宿</dt><dd style="font-size:1rem">Santiago</dd></div>
-   </dl>
-   <h3 class="blk">雙朝聖登記</h3>
-   <p>完成 Camino 這一側後,到 <b>Turismo de Santiago 遊客中心(Rúa do Vilar 63,大教堂旁)</b>,憑 Camino 的 Compostela/credencial + <b>熊野蓋印單</b>,登記領取雙朝聖徽章與證書(須本人到場,不郵寄)。</p>
-   <h3 class="blk">世界盡頭(可選)</h3>
-   <p>多一天可搭巴士去大西洋盡頭 <b>Finisterre / Muxía</b>——古人心中「世界的盡頭」,為整趟朝聖畫下句點。來回一日,或留宿看海。</p>
-   <h3 class="blk">城裡</h3>
-   <p>大教堂、博物館、老城石巷;若想看 botafumeiro,先查當日彌撒場次(不是每天擺盪)。</p>
-   <span class="sleep">宿 · Santiago / 返程</span>
- `},
-
- {id:"cert", tab:"領證", html:`
-   <div class="eyebrow">Compostela &amp; Dual Pilgrim</div>
-   <h2>領證 &amp; 雙朝聖</h2>
-   <div class="cols">
-     <div class="box"><h3>Compostela 完成證書</h3><ul>
-       <li>徒步至少 <b>最後 100 km</b>(本行程 127 km,安全達標)。</li>
-       <li>需持 <b>credencial 朝聖者護照</b>;2025 年起規定最後 100 km <b>每天蓋兩個章</b>(起點一、終點一)——教堂、酒吧、旅館、咖啡店都能蓋。</li>
-       <li>抵達後在朝聖者辦公室(Rúa Carretas 33)領證。</li>
-     </ul></div>
-     <div class="box"><h3>雙朝聖 Dual Pilgrim</h3><ul>
-       <li>熊野側你已完成(走到本宮大社);Camino 側走完 ≥100 km 即達標,順序不拘。</li>
-       <li>在 <b>聖地牙哥 Turismo 遊客中心(Rúa do Vilar 63)</b> 登記,出示兩側證明領徽章。</li>
-       <li><b>務必攜帶熊野蓋印單(含本宮完成印)。</b></li>
-     </ul></div>
-   </div>
-   <div class="note"><h3>蓋章小提醒</h3><p>最後 100 km 從 Tui/Vigo 一帶起算;你從 Baiona 起走更長,沒問題。重點是 <b>每天確實蓋到兩個章</b>,否則影響領證。</p></div>
- `},
-
- {id:"stay", tab:"住宿", html:`
-   <div class="eyebrow">Where to stay · 7 人</div>
-   <h2>住宿推薦</h2>
-   <p class="lead">口碑與 CP 兼顧的選擇。聖年 + 7 人,房源緊、要早訂;實際評價以 Booking / Google 最新為準。</p>
-   <div class="note warn"><h3>7 人房型配置</h3><p>每站約 <b>3 間雙人房 + 1 間單人房</b>,或 2 間三人房 + 1 單人。小旅館與 pensión 多可彈性安排;albergue 多為通鋪,適合想省的夜晚。<b>開訂就下手</b>,並請行李每日托運到下一站。</p></div>
-   <div class="tablewrap"><table class="stages">
-     <thead><tr><th>每晚</th><th>推薦(CP / 口碑)</th><th>升級選擇</th></tr></thead><tbody>
-     <tr><td class="d">Baiona</td><td>Hospedaría Paso Pías / Hotel Carabela la Pinta<br><small style="color:var(--muted)">近海、價格親民</small></td><td>Parador de Baiona(城堡海景)</td></tr>
-     <tr><td class="d">Vigo</td><td>Hotel Pantón<br><small style="color:var(--muted)">市中心、交通方便、CP 佳</small></td><td>市區四星任選</td></tr>
-     <tr><td class="d">Arcade</td><td>Restaurante Isape<br><small style="color:var(--muted)">朝聖者常住、附餐;小鎮選擇少,務必最早訂</small></td><td>Vilaboa 一帶民宿</td></tr>
-     <tr><td class="d">Pontevedra</td><td>Hotel Rúas<br><small style="color:var(--muted)">老城中心、經典 CP、步行逛街</small></td><td>Parador de Pontevedra(歷史建築)</td></tr>
-     <tr><td class="d">Caldas de Reis</td><td>Hostal O Cruceiro<br><small style="color:var(--muted)">房間舒適、含衛浴、評價好</small></td><td>Torre do Río(河畔精品)</td></tr>
-     <tr><td class="d">Padrón</td><td>Pensión Cuco<br><small style="color:var(--muted)">舒適含衛浴、CP 高</small></td><td>Hotel Scala(較大、好容 7 人)</td></tr>
-     <tr><td class="d">Santiago</td><td>Hostal Giadas<br><small style="color:var(--muted)">近大教堂與老城、CP 佳</small></td><td>Pousadas de Compostela 系列 / San Francisco 修道院飯店</td></tr>
-     </tbody></table></div>
-   <div class="note"><p>想更省的夜晚,沿線都有公營/私營 <b>albergue</b>(每人約 €10–15,通鋪),可穿插安排;但 7 人同行想睡好、隔天有體力,建議以小旅館為主。</p></div>
- `},
-
- {id:"prep", tab:"行前", html:`
-   <div class="eyebrow">Logistics</div>
-   <h2>交通 · 住宿 · 裝備 · 費用</h2>
-   <h3 class="blk">交通</h3>
-   <div class="cols">
-     <div class="box"><h3>去程 → 起點</h3><p>台灣無直飛,經杜哈/伊斯坦堡/曼谷轉機進 Porto(OPO)或 Vigo(VGO);再到 Vigo 搭 ATSA 巴士約 45 分到 Baiona。</p></div>
-     <div class="box"><h3>回程 ← 終點</h3><p>由 Santiago 機場(SCQ)離開最順,經馬德里/里斯本或歐洲樞紐回台北。去 Finisterre 也從 Santiago 出巴士。</p></div>
-     <div class="box"><h3>行李</h3><p>多數路段有行李托運,每日把大背包送到下一站旅館,白天只背水和點心。7 人同行更划算。</p></div>
-   </div>
-   <h3 class="blk">住宿 · 9 月 · 聖年</h3>
-   <div class="cols">
-     <div class="box"><h3>住宿風格(7 人)</h3><p>舒適取向:小旅館 / 鄉村民宿 / pensión。每站約 <b>3 間雙人 + 1 間單人</b>,或 2 間三人房 + 1 單人。詳見「住宿」頁。</p></div>
-     <div class="box"><h3>9 月天氣</h3><p>加利西亞偏濕,白天約 18–25°C、早晚涼,隨時可能下雨;整體比盛夏舒服。建議挑 <b>9 月上–中旬</b>,越近月底雨機率略升。</p></div>
-     <div class="box"><h3>聖年提醒</h3><p>2027 是 Xacobeo 聖年,朝聖者多,務必提早 3–6 個月把每一站訂好。</p></div>
-   </div>
-   <h3 class="blk">裝備</h3>
-   <div class="cols">
-     <div class="box"><h3>一定要帶</h3><ul>
-       <li>credencial + <b>熊野蓋印單</b></li>
-       <li>防水外套/輕雨衣、背包套</li>
-       <li>已磨合健行鞋、備用鞋墊、水泡貼</li>
-       <li>護照、歐元現金、旅平險</li></ul></div>
-     <div class="box"><h3>身體準備</h3><p>你是跑馬+百岳的底子,體能綽綽有餘;重點是 <b>連續 6 天、每天 20+ km 的腳與鞋適應</b>。行前多走幾次 20 km 長程,把鞋穿到合腳。</p></div>
-   </div>
-   <h3 class="blk">粗估費用・每人</h3>
-   <div class="cols">
-     <div class="box"><h3>國際機票</h3><p class="big">NT$ 42,000–58,000</p><p>轉機;聖年旺季偏高,早訂省很多。</p></div>
-     <div class="box"><h3>住宿 7–8 晚</h3><p class="big">NT$ 14,000–22,000</p><p>團體房型分攤,每人每晚約 €30–45。</p></div>
-     <div class="box"><h3>餐食・交通・雜支</h3><p class="big">NT$ 12,000–18,000</p><p>套餐、巴士、行李托運、領證等。</p></div>
-   </div>
-   <div class="note"><p>合計約 <b>NT$ 68,000–98,000 / 人</b>(不含個人購物與延伸行程)。</p></div>
- `},
-
- {id:"tips", tab:"注意", html:`
-   <div class="eyebrow">Before you go</div>
-   <h2>總結注意事項</h2>
-   <p class="lead">出發前把這頁從頭到尾看一遍,最關鍵的都在這裡。</p>
-   <h3 class="blk">訂房與時程</h3>
-   <ul>
-     <li><b>2027 聖年 + 連假</b>:住宿提早 3–6 個月訂,熱門站(Pontevedra、Padrón)尤其早。</li>
-     <li>西班牙 <b>晚餐很晚</b>(多在 20:00 後),朝聖者套餐(menú del peregrino)時間較早、份量足。</li>
-     <li>小鎮午後常 <b>siesta 店休</b>、週日商店關門,補給趁早。</li>
-   </ul>
-   <h3 class="blk">證書規則(最重要)</h3>
-   <ul>
-     <li>全程帶 <b>credencial</b>;最後 100 km <b>每天蓋兩個章</b>,漏蓋會影響領證。</li>
-     <li>Compostela 在 <b>Rúa Carretas 33</b> 領;雙朝聖在 <b>Rúa do Vilar 63</b> 登記。</li>
-     <li><b>熊野蓋印單(含本宮印)一定要帶去西班牙。</b></li>
-   </ul>
-   <h3 class="blk">身體與裝備</h3>
-   <ul>
-     <li><b>雨具必帶</b>——加利西亞一年四季都可能下雨。</li>
-     <li>鞋先磨合;<b>水泡預防勝於治療</b>,起熱點立刻處理。</li>
-     <li>D1(26 km 柏油)、D6(26 km)最長:護膝、鞋墊;必要時可搭短程計程車跳過硬柏油段。</li>
-   </ul>
-   <h3 class="blk">路上</h3>
-   <ul>
-     <li>跟著 <b>黃箭頭 + 貝殼</b>走,岔路看箭頭就對。</li>
-     <li>見人招呼「<b>Buen Camino</b>」。</li>
-     <li>帶 <b>歐元現金</b>(小鎮蓋章、小店、泉水投幣)。</li>
-   </ul>
-   <h3 class="blk">安全 · 抵達</h3>
-   <ul>
-     <li>辦好 <b>旅平險</b>;歐洲緊急電話 <b>112</b>。</li>
-     <li>抵 Santiago <b>一早先排領證</b>,再安排彌撒與老城。</li>
-     <li><b>botafumeiro 不是每天擺盪</b>,想看先查當日場次。</li>
-   </ul>
-   <div class="note warn"><h3>一句話</h3><p>聖年早訂房、雨具不離身、每天兩個章、熊野印單帶著——其他交給雙腳。</p></div>
- `},
+{id:"d7",n:7,date:"10/3",dow:"日",title:"聖地牙哥 · 雙朝聖登記 / 機動",short:"Santiago·雙朝聖",card:"Dual Pilgrim・Finisterre",stay:"Santiago / 返程",
+ tl:[["dot","","大教堂、博物館、老城石巷"],["step","","Turismo 遊客中心 Rúa do Vilar 63：雙朝聖登記（憑兩側證明領徽章）"],["bus","","（可選）Santiago → Finisterre／Muxía 世界盡頭一日"],["dot","","10/4–10/5 返程交通，10/6 抵台北（+1 天）"]],
+ blocks:[{h:"雙朝聖登記",icon:"mount",items:["憑 Camino 的 Compostela／credencial ＋ 熊野蓋印單","在 Turismo de Santiago（Rúa do Vilar 63）登記領徽章","須本人到場，不郵寄"]},
+         {h:"世界盡頭（可選）",icon:"bed",items:["巴士往 Finisterre／Muxía，古人心中『世界的盡頭』","來回一日，或留宿看海，為朝聖畫下句點"]}],
+ notes:["想看 botafumeiro 先查當日彌撒場次（不是每天擺盪）。","雙朝聖徽章須本人領取。","回程交通日請抓足轉機時間。"]}
 ];
 
-const main=document.getElementById("main"), tabsEl=document.getElementById("tabs");
-
-function dayHTML(p){
-  const wl = p.way.map(w=>`<li><span class="k">${w[0]}</span><span>${w[1]}</span></li>`).join("");
-  return `
-   <div class="eyebrow">${p.tab} · ${p.type}　徒步</div>
-   <h2>${p.route}</h2>
-   <dl class="stat">
-     <div><dt>距離</dt><dd>${p.dist.replace(' km','')}<small> km</small></dd></div>
-     <div><dt>時間</dt><dd style="font-size:1rem">${p.time}</dd></div>
-     <div><dt>地形</dt><dd style="font-size:.95rem">${p.terrain}</dd></div>
-     <div><dt>住宿</dt><dd style="font-size:1rem">${p.sleep}</dd></div>
-   </dl>
-   <h3 class="blk">路線重點</h3>
-   <ul class="way">${wl}</ul>
-   <h3 class="blk">看點</h3><p>${p.see}</p>
-   <h3 class="blk">餐食・補給</h3><p>${p.eat}</p>
-   <div class="note warn"><h3>今日注意</h3><p>${p.warn}</p></div>
-   <span class="sleep">宿 · ${p.sleep}</span>`;
+/* ---------- geography (approximate) ---------- */
+const P={baiona:[42.1174,-8.8506],vigo:[42.2406,-8.7207],redondela:[42.2832,-8.6095],arcade:[42.3453,-8.6163],
+ pontevedra:[42.4310,-8.6444],caldas:[42.6050,-8.6417],padron:[42.7390,-8.6600],santiago:[42.8805,-8.5456]};
+const SEGS=[
+ {d:"d0",m:"bus",p:["vigo","baiona"],off:4},
+ {d:"d1",m:"walk",p:["baiona","vigo"]},
+ {d:"d2",m:"walk",p:["vigo","redondela","arcade"]},
+ {d:"d3",m:"walk",p:["arcade","pontevedra"]},
+ {d:"d4",m:"walk",p:["pontevedra","caldas"]},
+ {d:"d5",m:"walk",p:["caldas","padron"]},
+ {d:"d6",m:"walk",p:["padron","santiago"]}
+];
+/* label: [key, text, dx, dy, anchor, days(when to show on day map)] */
+const LABELS=[["baiona","Baiona",10,6,"start",["d0","d1"]],["vigo","Vigo",-10,16,"end",["d0","d1","d2"]],
+ ["pontevedra","Pontevedra",12,4,"start",["d3","d4"]],["caldas","Caldas de Reis",12,4,"start",["d4","d5"]],
+ ["padron","Padrón",-10,-8,"end",["d5","d6"]],["santiago","Santiago de Compostela",-12,6,"end",["d6","d7"]]];
+const SHRINES=new Set(["santiago"]);
+const MINOR=[["redondela","Redondela","d2"],["arcade","Arcade","d2"]];
+const NSV="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NSV,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const DAYC={d0:"#8C8475",d1:"#2E6E8E",d2:"#2F8F83",d3:"#3C7D4E",d4:"#8A8A3C",d5:"#CC8419",d6:"#B8342A",d7:"#7B4F86"};
+const PILL={};
+function offsetPts(a,off){if(!off)return a;return a.map((p,i)=>{const q0=a[Math.max(0,i-1)],q1=a[Math.min(a.length-1,i+1)];let dx=q1[0]-q0[0],dy=q1[1]-q0[1];const L=Math.hypot(dx,dy)||1;return [p[0]-dy/L*off,p[1]+dx/L*off];});}
+function drawKMap(svg,hl,opt={}){
+  const zoomAllowed=opt.zoom!==false;
+  const cw=svg.parentElement.clientWidth||900, small=cw<560;
+  const W=small?(zoomAllowed&&hl?560:440):Math.min(1100,cw), pad={l:small?26:40,r:small?26:40,t:small?36:62,b:small?34:50};
+  const k=Math.cos(42.5*Math.PI/180);
+  let keys=Object.keys(P);
+  const zoom=zoomAllowed&&hl&&SEGS.some(s=>s.d===hl);
+  if(zoom){const set=new Set();SEGS.filter(s=>s.d===hl).forEach(s=>s.p.forEach(q=>set.add(q)));keys=[...set];}
+  const xs=keys.map(q=>P[q][1]*k),ys=keys.map(q=>-P[q][0]);
+  let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  if(zoom){const mw=Math.max(x1-x0,(y1-y0)*1.6,0.03),mh=mw/1.6,cx=(x0+x1)/2,cy=(y0+y1)/2;x0=cx-mw/2;x1=cx+mw/2;y0=cy-mh/2;y1=cy+mh/2;}
+  if(!zoom){const yr=y1-y0,xr=x1-x0,minxr=yr*0.8;if(xr<minxr){const cx=(x0+x1)/2;x0=cx-minxr/2;x1=cx+minxr/2;}}
+  const sc=(W-pad.l-pad.r)/(x1-x0),H=Math.round((y1-y0)*sc+pad.t+pad.b);
+  const X=q=>pad.l+(P[q][1]*k-x0)*sc, Y=q=>pad.t+(-P[q][0]-y0)*sc;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.innerHTML="";
+  const col=d=>DAYC[d], isOn=d=>!hl||d===hl;
+  const boxes=[];const free=(x,y,w,h)=>{if(x<2||x+w>W-2||y<2||y+h>H-2)return false;for(const b of boxes){if(x<b[0]+b[2]&&x+w>b[0]&&y<b[1]+b[3]&&y+h>b[1])return false;}boxes.push([x,y,w,h]);return true;};
+  const tw=(txt,fs)=>txt.length*fs*0.95;
+  const arrowAt=(a,c,size)=>{const n=a.length;let i=Math.floor((n-1)/2);const p=a[i],q=a[i+1]||a[i];const mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2,ang=Math.atan2(q[1]-p[1],q[0]-p[0])*180/Math.PI;
+    mk("path",{d:`M${size} 0 L${-size*.7} ${-size*.75} L${-size*.7} ${size*.75} Z`,fill:c,stroke:"#fff","stroke-width":1,transform:`translate(${mx} ${my}) rotate(${ang})`},svg);};
+  const torii=(x,y,on)=>{const c=on?"#C0392B":"#C9BFAE",g=mk("g",{transform:`translate(${x} ${y})`},svg);
+    mk("circle",{cx:0,cy:0,r:11,fill:"#fff",stroke:on?"#B5893F":"#ddd","stroke-width":1.6},g);
+    mk("path",{d:"M0 5 L-7 -5 M0 5 L-3.5 -6.5 M0 5 L0 -7 M0 5 L3.5 -6.5 M0 5 L7 -5",stroke:c,"stroke-width":1.4,fill:"none","stroke-linecap":"round"},g);
+    mk("path",{d:"M-7 -5 Q0 -9.5 7 -5",stroke:c,"stroke-width":1.4,fill:"none"},g);};
+  // off-map legs (D1 arrival, D5 departure)
+  const arr=(q,dx,dy,txt,anchor,d)=>{if(!isOn(d)&&zoom)return;const x=X(q),y=Y(q),c=isOn(d)?col(d):"#bbb";
+    mk("line",{x1:x+dx,y1:y+dy,x2:x,y2:y,stroke:c,"stroke-width":2.5,"stroke-dasharray":"12 4 2 4",opacity:isOn(d)?1:.3},svg);
+    if(!small||hl){const t=mk("text",{x:x+dx+(dx>0?4:-4),y:y+dy+(dy>0?13:-6),"text-anchor":anchor,class:"koff",fill:c},svg);t.textContent=txt;}};
+  if(!zoom||hl==="d1")arr("baiona",20,-30,"從 Vigo 機場（D0 接駁）","start","d0");
+  // segments: dim ones first, active ones on top
+  const order=[...SEGS].sort((a,b)=>(isOn(a.d)?1:0)-(isOn(b.d)?1:0));
+  order.forEach(s=>{
+    const on=isOn(s.d), a=offsetPts(s.p.map(q=>[X(q),Y(q)]),s.off||0), pts=a.map(p=>p.join(",")).join(" ");
+    const c=on?col(s.d):"#C9BFAE", w=s.m==="walk"?(hl&&on?6:5):(hl&&on?3.2:2.6);
+    const dash={walk:null,bus:"7 5",train:"12 4 2 4"}[s.m];
+    if(s.m==="walk"&&on) mk("polyline",{points:pts,fill:"none",stroke:"#fff","stroke-width":w+3,"stroke-linecap":"round","stroke-linejoin":"round",opacity:.9},svg);
+    const at={points:pts,fill:"none",stroke:c,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round",opacity:on?1:.55};
+    if(dash)at["stroke-dasharray"]=dash; mk("polyline",at,svg);
+    if(on)arrowAt(a,c,s.m==="walk"?7:5);
+  });
+  // hit areas
+  SEGS.forEach(s=>{const h=mk("polyline",{points:s.p.map(q=>`${X(q)},${Y(q)}`).join(" "),class:"khit"},svg);const t=mk("title",{},h);const d=DAYS.find(x=>x.id===s.d);t.textContent=`D${d.n} ${d.short}`;
+    h.addEventListener("click",()=>go(s.d));if(opt.onHover){h.addEventListener("mouseenter",()=>opt.onHover(s.d));h.addEventListener("mouseleave",()=>opt.onHover(null));}});
+  // main stations
+  LABELS.forEach(([q,name,dx,dy,an,days])=>{const on=!hl||days.includes(hl);
+    if(SHRINES.has(q)){torii(X(q),Y(q),on);boxes.push([X(q)-9,Y(q)-16,18,18]);}
+    else mk("circle",{cx:X(q),cy:Y(q),r:on?5:4,fill:"#fff",stroke:on?"var(--ink)":"#bbb","stroke-width":2},svg);
+    if(zoom&&!on)return;
+    const w=tw(name,13);
+    const opts=[[dx,dy,an],[-10,5,"end"],[10,5,"start"],[0,-11,"middle"],[0,21,"middle"]];
+    for(const [ox,oy,oa] of opts){const x=X(q)+ox-(oa==="middle"?w/2:oa==="end"?w:0),y=Y(q)+oy-12;
+      if(free(x,y,w,15)||(!zoom&&ox===dx&&oy===dy&&x>=2&&x+w<=W-2)){const t=mk("text",{x:X(q)+ox,y:Y(q)+oy,"text-anchor":oa,class:"klab"+(on?"":" dim")},svg);t.textContent=name;break;}}});
+  // minor points
+  MINOR.forEach(([q,name,d])=>{const on=isOn(d);mk("circle",{cx:X(q),cy:Y(q),r:2.8,fill:on?col(d):"#bbb"},svg);
+    if(hl&&d===hl){const w=tw(name,11);
+      for(const [dx,dy,an] of [[0,-9,"middle"],[0,17,"middle"],[8,4,"start"],[-8,4,"end"]]){const x=X(q)+dx-(an==="middle"?w/2:an==="end"?w:0),y=Y(q)+dy-10;
+        if(free(x,y,w,13)){const t=mk("text",{x:X(q)+dx,y:Y(q)+dy,"text-anchor":an,class:"klab sm"},svg);t.textContent=name;break;}}}});
+  // day pills (overview only)
+  if(!zoom&&!small){Object.entries(PILL).forEach(([d,[q,dx,dy,txt]])=>{const on=isOn(d);
+    const g=mk("g",{class:"pill",opacity:on?1:.35,style:"cursor:pointer"},svg);
+    const t=mk("text",{x:X(q)+dx,y:Y(q)+dy,"text-anchor":"middle",fill:"#fff","font-size":"12.5","font-weight":"700","font-family":"var(--sans)"},g);t.textContent=txt;
+    const bb=t.getBBox();const r=mk("rect",{x:bb.x-9,y:bb.y-4,width:bb.width+18,height:bb.height+8,rx:(bb.height+8)/2,fill:col(d)},g);g.insertBefore(r,t);
+    g.addEventListener("click",()=>go(d));if(opt.onHover){g.addEventListener("mouseenter",()=>opt.onHover(d));g.addEventListener("mouseleave",()=>opt.onHover(null));}});}
+  // north
+  const nx=W-22,ny=22;mk("path",{d:`M${nx} ${ny-11} L${nx+6} ${ny+6} L${nx} ${ny+2} L${nx-6} ${ny+6}Z`,fill:"var(--muted)"},svg);
+  const nt=mk("text",{x:nx,y:ny+19,"text-anchor":"middle",class:"koff"},svg);nt.textContent="N";
 }
+/* home map with hover highlight + day legend */
+const DAYLINE={d0:"Vigo 機場 → Baiona（巴士接駁）",d1:"Baiona → Vigo｜徒步 26 km（海岸）",d2:"Vigo → Arcade｜徒步 23 km（併入中央線）",
+ d3:"Arcade → Pontevedra｜徒步 12 km",d4:"Pontevedra → Caldas de Reis｜徒步 22 km",d5:"Caldas de Reis → Padrón｜徒步 19 km",
+ d6:"Padrón → Santiago｜徒步 26 km，抵達領證",d7:"聖地牙哥｜雙朝聖登記 / Finisterre（不在圖上）"};
+let homeHL=null;
+function drawHome(){const svg=document.getElementById("kmap");drawKMap(svg,homeHL,{zoom:false,onHover:d=>{if(d!==homeHL){homeHL=d;drawHome();}}});
+  document.querySelectorAll(".daykey button").forEach(b=>b.classList.toggle("dim",!!homeHL&&b.dataset.go!==homeHL));}
 
-PAGES.forEach((p)=>{
-  const b=document.createElement("button");
-  b.type="button"; b.textContent=p.tab; b.dataset.id=p.id; b.setAttribute("role","tab");
-  if(p.km) b.innerHTML=`${p.tab} <span class="km">${p.km}k</span>`;
-  b.addEventListener("click",()=>{location.hash=p.id;});
-  tabsEl.appendChild(b);
-});
+/* ---------- stamps ---------- */
+const STAMPS={
+ d1:[["Baiona（起點）","①"],["Vigo（終點）","①"]],
+ d2:[["Vigo（起點）","①"],["Arcade（終點）","①"]],
+ d3:[["Arcade（起點）","①"],["Pontevedra（終點）","①"]],
+ d4:[["Pontevedra（起點）","①"],["Caldas de Reis（終點）","①"]],
+ d5:[["Caldas de Reis（起點）","①"],["Padrón（終點）","①"]],
+ d6:[["Padrón（起點）","①"],["Santiago 大教堂（終點）","①"]]
+};
+const stampList=id=>`<ol class="stamps">${STAMPS[id].map(([n,o])=>`<li><span class="sn">${n}</span><span class="tags">${[...o].map(c=>`<i class="t${c==="①"?1:3}">${c}</i>`).join("")}</span></li>`).join("")}</ol>`;
+document.getElementById("stampdays").innerHTML=Object.keys(STAMPS).map(id=>{const d=DAYS.find(x=>x.id===id);
+  return `<div class="sd" style="--c:${DAYC[id]}"><button class="sdh" data-go="${id}"><span class="seal" style="background:${DAYC[id]}">D${d.n}</span><b>${d.date}（${d.dow}）</b><span>${d.short}</span></button>${stampList(id)}</div>`;}).join("");
+function stampPanel(id){if(!STAMPS[id])return "";return panel(`今日 credential 蓋章（${STAMPS[id].length} 個）`,"mount",stampList(id)+`<p style="margin:8px 0 0;font-size:.88rem"><a href="#stamp" data-view="stamp" style="color:var(--ink)">領證與雙朝聖</a></p>`);}
+/* ---------- transport legs ---------- */
+const LEGS=[
+ {d:"d0",m:"bus",f:"Vigo（VGO 機場／市區）",t:"Baiona",op:"ATSA 巴士",tm:"約 45 分",py:"現場購票／當地交通卡；班次頻繁"},
+ {d:"d7",m:"bus",f:"Santiago",t:"Finisterre／Muxía",op:"Monbus（世界盡頭一日，可選）",tm:"約 2.5–3 小時",py:"現場購票；可來回一日"}
+];
+(function(){let last="";document.getElementById("legs").innerHTML=`<thead><tr><th>日期</th><th>區間</th><th>交通</th><th>約需</th><th>怎麼付</th></tr></thead><tbody>${LEGS.map(l=>{const d=DAYS.find(x=>x.id===l.d),first=l.d!==last;last=l.d;
+  return `<tr class="${first?"dstart":""}" data-go="${l.d}"><td class="num">${first?`D${d.n} ${d.date}`:""}</td><td>${l.f} → ${l.t}</td><td><span class="md ${l.m}">${l.m==="bus"?"巴士":"電車"}</span>${l.op}</td><td class="num">${l.tm}</td><td>${l.py}</td></tr>`;}).join("")}</tbody>`;})();
 
-function pagerHTML(p){
-  const i=PAGES.indexOf(p), prev=PAGES[i-1], next=PAGES[i+1];
-  return `<div class="pager">
-    <button ${prev?`data-go="${prev.id}"`:"disabled"}>← ${prev?prev.tab:""}</button>
-    <button ${next?`data-go="${next.id}"`:"disabled"}>${next?next.tab:""} →</button></div>`;
+/* route strip */
+
+
+document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${DAYC[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
+document.querySelectorAll("#daykey button").forEach(b=>{b.addEventListener("mouseenter",()=>{homeHL=b.dataset.go;drawHome();});b.addEventListener("mouseleave",()=>{homeHL=null;drawHome();});});
+/* day cards + timeline nav */
+document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${DAYC[d.id]}">
+  <span class="hd"><span class="seal" style="background:${DAYC[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
+  <span class="rt">${d.short}</span><span class="st ${d.hard?"hard":""}">${d.card}${d.hard?"｜全程最辛苦":""}</span>
+  ${d.stay?`<span class="stay">宿：${d.stay}</span>`:`<span class="stay">返台</span>`}</button>`).join("");
+const tl=document.getElementById("tl");
+tl.innerHTML=DAYS.map(d=>`<button class="node" data-go="${d.id}"><span class="seal" style="background:${DAYC[d.id]}">D${d.n}</span><span><b class="num">${d.date}（${d.dow}）</b><small>${d.short}</small></span></button>`).join("");
+
+const timesHTML=rows=>`<ol class="times">${rows.map(([ic,t,x,r])=>`<li class="${ic==="walk"?"walkrow":""}"><span class="ic ${ic==="dot"?"dot":""} ${ic==="walk"?"walk":""}">${ic==="dot"?"":svg(ic==="step"?"walk":ic)}</span><span>${t?`<span class="t num">${t}</span>`:""}<span class="x">${x}</span>${r?`<span class="r">${r}</span>`:""}</span></li>`).join("")}</ol>`;
+const panel=(h,icon,body,cls="")=>`<section class="panel ${cls}"><h3 class="phead">${svg(icon)}${h}</h3>${body}</section>`;
+const list=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+
+let cur="d1",view="home";
+function renderDay(){
+  const i=DAYS.findIndex(d=>d.id===cur),d=DAYS[i],pv=DAYS[i-1],nx=DAYS[i+1];
+  const st=d.stats?`<dl class="stats num">
+     <div><dt>徒步距離</dt><dd>${d.stats.km}</dd></div><div><dt>時間</dt><dd>${d.stats.time}</dd></div>
+     ${d.stats.up?`<div><dt>爬升</dt><dd>↑${d.stats.up}</dd></div><div><dt>下降</dt><dd>↓${d.stats.down}</dd></div>`:""}
+     ${d.stats.lv?`<div><dt>難度</dt><dd>${stars(d.stats.lv)}</dd></div>`:""}</dl>`:`<div style="height:14px"></div>`;
+  let body;
+  if(d.plans){
+    body=`<div class="alert">${svg("alert")}${d.alert}</div>
+      <div class="plans">${d.plans.map(p=>panel(p.h,p.h.startsWith("共同")?"plane":"clock",timesHTML(p.tl)+(p.fit?`<p class="fit">${p.fit}</p>`:""))).join("")}</div>
+      <div style="margin-top:16px">${panel("當日注意","alert",list(d.notes),"note")}</div>`;
+  }else{
+    body=`<div class="dgrid"><div class="stack">${panel("時間路線","clock",timesHTML(d.tl))}
+      ${panel("今天在哪裡","mount",`<div class="minimap"><svg id="kmini" role="img" aria-label="今天的路線位置"></svg></div>`)}
+      ${legsPanel(d.id)}</div>
+      <div class="stack">${d.blocks.map(b=>panel(b.h,b.icon,b.items?list(b.items):`<p style="margin:0">${b.p}</p>`)).join("")}
+      ${stampPanel(d.id)}
+      ${panel("當日注意","alert",list(d.notes),"note")}</div></div>`;
+  }
+  document.getElementById("day").innerHTML=`<div class="fade">
+    <div class="banner"><img src="${IMG[d.id]}" alt="${d.title}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.banner').remove()"></div>
+    <div class="dhead"><span class="seal lg" style="background:${DAYC[d.id]}">D${d.n}</span><div><p class="when num">2026/${d.date}（${d.dow}）</p><h2>${d.title}${d.hard?'<span class="tag">全程最辛苦</span>':""}</h2></div></div>
+    ${st}${body}
+    <nav class="pager"><button class="prev" ${pv?"":"disabled"} data-go="${pv?pv.id:""}"><small>上一天</small>${pv?`D${pv.n} <span class="pn">${pv.short}</span>`:""}</button>
+    <button class="next" ${nx?"":"disabled"} data-go="${nx?nx.id:""}"><small>下一天</small>${nx?`D${nx.n} <span class="pn">${nx.short}</span>`:""}</button></nav></div>`;
+  bind(document.getElementById("day"));
+  const km=document.getElementById("kmini");if(km)drawKMap(km,d.id);
 }
-function show(id){
-  const p = PAGES.find(x=>x.id===id) || PAGES[0];
-  main.innerHTML = `<section class="panel" tabindex="-1">${ p.html ? p.html : dayHTML(p) }${pagerHTML(p)}</section>`;
-  Array.from(tabsEl.children).forEach(b=>b.setAttribute("aria-current", b.dataset.id===p.id ? "true":"false"));
-  const cur=tabsEl.querySelector('[aria-current="true"]'); if(cur) cur.scrollIntoView({inline:"center",block:"nearest"});
-  main.querySelector(".panel").focus({preventScroll:true});
-  document.querySelectorAll(".pager button").forEach(btn=>btn.addEventListener("click",e=>{location.hash=e.currentTarget.dataset.go;}));
-}
-function route(){ const id=(location.hash||"#home").slice(1); show(id); }
-window.addEventListener("hashchange",route);
-route();
+function legsPanel(id){const a=LEGS.filter(l=>l.d===id);if(!a.length)return "";return panel("今天搭的車","bus",`<ul class="legs">${a.map(l=>`<li><span class="op">${l.f} → ${l.t}</span>｜${l.op}，${l.tm}<span class="py">${l.py}</span></li>`).join("")}</ul><p style="margin:8px 0 0;font-size:.88rem"><a href="#move" data-view="move" style="color:var(--ink)">看完整交通攻略</a></p>`);}
+function show(v){view=v;["home","day","prep","move","stamp"].forEach(n=>document.getElementById("v-"+n).classList.toggle("on",n===v));
+  document.querySelectorAll(".views button").forEach(b=>b.setAttribute("aria-current",b.dataset.view===v));
+  if(v==="home")requestAnimationFrame(drawHome);
+  tl.querySelectorAll(".node").forEach(n=>{const on=v==="day"&&n.dataset.go===cur;n.setAttribute("aria-current",on);if(on)tl.scrollTo({left:n.offsetLeft-tl.clientWidth/2+n.clientWidth/2,behavior:"smooth"});});}
+function go(id){ if(id==="home"||id==="prep"||id==="move"||id==="stamp"){history.replaceState(null,"","#"+id);show(id);window.scrollTo({top:0});return;}
+  if(!DAYS.some(d=>d.id===id))return;cur=id;history.replaceState(null,"","#"+id);show("day");renderDay();window.scrollTo({top:0,behavior:"smooth"});}
+function bind(root){root.querySelectorAll("[data-go]").forEach(b=>{if(b.dataset.go)b.onclick=()=>go(b.dataset.go);});root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));}
+bind(document);
+document.addEventListener("keydown",e=>{if(view!=="day")return;const i=DAYS.findIndex(d=>d.id===cur);
+  if(e.key==="ArrowRight"&&DAYS[i+1])go(DAYS[i+1].id);if(e.key==="ArrowLeft"&&DAYS[i-1])go(DAYS[i-1].id);});
+let sx=null,sy=null;const dv=document.getElementById("v-day");
+dv.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+dv.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const i=DAYS.findIndex(d=>d.id===cur),t=DAYS[i+(dx<0?1:-1)];if(t)go(t.id);}});
+const h=(location.hash||"#home").slice(1);
+if(DAYS.some(d=>d.id===h))go(h);else show(["prep","move","stamp"].includes(h)?h:"home");
+let rtm;window.addEventListener("resize",()=>{clearTimeout(rtm);rtm=setTimeout(()=>{if(view==="home")drawHome();if(view==="day"){const km=document.getElementById("kmini");if(km)drawKMap(km,cur);}},150);});
 </script>
 </body>
 </html>
