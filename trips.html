@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>行程手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+:root{
+  --bg:#F3ECDD; --card:#FBF7EE; --ink:#1D3347; --muted:#6B6355; --line:#DACDB3;
+  --seal:#9E2F28; --moss:#3E5B3A; --gold:#B5893F;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17181b; --card:#1f2024; --ink:#ece7dd; --muted:#9a9488; --line:#33343a;
+  --seal:#e08972; --moss:#8fae84; --gold:#d9b25f; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#17181b; --card:#1f2024; --ink:#ece7dd; --muted:#9a9488; --line:#33343a;
+  --seal:#e08972; --moss:#8fae84; --gold:#d9b25f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:960px;margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:0}
+header.top{padding-block:40px 10px}
+.kick{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.1rem,6vw,3.2rem);margin:.2em 0 .1em;letter-spacing:.02em}
+.lead{color:var(--muted);margin:.2em 0 0;max-width:40em}
+h2.sec{font-family:var(--serif);font-size:1.15rem;margin:34px 0 2px;display:flex;align-items:center;gap:.5em}
+h2.sec::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--seal);display:inline-block}
+h2.sec .moss::before{background:var(--moss)}
+.secsub{color:var(--muted);font-size:.86rem;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c,var(--gold));
+  border-radius:16px;padding:18px 18px 16px;transition:transform .12s,border-color .12s,box-shadow .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 24px rgba(40,30,15,.1)}
+.card .yr{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.card h3{font-family:var(--serif);font-weight:900;font-size:1.3rem;margin:.15em 0 .25em;line-height:1.25}
+.card p{margin:0;font-size:.92rem;color:var(--muted)}
+.card .done{display:inline-block;margin-top:10px;font-size:.74rem;font-weight:700;color:var(--moss);
+  border:1px solid var(--moss);border-radius:999px;padding:1px 10px}
+.card .go{display:inline-block;margin-top:10px;font-size:.74rem;font-weight:700;color:var(--seal);
+  border:1px solid var(--seal);border-radius:999px;padding:1px 10px}
+footer{margin-top:40px;padding-block:18px 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="kick">Trip Handbooks</div>
+    <h1>行程手冊</h1>
+    <p class="lead">海外朝聖、健行與台灣百岳的一天一頁手冊。點進任一行程，含地圖、每日路線、交通、住宿與注意事項。</p>
+  </header>
+
+  <h2 class="sec">海外・朝聖與健行</h2>
+  <p class="secsub">Pilgrimage &amp; alpine routes abroad</p>
+  <div class="grid">
+    <a class="card" href="camino.html" style="--c:#1f5565">
+      <div class="yr">2027 · 5 月</div>
+      <h3>葡萄牙朝聖之路</h3>
+      <p>Baiona → Santiago · 海岸轉中央 · 6 天 127 km · 完成雙朝聖</p>
+      <span class="go">規劃中 →</span>
+    </a>
+    <a class="card" href="kumano.html" style="--c:#9E2F28">
+      <div class="yr">2026 · 11 月</div>
+      <h3>熊野古道・中邊路</h3>
+      <p>瀧尻王子 → 熊野本宮 · 三山參拜 · 六日五夜</p>
+      <span class="done">已完成 ✓</span>
+    </a>
+    <a class="card" href="alps.html" style="--c:#2E5E97">
+      <div class="yr">2027</div>
+      <h3>北阿爾卑斯</h3>
+      <p>表銀座・穗高・八ヶ岳 行程手冊</p>
+      <span class="go">規劃中 →</span>
+    </a>
+    <a class="card" href="index.html" style="--c:#75ADD0">
+      <div class="yr">2027</div>
+      <h3>環白朗峰 TMB</h3>
+      <p>Tour du Mont Blanc · 一天一頁</p>
+      <span class="go">規劃中 →</span>
+    </a>
+  </div>
+
+  <h2 class="sec"><span class="moss"></span>台灣百岳</h2>
+  <p class="secsub">Taiwan high-mountain traverses</p>
+  <div class="grid">
+    <a class="card" href="nanyi.html" style="--c:#3E5B3A">
+      <div class="yr">2027</div>
+      <h3>南一段</h3>
+      <p>中央山脈南段縱走 · 行程手冊</p>
+      <span class="go">規劃中 →</span>
+    </a>
+    <a class="card" href="daxiaojian.html" style="--c:#B5893F">
+      <div class="yr">2027</div>
+      <h3>大小劍</h3>
+      <p>雪山山脈・大劍小劍縱走 · 行程手冊</p>
+      <span class="go">規劃中 →</span>
+    </a>
+    <a class="card" href="xinkang.html" style="--c:#8C7B63">
+      <div class="yr">2026</div>
+      <h3>新康橫斷</h3>
+      <p>八通關・新康山 · 一天一頁</p>
+      <span class="go">規劃中 →</span>
+    </a>
+  </div>
+
+  <footer>
+    <p>各手冊獨立一頁，支援深色模式與手機閱讀。資料為行程規劃參考，實際班次、路線與住宿出發前請再確認。</p>
+  </footer>
+</div>
+</body>
+</html>
