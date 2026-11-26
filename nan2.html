@@ -247,7 +247,7 @@ h1,h2{font-weight:700;letter-spacing:.01em}
       <h1>走一趟<br><span class="sword">南二段</span>的陽光</h1>
       <p class="tagline">從嘉明湖到東埔溫泉，六天、五座山屋、一路向北。</p>
       <p class="meta"><b class="num">2026/12/5 關山集合，12/6–12/11 六天五夜｜12/11 住東埔溫泉</b></p>
-      <p class="sub" style="margin-top:10px">從向陽管制站起登，經拉庫音溪、轆轆谷、塔芬谷、大水窟、中央金礦五座山屋，最後一天經八通關古道直下東埔。雲峰、轆轆山、達芬尖山、南大水窟山、大水窟山、秀姑巒山、八通關山；向陽山、三叉山大家都去過，當天看時間選配。時間、水源、訊號都照貓的「6天南二段」登山行程表（12/10–12/15 版），日期換成本次 12/6–12/11；D2、D3、D6 為了在山頂等日出，出發提早、之後順延或提前。</p>
+      <p class="sub" style="margin-top:10px">從向陽管制站起登，經拉庫音溪、轆轆谷、塔芬谷、大水窟、中央金礦五座山屋，最後一天經八通關古道直下東埔。核心 9 座百岳：向陽山、三叉山、南雙頭山、雲峰、轆轆山、塔芬山、達芬尖山、大水窟山、八通關山，加碼秀姑巒山；向陽山、三叉山大家都去過，當天看時間選配。時間、水源、訊號都照貓的「6天南二段」登山行程表（12/10–12/15 版），日期換成本次 12/6–12/11；D2、D3、D6 為了在山頂等日出，出發提早、之後順延或提前。</p>
     </div>
 
     <div class="alertbox">
@@ -521,7 +521,7 @@ document.getElementById("kpi").innerHTML=[
  ["81.5 km","六天總里程（行程表）"],
  ["5 座山屋","拉庫音溪、轆轆谷、塔芬谷、大水窟、中央金礦"],
  ["3,805 m","最高點：秀姑巒山（D5）"],
- ["7＋2 座","雲峰、轆轆、達芬尖、南大水窟、大水窟、秀姑巒、八通關；向陽、三叉選配"]
+ ["9＋1 座百岳","向陽、三叉、南雙頭、雲峰、轆轆、塔芬、達芬尖、大水窟、八通關；加碼秀姑巒"]
 ].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
 document.getElementById("strip").innerHTML=DAYS.map(d=>{const b=BRIEF[d.id];return `<div class="bcard" data-go="${d.id}" style="--c:${C[d.id]}"><span class="dl">D${d.n}｜${d.date}（${d.dow}）</span><b>${d.short}</b><p class="s">☀ ${bl(b.see[0])}</p><p class="w">⚠ ${b.care[0]}</p></div>`}).join("");
 document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
