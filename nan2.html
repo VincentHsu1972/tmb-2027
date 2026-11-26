@@ -211,7 +211,20 @@ h1,h2{font-weight:700;letter-spacing:.01em}
 
 @media (max-width:600px){.sights{grid-template-columns:1fr}.strip .pol{flex-basis:200px}.hero{padding:18px 16px 14px}}
 </style>
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}.brief{background:var(--card,#fff);border-radius:18px;padding:20px 22px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px rgba(60,50,20,.08);border:1px solid rgba(0,0,0,.06)}
+.brief h3{margin:0 0 10px;font-size:1.25rem}
+.brief h4{margin:14px 0 6px;font-size:.95rem;display:flex;align-items:center;gap:6px}
+.brief h4.see{color:#C2802B}.brief h4.care{color:#A6432C}
+.brief ul{margin:0;padding-left:1.1em}.brief li{margin:4px 0;line-height:1.6}
+.brief li b{font-weight:700}
+.bstrip{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:14px 0 8px}
+.bcard{background:var(--card,#fff);border-radius:16px;padding:16px 18px;border:1px solid rgba(0,0,0,.07);border-top:5px solid var(--c);cursor:pointer;line-height:1.55}
+.bcard .dl{font-size:.78rem;color:var(--muted,#8A979E)}
+.bcard b{display:block;font-size:1.05rem;margin:2px 0 8px}
+.bcard p{margin:4px 0;font-size:.9rem}
+.bcard p b{display:inline;font-size:inherit;margin:0}
+.bcard .s{color:#8A5A14}.bcard .w{color:#A6432C}
+</style>
 </head>
 <body>
 
@@ -243,8 +256,8 @@ h1,h2{font-weight:700;letter-spacing:.01em}
     <div class="kpi" id="kpi"></div>
 
     <h2 class="hand" style="margin:30px 0 4px;font-size:1.6rem">六天的看點</h2>
-    <p class="sub">每天挑一個最值得停下來的地方。照片待補：把照片放進 photos 資料夾就會自動換上。</p>
-    <div class="strip" id="strip"></div>
+    <p class="sub">每天最值得停下來的地方，和最要小心的一件事。點卡片看當天細節。</p>
+    <div class="bstrip" id="strip"></div>
 
     <div class="profcard">
       <svg id="rmap" role="img" aria-label="南二段路線拓樸示意"></svg>
@@ -398,6 +411,9 @@ function scene(k,id,seed){
   return `<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${s2}"/><stop offset="1" stop-color="${s1}"/></linearGradient></defs>
    <rect width="300" height="200" fill="url(#${g})"/><circle cx="232" cy="52" r="22" fill="#FFF3C4"/><circle cx="232" cy="52" r="34" fill="#FFF3C4" opacity=".35"/>${hills}${extra}</svg>`;
 }
+const BRIEF={"d0": {"see": ["關山小鎮｜花東縱谷的小鎮，晚餐吃飽、早點睡，明天是長天。"], "care": ["向陽之後沒有補給：行動糧、瓦斯、電池在關山買齊。", "向陽管制站飲水機 07:00 後才有水，行動水在民宿裝滿。", "南橫週二、週四封閉；12/6 是週日，可以通行。", "明天 03:30 起床、04:30 小鳳姐接駁上車。"]}, "d1": {"see": ["嘉明湖避難山屋｜3,350 m 草坡上吃午餐，往東看得到三叉山。", "三叉山、嘉明湖（選配）｜大家都去過，時間夠再繞。", "拉庫音溪｜第一晚的山屋在溪畔，活水充足。"], "care": ["向陽山屋之後一路上到 3,500 m，配速放慢，留意頭痛、噁心等高山症狀。", "12:00 還沒到嘉明湖避難山屋，就不上三叉山。", "新康山岔路口到拉庫音溪約 700 m 陡下，膝蓋、腳趾負擔大，雙杖拿出來。"]}, "d2": {"see": ["南雙頭山日出｜06:00 到頂，06:25 日出，南二段的第一個日出。", "雲峰｜3,562 m，輕裝來回，這天的主角。"], "care": ["03:00 摸黑陡上 660 m，頭燈帶備用電池。", "山頂等日出約 40 分鐘很冷：羽絨衣、手套、毛帽先穿好。", "10:00 還沒到雲峰東鞍營地，就不上雲峰。", "轆轆谷山屋水量不穩，不夠就往西沿布條 0.7 km 取水（單程約 20 分）。"]}, "d3": {"see": ["轆轆山日出｜06:05 到頂，等 06:25 日出。", "塔芬池｜湖畔吃早午餐，水面倒映山稜。", "塔芬谷停機坪｜山屋旁 0.2 km，傍晚拍照的好地方。"], "care": ["04:30 頭燈出發，到轆轆山登山口換輕裝。", "塔芬山下塔芬谷山屋約 435 m 長下坡，雙杖全程用。", "中午就到山屋：下午補水、晾乾裝備、早點睡。明天 06:00 起床。"]}, "d4": {"see": ["達芬尖山｜尖峭的山頭，輕裝 15 分鐘登頂。", "黑水塘、看天池｜午餐休息的高山水池。", "大水窟｜山屋旁的高山水池，傍晚光線最好。"], "care": ["塔芬谷山屋到達芬尖山登山口約 480 m 陡上，一早就爬。", "三岔路口往老濃溪底營地的岔路不要走錯。", "13:30 還沒到南大水窟山，就走腰繞路直接往大水窟山屋。", "大水窟山屋 3,220 m、只有集雨桶，乾季可能見底；夜裡低於 0°C。"]}, "d5": {"see": ["大水窟山｜3,643 m，天剛亮時登頂，回頭看前幾天走過的稜線。", "秀姑巒山｜3,805 m，中央山脈最高峰，這趟的最高點。", "秀姑坪｜寬闊的高山草坡，在這裡換輕裝。"], "care": ["10:30 還沒到秀姑坪，就不上秀姑巒山。13:15 一定要從秀姑坪出發。", "秀姑巒山頂風大、氣溫低，輕裝也要帶保暖、水和行動糧。", "全隊最高到 3,805 m，有高山症狀不要硬上。", "明天 02:15 起床，今晚把水、行動糧、頭燈準備好。"]}, "d6": {"see": ["八通關山日出｜06:05 到頂，最後一個日出（06:27）。", "八通關古道、觀高坪｜百年古道上的平台，午餐休息。", "雲龍瀑布｜古道上的大瀑布，看完就快到東埔。", "東埔溫泉｜下山泡湯、慶功。"], "care": ["03:15 出發，前 3 小時都是頭燈行進。", "東埔—雲龍瀑布一帶 2025/12、2026/3 都有崩塌落石回報，出發前向玉管處確認能否通行；落石區不停留、一個一個快速通過。", "14:30 一定要到樂樂山屋，崩塌段趁天亮通過。", "全天下降約 2,690 m，雙杖全程用，鞋帶綁緊、注意腳趾。"]}};
+function bl(s){const k=s.indexOf("｜");return k<0?s:`<b>${s.slice(0,k)}</b>｜${s.slice(k+1)}`}
+function brief(d){const b=BRIEF[d.id];return `<aside class="brief"><h3>今日概要</h3><h4 class="see">☀ 好看的</h4><ul>${b.see.map(x=>`<li>${bl(x)}</li>`).join("")}</ul><h4 class="care">⚠ 小心注意</h4><ul>${b.care.map(x=>`<li>${x}</li>`).join("")}</ul></aside>`}
 function shot(d,i,cls,rot){const s=d.sights[i];
   return `<figure class="pol ${cls||""}" style="--r:${rot||0}deg"><div class="ph">${scene(s.k,d.id,i)}<img src="photos/${d.id}-${i+1}.jpg" alt="${s.t}" loading="lazy" onerror="this.remove()"><span class="tag">照片待補</span></div><figcaption><b>${s.t}</b><span>${s.s}</span></figcaption></figure>`;}
 const NS="http://www.w3.org/2000/svg";
@@ -486,7 +502,7 @@ document.getElementById("kpi").innerHTML=[
  ["3,805 m","最高點：秀姑巒山（D5）"],
  ["7＋2 座","雲峰、轆轆、達芬尖、南大水窟、大水窟、秀姑巒、八通關；向陽、三叉選配"]
 ].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
-document.getElementById("strip").innerHTML=DAYS.map((d,i)=>shot(d,0,"",[-2,1.5,-1,2,-1.5,1,-2][i]).replace('<figcaption>',`<figcaption><span class="dl">D${d.n}｜${d.date}（${d.dow}）</span>`).replace('<figure ',`<figure data-go="${d.id}" `)).join("");
+document.getElementById("strip").innerHTML=DAYS.map(d=>{const b=BRIEF[d.id];return `<div class="bcard" data-go="${d.id}" style="--c:${C[d.id]}"><span class="dl">D${d.n}｜${d.date}（${d.dow}）</span><b>${d.short}</b><p class="s">☀ ${bl(b.see[0])}</p><p class="w">⚠ ${b.care[0]}</p></div>`}).join("");
 document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
 document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
   <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
@@ -516,9 +532,8 @@ function renderDay(){
         <p class="lead">${d.lead}</p>
         ${stats}
       </div>
-      ${shot(d,0,"",2)}
+      ${brief(d)}
     </div>
-    ${d.sights.length>1?`<div class="sights"><h3>還有這些看點</h3>${d.sights.slice(1).map((x,j)=>shot(d,j+1,"",[1.5,-1.2][j%2])).join("")}</div>`:""}
     <div class="dgrid">
       <div class="stack">
         ${panel("時間與路線",`<p class="note" style="margin:0 0 6px">左欄時刻依參考行程（含休息與用餐）；看日出的 D2、D3、D6，出發到山頂用上河 1.0 推算。每站下方標上河 1.0 分段步程、這一段的距離（參考行程）與爬升／下降（GPX 高度）。</p>${times}`)}
@@ -526,7 +541,6 @@ function renderDay(){
       </div>
       <div class="stack">
         ${panel("撤退與判斷",`<p style="margin:0">${d.gate}</p>`,"gate","出發前定好")}
-        ${panel("今天要注意",list(d.tips),"friend","路況與水")}
         ${panel("今晚停留",`<p style="margin:0"><b>${d.stay[0]}</b><br>${d.stay[1]}</p>`,"stay")}
         ${verify}
       </div>
