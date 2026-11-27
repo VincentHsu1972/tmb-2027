@@ -225,6 +225,9 @@ h1,h2{font-weight:700;letter-spacing:.01em}
 .bcard p b{display:inline;font-size:inherit;margin:0}
 .brief h4.water{color:#2C7DA0}.brief h4.sig{color:#5B6C8F}
 .bcard .s{color:#8A5A14}.bcard .w{color:#A6432C}
+.brief svg.sk{display:block;width:100%;height:auto;border-radius:12px;margin:0 0 14px;background:#FBF6EC;box-shadow:inset 0 0 0 1px rgba(107,91,115,.12)}
+.bcard svg.sk{display:block;width:calc(100% + 36px);height:auto;margin:-16px -18px 10px;border-radius:11px 11px 0 0}
+.bcard{overflow:hidden}
 </style>
 </head>
 <body>
@@ -434,7 +437,71 @@ function scene(k,id,seed){
 const BRIEF={"d0": {"see": ["關山小鎮｜花東縱谷的小鎮，晚餐吃飽、早點睡，明天是長天。"], "care": ["向陽之後沒有補給：行動糧、瓦斯、電池在關山買齊。", "行動水在民宿裝滿。", "南橫週二、週四封閉；12/6 是週日，可以通行。", "明天 03:30 起床、04:30 上接駁車。"]}, "d1": {"see": ["嘉明湖避難山屋｜3,350 m 草坡上吃午餐，往東看得到三叉山。", "三叉山（選配）｜大家都去過，時間夠再上。", "拉庫音溪｜第一晚的山屋在溪畔，活水充足。"], "care": ["向陽山屋之後一路上到 3,500 m，配速放慢，留意頭痛、噁心等高山症狀。", "12:00 還沒到嘉明湖避難山屋，就不上三叉山。", "17:00 才到拉庫音溪，離日落只剩 10 分鐘；新康山岔路口之後約 700 m 陡下，頭燈、雙杖拿出來。"]}, "d2": {"see": ["南雙頭山日出｜03:00 出發、06:00 到頂，等 06:28 日出。", "雲峰｜3,564 m，三叉營地輕裝來回，山頂午餐。"], "care": ["導航：南雙頭山到雲峰三叉一帶容易起霧、路跡不明顯，GPX／離線地圖保持開著，不要只跟布條和腳跡。", "水：背足當日行動水；三叉營地水源不依賴。", "10:15 前到三叉營地正常上雲峰；10:15–10:30 看天氣、體力、水量決定；10:30 之後取消雲峰。", "轆轆谷：到山屋先看集雨桶，沒水就趁天亮往西取水。", "03:00 摸黑陡上 650 m，頭燈帶備用電池；山頂等日出約 40 分很冷，羽絨衣、手套先穿好。"]}, "d3": {"see": ["轆轆山日出｜06:10 到頂，等 06:29 日出。", "塔芬池｜湖畔休息，水面倒映山稜。", "塔芬谷停機坪｜山屋旁 0.2 km，下午拍照的好地方。"], "care": ["04:30 頭燈出發，到轆轆山登山口換輕裝。", "過塔芬山有新崩塌，要高繞。", "塔芬山下塔芬谷山屋約 435 m 長下坡，雙杖全程用。", "中午就到山屋：下午補水、晾乾裝備、早點睡。"]}, "d4": {"see": ["達芬尖山｜尖峭的山頭，輕裝 20 分鐘登頂，訊號良好。", "黑水塘｜路上吃午餐的高山水池。", "大水窟｜山屋旁的高山水池，傍晚光線最好。"], "care": ["塔芬谷山屋到達芬尖山岔路約 480 m 陡上，一早就爬。", "達芬尖山到南大水窟山上河 260 分，是這天最長的一段；三岔路口往老濃溪底營地的岔路不要走錯。", "南大水窟山可腰繞；體力不好就直接往山屋。", "大水窟山屋 3,220 m、只有集雨桶，乾季可能見底；夜裡低於 0°C。"]}, "d5": {"see": ["大水窟山屋日出｜06:29 在山屋看日出再出發。", "大水窟山｜3,642 m，回頭看前幾天走過的稜線。", "秀姑巒山｜3,805 m，中央山脈最高峰，山頂午餐。"], "care": ["11:00 還沒到秀姑坪岔路就不上秀姑巒山；14:00 一定要從秀姑坪取重裝出發。", "秀姑巒山頂風大、氣溫低，輕裝也要帶保暖、水和行動糧。", "全隊最高到 3,805 m，有高山症狀不要硬上。", "白洋金礦到中央金礦 160 分是長下坡，16:30 到、日落 17:10。"]}, "d6": {"see": ["八通關山日出｜06:10 輕裝登頂，等約 06:30 的最後一個日出。", "八通關古道、觀高坪｜百年古道上的平台。", "雲龍瀑布｜古道上的大瀑布，看完就快到東埔。", "東埔溫泉｜下山泡湯、慶功。"], "care": ["03:25 出發，前 3 小時都是頭燈行進；中央金礦到三叉路口一路上坡。", "古道高繞多，參考行程比上河慢 1.31 倍，配速不要被上河時間騙。", "雲龍瀑布前後有崩塌落石，不停留、一個一個快速通過。", "全天下降約 2,600 m，雙杖全程用，鞋帶綁緊、注意腳趾。"]}};
 function bl(s){const k=s.indexOf("｜");return k<0?s:`<b>${s.slice(0,k)}</b>｜${s.slice(k+1)}`}
 const WATER={"d0": ["民宿把行動水裝滿；向陽登山口有飲水機。"], "d1": ["向陽登山口｜飲水機。", "向陽山屋、嘉明湖避難山屋｜山屋集水桶。", "拉庫音溪山屋｜拉庫音溪活水。"], "d2": ["拉庫音溪｜背足當日行動水。", "三叉營地（雲峰東鞍）｜圖資標示有水源，水況不穩，不列入計畫水源。", "轆轆谷山屋｜山屋集雨桶；乾了往西約 0.7 km 有活水，單程約 20 分（山友補充：往西南廁所方向下溪底，岔口走較寬主流），趁天亮去。"], "d3": ["轆轆谷山屋｜背足當日行動水。", "塔芬池｜池水（死水），過濾煮沸。", "塔芬谷山屋｜山屋前山壁活水。"], "d4": ["塔芬谷山屋｜背足當日行動水（山屋前山壁活水）。", "黑水塘｜看天池，過濾煮沸。", "大水窟山屋｜山屋集雨桶，乾季到點先確認。"], "d5": ["大水窟山屋｜出發前裝滿；秀姑巒來回沒有水，輕裝也要帶夠。", "白洋金礦山屋、中央金礦山屋｜山屋旁荖濃溪活水。"], "d6": ["中央金礦山屋｜荖濃溪活水，出發前裝滿。", "八通關西峰（東埔 16K）｜山澗。", "觀高坪（東埔 10K）｜路上水源；樂樂山屋之後水源越來越多，雲龍瀑布有活水。"]},SIG={"d0": ["關山｜各家都有訊號，出發前把離線地圖、天氣、留守人聯絡確認好。"], "d1": ["向陽登山口、向陽山屋｜極佳。", "向陽山、向陽北峰｜中等；嘉明湖避難山屋微弱；三叉山中等。", "拉庫音溪山屋｜無訊號。最後回報點：三叉山。"], "d2": ["南雙頭山｜中等。", "雲峰｜極佳。", "轆轆谷山屋｜無訊號。最後回報點：雲峰。"], "d3": ["轆轆山東峰之後｜3,200 m 假山頭附近中等。", "塔芬池｜微弱；塔芬山｜良好。", "塔芬谷山屋｜無訊號。最後回報點：塔芬山。"], "d4": ["達芬尖山｜良好。", "北面山前黑水塘｜微弱；南大水窟山｜中等。", "大水窟山屋｜前後微弱，往八通關古道上走一點是中等。"], "d5": ["大水窟山｜極佳；秀姑巒山、秀姑坪岔路｜有訊號。", "白洋金礦山屋｜極佳。", "中央金礦山屋｜中等。"], "d6": ["中央金礦、巴奈伊克｜中等；三叉路口、八通關山｜良好。", "雲龍瀑布、東埔登山口｜極佳，到了先報平安。"]};
-function brief(d){const b=BRIEF[d.id];return `<aside class="brief"><h3>今日概要</h3><h4 class="see">☀ 好看的</h4><ul>${b.see.map(x=>`<li>${bl(x)}</li>`).join("")}</ul><h4 class="care">⚠ 小心注意</h4><ul>${b.care.map(x=>`<li>${x}</li>`).join("")}</ul><h4 class="water">💧 水源</h4><ul>${WATER[d.id].map(x=>`<li>${bl(x)}</li>`).join("")}</ul><h4 class="sig">📶 訊號</h4><ul>${SIG[d.id].map(x=>`<li>${bl(x)}</li>`).join("")}</ul></aside>`}
+
+let SKU=0;
+function skRng(seed){let s=seed;return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+function skWob(pts,r,amp){let d=`M${pts[0][0]},${pts[0][1]}`;for(let i=1;i<pts.length;i++){const[x,y]=pts[i],[px,py]=pts[i-1];d+=` Q${((px+x)/2+(r()-.5)*amp).toFixed(1)},${((py+y)/2+(r()-.5)*amp).toFixed(1)} ${x},${y}`}return d}
+function sketch(id,small){
+  const u=++SKU, r=skRng(97+u*13), F=`url(#cr${u})`, H=`url(#ht${u})`;
+  const P={ink:"#6B5B73",paper:"#FBF6EC"};
+  const sky=(a,b,c)=>`<linearGradient id="sk${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".6" stop-color="${b}"/><stop offset="1" stop-color="${c||b}"/></linearGradient>`;
+  const ridge=(pts,fill,line,op=1)=>{const p=skWob(pts,r,10);return `<path d="${p} L330,190 L-10,190 Z" fill="${fill}" opacity="${op}" filter="${F}"/><path d="${p} L330,190 L-10,190 Z" fill="${H}" opacity=".5"/><path d="${p}" fill="none" stroke="${line||P.ink}" stroke-width="1.4" stroke-linecap="round" opacity=".55" filter="${F}"/>`};
+  const sun=(x,y,rad,c="#F8D77E",rays=true)=>`<g filter="${F}"><circle cx="${x}" cy="${y}" r="${rad+9}" fill="${c}" opacity=".28"/><circle cx="${x}" cy="${y}" r="${rad}" fill="${c}"/>${rays?Array.from({length:9},(_,i)=>{const a=Math.PI*(1+i/8),x1=x+Math.cos(a)*(rad+6),y1=y+Math.sin(a)*(rad+6),x2=x+Math.cos(a)*(rad+15),y2=y+Math.sin(a)*(rad+15);return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#E9A86B" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>`}).join(""):""}</g>`;
+  const cloud=(x,y,s=1,c="#fff")=>`<g filter="${F}" opacity=".92"><ellipse cx="${x}" cy="${y}" rx="${18*s}" ry="${7*s}" fill="${c}"/><circle cx="${x-7*s}" cy="${y-5*s}" r="${7*s}" fill="${c}"/><circle cx="${x+5*s}" cy="${y-7*s}" r="${9*s}" fill="${c}"/></g>`;
+  const sea=(y,c="#fff")=>`<g filter="${F}">${Array.from({length:12},(_,i)=>`<circle cx="${i*30-5+r()*10}" cy="${y+r()*6}" r="${14+r()*8}" fill="${c}" opacity=".95"/>`).join("")}<rect x="-10" y="${y+4}" width="340" height="40" fill="${c}"/></g>`;
+  const hut=(x,y,s=1,roof="#E39B97")=>`<g filter="${F}" transform="translate(${x},${y}) scale(${s})"><rect x="-13" y="-10" width="26" height="14" fill="#F4E6CF" stroke="${P.ink}" stroke-width="1.1" opacity=".95"/><path d="M-17,-9 L0,-22 L17,-9 Z" fill="${roof}" stroke="${P.ink}" stroke-width="1.1"/><rect x="-3" y="-4" width="6" height="8" fill="#B98F74"/></g>`;
+  const lake=(x,y,rx,ry,c="#A9D3E5")=>`<g filter="${F}"><ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${c}"/>${[0,1,2].map(i=>`<line x1="${x-rx*.5+i*8}" y1="${y-ry*.2+i*3}" x2="${x-rx*.1+i*10}" y2="${y-ry*.2+i*3}" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>`).join("")}</g>`;
+  const tree=(x,y,s=1,c="#9CC5A1")=>`<g filter="${F}"><path d="M${x},${y-22*s} L${x-8*s},${y} L${x+8*s},${y} Z" fill="${c}" stroke="${P.ink}" stroke-width=".9" opacity=".9"/><line x1="${x}" y1="${y}" x2="${x}" y2="${y+5*s}" stroke="${P.ink}" stroke-width="1.2"/></g>`;
+  const grass=(y0,n,c="#8FB48A")=>`<g stroke="${c}" stroke-width="1.2" stroke-linecap="round" opacity=".75" filter="${F}">${Array.from({length:n},()=>{const x=r()*320,y=y0+r()*(180-y0);return `<path d="M${x.toFixed(0)},${y.toFixed(0)} q2,-6 ${(r()*4-1).toFixed(1)},-10"/>`}).join("")}</g>`;
+  const birds=(x,y)=>`<g fill="none" stroke="${P.ink}" stroke-width="1.1" stroke-linecap="round" opacity=".6"><path d="M${x},${y} q4,-4 8,0 q4,-4 8,0"/><path d="M${x+22},${y-8} q3,-3 6,0 q3,-3 6,0"/></g>`;
+  const hiker=(x,y,c="#7A6C86")=>`<g transform="translate(${x},${y})" fill="${c}" opacity=".85"><circle cx="0" cy="-15" r="2.6"/><path d="M-3,-12 L3,-12 L4,-3 L2,6 L0,6 L0,-1 L-1,6 L-3,6 L-4,-3 Z"/><rect x="-7" y="-12" width="5" height="9" rx="2" fill="#D9A07F"/></g>`;
+  const steam=(x,y)=>`<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85" filter="${F}">${[0,10,20].map(i=>`<path d="M${x+i},${y} q-5,-8 0,-14 q5,-6 0,-14"/>`).join("")}</g>`;
+  const S={
+   d0:[sky("#BFDDF0","#FDF0DC"),sun(262,40,11),cloud(70,38,.9),birds(150,40),
+       ridge([[0,92],[50,72],[110,86],[170,58],[240,84],[330,70]],"#CDBCE8"),
+       ridge([[0,118],[80,104],[160,116],[240,100],[330,112]],"#B9DEC8"),
+       `<g filter="${F}"><rect x="-10" y="128" width="340" height="60" fill="#E7EFA6"/>${[138,150,163].map(y=>`<path d="${skWob([[0,y],[110,y-2],[220,y+2],[320,y]],r,4)}" stroke="#C6DB8E" stroke-width="3" fill="none"/>`).join("")}<line x1="0" y1="133" x2="320" y2="133" stroke="${P.ink}" stroke-width="1.2" opacity=".6"/><rect x="70" y="114" width="96" height="17" rx="6" fill="#F2B5C4" stroke="${P.ink}" stroke-width="1.1"/>${[0,1,2,3,4].map(i=>`<rect x="${78+i*17}" y="118" width="10" height="7" rx="1.5" fill="#FFF7E8"/>`).join("")}</g>`],
+   d1:[sky("#BFDDF0","#FCEBD9"),cloud(250,34,1.1),cloud(70,46,.7),birds(120,30),
+       ridge([[0,88],[60,66],[130,74],[200,52],[260,64],[330,58]],"#CDBCE8"),
+       ridge([[0,132],[70,104],[150,96],[230,112],[330,100]],"#DCE9AE"),
+       hut(212,108,1.05),
+       ridge([[0,160],[90,146],[180,156],[260,140],[330,150]],"#BFDDB1"),
+       `<path d="${skWob([[-5,174],[80,168],[160,176],[240,166],[330,172]],r,6)}" stroke="#9CCBE0" stroke-width="5" fill="none" stroke-linecap="round" filter="${F}"/>`,grass(150,26)],
+   d2:[sky("#C9B8E6","#F9D3B8","#FCEFD6"),sun(232,98,14),
+       ridge([[0,96],[60,84],[120,92],[180,80],[260,90],[330,86]],"#D9C8EE",null,.8),
+       sea(104),
+       ridge([[0,150],[60,124],[110,104],[150,96],[200,118],[330,138]],"#A9BDD6"),
+       hiker(146,96),hiker(160,98,"#8C7E99"),birds(40,40)],
+   d3:[sky("#D7C6EE","#FBDCC4","#FDF2DD"),sun(70,70,10),
+       ridge([[0,82],[70,70],[140,78],[210,58],[330,76]],"#C8B7E4"),
+       ridge([[0,112],[90,96],[170,104],[250,92],[330,100]],"#B7D9C4"),
+       lake(170,140,92,20,"#A7D1E6"),
+       `<path d="${skWob([[90,136],[150,128],[200,132],[250,136]],r,4)}" stroke="#B7D9C4" stroke-width="3" fill="none" opacity=".7" filter="${F}"/>`,
+       tree(36,150,1.1),tree(52,154,.9),tree(290,150,1.1),grass(150,20)],
+   d4:[sky("#BFDDF0","#FBEEDB"),cloud(60,40,1),cloud(260,30,.8),sun(286,34,9,"#F8D77E",false),
+       ridge([[0,132],[80,118],[140,96],[170,34],[196,96],[250,112],[330,120]],"#B9A8DC"),
+       ridge([[0,150],[100,138],[200,146],[330,136]],"#C9E3B5"),
+       lake(100,158,58,12,"#86BDB5"),grass(146,22),birds(214,46)],
+   d5:[sky("#E7C4D2","#FBDDC6","#FDF2DD"),sun(56,92,12),
+       ridge([[0,104],[60,92],[120,62],[160,30],[200,60],[260,82],[330,90]],"#A9B8E1"),
+       ridge([[0,140],[90,122],[180,132],[260,118],[330,126]],"#CFE6C3"),
+       hut(252,138,1.1,"#E7A46F"),lake(196,154,34,8,"#A9D3E5"),grass(140,20),
+       `<g fill="#fff" opacity=".8">${[[240,22],[280,40],[300,18],[210,34]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.3"/>`).join("")}</g>`],
+   d6:[sky("#D2C3EC","#FAD7BF","#FDF0DA"),sun(110,74,11),
+       ridge([[0,86],[60,64],[110,72],[160,56],[230,74],[330,68]],"#C7DBA8"),
+       ridge([[0,120],[70,108],[150,118],[230,100],[330,110]],"#A9CFA6"),
+       `<g filter="${F}"><path d="M248,102 L262,100 L264,170 L246,170 Z" fill="#B7B0C8"/>${[0,1,2].map(i=>`<path d="M${250+i*4},104 Q${251+i*4},140 ${249+i*4},168" stroke="#E4F2F8" stroke-width="2.4" fill="none"/>`).join("")}</g>`,
+       tree(30,160,1.2,"#8FBF99"),tree(48,164,1,"#A7CDA9"),tree(200,158,1.1,"#8FBF99"),tree(296,162,1.1,"#A7CDA9"),
+       `<g filter="${F}"><ellipse cx="130" cy="168" rx="40" ry="9" fill="#BFE0EA"/></g>`,steam(118,158),grass(150,16)],
+  };
+  const cap={d0:"關山・出發前夜",d1:"向陽・草坡上的山屋",d2:"南雙頭山・雲海日出",d3:"轆轆山日出・塔芬池",d4:"達芬尖山・黑水塘",d5:"大水窟日出・秀姑巒",d6:"八通關日出・雲龍瀑布・東埔"}[id];
+  return `<svg class="sk${small?" sm":""}" viewBox="0 0 320 180" role="img" aria-label="${cap} 粉彩插圖"><defs>
+<filter id="cr${u}" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="${u}" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="${u+5}" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 2" result="ga"/><feComposite in="d" in2="ga" operator="in"/></filter>
+<pattern id="ht${u}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="6" stroke="#fff" stroke-width="1.2" opacity=".55"/></pattern>${S[id][0]}</defs>
+<rect width="320" height="180" fill="url(#sk${u})" filter="${F}"/>${S[id].slice(1).join("")}
+${small?"":`<text x="14" y="170" style="font-family:'LXGW WenKai TC',serif" font-size="12" fill="${P.ink}" opacity=".85">${cap}</text>`}</svg>`;
+}
+function brief(d){const b=BRIEF[d.id];return `<aside class="brief">${sketch(d.id)}<h3>今日概要</h3><h4 class="see">☀ 好看的</h4><ul>${b.see.map(x=>`<li>${bl(x)}</li>`).join("")}</ul><h4 class="care">⚠ 小心注意</h4><ul>${b.care.map(x=>`<li>${x}</li>`).join("")}</ul><h4 class="water">💧 水源</h4><ul>${WATER[d.id].map(x=>`<li>${bl(x)}</li>`).join("")}</ul><h4 class="sig">📶 訊號</h4><ul>${SIG[d.id].map(x=>`<li>${bl(x)}</li>`).join("")}</ul></aside>`}
 function shot(d,i,cls,rot){const s=d.sights[i];
   return `<figure class="pol ${cls||""}" style="--r:${rot||0}deg"><div class="ph">${scene(s.k,d.id,i)}<img src="photos/${d.id}-${i+1}.jpg" alt="${s.t}" loading="lazy" onerror="this.remove()"><span class="tag">照片待補</span></div><figcaption><b>${s.t}</b><span>${s.s}</span></figcaption></figure>`;}
 const NS="http://www.w3.org/2000/svg";
@@ -523,7 +590,7 @@ document.getElementById("kpi").innerHTML=[
  ["3,805 m","最高點：秀姑巒山（D5）"],
  ["9＋1 座百岳","向陽、三叉、南雙頭、雲峰、轆轆、塔芬、達芬尖、大水窟、八通關；加碼秀姑巒"]
 ].map(([b,s])=>`<div><b class="num">${b}</b><small>${s}</small></div>`).join("");
-document.getElementById("strip").innerHTML=DAYS.map(d=>{const b=BRIEF[d.id];return `<div class="bcard" data-go="${d.id}" style="--c:${C[d.id]}"><span class="dl">D${d.n}｜${d.date}（${d.dow}）</span><b>${d.short}</b><p class="s">☀ ${bl(b.see[0])}</p><p class="w">⚠ ${b.care[0]}</p></div>`}).join("");
+document.getElementById("strip").innerHTML=DAYS.map(d=>{const b=BRIEF[d.id];return `<div class="bcard" data-go="${d.id}" style="--c:${C[d.id]}">${sketch(d.id,1)}<span class="dl">D${d.n}｜${d.date}（${d.dow}）</span><b>${d.short}</b><p class="s">☀ ${bl(b.see[0])}</p><p class="w">⚠ ${b.care[0]}</p></div>`}).join("");
 document.getElementById("daykey").innerHTML=DAYS.map(d=>`<button data-go="${d.id}" style="--c:${C[d.id]}"><i></i><b>D${d.n} ${d.date}</b><span>${DAYLINE[d.id]}</span></button>`).join("");
 document.getElementById("daycards").innerHTML=DAYS.map(d=>`<button class="dcard" data-go="${d.id}" style="--c:${C[d.id]}">
   <span class="hd"><span class="chip" style="background:${C[d.id]}">D${d.n}</span><b class="num">${d.date}（${d.dow}）</b></span>
